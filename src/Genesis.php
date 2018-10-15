@@ -43,10 +43,12 @@ class Genesis {
 
 	public function add_search_form(){
 
+		?><div id="header-search"><?php
 		ob_start();
 		get_search_form();
 		$search = ob_get_clean();
 		echo $search;
+		?></div><?php
 
 	}
 

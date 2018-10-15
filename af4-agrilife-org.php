@@ -44,8 +44,14 @@ class Agrilife {
 	 */
 	public function init() {
 
+		// Set up asset files
+		$ado_assets = new \Agrilife\Assets;
+
 		// Get Genesis set up the way we want it
 		$ado_genesis = new \Agrilife\Genesis;
+
+		// Set up required DOM
+		$ado_dom = new \Agrilife\RequiredDOM;
 
 	}
 
