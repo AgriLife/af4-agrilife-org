@@ -21,9 +21,6 @@ class Genesis {
 		// Replace site title with logo
 		add_filter( 'genesis_seo_title', array( $this, 'add_logo' ), 10, 3 );
 
-		// Add search form after navigation menu
-		add_action( 'genesis_header', array( $this, 'add_search_form' ) );
-
 	}
 
 	public function add_logo( $title, $inside, $wrap ){
@@ -38,17 +35,6 @@ class Genesis {
 		$title = str_replace( $inside, $new_inside, $title );
 
 		return $title;
-
-	}
-
-	public function add_search_form(){
-
-		?><div id="header-search"><?php
-		ob_start();
-		get_search_form();
-		$search = ob_get_clean();
-		echo $search;
-		?></div><?php
 
 	}
 

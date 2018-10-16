@@ -8,41 +8,67 @@ class PageTemplate {
 
 	protected $path;
 
+	protected $full_path;
+
 	protected $name;
+
+	protected $templates;
 
 	public function __construct( $path = null, $file = null, $name = null ) {
 
-		if ( ! is_null( $path ) ) {
-			$this->with_path( $path );
+		if ( empty( $path ) ) {
+
+			throw new \Exception( 'The path cannot be blank' );
+
+		} elseif ( ! is_dir( $path ) ) {
+
+			throw new \Exception( 'The path must exist' );
+
+		} else {
+
+			$this->path = $path;
+
 		}
 
-		if ( ! is_null( $file ) ) {
-			$this->with_file( $file );
+		if ( empty( $file ) ) {
+
+			throw new \Exception( 'The filename cannot be blank' );
+
+		} else {
+
+			$this->full_path = $path . '/' . $file;
+
+			if ( ! file_exists( $this->full_path ) ) {
+
+				throw new \Exception( 'The template file must exist' );
+
+			} else {
+
+				$this->file = $file;
+
+			}
+
 		}
 
-		if ( ! is_null( $name ) ) {
-			$this->with_name( $name );
+		if ( empty( $file ) ) {
+
+			throw new \Exception( 'The name cannot be blank' );
+
+		} else {
+
+			$this->name = strip_tags( $name );
+
 		}
+
+		$this->templates = array(
+			$this->file => $this->name
+		);
 
 	}
 
 	public function get_path() {
 
 		return $this->path;
-
-	}
-
-	public function with_path( $path ) {
-
-		if ( empty( $path ) ) {
-			throw new \Exception( 'The path cannot be blank' );
-		} elseif ( ! is_dir( $path ) ) {
-			throw new \Exception( 'The path must exist' );
-		} else {
-			$this->path = $path;
-
-			return $this;
-		}
 
 	}
 
@@ -61,7 +87,8 @@ class PageTemplate {
 		} elseif ( ! file_exists( $full_path ) ) {
 			throw new \Exception( 'The template file must exist' );
 		} else {
-			$this->file = $full_path;
+			// $this->file = $full_path;
+			$this->file = $file . '.php';
 
 			return $this;
 		}
@@ -71,14 +98,6 @@ class PageTemplate {
 	public function get_name() {
 
 		return $this->name;
-
-	}
-
-	public function with_name( $name ) {
-
-		$this->name = strip_tags( $name );
-
-		return $this;
 
 	}
 
@@ -143,22 +162,34 @@ class PageTemplate {
 
 	public function view_project_template( $template ) {
 
+		// Get global post
 		global $post;
 
-		if(!is_object($post))
-			return $template;
-
-		$expected_template =  get_post_meta( $post->ID, '_wp_page_template', true );
-
-		if ( ! $expected_template ) {
+		// Return template if post is empty
+		if ( ! $post ) {
 			return $template;
 		}
 
-		if ( $this->file == $expected_template ) {
-			return $this->file;
+		// Return default template if we don't have a custom one defined
+		if ( ! isset( $this->templates[get_post_meta(
+			$post->ID, '_wp_page_template', true
+		)] ) ) {
+			return $template;
+		}
+
+		$file = $this->path . '/' . get_post_meta(
+			$post->ID, '_wp_page_template', true
+		);
+
+		// Just to be safe, we check if the file exist first
+		if ( file_exists( $file ) ) {
+			return $file;
 		} else {
-			return $template;
+			echo $file;
 		}
+
+		// Return template
+		return $template;
 
 	}
 

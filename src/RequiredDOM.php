@@ -11,15 +11,31 @@ class RequiredDOM {
 
   public function __construct() {
 
-  	add_filter( 'af4_before_nav', array( $this, 'add_search_toggle' ) );
+  	add_filter( 'af4_before_nav', array( $this, 'add_search_toggle' ), 10, 4 );
+
+		// Add search form after navigation menu
+		add_action( 'genesis_header', array( $this, 'add_search_form' ) );
 
   }
 
-  public function add_search_toggle( $content ){
+  public function add_search_toggle( $content, $open, $close, $inside ){
 
-		$content = '<div class="title-bar title-bar-search" data-responsive-toggle="header-search" data-hide-for="medium"><button class="menu-icon" type="button" data-toggle="header-search"></button><div class="title-bar-title">Search</div></div>' . $content;
+		$search = '<div class="title-bar title-bar-search" data-responsive-toggle="header-search"><button class="search-icon" type="button" data-toggle="header-search"></button><div class="title-bar-title">Search</div></div>';
+
+		$content = $open . $search . $inside . $close;
 
 		return $content;
 
   }
+
+	public function add_search_form(){
+
+		?><div id="header-search"><?php
+		ob_start();
+		get_search_form();
+		$search = ob_get_clean();
+		echo $search;
+		?></div><?php
+
+	}
 }

@@ -62,9 +62,11 @@ class Agrilife {
 	 */
 	private function register_templates() {
 
-		$home = new \Agrilife\PageTemplate();
-		$home->with_path( ALAF4_TEMPLATE_PATH )->with_file('home')->with_name( 'Home' );
+		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
 		$home->register();
+
+		$comm = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'communications.php', 'Communications' );
+		$comm->register();
 
 	}
 
