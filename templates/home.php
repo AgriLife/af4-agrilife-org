@@ -2,10 +2,17 @@
 /**
  * Template Name: Home
  */
+remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+add_action( 'wp_head', function(){
+	?><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"><?php
+});
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
 	?><div id="overview">
-		<div id="leaders-heading"><h1>AgriLife - Leaders in Agriculture, Natural Resources, and Life Sciences</h1></div>
+		<div id="leaders-heading"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>
 		<div id="action-items">
 			<div class="action-item full"><div class="description"><h2>Exceptional Items</h2>
 				Texas A&M AgriLife Extension<br><br>

@@ -30,6 +30,14 @@ class Assets {
     public function register_styles() {
 
         wp_register_style(
+            'af4-agrilife-org-styles',
+            ALAF4_DIR_URL . '/css/af4-agrilife-org.css',
+            array(),
+            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-org.css'),
+            'screen'
+        );
+
+        wp_register_style(
             'agrilife-styles',
             AF_THEME_DIRURL . '/css/agrilife.css',
             array(),
@@ -48,6 +56,7 @@ class Assets {
     public function enqueue_styles() {
 
         wp_enqueue_style( 'agrilife-styles' );
+        wp_enqueue_style( 'af4-agrilife-org-styles' );
 
     }
 

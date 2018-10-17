@@ -15,9 +15,9 @@ require 'vendor/autoload.php';
 // Define some useful constants
 define( 'ALAF4_DIRNAME', 'af4-agrilife-org' );
 define( 'ALAF4_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'ALAF4_THEME_DIRPATH', get_stylesheet_directory() );
-define( 'ALAF4_THEME_DIRURL', get_stylesheet_directory_uri() );
-define( 'ALAF4_THEME_TEXTDOMAIN', 'af4-agrilife-org' );
+define( 'ALAF4_DIR_FILE', __FILE__ );
+define( 'ALAF4_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'ALAF4_TEXTDOMAIN', 'af4-agrilife-org' );
 define( 'ALAF4_TEMPLATE_PATH', ALAF4_DIR_PATH . 'templates' );
 
 // Autoload all classes
