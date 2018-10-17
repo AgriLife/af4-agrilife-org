@@ -1,0 +1,20 @@
+{
+  "name": "af4-agrilife-org",
+  "version": "0.1.0",
+  "description": "AgriLife variation of the AgriFlex4 theme",
+  "main": "af4-agrilife-org.php",
+  "scripts": {},
+  "author": "Zachary Watkins",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/agrilife/af4-agrilife-org/issues",
+    "email": "first-call@tamu.edu"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agrilife/af4-agrilife-org.git"
+  },
+  "homepage": "https://github.com/agrilife/af4-agrilife-org#readme"
+}
