@@ -31,7 +31,7 @@ class Assets {
 
         wp_register_style(
             'af4-agrilife-org-styles',
-            ALAF4_DIR_URL . '/css/af4-agrilife-org.css',
+            ALAF4_DIR_URL . 'css/af4-agrilife-org.css',
             array(),
             filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-org.css'),
             'screen'
