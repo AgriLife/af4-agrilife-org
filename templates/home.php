@@ -21,8 +21,8 @@ add_action('genesis_entry_content', function(){
 				Texas A&M Forest Service</div>
 			</div>
 			<div class="item"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt=""><h2>What is Texas&nbsp;A&M&nbsp;AgriLife?</h2></div>
-			<div class="item featured"><h2>Impacts</h2>
-				<div class="description">Residents, AgriLife Extensino, others work to 'Harvey-proof' Houston-area community</div>
+			<div class="item featured"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg" alt=""><h2>Impacts</h2>
+				<div class="description">Residents, AgriLife Extension, others work to 'Harvey-proof' Houston-area community</div>
 			</div>
 			<div class="item"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-today.jpg" alt=""><h2>AgriLife Today</h2>
 				<div class="description">Texas A&M AgriLife to lead consortium in establishing Center
