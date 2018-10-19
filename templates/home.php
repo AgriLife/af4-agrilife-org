@@ -15,10 +15,10 @@ add_action('genesis_entry_content', function(){
 		<div id="leaders-heading"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>
 		<div id="action-items">
 			<div class="item"><h2>Exceptional Items</h2>
-				<div class="description">Texas A&M AgriLife Extension
-				Texas A&M AgriLife Research
-				Texas A&M Veterinary Medical Diagnostic Laboratory
-				Texas A&M Forest Service</div>
+				<div class="description"><ul><li>Texas A&M AgriLife Extension</li>
+				<li>Texas A&M AgriLife Research</li>
+				<li>Texas A&M Veterinary Medical Diagnostic Laboratory</li>
+				<li>Texas A&M Forest Service</li></ul></div>
 			</div>
 			<div class="item"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt=""><h2>What is <br>Texas A&M AgriLife?</h2></div>
 			<div class="item featured"><div class="wrap"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg" alt=""><h2>Impacts</h2>
