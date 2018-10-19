@@ -11,7 +11,7 @@ h1 {
 		@include xy-grid;
 		color: #FFF;
 		margin: 0;
-		padding: 76px 0 14%;
+		padding: 6% 0 14%;
 
 		span {
 			@include xy-cell-base();
@@ -93,13 +93,32 @@ h1 {
 	}
 }
 
-#agencies {
+.agencies {
 	@include breakpoint(medium up) {
 		background-color: $dark-blue;
-		color: #FFF;
+		text-align: center;
+		padding: 5% 100px;
 
-		a {
-			color: #FFF;
+		&.top {
+			.item {
+			}
+		}
+
+		&.bottom {
+			padding-top: 0;
+
+			.item {
+			}
+		}
+
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			width: 20%;
+
+			img {
+				height: 50px;
+			}
 		}
 	}
 }
