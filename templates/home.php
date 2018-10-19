@@ -20,7 +20,7 @@ add_action('genesis_entry_content', function(){
 				Texas A&M Veterinary Medical Diagnostic Laboratory
 				Texas A&M Forest Service</div>
 			</div>
-			<div class="item"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt=""><h2>What is Texas&nbsp;A&M&nbsp;AgriLife?</h2></div>
+			<div class="item"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt=""><h2>What is <br>Texas A&M AgriLife?</h2></div>
 			<div class="item featured"><div class="wrap"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg" alt=""><h2>Impacts</h2>
 				<div class="description">Residents, AgriLife Extension, others work to 'Harvey-proof' Houston-area community</div>
 			</div></div>

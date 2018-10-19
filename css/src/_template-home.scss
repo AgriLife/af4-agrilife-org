@@ -8,10 +8,10 @@
 
 h1 {
 	@include breakpoint(medium up) {
-		color: #FFF;
-		padding: 76px 0 140px;
-
 		@include xy-grid;
+		color: #FFF;
+		margin: 0;
+		padding: 76px 0 14%;
 
 		span {
 			@include xy-cell-base();
@@ -40,62 +40,66 @@ h1 {
 }
 
 #action-items {
-	@include xy-grid;
-	text-align: center;
-	font-size: 13px;
+	@include breakpoint(medium up) {
+		@include xy-grid;
+		text-align: center;
+		font-size: 13px;
 
-	.item {
-		$item-padding: 6%;
+		.item {
+			$item-padding: 6%;
 
-		@include xy-cell-base();
-		background: $maroon-alt;
-		color: $whiter;
+			@include xy-cell-base();
+			background: $maroon-alt;
+			color: $whiter;
 
-		&:not(.featured) {
-			@include xy-cell(auto, $gutter-type: margin, $gutters: 1rem);
-		}
-
-		&.featured {
-			@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
-			position: relative;
-
-			.wrap {
-				position: absolute;
-				background: $maroon-alt;
-				top: 50%;
-				transform: translateY(-50%);
+			&:not(.featured) {
+				@include xy-cell(auto, $gutter-type: margin, $gutters: 1rem);
 			}
-		}
 
-		h2 {
-			font-family: $heading-font-family;
-			font-size: 1.5em;
-			line-height: 1.1em;
-			text-transform: uppercase;
-			padding: $item-padding;
-			margin: 0;
-		}
+			&.featured {
+				@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
+				position: relative;
 
-		.description {
-			padding: 0 $item-padding $item-padding;
+				.wrap {
+					position: absolute;
+					background: $maroon-alt;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
 
-			&::before {
-				content: "";
-				display: block;
-				margin: 0 auto ($item-padding / 2);
-				width: 20px;
-				height: 1px;
-				background: #B5D334;
+			h2 {
+				font-family: $heading-font-family;
+				font-size: 1.5em;
+				line-height: 1.1em;
+				text-transform: uppercase;
+				padding: $item-padding;
+				margin: 0;
+			}
+
+			.description {
+				padding: 0 $item-padding $item-padding;
+
+				&::before {
+					content: "";
+					display: block;
+					margin: 0 auto ($item-padding / 2);
+					width: 20px;
+					height: 1px;
+					background: #B5D334;
+				}
 			}
 		}
 	}
 }
 
 #agencies {
-	background-color: $dark-blue;
-	color: #FFF;
-
-	a {
+	@include breakpoint(medium up) {
+		background-color: $dark-blue;
 		color: #FFF;
+
+		a {
+			color: #FFF;
+		}
 	}
 }
