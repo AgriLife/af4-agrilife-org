@@ -1,11 +1,15 @@
-h1 {
-	@include breakpoint(small only) {
-		br {
-			display: none;
-		}
-	}
-
+#overview {
 	@include breakpoint(medium up) {
+		background: transparent url("../images/home-background.jpg") no-repeat;
+		background-size: cover;
+	}
+}
+
+h1 {
+	@include breakpoint(medium up) {
+		color: #FFF;
+		padding: 76px 0 140px;
+
 		@include xy-grid;
 
 		span {
@@ -37,29 +41,39 @@ h1 {
 #action-items {
 	@include xy-grid;
 	text-align: center;
+	font-size: 13px;
 
 	.item {
+		$item-padding: 6%;
+
 		@include xy-cell-base();
 		background: $maroon-alt;
 		color: $whiter;
 
 		&:not(.featured) {
-			@include xy-cell(auto, $gutter-type: padding, $gutters: 2rem);
+			@include xy-cell(auto, $gutter-type: margin, $gutters: 1rem);
 		}
 
 		&.featured {
-			@include xy-cell(3, $gutter-type: padding, $gutters: 2rem);
+			@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
 		}
 
 		h2 {
 			font-family: $heading-font-family;
-			font-size: 2em;
+			font-size: 1.5em;
 			line-height: 1.1em;
+			text-transform: uppercase;
+			padding: $item-padding;
+			margin: 0;
+		}
 
-			&::after {
+		.description {
+			padding: 0 $item-padding $item-padding;
+
+			&::before {
 				content: "";
 				display: block;
-				margin: .25em auto;
+				margin: 0 auto ($item-padding / 2);
 				width: 20px;
 				height: 1px;
 				background: #B5D334;
