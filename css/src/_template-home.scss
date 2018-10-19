@@ -2,6 +2,7 @@
 	@include breakpoint(medium up) {
 		background: transparent url("../images/home-background.jpg") no-repeat;
 		background-size: cover;
+		padding-bottom: 100px;
 	}
 }
 
@@ -56,6 +57,14 @@ h1 {
 
 		&.featured {
 			@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
+			position: relative;
+
+			.wrap {
+				position: absolute;
+				background: $maroon-alt;
+				top: 50%;
+				transform: translateY(-50%);
+			}
 		}
 
 		h2 {
