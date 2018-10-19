@@ -93,31 +93,86 @@ h1 {
 	}
 }
 
-.agencies {
-	@include breakpoint(medium up) {
-		background-color: $dark-blue;
-		text-align: center;
-		padding: 5% 100px;
+#agencies {
+	background-color: $dark-blue;
 
-		&.top {
-			.item {
+	.agency-row {
+		@include breakpoint(medium up) {
+			$stroke-color: #27A9E1;
+			$spacing: 64px;
+
+			text-align: center;
+			margin: 0 100px;
+
+			&.top {
+				padding-top: $spacing;
+				padding-bottom: $spacing;
+				margin-bottom: $spacing / 4;
+				position: relative;
+				overflow: hidden;
+
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: $spacing;
+					left: 10%;
+					right: 10%;
+					bottom: -2px;
+					border: 1px dashed $stroke-color;
+					z-index: 1;
+				}
+
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: $spacing + ($spacing / 4);
+					left: 30%;
+					right: 30%;
+					bottom: -2px;
+					border: 1px dashed $stroke-color;
+					z-index: 1;
+				}
+
+				.item {
+					$border-width: $spacing / 4;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 20%;
+					z-index: 2;
+					background: $dark-blue;
+					border: $border-width solid $dark-blue;
+
+					&:after {
+						content: "";
+						display: block;
+						position: absolute;
+						top: calc(100% + #{$border-width});
+						left: calc(50% - 1px);
+						width: 1px;
+						height: 64px;
+						border: 1px dashed $stroke-color;
+						border-width: 0 1px 0 0;
+						z-index: 1;
+					}
+				}
 			}
-		}
 
-		&.bottom {
-			padding-top: 0;
+			&.bottom {
+				padding-bottom: 32px;
 
-			.item {
+				.item {
+					display: inline-block;
+					vertical-align: top;
+					width: 20%;
+				}
 			}
-		}
 
-		.item {
-			display: inline-block;
-			vertical-align: top;
-			width: 20%;
-
-			img {
-				height: 50px;
+			.item img {
+				max-height: 50px;
 			}
 		}
 	}
