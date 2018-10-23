@@ -122,7 +122,7 @@ $small-vertical-spacing: 20px;
 		h2 {
 			font-family: $heading-font-family;
 			font-size: 1.5em;
-			line-height: 1.1em;
+			line-height: 23px;
 			text-transform: uppercase;
 			margin: 0;
 			word-wrap: break-word;
@@ -207,7 +207,8 @@ $small-vertical-spacing: 20px;
 		font-size: 13px;
 
 		.item {
-			$item-padding: 6%;
+			$top-item-padding: 16px;
+			$side-item-padding: 6%;
 
 			@include xy-cell-base();
 
@@ -225,16 +226,16 @@ $small-vertical-spacing: 20px;
 			}
 
 			h2 {
-				padding: $item-padding $item-padding ($item-padding / 2);
+				padding: $top-item-padding $side-item-padding ($top-item-padding / 2);
 			}
 
 			.description {
-				padding: 0 $item-padding $item-padding;
+				padding: 0 $side-item-padding $top-item-padding;
 
 				&::before {
 					content: "";
 					display: block;
-					margin: 0 auto ($item-padding / 2);
+					margin: 0 auto ($top-item-padding / 2);
 					width: 20px;
 					height: 1px;
 					background: #B5D334;
