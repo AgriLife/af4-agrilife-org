@@ -198,13 +198,8 @@ $small-vertical-spacing: 20px;
 				@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
 				position: relative;
 
-				@media screen and (min-width: 770px){
-					.wrap {
-						position: absolute;
-						background: $maroon-alt;
-						top: 50%;
-						transform: translateY(-50%);
-					}
+				.wrap {
+					background-image: none!important;
 				}
 			}
 
@@ -235,6 +230,15 @@ $small-vertical-spacing: 20px;
 					}
 				}
 			}
+		}
+	}
+
+	@media screen and (min-width: 770px){
+		.item.featured .wrap {
+			position: absolute;
+			background: $maroon-alt;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 }
