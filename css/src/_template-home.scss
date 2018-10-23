@@ -318,8 +318,13 @@ $small-vertical-spacing: 20px;
 				}
 			}
 
-			.button {
-				font-size: 1.2rem;
+			#mce-EMAIL,
+			#mc-embedded-subscribe {
+				height: 32px;
+			}
+
+			#mc-embedded-subscribe {
+				line-height: 24px;
 			}
 		}
 	}
