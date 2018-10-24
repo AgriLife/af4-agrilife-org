@@ -7,11 +7,23 @@ module.exports = (grunt) ->
       ]
       tasks: ['sasslint', 'sass:dev']
     postcss:
-      options:
-        map: true
-        processors: [
-          require('autoprefixer')(browsers: ['last 2 versions','ie > 9'])
-        ]
+      pkg:
+        options:
+          processors: [
+            require('autoprefixer')({browsers: ['last 2 versions','ie > 9']})
+          ]
+          failOnError: true
+        files:
+          'css/af4-agrilife-org.css': 'css/af4-agrilife-org.css'
+      dev:
+        options:
+          map: true
+          processors: [
+            require('autoprefixer')({browsers: ['last 2 versions','ie > 9']})
+          ]
+          failOnError: true
+        files:
+          'css/af4-agrilife-org.css': 'css/af4-agrilife-org.css'
     sass:
       pkg:
         options:
@@ -56,9 +68,8 @@ module.exports = (grunt) ->
   @loadNpmTasks 'grunt-sass-lint'
   @loadNpmTasks 'grunt-postcss'
 
-  @registerTask 'default', ['sass:pkg']
-  @registerTask 'develop', ['sasslint', 'sass:dev']
-  @registerTask 'package', ['sass:pkg']
+  @registerTask 'default', ['sass:pkg', 'postcss:pkg']
+  @registerTask 'develop', ['sasslint', 'sass:dev', 'postcss:dev']
   @registerTask 'phpscan', 'Compare results of vip-scanner with known issues', ->
     done = @async()
 
