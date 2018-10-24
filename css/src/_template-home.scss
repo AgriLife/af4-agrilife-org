@@ -1,10 +1,5 @@
 $small-vertical-spacing: 20px;
 
-@mixin center-y() {
-	top: 50%;
-	transform: translateY(-50%);
-}
-
 // Changes to default styles
 .full-width-content .content-sidebar-wrap .content,
 .full-width-content .sidebar-content-wrap .content {
@@ -75,6 +70,14 @@ $small-vertical-spacing: 20px;
 				margin-left: 9%;
 				margin-right: 9%;
 			}
+
+			@media screen and (max-width: 380px){
+				font-size: 2rem;
+			}
+
+			@media screen and (max-width: 340px){
+				font-size: 1.9rem;
+			}
 		}
 
 		@include breakpoint(medium up) {
@@ -127,6 +130,12 @@ $small-vertical-spacing: 20px;
 	.item {
 		background: $maroon-alt;
 		color: $whiter;
+		position: relative;
+
+		h2,
+		.description {
+			padding: 12px;
+		}
 
 		h2 {
 			font-family: $heading-font-family;
@@ -135,11 +144,15 @@ $small-vertical-spacing: 20px;
 			text-transform: uppercase;
 			margin: 0;
 			word-wrap: break-word;
-			padding: 12px;
+		}
+
+		.description {
+			padding-top: 0;
 		}
 
 		.button {
 			font-family: $heading-font-family;
+			font-size: 1.45rem;
 			text-transform: uppercase;
 			width: 100%;
 			background-color: #1DAFED;
@@ -152,11 +165,11 @@ $small-vertical-spacing: 20px;
 	@include breakpoint(small only) {
 		$featured-item-height: 404px;
 
-		position: relative;
 		padding-top: $featured-item-height + $small-vertical-spacing * 2;
 		padding-bottom: $small-vertical-spacing;
 		margin-left: 9%;
 		margin-right: 9%;
+		position: relative;
 
 		&:before {
 			content: "";
@@ -235,34 +248,6 @@ $small-vertical-spacing: 20px;
 
 			&:not(.featured) {
 				@include xy-cell(auto, $gutter-type: margin, $gutters: 1rem);
-
-				.wrap {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background-position: center top;
-					background-repeat: no-repeat;
-				}
-
-				.text-wrap {
-					position: absolute;
-					bottom: 0;
-					width: 100%;
-					background: $maroon-alt;
-				}
-
-				.text-wrap-full {
-					@include center-y();
-
-					position: relative;
-				}
-			}
-
-			&.item-2 .wrap,
-			&.item-4 .wrap {
-				background-size: auto 140px;
 			}
 
 			&.featured {
@@ -272,6 +257,13 @@ $small-vertical-spacing: 20px;
 				.wrap {
 					background-image: none!important;
 				}
+			}
+
+			&.item-1,
+			&.item-5 {
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
 			h2 {
@@ -348,18 +340,14 @@ $small-vertical-spacing: 20px;
 			&.item-5 {
 				margin-right: 0;
 			}
-
-			&.item-2 .wrap,
-			&.item-4 .wrap {
-				background-size: 100% auto;
-			}
 		}
 	}
 
 	@media screen and (min-width: 955px){
 		.item.featured .wrap {
-			@include center-y();
-
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
 			position: absolute;
 			background: $maroon-alt;
 		}
