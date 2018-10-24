@@ -260,10 +260,7 @@ $small-vertical-spacing: 20px;
 				}
 			}
 
-			&.item-2 .wrap {
-				background-size: auto 140px;
-			}
-
+			&.item-2 .wrap,
 			&.item-4 .wrap {
 				background-size: auto 140px;
 			}
@@ -297,7 +294,7 @@ $small-vertical-spacing: 20px;
 					display: block;
 					margin: 0 auto ($top-item-padding / 2);
 					width: 20px;
-					height: 1px;
+					height: 2px;
 					background: #B5D334;
 				}
 
