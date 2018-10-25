@@ -14,11 +14,11 @@ add_action('genesis_entry_content', function(){
 	?><div id="overview">
 		<div id="leaders-heading" class="layout-container"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>
 		<div id="action-items" class="layout-container">
-			<div class="item item-1"><div class="wrap"><h2>Exceptional Items</h2>
-				<div class="description has-line hide-for-small-only"><ul><li>Texas A&M AgriLife Extension</li>
-				<li>Texas A&M AgriLife Research</li>
-				<li>Texas A&M Veterinary Medical Diagnostic Laboratory</li>
-				<li>Texas A&M Forest Service</li></ul></div></div>
+			<div class="item item-1"><div class="wrap"><h2>86th Legislature</h2>
+				<div class="description has-line hide-for-small-only"><ul><li><span class="show-for-xlarge">Texas A&M AgriLife </span>Extension<span class="show-for-medium"> Service</span></li>
+				<li><span class="show-for-xlarge">Texas A&M AgriLife </span>Research</li>
+				<li><span class="show-for-xlarge">Texas A&M </span>Veterinary<span class="hide-for-medium hide-for-large"> Medical</span> Diagnostic<span class="hide-for-xlarge">s</span><span class="show-for-xlarge"> Laboratory</span></li>
+				<li><span class="show-for-xlarge">Texas A&M </span>Forest<span class="show-for-medium hide-for-large">ry</span><span class="show-for-xlarge"> Service</span></li></ul></div></div>
 			</div>
 			<div class="item item-2"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt=""><h2>What is <br>Texas A&M AgriLife?</h2></div>
 			<div class="item  item-3 featured"><div class="wrap" style="background-image: url(<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg);"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg" alt=""><h2>Impacts</h2>
@@ -28,7 +28,7 @@ add_action('genesis_entry_content', function(){
 				<div class="description has-line hide-for-small-only">Texas A&M AgriLife to lead consortium in establishing Center
 			</div></div>
 			<div class="item item-5">
-				<div class="wrap"><h2>Vice Chancellor's <span class="big">Newsletter</span></h2><!-- Begin Mailchimp Signup Form -->
+				<div class="wrap"><h2><span class="big">October Newsletter</span></h2><!-- Begin Mailchimp Signup Form -->
 					<div id="mc_embed_signup" class="description">
 						<form action="https://agrilife.us1.list-manage.com/subscribe/post?u=1a8a0ed97f45319b1319f2572&amp;id=449a7707a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 					    <div id="mc_embed_signup_scroll">
