@@ -256,6 +256,10 @@ $small-vertical-spacing: 20px;
 
 				.wrap {
 					background-image: none!important;
+					background-color: $maroon-alt;
+					top: 50%;
+					transform: translateY(-50%);
+					position: absolute;
 				}
 			}
 
@@ -344,16 +348,6 @@ $small-vertical-spacing: 20px;
 			&.item-5 {
 				margin-right: 0;
 			}
-		}
-	}
-
-	@media screen and (min-width: 955px){
-		.item.featured .wrap {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			position: absolute;
-			background: $maroon-alt;
 		}
 	}
 }
