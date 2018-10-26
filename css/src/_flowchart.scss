@@ -1,0 +1,166 @@
+.flowchart {
+	$small-vertical-spacing: 20px;
+	$stroke-color: #27A9E1;
+
+	background-color: $dark-blue;
+	color: #FFF;
+
+	@include breakpoint(small only) {
+		padding-top: $small-vertical-spacing * 2;
+		padding-bottom: $small-vertical-spacing * 2;
+		text-align: center;
+		position: relative;
+
+		.item {
+			max-width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.flowchart-row {
+			margin: 0 6%;
+		}
+
+		.flowchart-row.top .item:after {
+			content: "";
+			display: block;
+			width: 1px;
+			margin: $small-vertical-spacing auto;
+			height: 30px;
+			border: 2px dashed $stroke-color;
+			border-width: 0 0 0 2px;
+		}
+
+		.flowchart-row.bottom .item {
+			a {
+				color: #FFF;
+				font-family: $heading-font-family;
+				font-size: 1.75rem;
+				line-height: 1em;
+				text-transform: uppercase;
+			}
+
+			~ .item:before {
+				content: "";
+				display: block;
+				width: 60px;
+				margin: $small-vertical-spacing auto;
+				height: 1px;
+				border: 2px dashed $stroke-color;
+				border-width: 2px 0 0;
+			}
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			width: 40px;
+			height: 40px;
+			border: 2px solid #B4D333;
+			border-width: 0 0 2px 2px;
+			background: $dark-blue;
+			transform: rotate(-45deg) translateX(-50%);
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - 2px);
+			z-index: 2;
+		}
+	}
+
+	@include breakpoint(medium up) {
+		.flowchart-row {
+			$spacing: 64px;
+
+			text-align: center;
+			margin: 0 8.5%;
+
+			&.top {
+				padding-top: $spacing;
+				padding-bottom: $spacing;
+				margin-bottom: $spacing / 4;
+				position: relative;
+				overflow: hidden;
+
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: $spacing;
+					left: 10%;
+					right: 10%;
+					bottom: -2px;
+					border: 1px dashed $stroke-color;
+					z-index: 1;
+				}
+
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: $spacing + ($spacing / 4);
+					left: 30%;
+					right: 30%;
+					bottom: -2px;
+					border: 1px dashed $stroke-color;
+					z-index: 1;
+				}
+
+				.item {
+					$border-width: $spacing / 4;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 20%;
+					z-index: 2;
+					background: $dark-blue;
+					border: $border-width solid $dark-blue;
+
+					&:after {
+						content: "";
+						display: block;
+						position: absolute;
+						top: calc(100% + #{$border-width});
+						left: calc(50% - 1px);
+						width: 1px;
+						height: 64px;
+						border: 1px dashed $stroke-color;
+						border-width: 0 1px 0 0;
+						z-index: 1;
+					}
+				}
+			}
+
+			&.bottom {
+				padding-bottom: 32px;
+
+				.item {
+					display: inline-block;
+					vertical-align: top;
+					width: 20%;
+					padding: 0 1%;
+
+					p {
+						margin-top: 10px;
+					}
+				}
+			}
+
+			.item img {
+				max-height: 50px;
+			}
+
+			@media screen and (max-width: 865px) {
+				margin: 0 5%;
+
+				&.top .item {
+					width: 25%;
+				}
+
+				&.bottom .item {
+					padding: 0 2%;
+				}
+			}
+		}
+	}
+}

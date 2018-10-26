@@ -45,6 +45,22 @@ class Assets {
             'screen'
         );
 
+        wp_register_style(
+            'af4-agrilife-home-styles',
+            ALAF4_DIR_URL . 'css/af4-agrilife-home.css',
+            array(),
+            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-home.css'),
+            'screen'
+        );
+
+        wp_register_style(
+            'af4-agrilife-extension-styles',
+            ALAF4_DIR_URL . 'css/af4-agrilife-extension.css',
+            array(),
+            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-extension.css'),
+            'screen'
+        );
+
     }
 
     /**
@@ -57,6 +73,14 @@ class Assets {
 
         wp_enqueue_style( 'agrilife-styles' );
         wp_enqueue_style( 'af4-agrilife-org-styles' );
+
+        if( is_page_template('home.php') ){
+            wp_enqueue_style( 'af4-agrilife-home-styles' );
+        }
+
+        if( is_page_template('extension.php') ){
+            wp_enqueue_style( 'af4-agrilife-extension-styles' );
+        }
 
     }
 

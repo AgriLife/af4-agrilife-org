@@ -65,6 +65,9 @@ class Agrilife {
 		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
 		$home->register();
 
+		$extension = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'extension.php', 'Extension' );
+		$extension->register();
+
 		$comm = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'communications.php', 'Communications' );
 		$comm->register();
 

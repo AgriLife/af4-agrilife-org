@@ -1,0 +1,58 @@
+.director {
+	color: #FFF;
+	overflow: hidden;
+
+	.layout-container {
+		@include xy-grid;
+		align-items: end;
+		justify-content: end;
+		position: relative;
+
+		&:before {
+			content: "";
+			display: block;
+			background-color: $dark-blue;
+			position: absolute;
+			z-index: 1;
+			top: 25px;
+			bottom: 8px;
+			left: -1000px;
+			right: -1000px;
+		}
+
+		.text-column {
+			@include xy-cell-base();
+			@include xy-cell(auto, $gutter-type: padding, $gutters: 3.5rem);
+			padding-bottom: 50px;
+			position: relative;
+			z-index: 2;
+		}
+
+		.photo-column {
+			@include xy-cell-base();
+			@include xy-cell(3, $gutter-type: padding, $gutters: 3.5rem);
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	.quote {
+		text-align: left;
+		padding-right: 2em;
+	}
+
+	.creds {
+		text-align: right;
+		margin-top: 1em;
+
+		p {
+			font-style: italic;
+			margin: 0;
+			line-height: 1.2em;
+		}
+	}
+
+	.photo {
+
+	}
+}
