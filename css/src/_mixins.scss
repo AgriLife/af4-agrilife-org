@@ -1,0 +1,25 @@
+@mixin xy-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin arrow ($bg-color: #FFF, $z-index: 2) {
+	position: relative;
+
+	&:after {
+		content: "";
+		display: block;
+		width: 40px;
+		height: 40px;
+		border: 2px solid #B4D333;
+		border-width: 0 0 2px 2px;
+		background: $bg-color;
+		transform: rotate(-45deg) translateX(-50%);
+		position: absolute;
+		bottom: 0;
+		left: calc(50% - 2px);
+		z-index: $z-index;
+	}
+}

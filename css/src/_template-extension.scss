@@ -1,40 +1,130 @@
 $small-vertical-spacing: 20px;
 
+.buttons,
+.exceptional-items,
+.director {
+	margin-top: 50px;
+}
+
+.content-heading-image {
+	position: relative;
+	background-color: $dark-blue;
+
+	h1 {
+		@include xy-center;
+		z-index: 2;
+		display: inline-block;
+		background: transparent url("../images/extension-header-title-background.png") no-repeat;
+		background-size: cover;
+		padding: 25px 40px;
+		width: 85%;
+	}
+}
+
+.buttons {
+	background-color: #58585B;
+	margin-top: 0;
+	padding: 50px 0;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		background-color: #B4D333;
+		padding: 10px 50px;
+
+		@media screen and (max-width: 430px){
+			padding: 10px 25px;
+		}
+	}
+}
+
+.exceptional-items {
+	overflow: hidden;
+
+	h2 {
+		font-family: $heading-font-family;
+		text-transform: uppercase;
+		font-size: 3rem;
+		line-height: 1em;
+		margin-bottom: 50px;
+		text-align: center;
+	}
+
+	.item .description {
+		padding: 5%;
+		line-height: 1.3;
+	}
+}
+
 @include breakpoint(small only) {
 	.site-container {
 		overflow: hidden;
+	}
+
+	.content-heading-image {
+		@include arrow($dark-blue, 1);
+
+		.background {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	.introduction {
+		@include arrow;
+		margin: 50px $small-side-spacing 0;
+		padding-bottom: 35px;
+		text-align: center;
+	}
+
+	.flowchart .bottom .item {
+		@include xy-grid;
+		clear: both;
+		align-items: center;
+		justify-content: center;
+
+		.img-wrap, p {
+			@include xy-cell-base();
+		}
+
+		.img-wrap {
+			@include xy-cell(4, $gutter-type: padding, $gutters: 0);
+			text-align: right;
+		}
+
+		p {
+			@include xy-cell(auto, $gutter-type: padding, $gutters: 3rem);
+			text-align: left;
+			font-size: 1.25rem;
+			line-height: 1.2;
+			margin-bottom: 0;
+		}
+	}
+
+	.exceptional-items .item {
+		background-color: #F1F1F2;
+		margin-bottom: 50px;
+
+		.description {
+			font-size: 1.25rem;
+		}
+
+		.photo img {
+			width: 100%;
+		}
 	}
 }
 
 @include breakpoint(medium) {
 
-	.buttons,
-	.exceptional-items,
-	.director,
-	.social-media-footer {
-		margin-top: 50px;
-	}
-
-	.content-heading-image {
-		position: relative;
-		background-color: $dark-blue;
-
-		h1 {
-			display: inline-block;
-			background: transparent url("../images/extension-header-title-background.png") no-repeat;
-			background-size: cover;
-			padding: 50px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
+	.content-heading-image h1 {
+		width: auto;
+		padding: 50px;
 	}
 
 	.introduction {
-		@include xy-grid-container($break-medium, 0);
-		padding-top: 50px;
-		padding-bottom: 50px;
+		@include xy-grid-container($break-medium + 50px, 0);
+		padding: 50px 25px;
 		text-align: center;
 	}
 
@@ -42,32 +132,15 @@ $small-vertical-spacing: 20px;
 		margin-bottom: 0;
 	}
 
-	.buttons {
-		background-color: #58585B;
-		margin-top: 0;
-		padding: 50px 0;
-		text-align: center;
-
-		a {
-			background-color: #B4D333;
-			padding: 10px 50px;
-		}
-	}
-
 	.exceptional-items {
 		text-align: center;
-		overflow: hidden;
 
 		.layout-container {
 			@include xy-grid-container($break-large, 0);
 		}
 
 		h2 {
-			font-family: $heading-font-family;
-			text-transform: uppercase;
 			font-size: 2.25rem;
-			line-height: 1em;
-			margin-bottom: 50px;
 		}
 
 		.row {
@@ -105,5 +178,9 @@ $small-vertical-spacing: 20px;
 				}
 			}
 		}
+	}
+
+	.social-media-footer {
+		margin-top: 50px;
 	}
 }

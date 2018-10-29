@@ -1,3 +1,5 @@
+$underline-style-small: 1 !default;
+
 .flowchart {
 	$small-vertical-spacing: 20px;
 	$stroke-color: #27A9E1;
@@ -21,26 +23,18 @@
 			margin: 0 6%;
 		}
 
-		.flowchart-row.top .item:after {
-			content: "";
-			display: block;
-			width: 1px;
-			margin: $small-vertical-spacing auto;
-			height: 30px;
-			border: 2px dashed $stroke-color;
-			border-width: 0 0 0 2px;
-		}
-
-		.flowchart-row.bottom .item {
-			a {
-				color: #FFF;
-				font-family: $heading-font-family;
-				font-size: 1.75rem;
-				line-height: 1em;
-				text-transform: uppercase;
+		@if $underline-style-small == 1 {
+			.flowchart-row.top .item:after {
+				content: "";
+				display: block;
+				width: 1px;
+				margin: $small-vertical-spacing auto;
+				height: 30px;
+				border: 2px dashed $stroke-color;
+				border-width: 0 0 0 2px;
 			}
 
-			~ .item:before {
+			.flowchart-row.bottom .item ~ .item:before {
 				content: "";
 				display: block;
 				width: 60px;
@@ -49,6 +43,27 @@
 				border: 2px dashed $stroke-color;
 				border-width: 2px 0 0;
 			}
+		} @else {
+			.flowchart-row.top .item {
+				margin-top: $small-vertical-spacing;
+				margin-bottom: $small-vertical-spacing * 2;
+			}
+
+			.flowchart-row.bottom .item ~ .item {
+				padding-top: $small-vertical-spacing;
+				margin-top: $small-vertical-spacing;
+				margin-bottom: $small-vertical-spacing;
+				border: 2px dashed $stroke-color;
+				border-width: 2px 0 0 0;
+			}
+		}
+
+		.flowchart-row.bottom .item a {
+			color: #FFF;
+			font-family: $heading-font-family;
+			font-size: 1.75rem;
+			line-height: 1em;
+			text-transform: uppercase;
 		}
 
 		&:after {
