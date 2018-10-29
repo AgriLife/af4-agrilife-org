@@ -8,24 +8,30 @@
 		justify-content: end;
 		position: relative;
 
-		&:before {
-			content: "";
-			display: block;
-			background-color: $dark-blue;
-			position: absolute;
-			z-index: 1;
-			top: 25px;
-			bottom: 8px;
-			left: -1000px;
-			right: -1000px;
-		}
-
 		.text-column {
 			@include xy-cell-base();
 			@include xy-cell(auto, $gutter-type: padding, $gutters: 3.5rem);
-			padding-bottom: 50px;
+			padding-bottom: 4%;
+			padding-top: 4%;
+			margin-bottom: 10px;
 			position: relative;
-			z-index: 2;
+
+			&:before {
+				content: "";
+				display: block;
+				background-color: $dark-blue;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				bottom: 0;
+				left: -1000px;
+				right: -1000px;
+			}
+
+			> * {
+				position: relative;
+				z-index: 2;
+			}
 		}
 
 		.photo-column {
@@ -34,25 +40,76 @@
 			position: relative;
 			z-index: 2;
 		}
-	}
 
-	.quote {
-		text-align: left;
-		padding-right: 2em;
-	}
+		// @media screen and (max-width: 870px){
+		// 	.text-column,
+		// 	.photo-column {
+		// 		padding-left: .8rem;
+		// 		padding-right: .8rem;
+		// 	}
+		// }
 
-	.creds {
-		text-align: right;
-		margin-top: 1em;
-
-		p {
-			font-style: italic;
-			margin: 0;
-			line-height: 1.2em;
+		.quote {
+			text-align: left;
+			padding-right: 2em;
 		}
-	}
 
-	.photo {
+		.creds {
+			text-align: right;
+			margin-top: 1em;
 
+			p {
+				font-style: italic;
+				margin: 0;
+				line-height: 1.2em;
+			}
+		}
+
+		@media screen and (max-width: 1040px){
+			.quote {
+				padding-right: 1.25rem;
+			}
+
+			.text-column {
+				padding-bottom: 2%;
+				padding-top: 2%;
+				padding-right: 1.25rem;
+			}
+		}
+
+		@media screen and (max-width: 905px){
+			.text-column {
+				padding-bottom: 1%;
+				padding-top: 1%;
+				padding-right: 0;
+			}
+		}
+
+		@media screen and (max-width: 850px){
+			.quote {
+				padding-right: 0;
+				line-height: 1.1rem;
+			}
+
+			.creds {
+				margin-top: 0;
+			}
+
+			.text-column {
+				padding-left: 1rem;
+				padding-right: 0;
+			}
+
+			.photo-column {
+				padding-left: 1rem;
+				padding-right: 1rem;
+			}
+		}
+
+		@media screen and (max-width: 700px){
+			.text-column {
+				margin-bottom: 3px;
+			}
+		}
 	}
 }
