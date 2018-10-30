@@ -46,7 +46,7 @@ prevent outbreaks.</div></div></div>
 <p>Morbi eget consequat augue pellentesque<br>
 Mauris metus dui, pulvinar nec nibh id suscipit<br>
 Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/extension-interim-director-parr-rosson.jpg" alt="Mosquito"></div></div>
-	</div><div class="social-media-footer"><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-facebook.png" alt="Facebook"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-twitter.png" alt="Twitter"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-instagram.png" alt="Instagram"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-linkedin.png" alt="LinkedIn"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-pinterest.png" alt="Pinterest"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-rss.png" alt="RSS"></span><span class="item"><img src="<?php echo ALAF4_DIR_URL; ?>images/icon-youtube.png" alt="YouTube"></span></div>
+	</div>
 	<?php
 });
 
