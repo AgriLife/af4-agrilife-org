@@ -14,9 +14,9 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/af4-agrilife-org.css': 'css/af4-agrilife-org.css'
-          'css/af4-agrilife-home.css': 'css/af4-agrilife-home.css'
-          'css/af4-agrilife-extension.css': 'css/af4-agrilife-extension.css'
+          'css/agrilife.css': 'css/agrilife.css'
+          'css/agrilife-home.css': 'css/agrilife-home.css'
+          'css/agrilife-extension.css': 'css/agrilife-extension.css'
       dev:
         options:
           map: true
@@ -25,9 +25,9 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/af4-agrilife-org.css': 'css/af4-agrilife-org.css'
-          'css/af4-agrilife-home.css': 'css/af4-agrilife-home.css'
-          'css/af4-agrilife-extension.css': 'css/af4-agrilife-extension.css'
+          'css/agrilife.css': 'css/agrilife.css'
+          'css/agrilife-home.css': 'css/agrilife-home.css'
+          'css/agrilife-extension.css': 'css/agrilife-extension.css'
     sass:
       pkg:
         options:
@@ -36,18 +36,19 @@ module.exports = (grunt) ->
           style: 'compressed'
           precision: 2
         files:
-          'css/af4-agrilife-org.css': 'css/src/af4-agrilife-org.scss'
-          'css/af4-agrilife-home.css': 'css/src/af4-agrilife-home.scss'
-          'css/af4-agrilife-extension.css': 'css/src/af4-agrilife-extension.scss'
+          'css/agrilife.css': 'css/src/agrilife.scss'
+          'css/agrilife-home.css': 'css/src/agrilife-home.scss'
+          'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
       dev:
         options:
           loadPath: 'node_modules/foundation-sites/scss'
           style: 'expanded'
           precision: 2
+          trace: true
         files:
-          'css/af4-agrilife-org.css': 'css/src/af4-agrilife-org.scss'
-          'css/af4-agrilife-home.css': 'css/src/af4-agrilife-home.scss'
-          'css/af4-agrilife-extension.css': 'css/src/af4-agrilife-extension.scss'
+          'css/agrilife.css': 'css/src/agrilife.scss'
+          'css/agrilife-home.css': 'css/src/agrilife-home.scss'
+          'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
     sasslint:
       options:
         configFile: '.sass-lint.yaml'

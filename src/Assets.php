@@ -30,34 +30,26 @@ class Assets {
     public function register_styles() {
 
         wp_register_style(
-            'af4-agrilife-org-styles',
-            ALAF4_DIR_URL . 'css/af4-agrilife-org.css',
-            array(),
-            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-org.css'),
-            'screen'
-        );
-
-        wp_register_style(
             'agrilife-styles',
-            AF_THEME_DIRURL . '/css/agrilife.css',
+            ALAF4_DIR_URL . 'css/agrilife.css',
             array(),
-            filemtime(AF_THEME_DIRPATH . '/css/agrilife.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/agrilife.css'),
             'screen'
         );
 
         wp_register_style(
-            'af4-agrilife-home-styles',
-            ALAF4_DIR_URL . 'css/af4-agrilife-home.css',
+            'agrilife-home-styles',
+            ALAF4_DIR_URL . 'css/agrilife-home.css',
             array(),
-            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-home.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/agrilife-home.css'),
             'screen'
         );
 
         wp_register_style(
-            'af4-agrilife-extension-styles',
-            ALAF4_DIR_URL . 'css/af4-agrilife-extension.css',
+            'agrilife-extension-styles',
+            ALAF4_DIR_URL . 'css/agrilife-extension.css',
             array(),
-            filemtime(ALAF4_DIR_PATH . 'css/af4-agrilife-extension.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/agrilife-extension.css'),
             'screen'
         );
 
@@ -72,14 +64,13 @@ class Assets {
     public function enqueue_styles() {
 
         wp_enqueue_style( 'agrilife-styles' );
-        wp_enqueue_style( 'af4-agrilife-org-styles' );
 
         if( is_page_template('home.php') ){
-            wp_enqueue_style( 'af4-agrilife-home-styles' );
+            wp_enqueue_style( 'agrilife-home-styles' );
         }
 
         if( is_page_template('extension.php') ){
-            wp_enqueue_style( 'af4-agrilife-extension-styles' );
+            wp_enqueue_style( 'agrilife-extension-styles' );
         }
 
     }
@@ -92,7 +83,7 @@ class Assets {
      */
     public function dequeue_default_styles() {
 
-        wp_dequeue_style( 'default-styles' );
+        wp_dequeue_style( 'agriflex-default-styles' );
 
     }
 
