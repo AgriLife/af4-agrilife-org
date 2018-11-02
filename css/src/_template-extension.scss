@@ -78,23 +78,7 @@ $small-vertical-spacing: 20px;
 	}
 
 	.flowchart .bottom .item {
-		@include xy-grid;
-		clear: both;
-		align-items: center;
-		justify-content: center;
-
-		.img-wrap, p {
-			@include xy-cell-base();
-		}
-
-		.img-wrap {
-			@include xy-cell(4, $gutter-type: padding, $gutters: 0);
-			text-align: right;
-		}
-
 		p {
-			@include xy-cell(auto, $gutter-type: padding, $gutters: 3rem);
-			text-align: left;
 			font-size: 1.25rem;
 			line-height: 1.2;
 			margin-bottom: 0;
