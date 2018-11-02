@@ -31,14 +31,7 @@ add_action('genesis_entry_content', function(){
 	<div class="exceptional-items">
 		<div class="layout-container">
 			<h2>Exceptional Items</h2>
-			<div class="row"><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/flooding-cars.jpg" alt="Flooding"></div><div class="description">Improving Texas’ disaster
-readiness means preparing local
-jurisdictions for natural disaster
-response and recovery.</div></div><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/mosquito.jpg" alt="Mosquito"></div><div class="description">Enhanced surveillance for
-wildlife and zoonotic diseases
-would help Texas officials
-respond to, predict, and
-prevent outbreaks.</div></div></div>
+			<div class="row"><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/flooding-cars.jpg" alt="Flooding"></div><h3>Disaster readiness and recovery</h3><div class="description">Improving Texas’ disaster readiness means preparing local jurisdictions for natural disaster response and recovery.</div></div><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/mosquito.jpg" alt="Mosquito"></div><h3>Wildlife and zoonotic disease</h3><div class="description">Enhanced surveillance for wildlife and zoonotic diseases would help Texas officials respond to, predict, and prevent outbreaks.</div></div></div>
 		</div>
 	</div>
 	<div class="director">

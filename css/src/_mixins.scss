@@ -5,7 +5,7 @@
 	transform: translate(-50%, -50%);
 }
 
-@mixin arrow ($bg-color: #FFF, $z-index: 2) {
+@mixin arrow ($border-color: $light-blue, $bg-color: #FFF, $z-index: 2) {
 	position: relative;
 
 	&:after {

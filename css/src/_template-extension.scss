@@ -22,14 +22,15 @@ $small-vertical-spacing: 20px;
 }
 
 .buttons {
-	background-color: #58585B;
+	@include arrow($light-green, $gray-light-medium, 1);
+	background-color: $gray-light-medium;
 	margin-top: 0;
 	padding: 50px 0;
 	text-align: center;
 
 	a {
 		display: inline-block;
-		background-color: #B4D333;
+		background-color: $light-green;
 		padding: 10px 50px;
 
 		@media screen and (max-width: 430px){
@@ -42,7 +43,6 @@ $small-vertical-spacing: 20px;
 	overflow: hidden;
 
 	h2 {
-		font-family: $heading-font-family;
 		text-transform: uppercase;
 		font-size: 3rem;
 		line-height: 1em;
@@ -50,9 +50,22 @@ $small-vertical-spacing: 20px;
 		text-align: center;
 	}
 
-	.item .description {
-		padding: 5%;
-		line-height: 1.3;
+	.item {
+		padding-bottom: 10%;
+
+		h3,
+		.description {
+			padding: 0 5%;
+			line-height: 1.3;
+		}
+
+		h3 {
+			font-size: 2.5rem;
+			line-height: 2.7rem;
+			margin-top: 7.5%;
+			margin-bottom: 2.5%;
+			text-transform: uppercase;
+		}
 	}
 }
 
@@ -62,7 +75,7 @@ $small-vertical-spacing: 20px;
 	}
 
 	.content-heading-image {
-		@include arrow($dark-blue, 1);
+		@include arrow($light-green, $dark-blue, 1);
 
 		.background {
 			position: relative;
@@ -71,7 +84,7 @@ $small-vertical-spacing: 20px;
 	}
 
 	.introduction {
-		@include arrow;
+		@include arrow($bg-color: $body-background);
 		margin: 50px $small-side-spacing 0;
 		padding-bottom: 35px;
 		text-align: center;
