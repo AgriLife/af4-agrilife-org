@@ -7,8 +7,14 @@ $small-vertical-spacing: 20px;
 }
 
 .content-heading-image {
+	@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
 	position: relative;
 	background-color: $dark-blue;
+
+	.background {
+		position: relative;
+		z-index: 2;
+	}
 
 	h1 {
 		@include xy-center;
@@ -19,6 +25,14 @@ $small-vertical-spacing: 20px;
 		padding: 25px 40px;
 		width: 85%;
 	}
+}
+
+.introduction {
+	@include arrow($border-color: $light-green, $bg-color: $body-background);
+}
+
+.flowchart {
+	@include arrow($border-color: $light-green, $bg-color: $dark-blue);
 }
 
 .buttons {
@@ -51,7 +65,7 @@ $small-vertical-spacing: 20px;
 	}
 
 	.item {
-		padding-bottom: 10%;
+		padding-bottom: 5%;
 
 		h3,
 		.description {
@@ -66,6 +80,15 @@ $small-vertical-spacing: 20px;
 			margin-bottom: 2.5%;
 			text-transform: uppercase;
 		}
+	}
+}
+
+.director {
+	margin-bottom: 32px;
+	overflow: visible;
+
+	.layout-container {
+		z-index: 2;
 	}
 }
 
@@ -130,7 +153,7 @@ $small-vertical-spacing: 20px;
 	}
 
 	.exceptional-items {
-		text-align: center;
+		text-align: left;
 
 		.layout-container {
 			@include xy-grid-container($break-large, 0);
@@ -145,39 +168,41 @@ $small-vertical-spacing: 20px;
 
 			.item {
 				@include xy-cell-base();
-				@include xy-cell(auto, $gutter-type: padding, $gutters: 8rem);
+				@include xy-cell(auto, $gutter-type: margin, $gutters: 0);
+				margin-left: 7%;
+				margin-right: 7%;
+				background-color: #F1F1F2;
 
 				.photo {
-					padding: 10px 0;
+					padding: 4% 0;
 					position: relative;
 
 					img {
 						position: relative;
 						z-index: 2;
 					}
+
+					& ~ * {
+						padding: 0 11%;
+					}
 				}
 
-				&:first-child .photo:before {
-					content: "";
-					display: block;
-					background-color: #F1F1F2;
-					position: absolute;
-					z-index: 1;
-					left: -1000px;
-					right: -1000px;
-					top: 0;
-					bottom: 0;
+				h3 {
+					font-size: 1.85rem;
+					line-height: 1.2;
 				}
 
 				.description {
 					margin-top: 20px;
-					padding: 0 11%;
 				}
 			}
 		}
 	}
 
-	.social-media-footer {
-		margin-top: 50px;
+	.director {
+		@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
+		&:after {
+			bottom: 5px;
+		}
 	}
 }

@@ -88,13 +88,12 @@
 	}
 
 	@include breakpoint(medium){
-		overflow: hidden;
-
 		.layout-container {
 			@include xy-grid-container($break-xlarge, 0);
 			@include xy-grid;
 			align-items: end;
 			justify-content: end;
+			overflow: hidden;
 		}
 
 		.text-column,
@@ -120,7 +119,7 @@
 
 			&:after {
 				top: 13px;
-				left: -12px;
+				left: 12px;
 				width: 56px;
 			}
 		}
@@ -150,7 +149,7 @@
 			padding-right: 1.25rem;
 
 			&:after {
-				left: .8rem;
+				left: 5px;
 				width: 20px;
 				top: 5%;
 			}

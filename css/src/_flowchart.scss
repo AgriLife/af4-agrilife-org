@@ -1,4 +1,4 @@
-$underline-style-small: 1 !default;
+$underline-style: 1 !default;
 $flowchart-brackets: false !default;
 $bracket-width: 10px;
 $small-vertical-spacing: 20px;
@@ -6,6 +6,51 @@ $small-vertical-spacing: 20px;
 .flowchart {
 	background-color: $dark-blue;
 	color: #FFF;
+
+	@if( $flowchart-brackets == true ){
+		.flowchart-row.bottom .item {
+			text-align: center;
+
+			p {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				margin: 0 auto;
+				padding: $bracket-width calc(#{$bracket-width} + 3%);
+
+				&:before,
+				&:after {
+					flex: 0 0 auto;
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					height: 100%;
+					width: $bracket-width;
+					border-color: $light-blue;
+					border-style: solid;
+					border-width: 2px 0;
+				}
+
+				&:before {
+					left: 0;
+					border-left-width: 2px;
+				}
+
+				&:after {
+					right: 0;
+					border-right-width: 2px;
+				}
+
+				span {
+					flex: 0 0 100%;
+					display: inline-block;
+				}
+			}
+		}
+	}
 
 	@include breakpoint(small only) {
 		padding-top: $small-vertical-spacing * 2;
@@ -23,7 +68,7 @@ $small-vertical-spacing: 20px;
 			margin: 0 6%;
 		}
 
-		@if $underline-style-small == 1 {
+		@if $underline-style == 1 {
 			.flowchart-row.top .item:after {
 				content: "";
 				display: block;
@@ -59,19 +104,13 @@ $small-vertical-spacing: 20px;
 		}
 
 		.flowchart-row.bottom .item {
+
 			@if( $flowchart-brackets == true ){
-				text-align: center;
 
 				p {
-					display: flex;
-					flex-flow: row wrap;
-					align-items: center;
-					justify-content: center;
-					position: relative;
 					width: 75%;
 					min-width: 252px;
 					height: 68px;
-					margin: 0 auto;
 					padding: $bracket-width $bracket-width * 2;
 
 					&:before,
@@ -200,11 +239,42 @@ $small-vertical-spacing: 20px;
 				.item {
 					display: inline-block;
 					vertical-align: top;
-					width: 20%;
 					padding: 0 1%;
+					@if( $flowchart-brackets == false ){
+						width: 20%;
 
-					p {
-						margin-top: 10px;
+						p {
+							margin-top: 10px;
+						}
+					}
+				}
+
+				@if( $flowchart-brackets == true ){
+					display: flex;
+					flex-wrap: nowrap;
+
+					.item {
+						&:nth-child(1){
+							width: 19.25%;
+						}
+						&:nth-child(2){
+							width: 21.25%;
+						}
+						&:nth-child(3){
+							width: 19%;
+						}
+						&:nth-child(4){
+							width: 21.25%;
+						}
+						&:nth-child(5){
+							width: 19.25%;
+						}
+
+						p {
+							font-size: 0.9rem;
+							line-height: 1.2;
+							height: 100%;
+						}
 					}
 				}
 			}
@@ -220,8 +290,10 @@ $small-vertical-spacing: 20px;
 					width: 25%;
 				}
 
-				&.bottom .item {
-					padding: 0 2%;
+				@if( $flowchart-brackets == false ){
+					&.bottom .item {
+						padding: 0 2%;
+					}
 				}
 			}
 		}

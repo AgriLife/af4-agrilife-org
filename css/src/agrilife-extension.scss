@@ -1,12 +1,12 @@
 @charset 'utf-8';
-$underline-style-small: 2;
+$underline-style: 2;
 $flowchart-brackets: true;
 
 @import 'foundation';
 @import 'settings';
 @import 'mixins';
 @import 'template-layout';
-@import 'template-extension';
 @import 'flowchart';
 @import 'director';
+@import 'template-extension';
 @import 'social-media-footer';
