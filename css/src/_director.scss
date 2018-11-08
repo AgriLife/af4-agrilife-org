@@ -101,8 +101,8 @@
 			@include xy-grid-container($break-xlarge, 0);
 			@include xy-grid;
 			@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
-			align-items: end;
-			justify-content: end;
+			align-items: flex-end;
+			justify-content: flex-end;
 			z-index: 2;
 
 			&:after {
@@ -127,8 +127,8 @@
 				z-index: 1;
 				top: 0;
 				bottom: 0;
-				left: -1000px;
-				right: -1000px;
+				left: -2000px;
+				right: -2000px;
 			}
 
 			&:after {
