@@ -1,0 +1,17 @@
+.buttons {
+	@include arrow($light-green, $gray-light-medium, 1);
+	background-color: $gray-light-medium;
+	margin-top: 0;
+	padding: 75px 0;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		background-color: $light-green;
+		padding: 10px 50px;
+
+		@media screen and (max-width: 430px){
+			padding: 10px 25px;
+		}
+	}
+}

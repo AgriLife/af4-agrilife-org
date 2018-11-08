@@ -2,8 +2,12 @@ $underline-style: 1 !default;
 $flowchart-brackets: false !default;
 $bracket-width: 10px;
 $small-vertical-spacing: 20px;
+$flowchart-has-arrow: true !default;
 
 .flowchart {
+	@if( $flowchart-has-arrow == true){
+		@include arrow($border-color: $light-green, $bg-color: $dark-blue);
+	}
 	background-color: $dark-blue;
 	color: #FFF;
 
@@ -112,6 +116,9 @@ $small-vertical-spacing: 20px;
 					min-width: 252px;
 					height: 68px;
 					padding: $bracket-width $bracket-width * 2;
+					font-size: 1.25rem;
+					line-height: 1.2;
+					margin-bottom: 0;
 
 					&:before,
 					&:after {
@@ -158,7 +165,7 @@ $small-vertical-spacing: 20px;
 			display: block;
 			width: 40px;
 			height: 40px;
-			border: 2px solid #B4D333;
+			border: 2px solid $light-green;
 			border-width: 0 0 2px 2px;
 			background: $dark-blue;
 			transform: rotate(-45deg) translateX(-50%);
@@ -170,6 +177,8 @@ $small-vertical-spacing: 20px;
 	}
 
 	@include breakpoint(medium up) {
+		padding: 50px 0;
+
 		.flowchart-row {
 			$spacing: 64px;
 

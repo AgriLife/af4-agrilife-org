@@ -1,0 +1,20 @@
+$intro-has-arrow: true !default;
+
+.introduction {
+	@if( $intro-has-arrow == true ){
+		@include arrow($border-color: $light-green, $bg-color: $body-background);
+	}
+
+	@include breakpoint(small only){
+		margin: 50px $small-side-spacing 0;
+		padding-bottom: 35px;
+		text-align: center;
+	}
+
+	@include breakpoint(medium){
+		@include xy-grid-container($break-medium + 50px, 0);
+		padding: 50px 25px;
+		text-align: center;
+	}
+
+}

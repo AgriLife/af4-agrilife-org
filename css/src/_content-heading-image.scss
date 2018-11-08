@@ -1,0 +1,38 @@
+.content-heading-image {
+	@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
+	position: relative;
+	background-color: $dark-blue;
+
+	.background {
+		position: relative;
+		z-index: 2;
+	}
+
+	h1 {
+		@include xy-center;
+		z-index: 2;
+		display: inline-block;
+		background: transparent url("../images/extension-header-title-background.png") no-repeat;
+		background-size: cover;
+		padding: 25px 40px;
+		width: 85%;
+	}
+}
+
+@include breakpoint(small only) {
+	.content-heading-image {
+		@include arrow($light-green, $dark-blue, 1);
+
+		.background {
+			position: relative;
+			z-index: 2;
+		}
+	}
+}
+
+@include breakpoint(medium) {
+	.content-heading-image h1 {
+		width: auto;
+		padding: 50px;
+	}
+}

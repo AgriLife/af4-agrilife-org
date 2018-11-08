@@ -32,7 +32,7 @@ $small-vertical-spacing: 20px;
 			display: block;
 			width: calc(100% - 18px);
 			height: 90px;
-			border-right: 1px solid #B4D333;
+			border-right: 1px solid $light-green;
 		}
 
 		.heading-2 {
@@ -164,7 +164,7 @@ $small-vertical-spacing: 20px;
 			display: block;
 			width: 40px;
 			height: 40px;
-			border: 2px solid #B4D333;
+			border: 2px solid $light-green;
 			border-width: 0 0 2px 2px;
 			background: #FFF;
 			transform: rotate(-45deg) translateX(-50%);

@@ -1,5 +1,7 @@
 .director {
 	color: #FFF;
+	margin-top: 50px;
+	margin-bottom: 32px;
 
 	.layout-container {
 		position: relative;
@@ -88,12 +90,24 @@
 	}
 
 	@include breakpoint(medium){
+		overflow: hidden;
+		padding-bottom: 20px;
+
+		&:after {
+			bottom: 5px;
+		}
+
 		.layout-container {
 			@include xy-grid-container($break-xlarge, 0);
 			@include xy-grid;
+			@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
 			align-items: end;
 			justify-content: end;
-			overflow: hidden;
+			z-index: 2;
+
+			&:after {
+				bottom: 10px;
+			}
 		}
 
 		.text-column,
@@ -171,6 +185,10 @@
 	}
 
 	@media screen and (min-width: $break-medium) and (max-width: 850px){
+		.layout-container:after {
+			bottom: 5px;
+		}
+
 		.quote {
 			padding-right: 0;
 			line-height: 1.1rem;
@@ -192,6 +210,13 @@
 	}
 
 	@media screen and (min-width: $break-medium) and (max-width: 700px){
+		padding-bottom: 26px;
+		margin-bottom: 15px;
+
+		.layout-container:after {
+			bottom: 0px;
+		}
+
 		.text-column {
 			margin-bottom: 3px;
 		}
