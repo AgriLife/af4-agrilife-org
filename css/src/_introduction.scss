@@ -13,7 +13,8 @@ $intro-has-arrow: true !default;
 
 	@include breakpoint(medium){
 		@include xy-grid-container($break-medium + 50px, 0);
-		padding: 50px 25px;
+		// padding-top: 50px + arrow height + paragraph spacing;
+		padding: (rem-calc(50px + 20px) + $paragraph-margin-bottom) 25px rem-calc(50px);
 		text-align: center;
 	}
 

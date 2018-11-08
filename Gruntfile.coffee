@@ -16,6 +16,7 @@ module.exports = (grunt) ->
         files:
           'css/agrilife.css': 'css/agrilife.css'
           'css/agrilife-home.css': 'css/agrilife-home.css'
+          'css/agrilife-research.css': 'css/agrilife-research.css'
           'css/agrilife-extension.css': 'css/agrilife-extension.css'
       dev:
         options:
@@ -27,6 +28,7 @@ module.exports = (grunt) ->
         files:
           'css/agrilife.css': 'css/agrilife.css'
           'css/agrilife-home.css': 'css/agrilife-home.css'
+          'css/agrilife-research.css': 'css/agrilife-research.css'
           'css/agrilife-extension.css': 'css/agrilife-extension.css'
     sass:
       pkg:
@@ -38,6 +40,7 @@ module.exports = (grunt) ->
         files:
           'css/agrilife.css': 'css/src/agrilife.scss'
           'css/agrilife-home.css': 'css/src/agrilife-home.scss'
+          'css/agrilife-research.css': 'css/src/agrilife-research.scss'
           'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
       dev:
         options:
@@ -48,6 +51,7 @@ module.exports = (grunt) ->
         files:
           'css/agrilife.css': 'css/src/agrilife.scss'
           'css/agrilife-home.css': 'css/src/agrilife-home.scss'
+          'css/agrilife-research.css': 'css/src/agrilife-research.scss'
           'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
     sasslint:
       options:

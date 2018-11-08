@@ -30,6 +30,11 @@ class Assets {
     public function register_styles() {
 
         wp_register_style(
+            'agrilife-googlefonts',
+            'https://fonts.googleapis.com/css?family=Oswald'
+        );
+
+        wp_register_style(
             'agrilife-styles',
             ALAF4_DIR_URL . 'css/agrilife.css',
             array(),
@@ -53,6 +58,14 @@ class Assets {
             'screen'
         );
 
+        wp_register_style(
+            'agrilife-research-styles',
+            ALAF4_DIR_URL . 'css/agrilife-research.css',
+            array(),
+            filemtime(ALAF4_DIR_PATH . 'css/agrilife-research.css'),
+            'screen'
+        );
+
     }
 
     /**
@@ -63,6 +76,8 @@ class Assets {
      */
     public function enqueue_styles() {
 
+        wp_enqueue_style( 'agrilife-googlefonts' );
+
         wp_enqueue_style( 'agrilife-styles' );
 
         if( is_page_template('home.php') ){
@@ -71,6 +86,10 @@ class Assets {
 
         if( is_page_template('extension.php') ){
             wp_enqueue_style( 'agrilife-extension-styles' );
+        }
+
+        if( is_page_template('research.php') ){
+            wp_enqueue_style( 'agrilife-research-styles' );
         }
 
     }

@@ -5,9 +5,6 @@
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
-add_action( 'wp_head', function(){
-	?><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"><?php
-});
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
@@ -27,7 +24,7 @@ add_action('genesis_entry_content', function(){
 			<div class="flowchart-row bottom"><div class="ext item"><p><span>Livestock and Crop protection</span></p></div><div class="res item"><p><span>Drought mitigation and water conservation</span></p></div><div class="college item"><p><span>Increasing food security practices</span></p></div><div class="tvmdl item"><p><span>Health and wellness education</span></p></div><div class="tfs item"><p><span>Youth Development</span></p></div></div>
 		</div>
 	</div>
-	<div class="buttons"><a class="button">AGRILIFEEXTENSION.TAMU.EDU</a></div>
+	<div class="buttons"><a class="button" href="https://agrilifeextension.tamu.edu/">AGRILIFEEXTENSION.TAMU.EDU</a></div>
 	<div class="exceptional-items">
 		<div class="layout-container">
 			<h2>Exceptional Items</h2>
@@ -38,7 +35,7 @@ add_action('genesis_entry_content', function(){
 		<div class="layout-container"><div class="text-column"><div class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies vestibulum ornare. Morbi eget consequat augue. Pellentesque lacinia eget nibh ut dapibus. Mauris metus dui, pulvinar nec nibh id, suscipit aliquam dolor. </div><div class="creds">Dr. Parr Rosson, Interim Director
 <p>Morbi eget consequat augue pellentesque<br>
 Mauris metus dui, pulvinar nec nibh id suscipit<br>
-Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/extension-interim-director-parr-rosson.jpg" alt="Mosquito"></div></div>
+Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/extension-director.jpg" alt="Mosquito"></div></div>
 	</div>
 	<?php
 });

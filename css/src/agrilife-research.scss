@@ -1,14 +1,22 @@
 @charset 'utf-8';
-$flowchart-underline-style: 2;
-$flowchart-brackets: true;
-
 @import 'foundation';
 @import 'settings';
 @import 'mixins';
+
 @import 'template-layout';
+
+$heading-arrow-bg-color: $green;
 @import 'content-heading-image';
+
 @import 'introduction';
+
+$flowchart-bracket-color: $light-green;
+$flowchart-underline-style: 2;
+$flowchart-brackets: true;
 @import 'flowchart';
+
 @import 'buttons-callout';
+
 @import 'exceptional-items';
+
 @import 'director';
