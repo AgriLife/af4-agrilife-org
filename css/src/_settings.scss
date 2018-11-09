@@ -75,6 +75,16 @@ $titlebar-text-font-weight: normal;
 /* Content
 --------------------------------------------- */
 $small-side-spacing: 9%;
+$blockquote-border: 2px dashed $light-blue;
+$blockquote-color: darken($light-blue, 20%);
+$blockquote-padding: rem-calc(9 20 9 19);
+$cite-font-size: 0.9rem;
+$cite-color: darken($light-blue, 20%);
+$button-radius: 2rem;
+$button-background: $light-blue;
+$hr-border: $blockquote-border;
+$table-border-color: $light-blue;
+$table-border: 1px solid $table-border-color;
 
 /* Footer
 --------------------------------------------- */
