@@ -136,10 +136,22 @@ $admin: false !default;
 }
 
 .wp-block-separator {
-	border-bottom-color: $hr-border-color;
-	border-bottom-style: dashed;
+	&:not(.is-style-dots) {
+		border-bottom-color: $hr-border-color;
+		border-bottom-style: dashed;
+	}
 
 	&.is-style-dots:before {
 		color: $hr-border-color;
 	}
+}
+
+.alignleft {
+	float: left;
+	margin: 0 $global-margin $global-margin 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 $global-margin $global-margin;
 }
