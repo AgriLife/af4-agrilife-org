@@ -1,0 +1,15 @@
+@charset 'utf-8';
+
+$admin: true;
+
+@import 'foundation';
+@import 'settings';
+@import 'mixins';
+
+@import 'wordpress';
+
+.wp-admin {
+	.editor-styles-wrapper {
+		font-family: $body-font-family;
+	}
+}

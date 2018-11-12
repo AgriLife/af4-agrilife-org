@@ -1,3 +1,5 @@
+$admin: false !default;
+
 // Buttons
 .wp-block-button .wp-block-button__link,
 .wp-block-file .wp-block-file__button {
@@ -33,33 +35,40 @@
 }
 
 .wp-block-button:not(.aligncenter){
-	display: inline-block;
-	vertical-align: top;
-	margin-right: $global-margin;
+	@if($admin == false){
+		display: inline-block;
+		vertical-align: top;
+		margin-right: $global-margin;
+	}
 }
 
 // Other blocks
-.wp-block-pullquote cite {
-	text-transform: uppercase;
-}
-
 .wp-block-quote {
-	width: 40%;
-	min-width: 250px;
-	clear: both;
-	float: left;
+	@if($admin == false){
+		box-sizing: border-box;
+		width: calc(40% - #{rem-calc(24)});
+		margin-right: rem-calc(24);
+		min-width: 250px;
+		clear: both;
+		float: left;
 
-	&[style*="text-align:right"] {
-		float: right;
-		border: {
-			left: none;
-			right: $blockquote-border;
+		&[style*="text-align:right"] {
+			float: right;
+			margin-right: 0;
+			margin-left: rem-calc(24);
+		}
+	} @else {
+		&:not(.is-large):not(.is-style-large) {
+			border-left: none;
 		}
 	}
 
 	&.is-style-large,
 	&.is-large {
-		width: 60%;
+		@if($admin == false){
+			width: calc(60% - #{rem-calc(24)});
+			margin-right: rem-calc(24);
+		}
 		padding: rem-calc(8 24);
 
 		p {
@@ -70,18 +79,26 @@
 	p {
 		line-height: 1.4;
 	}
+
+	@include brackets;
 }
 
 .wp-block-pullquote {
+	@include brackets($axis: y);
 	clear: both;
+	margin-bottom: $global-margin;
+	padding: rem-calc(24);
+
+	&, blockquote {
+		border: none;
+	}
+
 	blockquote {
-		border: {
-			left: none;
-			top: $blockquote-border;
-			bottom: $blockquote-border;
-		}
-		margin-bottom: 0;
-		padding-bottom: rem-calc(14);
+		margin: 0;
+	}
+
+	cite {
+		text-transform: uppercase;
 	}
 }
 
@@ -105,13 +122,24 @@
 }
 
 .wp-block-table {
-
 	&.is-style-stripes {
-		border-bottom: $table-border;
+		border: $table-border;
 
 		tr:nth-child(2n+1) {
 			background-color: lighten($table-border-color, 42%);
 		}
 	}
 
+	td, th {
+		border-color: $table-border-color;
+	}
+}
+
+.wp-block-separator {
+	border-bottom-color: $hr-border-color;
+	border-bottom-style: dashed;
+
+	&.is-style-dots:before {
+		color: $hr-border-color;
+	}
 }

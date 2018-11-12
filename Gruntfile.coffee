@@ -14,6 +14,7 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
+          'css/admin.css': 'css/admin.css'
           'css/agrilife.css': 'css/agrilife.css'
           'css/agrilife-home.css': 'css/agrilife-home.css'
           'css/agrilife-research.css': 'css/agrilife-research.css'
@@ -26,6 +27,7 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
+          'css/admin.css': 'css/admin.css'
           'css/agrilife.css': 'css/agrilife.css'
           'css/agrilife-home.css': 'css/agrilife-home.css'
           'css/agrilife-research.css': 'css/agrilife-research.css'
@@ -38,6 +40,7 @@ module.exports = (grunt) ->
           style: 'compressed'
           precision: 2
         files:
+          'css/admin.css': 'css/src/admin.scss'
           'css/agrilife.css': 'css/src/agrilife.scss'
           'css/agrilife-home.css': 'css/src/agrilife-home.scss'
           'css/agrilife-research.css': 'css/src/agrilife-research.scss'
@@ -49,6 +52,7 @@ module.exports = (grunt) ->
           precision: 2
           trace: true
         files:
+          'css/admin.css': 'css/src/admin.scss'
           'css/agrilife.css': 'css/src/agrilife.scss'
           'css/agrilife-home.css': 'css/src/agrilife-home.scss'
           'css/agrilife-research.css': 'css/src/agrilife-research.scss'

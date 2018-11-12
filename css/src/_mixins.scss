@@ -23,3 +23,48 @@
 		z-index: $z-index;
 	}
 }
+
+@mixin brackets ($color: $light-blue, $border-width: 2px, $width: 10px, $axis: x){
+	position: relative;
+	padding: $width $width * 2;
+
+	&:before,
+	&:after {
+		flex: 0 0 auto;
+		content: "";
+		display: block;
+		position: absolute;
+		border-color: $color;
+		border-style: solid;
+
+		@if($axis == x){
+			top: 0;
+			height: 100%;
+			width: $width;
+		} @else {
+			left: 0;
+			height: $width;
+			width: 100%;
+		}
+	}
+
+	&:before {
+		@if($axis == x){
+			left: 0;
+			border-width: $border-width 0 $border-width $border-width;
+		} @else {
+			top: 0;
+			border-width: $border-width $border-width 0 $border-width;
+		}
+	}
+
+	&:after {
+		@if($axis == x){
+			right: 0;
+			border-width: $border-width $border-width $border-width 0;
+		} @else {
+			bottom: 0;
+			border-width: 0 $border-width $border-width $border-width;
+		}
+	}
+}
