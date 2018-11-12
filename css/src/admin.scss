@@ -6,9 +6,10 @@ $admin: true;
 @import 'settings';
 @import 'mixins';
 
-@import 'wordpress';
+.gutenberg {
+	@import 'wordpress';
+	@include foundation-typography;
 
-.wp-admin {
 	.editor-styles-wrapper {
 		font-family: $body-font-family;
 	}
