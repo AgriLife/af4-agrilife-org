@@ -17,7 +17,7 @@ $admin: false !default;
 }
 
 .wp-block-button {
-	margin-bottom: $global-margin;
+	margin-bottom: $paragraph-margin-bottom;;
 
 	.wp-block-button__link {
 		margin: 0;
@@ -38,24 +38,60 @@ $admin: false !default;
 	@if($admin == false){
 		display: inline-block;
 		vertical-align: top;
-		margin-right: $global-margin;
+		margin-right: $flow-margin-x;
 	}
 }
 
 // Other blocks
+.wp-block-cover,
+.wp-block-image {
+	margin-bottom: $paragraph-margin-bottom;
+}
+
+// Quotes
+.wp-block-quote,
+.wp-block-pullquote {
+	@if($admin == false){
+		min-width: 350px;
+		margin-right: $flow-margin-x;
+		float: left;
+
+		&.alignright {
+			margin-right: 0;
+			margin-left: $flow-margin-x;
+			float: right;
+		}
+
+		&.alignleft,
+		&.alignright {
+			width: calc(40% - #{$flow-margin-x});
+		}
+
+		&:not(.alignleft,.alignright){
+
+		}
+
+		&:not(.is-large,.is-style-large){
+
+		}
+
+		&.is-large,
+		&.is-style-large {
+			width: calc(60% - #{$flow-margin-x});
+		}
+	}
+}
+
 .wp-block-quote {
 	@if($admin == false){
+		width: calc(40% - #{$flow-margin-x});
 		box-sizing: border-box;
-		width: calc(40% - #{rem-calc(24)});
-		margin-right: rem-calc(24);
-		min-width: 250px;
 		clear: both;
-		float: left;
 
 		&[style*="text-align:right"] {
 			float: right;
 			margin-right: 0;
-			margin-left: rem-calc(24);
+			margin-left: $flow-margin-x;
 		}
 	} @else {
 		&:not(.is-large):not(.is-style-large) {
@@ -65,11 +101,8 @@ $admin: false !default;
 
 	&.is-style-large,
 	&.is-large {
-		@if($admin == false){
-			width: calc(60% - #{rem-calc(24)});
-			margin-right: rem-calc(24);
-		}
-		padding: rem-calc(8 24);
+		@if($admin == false){}
+		padding: rem-calc(8) $flow-margin-x;
 
 		p {
 			line-height: 1.4;
@@ -86,8 +119,18 @@ $admin: false !default;
 .wp-block-pullquote {
 	@include brackets($axis: y);
 	clear: both;
-	margin-bottom: $global-margin;
-	padding: rem-calc(24);
+	margin-bottom: $paragraph-margin-bottom;
+	padding: $flow-margin-x;
+
+	&.alignleft,
+	&.alignright {
+		max-width: 1000%;
+	}
+
+	&:not(.alignleft,.alignright){
+		width: 100%;
+		max-width: 100%;
+	}
 
 	&, blockquote {
 		border: none;
@@ -149,12 +192,12 @@ $admin: false !default;
 // Alignment
 .alignleft {
 	float: left;
-	margin: 0 $global-margin $global-margin 0;
+	margin: 0 $flow-margin-x $paragraph-margin-bottom 0;
 }
 
 .alignright {
 	float: right;
-	margin: 0 0 $global-margin $global-margin;
+	margin: 0 0 $paragraph-margin-bottom $flow-margin-x;
 }
 
 @media only screen and (min-width: 768px) {
