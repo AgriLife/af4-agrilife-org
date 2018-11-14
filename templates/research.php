@@ -12,7 +12,7 @@ add_action('genesis_entry_content', function(){
 		<h1>Research</h1>
 	</div>
 	<div class="introduction layout-container"><p>Texas A&M AgriLife Research is the leading research and technology development agency in Texas. We conduct more than 500 agriculture, natural resources, and the life sciences projects each year supported with more than $206.9 million in research funding in 2016. We have a statewide presence and collaborate with scientists and research staff on other Texas A&M University System campuses and at the 13 regional Texas A&M AgriLife Research and research Centers. Our scientists span many disciplines uniting with other centers and entities improve in the following fields:</p></div>
-	<div class="flowchart">
+	<div class="flowchart brackets">
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="al item">

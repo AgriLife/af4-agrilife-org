@@ -1,5 +1,11 @@
 .buttons {
-	@include arrow($light-green, $gray-light-medium, 1);
+	@include arrow-base($z-index: 1);
+	@each $key, $value in $template-atts {
+		.page-template-#{$key} & {
+			@include arrow-color(map-get($value, color), $gray-light-medium);
+		}
+	}
+
 	background-color: $gray-light-medium;
 	margin-top: 0;
 	padding: 75px 0;

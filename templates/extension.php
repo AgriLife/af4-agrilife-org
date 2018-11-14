@@ -14,7 +14,7 @@ add_action('genesis_entry_content', function(){
 	<div class="introduction layout-container"><p>The Texas A&M AgriLife Extension Service is an statewide education agency made up of professional educators, trained volunteers, and county offices. We address critical needs in every Texas county through Extension county offices. AgriLife Extension enables Texans to better their lives through various educational programs, activities and resources.</p>
 		<p>All of our programs provide objective, practical and science-based information in conjunction with Texas A&M University’s College of Agriculture & Life Sciences.</p>
 		<p>Some of our major efforts are:</p></div>
-	<div class="flowchart">
+	<div class="flowchart brackets">
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="al item">

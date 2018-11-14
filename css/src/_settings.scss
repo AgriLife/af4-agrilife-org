@@ -29,7 +29,31 @@ $light-blue-alt: #1DAFED;
 $green: #337845;
 $light-green: #B4D234;
 $purple: #5D0025;
+$beige: #FDE1B4;
 $primary-color: $maroon;
+
+$template-atts: (
+	research: (
+		color: $light-green,
+		header-arrow-bg-color: $green
+	),
+	coals: (
+		color: $maroon,
+		header-arrow-bg-color: $maroon-alt
+	),
+	tvmdl: (
+		color: $beige,
+		header-arrow-bg-color: $beige
+	),
+	forestry: (
+		color: $light-green,
+		header-arrow-bg-color: $green
+	),
+	extension: (
+		color: $light-blue,
+		header-arrow-bg-color: $dark-blue
+	)
+);
 
 /* Fonts
 --------------------------------------------- */

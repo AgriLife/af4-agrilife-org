@@ -1,9 +1,13 @@
 $heading-arrow-bg-color: $dark-blue !default;
 
 .content-heading-image {
-	@include arrow($border-color: $light-green, $bg-color: $heading-arrow-bg-color, $z-index: 1);
+	@include arrow-base($z-index: 1);
+	@each $key, $value in $template-atts {
+		.page-template-#{$key} & {
+			@include arrow-color(map-get($value, color), map-get($value, header-arrow-bg-color));
+		}
+	}
 	background-color: $dark-blue;
-	max-height: 550px;
 	position: relative;
 
 	.background {
@@ -27,6 +31,10 @@ $heading-arrow-bg-color: $dark-blue !default;
 		padding: rem-calc(25 40);
 		width: auto;
 		z-index: 2;
+	}
+
+	@include breakpoint(small only){
+		max-height: 550px;
 	}
 
 	@include breakpoint(medium) {
