@@ -51,7 +51,7 @@ class Assets {
 
         wp_register_style(
             'agrilife-googlefonts',
-            'https://fonts.googleapis.com/css?family=Oswald'
+            'https://fonts.googleapis.com/css?family=Oswald|Monoton'
         );
 
         wp_register_style(

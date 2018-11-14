@@ -23,15 +23,18 @@ $gray-lighter: #D6D6D6;
 $gray-lightest: #F7F7F9;
 $maroon-alt: #4B1111;
 $maroon: #500000;
-$dark-blue: #02233b;
+$dark-blue: #02233B;
 $light-blue: #27A9E1;
+$light-blue-alt: #1DAFED;
 $green: #337845;
-$light-green: #B4D333;
+$light-green: #B4D234;
+$purple: #5D0025;
 $primary-color: $maroon;
 
 /* Fonts
 --------------------------------------------- */
 $header-font-family: 'Tungsten A', 'Tungsten B', 'Oswald', sans-serif;
+$template-header-font-family: 'Monoton', cursive;
 $header-color-alt: lighten( $maroon, 12% );
 
 /* Global

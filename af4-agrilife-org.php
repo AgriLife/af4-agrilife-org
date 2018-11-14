@@ -71,6 +71,15 @@ class Agrilife {
 		$research = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'research.php', 'Research' );
 		$research->register();
 
+		$coals = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'coals.php', 'Agriculture & Life Sciences' );
+		$coals->register();
+
+		$tvmdl = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'tvmdl.php', 'TVMDL' );
+		$tvmdl->register();
+
+		$forest = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'forest.php', 'Forest Service' );
+		$forest->register();
+
 		$comm = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'communications.php', 'Communications' );
 		$comm->register();
 

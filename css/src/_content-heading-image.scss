@@ -2,32 +2,43 @@ $heading-arrow-bg-color: $dark-blue !default;
 
 .content-heading-image {
 	@include arrow($border-color: $light-green, $bg-color: $heading-arrow-bg-color, $z-index: 1);
-	position: relative;
 	background-color: $dark-blue;
 	max-height: 550px;
-	overflow: hidden;
+	position: relative;
 
 	.background {
 		position: relative;
-		z-index: 2;
 		width: 100%;
+		z-index: 2;
 	}
 
 	h1 {
 		@include xy-center;
-		z-index: 2;
-		display: inline-block;
 		background: transparent url("../images/extension-header-title-background.png") no-repeat;
 		background-size: cover;
-		padding: 25px 40px;
-		width: 85%;
-		line-height: 1rem;
+		color: $light-green;
+		display: inline-block;
+		font: {
+			size: 3.2rem;
+			family: $template-header-font-family;
+		}
+		line-height: .9;
+		margin: 0;
+		padding: rem-calc(25 40);
+		width: auto;
+		z-index: 2;
 	}
 
 	@include breakpoint(medium) {
 		h1 {
-			width: auto;
-			padding: 50px;
+			padding: rem-calc(30 54 28);
+		}
+	}
+
+	@media screen and (max-width: 450px) {
+		h1 {
+			font-size: 2.75rem;
+			padding: rem-calc(20 30);
 		}
 	}
 }
