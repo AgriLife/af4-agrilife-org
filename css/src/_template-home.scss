@@ -22,6 +22,7 @@ $small-vertical-spacing: 20px;
 
 	h1 {
 		padding-top: 36px;
+		color: #FFF;
 
 		.heading-1 {
 			background: $dark-blue url("../images/leaders-in.png") no-repeat center center;
@@ -115,10 +116,11 @@ $small-vertical-spacing: 20px;
 		}
 
 		h2 {
+			color: #FFF;
 			font-size: 1.45em;
 			line-height: 23px;
-			text-transform: uppercase;
 			margin: 0;
+			text-transform: uppercase;
 			word-wrap: break-word;
 		}
 
@@ -127,50 +129,56 @@ $small-vertical-spacing: 20px;
 		}
 
 		.button {
-			font-family: $header-font-family;
-			font-size: 1.45rem;
-			text-transform: uppercase;
-			width: 100%;
-			background-color: #1DAFED;
+			background-color: $light-blue-alt;
 			box-sizing: border-box;
 			border: none;
+			font: {
+				family: $header-font-family;
+				size: 1.45rem;
+			}
 			padding: 4px;
+			text-transform: uppercase;
+			width: 100%;
 		}
 	}
 
 	@include breakpoint(small only) {
 		$featured-item-height: 404px;
 
-		padding-top: $featured-item-height + $small-vertical-spacing * 2;
-		padding-bottom: $small-vertical-spacing;
-		margin-left: $small-side-spacing;
-		margin-right: $small-side-spacing;
+		margin: {
+			left: $small-side-spacing;
+			right: $small-side-spacing;
+		}
+		padding: {
+			top: $featured-item-height + $small-vertical-spacing * 2;
+			bottom: $small-vertical-spacing;
+		}
 		position: relative;
 
 		&:before {
+			background: #FFF;
+			bottom: 0;
 			content: "";
 			display: block;
-			position: absolute;
 			left: -15%;
-			top: $featured-item-height + $small-vertical-spacing;
+			position: absolute;
 			right: -15%;
-			bottom: 0;
-			background: #FFF;
+			top: $featured-item-height + $small-vertical-spacing;
 			z-index: 1;
 		}
 
 		&:after {
-			content: "";
-			display: block;
-			width: 40px;
-			height: 40px;
+			background: #FFF;
 			border: 2px solid $light-green;
 			border-width: 0 0 2px 2px;
-			background: #FFF;
-			transform: rotate(-45deg) translateX(-50%);
-			position: absolute;
 			bottom: 0;
+			content: "";
+			display: block;
+			height: 40px;
 			left: calc(50% - 2px);
+			position: absolute;
+			transform: rotate(-45deg) translateX(-50%);
+			width: 40px;
 			z-index: 2;
 		}
 
@@ -181,22 +189,26 @@ $small-vertical-spacing: 20px;
 			z-index: 2;
 
 			&.featured {
+				background: transparent;
+				margin: {
+					top: 0;
+					bottom: 0;
+				}
+				max-width: 100%;
 				position: absolute;
 				top: 0;
-				margin-top: 0;
-				margin-bottom: 0;
-				max-width: 100%;
 				width: 100%;
-				background: transparent;
 
 				.wrap {
-					background: $maroon-alt;
-					padding-top: 354px;
-					background-repeat: no-repeat;
-					background-size: 500px 354px;
-					background-position: center top;
-					max-width: 500px;
+					background: {
+						color: $maroon-alt;
+						repeat: no-repeat;
+						size: 500px 354px;
+						position: center top;
+					}
 					margin: 0 auto;
+					max-width: 500px;
+					padding-top: 354px;
 				}
 
 				img {
@@ -231,18 +243,20 @@ $small-vertical-spacing: 20px;
 				position: relative;
 
 				.wrap {
-					background-image: none!important;
-					background-color: $maroon-alt;
+					background: {
+						image: none!important;
+						color: $maroon-alt;
+					}
+					position: absolute;
 					top: 50%;
 					transform: translateY(-50%);
-					position: absolute;
 				}
 			}
 
 			&.item-1,
 			&.item-5 {
-				display: flex;
 				align-items: center;
+				display: flex;
 				justify-content: center;
 			}
 
@@ -255,34 +269,36 @@ $small-vertical-spacing: 20px;
 			}
 
 			.description {
-				padding: 0 $side-item-padding $top-item-padding;
-				margin-top: -($top-item-padding / 2);
 				font-size: 13px;
 				line-height: 15px;
+				margin-top: -($top-item-padding / 2);
+				padding: 0 $side-item-padding $top-item-padding;
 
 				&#mc_embed_signup {
-					padding-left: 16px;
-					padding-right: 16px;
+					padding: {
+						left: 16px;
+						right: 16px;
+					}
 				}
 
 				&.has-line::before {
+					background: $light-green;
 					content: "";
 					display: block;
+					height: 2px;
 					margin: 0 auto ($top-item-padding / 2);
 					width: 20px;
-					height: 2px;
-					background: #B5D334;
 				}
 
 				ul {
+					list-style-position: outside;
 					margin: 0;
 					padding: 0;
-					list-style-position: outside;
 
 					li {
 						list-style-type: none;
-						margin-top: 10px;
 						line-height: 15px;
+						margin-top: 10px;
 
 						&:first-child {
 							margin-top: 0;
