@@ -6,7 +6,7 @@ $flowchart-bracket-width: 10px !default;
 $flowchart-small-vertical-spacing: 20px !default;
 
 .flowchart {
-	@include arrow-base;
+	@include arrow;
 	@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	background-color: $dark-blue;
 	color: #FFF;
@@ -16,44 +16,13 @@ $flowchart-small-vertical-spacing: 20px !default;
 			text-align: center;
 
 			p {
+				@include brackets($padding: rem-calc($flowchart-bracket-width, $flowchart-bracket-width + 6));
+				@include template-brackets;
 				display: flex;
 				flex-flow: row wrap;
 				align-items: center;
 				justify-content: center;
-				position: relative;
 				margin: 0 auto;
-				padding: $flowchart-bracket-width calc(#{$flowchart-bracket-width} + 3%);
-
-				&:before,
-				&:after {
-					flex: 0 0 auto;
-					content: "";
-					display: block;
-					position: absolute;
-					top: 0;
-					height: 100%;
-					width: $flowchart-bracket-width;
-					border-color: $flowchart-bracket-color;
-					border-style: solid;
-					border-width: 2px 0;
-				}
-
-				&:before {
-					left: 0;
-					border-left-width: 2px;
-				}
-
-				&:after {
-					right: 0;
-					border-right-width: 2px;
-				}
-
-				@each $key, $value in $template-atts {
-					.page-template-#{$key} &:before,
-					.page-template-#{$key} &:after {
-						border-color: map-get($value, color);
-					}
-				}
 
 				span {
 					flex: 0 0 100%;
@@ -142,50 +111,11 @@ $flowchart-small-vertical-spacing: 20px !default;
 				line-height: 1.2;
 				margin-bottom: 0;
 
-				&:before,
-				&:after {
-					flex: 0 0 auto;
-					content: "";
-					display: block;
-					position: absolute;
-					top: 0;
-					height: 100%;
-					width: $flowchart-bracket-width;
-					border-color: $flowchart-bracket-color;
-					border-style: solid;
-					border-width: 2px 0;
-				}
-
-				&:before {
-					left: 0;
-					border-left-width: 2px;
-				}
-
-				&:after {
-					right: 0;
-					border-right-width: 2px;
-				}
-
 				span {
 					flex: 0 0 100%;
 					display: inline-block;
 				}
 			}
-		}
-
-		&:after {
-			content: "";
-			display: block;
-			width: 40px;
-			height: 40px;
-			border: 2px solid $light-green;
-			border-width: 0 0 2px 2px;
-			background: $dark-blue;
-			transform: rotate(-45deg) translateX(-50%);
-			position: absolute;
-			bottom: 0;
-			left: calc(50% - 2px);
-			z-index: 2;
 		}
 	}
 
