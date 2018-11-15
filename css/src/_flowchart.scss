@@ -3,6 +3,9 @@ $flowchart-bracket-width: 10px !default;
 $flowchart-small-vertical-spacing: 20px !default;
 
 .flowchart {
+	&:not(.no-arrow) {
+		@include arrow($bg-color: $dark-blue);
+	}
 	@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	background-color: $dark-blue;
 	color: #FFF;
@@ -13,7 +16,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 			p {
 				@include brackets($padding: rem-calc($flowchart-bracket-width, $flowchart-bracket-width + 6));
-				@include template-brackets;
+				@include template-brackets($color: color, $pref-color-key: contrast-color);
 				display: flex;
 				flex-flow: row wrap;
 				align-items: center;
@@ -180,6 +183,19 @@ $flowchart-small-vertical-spacing: 20px !default;
 						border-width: 0 1px 0 0;
 						z-index: 1;
 					}
+
+					&.h5 {
+						color: #FFF;
+						text-transform: uppercase;
+					}
+				}
+
+				&.count-3 {
+					.item {
+						&.h5 {
+							width: 40%;
+						}
+					}
 				}
 			}
 
@@ -206,31 +222,58 @@ $flowchart-small-vertical-spacing: 20px !default;
 			}
 		}
 
-		&.brackets .flowchart-row.bottom {
-			display: flex;
-			flex-wrap: nowrap;
+		&.brackets .flowchart-row {
 
-			.item {
-				&:nth-child(1){
-					width: 19.25%;
+			&.top {
+				&.count-3 {
+					&:before {
+						display: none;
+					}
+
+					&:after {
+						left: 22%;
+						right: 22%;
+					}
 				}
-				&:nth-child(2){
-					width: 21.25%;
-				}
-				&:nth-child(3){
-					width: 19%;
-				}
-				&:nth-child(4){
-					width: 21.25%;
-				}
-				&:nth-child(5){
-					width: 19.25%;
+			}
+
+			&.bottom {
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: center;
+
+				.item {
+					&:nth-child(1){
+						width: 19.25%;
+					}
+					&:nth-child(2){
+						width: 21.25%;
+					}
+					&:nth-child(3){
+						width: 19%;
+					}
+					&:nth-child(4){
+						width: 21.25%;
+					}
+					&:nth-child(5){
+						width: 19.25%;
+					}
+
+					p {
+						font-size: 0.9rem;
+						line-height: 1.2;
+						height: 100%;
+					}
 				}
 
-				p {
-					font-size: 0.9rem;
-					line-height: 1.2;
-					height: 100%;
+				&.count-3 {
+					.item {
+						width: 28%;
+						padding: {
+							left: 4.5rem;
+							right: 4.5rem;
+						}
+					}
 				}
 			}
 		}
