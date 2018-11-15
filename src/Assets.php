@@ -64,25 +64,25 @@ class Assets {
 
         wp_register_style(
             'agrilife-home-styles',
-            ALAF4_DIR_URL . 'css/agrilife-home.css',
+            ALAF4_DIR_URL . 'css/home.css',
             array(),
-            filemtime(ALAF4_DIR_PATH . 'css/agrilife-home.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/home.css'),
             'screen'
         );
 
         wp_register_style(
             'agrilife-extension-styles',
-            ALAF4_DIR_URL . 'css/agrilife-extension.css',
+            ALAF4_DIR_URL . 'css/extension.css',
             array(),
-            filemtime(ALAF4_DIR_PATH . 'css/agrilife-extension.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/extension.css'),
             'screen'
         );
 
         wp_register_style(
             'agrilife-research-styles',
-            ALAF4_DIR_URL . 'css/agrilife-research.css',
+            ALAF4_DIR_URL . 'css/research.css',
             array(),
-            filemtime(ALAF4_DIR_PATH . 'css/agrilife-research.css'),
+            filemtime(ALAF4_DIR_PATH . 'css/research.css'),
             'screen'
         );
 
@@ -102,14 +102,6 @@ class Assets {
 
         if( is_page_template('home.php') ){
             wp_enqueue_style( 'agrilife-home-styles' );
-        }
-
-        if( is_page_template('extension.php') ){
-            wp_enqueue_style( 'agrilife-extension-styles' );
-        }
-
-        if( is_page_template('research.php') ){
-            wp_enqueue_style( 'agrilife-research-styles' );
         }
 
     }

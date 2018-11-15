@@ -1,10 +1,6 @@
 @charset 'utf-8';
-$flowchart-has-arrow: false;
 
 @import 'foundation';
 @import 'settings';
 @import 'mixins';
-@import 'template-layout';
 @import 'template-home';
-@import 'flowchart';
-@import 'director';

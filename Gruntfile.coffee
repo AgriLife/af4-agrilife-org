@@ -14,11 +14,14 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/admin.css': 'css/admin.css'
-          'css/agrilife.css': 'css/agrilife.css'
-          'css/agrilife-home.css': 'css/agrilife-home.css'
-          'css/agrilife-research.css': 'css/agrilife-research.css'
-          'css/agrilife-extension.css': 'css/agrilife-extension.css'
+          'css/admin.css':     'css/admin.css'
+          'css/agrilife.css':  'css/agrilife.css'
+          'css/home.css':      'css/home.css'
+          'css/coals.css':     'css/coals.css'
+          'css/tvmdl.css':     'css/tvmdl.css'
+          'css/forest.css':    'css/forest.css'
+          'css/research.css':  'css/research.css'
+          'css/extension.css': 'css/extension.css'
       dev:
         options:
           map: true
@@ -27,11 +30,14 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/admin.css': 'css/admin.css'
-          'css/agrilife.css': 'css/agrilife.css'
-          'css/agrilife-home.css': 'css/agrilife-home.css'
-          'css/agrilife-research.css': 'css/agrilife-research.css'
-          'css/agrilife-extension.css': 'css/agrilife-extension.css'
+          'css/admin.css':     'css/admin.css'
+          'css/agrilife.css':  'css/agrilife.css'
+          'css/home.css':      'css/home.css'
+          'css/coals.css':     'css/coals.css'
+          'css/tvmdl.css':     'css/tvmdl.css'
+          'css/forest.css':    'css/forest.css'
+          'css/research.css':  'css/research.css'
+          'css/extension.css': 'css/extension.css'
     sass:
       pkg:
         options:
@@ -40,11 +46,14 @@ module.exports = (grunt) ->
           style: 'compressed'
           precision: 2
         files:
-          'css/admin.css': 'css/src/admin.scss'
-          'css/agrilife.css': 'css/src/agrilife.scss'
-          'css/agrilife-home.css': 'css/src/agrilife-home.scss'
-          'css/agrilife-research.css': 'css/src/agrilife-research.scss'
-          'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
+          'css/admin.css':     'css/src/admin.scss'
+          'css/agrilife.css':  'css/src/agrilife.scss'
+          'css/home.css':      'css/src/home.scss'
+          'css/coals.css':     'css/src/coals.scss'
+          'css/tvmdl.css':     'css/src/tvmdl.scss'
+          'css/forest.css':    'css/src/forest.scss'
+          'css/research.css':  'css/src/research.scss'
+          'css/extension.css': 'css/src/extension.scss'
       dev:
         options:
           loadPath: 'node_modules/foundation-sites/scss'
@@ -52,11 +61,14 @@ module.exports = (grunt) ->
           precision: 2
           trace: true
         files:
-          'css/admin.css': 'css/src/admin.scss'
-          'css/agrilife.css': 'css/src/agrilife.scss'
-          'css/agrilife-home.css': 'css/src/agrilife-home.scss'
-          'css/agrilife-research.css': 'css/src/agrilife-research.scss'
-          'css/agrilife-extension.css': 'css/src/agrilife-extension.scss'
+          'css/admin.css':     'css/src/admin.scss'
+          'css/agrilife.css':  'css/src/agrilife.scss'
+          'css/home.css':      'css/src/home.scss'
+          'css/coals.css':     'css/src/coals.scss'
+          'css/tvmdl.css':     'css/src/tvmdl.scss'
+          'css/forest.css':    'css/src/forest.scss'
+          'css/research.css':  'css/src/research.scss'
+          'css/extension.css': 'css/src/extension.scss'
     sasslint:
       options:
         configFile: '.sass-lint.yaml'
