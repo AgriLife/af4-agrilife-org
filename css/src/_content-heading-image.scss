@@ -1,6 +1,7 @@
 .content-heading-image {
 	@include arrow($z-index: 1);
-	@include template-arrows(color, header-arrow-bg-color);
+	@include template-arrows($border-color: color, $bg-color: header-bg-color);
+	@include template-bg-color(header-bg-color);
 	background-color: $dark-blue;
 	position: relative;
 

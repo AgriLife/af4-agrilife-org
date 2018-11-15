@@ -7,11 +7,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 .flowchart {
 	@include arrow-base;
-	@each $key, $value in $template-atts {
-		.page-template-#{$key} & {
-			@include arrow-color(map-get($value, color), $dark-blue);
-		}
-	}
+	@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	background-color: $dark-blue;
 	color: #FFF;
 

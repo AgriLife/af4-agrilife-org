@@ -15,7 +15,7 @@
 		display: block;
 		width: 40px;
 		height: 40px;
-		border: 2px solid $light-green;
+		border: 2px solid $border-color;
 		border-width: 0 0 2px 2px;
 		background: $bg-color;
 		transform: rotate(-45deg) translateX(-50%);
@@ -54,7 +54,13 @@
 @mixin template-arrows($border-color: color, $bg-color: color){
 	@each $key, $value in $template-atts {
 		.page-template-#{$key} & {
-			@include arrow-color(map-get($value, $border-color), map-get($value, $bg-color));
+			@if(map-has-key($value, $bg-color)){
+				$bg-color: map-get($value, $bg-color);
+			}
+			@if(map-has-key($value, $border-color)){
+				$border-color: map-get($value, $border-color);
+			}
+			@include arrow-color($border-color, $bg-color);
 		}
 	}
 }
@@ -118,8 +124,21 @@
 @mixin template-text-color($color: color){
 	@each $key, $value in $template-atts {
 		.page-template-#{$key} & {
-			color: map-get($value, $color);
+			@if(map-has-key($value, $color)){
+				$color: map-get($value, $color);
+			}
+			color: $color;
 		}
 	}
+}
 
+@mixin template-bg-color($color: color){
+	@each $key, $value in $template-atts {
+		.page-template-#{$key} & {
+			@if(map-has-key($value, $color)){
+				$color: map-get($value, $color);
+			}
+			background-color: $color;
+		}
+	}
 }
