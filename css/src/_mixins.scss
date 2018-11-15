@@ -115,34 +115,50 @@
 	}
 }
 
-@mixin template-text-color($color: color){
+@mixin template-text-color($color: color, $pref-color-key: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
-			color: get-template-value($map, $color);
+			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
+				color: map-get($map, $pref-color-key);
+			} @else {
+				color: get-template-value($map, $color);
+			}
 		}
 	}
 }
 
-@mixin template-bg-color($color: color){
+@mixin template-bg-color($color: color, $pref-color-key: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
-			background-color: get-template-value($map, $color);
+			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
+				background-color: map-get($map, $pref-color-key);
+			} @else {
+				background-color: get-template-value($map, $color);
+			}
 		}
 	}
 }
 
-@mixin template-border-color($color: color){
+@mixin template-border-color($color: color, $pref-color-key: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
-			border-color: get-template-value($map, $color);
+			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
+				border-color: map-get($map, $pref-color-key);
+			} @else {
+				border-color: get-template-value($map, $color);
+			}
 		}
 	}
 }
 
-@mixin template-brackets ($color: color){
+@mixin template-brackets ($color: color, $pref-color-key: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
-			@include bracket-color(get-template-value($map, $color));
+			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
+				@include bracket-color(get-template-value($map, $pref-color-key));
+			} @else {
+				@include bracket-color(get-template-value($map, $color));
+			}
 		}
 	}
 }

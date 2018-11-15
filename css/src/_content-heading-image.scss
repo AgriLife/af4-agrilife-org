@@ -1,5 +1,5 @@
 .content-heading-image {
-	@include arrow($z-index: 1);
+	@include arrow($bg-color: $dark-blue, $z-index: 1);
 	@include template-arrows($border-color: color, $bg-color: header-bg-color);
 	@include template-bg-color(header-bg-color);
 	background-color: $dark-blue;
@@ -13,7 +13,7 @@
 
 	h1 {
 		@include xy-center;
-		@include template-text-color(color);
+		@include template-text-color($color: color, $pref-color-key: contrast-color);
 		background: transparent url("../images/extension-header-title-background.png") no-repeat;
 		background-size: cover;
 		color: #FFF;

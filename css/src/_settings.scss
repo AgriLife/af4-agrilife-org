@@ -35,23 +35,30 @@ $primary-color: $maroon;
 $template-atts: (
 	research: (
 		color: $light-green,
-		header-bg-color: $green
+		header-bg-color: $green,
+		text-color: #FFF
 	),
 	coals: (
 		color: $maroon,
-		header-bg-color: $maroon-alt
+		contrast-color: #FFF,
+		header-bg-color: $maroon-alt,
+		button-callout-bg: #FFF,
+		text-color: #FFF
 	),
 	tvmdl: (
 		color: $beige,
-		header-bg-color: $beige
+		header-bg-color: $beige,
+		text-color: #000
 	),
-	forestry: (
+	forest: (
 		color: $light-green,
-		header-bg-color: $green
+		header-bg-color: $green,
+		text-color: #000
 	),
 	extension: (
 		color: $light-blue,
-		header-bg-color: $dark-blue
+		header-bg-color: $dark-blue,
+		text-color: #000
 	)
 );
 
