@@ -1,12 +1,6 @@
-$heading-arrow-bg-color: $dark-blue !default;
-
 .content-heading-image {
-	@include arrow-base($z-index: 1);
-	@each $key, $value in $template-atts {
-		.page-template-#{$key} & {
-			@include arrow-color(map-get($value, color), map-get($value, header-arrow-bg-color));
-		}
-	}
+	@include arrow($z-index: 1);
+	@include template-arrows(color, header-arrow-bg-color);
 	background-color: $dark-blue;
 	position: relative;
 
@@ -18,9 +12,10 @@ $heading-arrow-bg-color: $dark-blue !default;
 
 	h1 {
 		@include xy-center;
+		@include template-text-color(color);
 		background: transparent url("../images/extension-header-title-background.png") no-repeat;
 		background-size: cover;
-		color: $light-green;
+		color: #FFF;
 		display: inline-block;
 		font: {
 			size: 3.2rem;

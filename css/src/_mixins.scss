@@ -5,6 +5,8 @@
 	transform: translate(-50%, -50%);
 }
 
+/* Arrow
+----------------------------- */
 @mixin arrow ($border-color: $light-blue, $bg-color: #FFF, $z-index: 2) {
 	position: relative;
 
@@ -49,6 +51,16 @@
 	}
 }
 
+@mixin template-arrows($border-color: color, $bg-color: color){
+	@each $key, $value in $template-atts {
+		.page-template-#{$key} & {
+			@include arrow-color(map-get($value, $border-color), map-get($value, $bg-color));
+		}
+	}
+}
+
+/* Brackets
+----------------------------- */
 @mixin brackets ($color: $light-blue, $border-width: 2px, $width: 10px, $axis: x){
 	position: relative;
 	padding: $width $width * 2;
@@ -92,4 +104,22 @@
 			border-width: 0 $border-width $border-width $border-width;
 		}
 	}
+}
+
+@mixin bracket-color ($color: $light-blue){
+	&:before,
+	&:after {
+		border-color: $color;
+	}
+}
+
+/* Template styles
+----------------------------- */
+@mixin template-text-color($color: color){
+	@each $key, $value in $template-atts {
+		.page-template-#{$key} & {
+			color: map-get($value, $color);
+		}
+	}
+
 }
