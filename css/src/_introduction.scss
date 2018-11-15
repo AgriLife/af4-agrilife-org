@@ -1,9 +1,6 @@
-$intro-has-arrow: true !default;
-
 .introduction {
-	@if( $intro-has-arrow == true ){
-		@include arrow($border-color: $light-green, $bg-color: $body-background);
-	}
+	@include arrow($border-color: $light-green, $bg-color: $body-background);
+	@include template-arrows($border-color: color, $bg-color: $body-background);
 
 	@include breakpoint(small only){
 		margin: 50px $small-side-spacing 0;

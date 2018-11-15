@@ -101,6 +101,7 @@
 			@include xy-grid-container($break-xlarge, 0);
 			@include xy-grid;
 			@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
+			@include template-arrows($border-color: color, $bg-color: $dark-blue);
 			align-items: flex-end;
 			justify-content: flex-end;
 			z-index: 2;
