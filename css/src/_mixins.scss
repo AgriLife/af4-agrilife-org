@@ -46,30 +46,16 @@
 
 @mixin arrow-color($border-color: $light-blue, $bg-color: #FFF) {
 	&:after {
-		border-color: $light-green;
+		border-color: $border-color;
 		background-color: $bg-color;
-	}
-}
-
-@mixin template-arrows($border-color: color, $bg-color: color){
-	@each $key, $value in $template-atts {
-		.page-template-#{$key} & {
-			@if(map-has-key($value, $bg-color)){
-				$bg-color: map-get($value, $bg-color);
-			}
-			@if(map-has-key($value, $border-color)){
-				$border-color: map-get($value, $border-color);
-			}
-			@include arrow-color($border-color, $bg-color);
-		}
 	}
 }
 
 /* Brackets
 ----------------------------- */
-@mixin brackets ($color: $light-blue, $border-width: 2px, $width: 10px, $axis: x){
+@mixin brackets ($color: $light-blue, $border-width: 2px, $width: 10px, $axis: x, $padding: rem-calc(10 20)){
 	position: relative;
-	padding: $width $width * 2;
+	padding: $padding;
 
 	&:before,
 	&:after {
@@ -121,24 +107,50 @@
 
 /* Template styles
 ----------------------------- */
+@function get-template-value($map, $key){
+	@if(map-has-key($map, $key)){
+		@return map-get($map, $key);
+	} @else {
+		@return $key;
+	}
+}
+
 @mixin template-text-color($color: color){
-	@each $key, $value in $template-atts {
-		.page-template-#{$key} & {
-			@if(map-has-key($value, $color)){
-				$color: map-get($value, $color);
-			}
-			color: $color;
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			color: get-template-value($map, $color);
 		}
 	}
 }
 
 @mixin template-bg-color($color: color){
-	@each $key, $value in $template-atts {
-		.page-template-#{$key} & {
-			@if(map-has-key($value, $color)){
-				$color: map-get($value, $color);
-			}
-			background-color: $color;
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			background-color: get-template-value($map, $color);
+		}
+	}
+}
+
+@mixin template-border-color($color: color){
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			border-color: get-template-value($map, $color);
+		}
+	}
+}
+
+@mixin template-brackets ($color: color){
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			@include bracket-color(get-template-value($map, $color));
+		}
+	}
+}
+
+@mixin template-arrows($border-color: color, $bg-color: color){
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			@include arrow-color(get-template-value($map, $border-color), get-template-value($map, $bg-color));
 		}
 	}
 }
