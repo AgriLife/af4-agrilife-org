@@ -129,8 +129,10 @@ $flowchart-small-vertical-spacing: 20px !default;
 			margin: 0 8.5%;
 
 			&.top {
-				padding-top: $spacing;
-				padding-bottom: $spacing;
+				padding: {
+					top: $spacing;
+					bottom: $spacing;
+				}
 				margin-bottom: $spacing / 4;
 				position: relative;
 				overflow: hidden;
@@ -191,7 +193,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 				.item {
 					display: inline-block;
 					vertical-align: top;
-					padding: 0 1%;
+					margin: 0 1%;
 				}
 			}
 
@@ -205,20 +207,6 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 			p {
 				margin-top: 10px;
-			}
-		}
-
-		@media screen and (max-width: 865px) {
-			.flowchart-row {
-				margin: 0 5%;
-
-				&.top .item {
-					width: 25%;
-				}
-			}
-
-			&:not(.brackets) .flowchart-row.bottom .item {
-				padding: 0 2%;
 			}
 		}
 
@@ -249,6 +237,20 @@ $flowchart-small-vertical-spacing: 20px !default;
 					height: 100%;
 				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 865px) {
+		.flowchart-row {
+			margin: 0 5%;
+
+			&.top .item {
+				width: 25%;
+			}
+		}
+
+		&:not(.brackets) .flowchart-row.bottom .item {
+			padding: 0 2%;
 		}
 	}
 }
