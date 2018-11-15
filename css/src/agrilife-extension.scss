@@ -1,12 +1,5 @@
 @charset 'utf-8';
-$flowchart-underline-style: 2;
-$flowchart-brackets: true;
 
 @import 'foundation';
 @import 'settings';
 @import 'mixins';
-@import 'template-layout';
-@import 'introduction';
-@import 'flowchart';
-@import 'exceptional-items';
-@import 'director';
