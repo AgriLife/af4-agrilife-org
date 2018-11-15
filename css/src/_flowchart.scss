@@ -3,7 +3,6 @@ $flowchart-bracket-width: 10px !default;
 $flowchart-small-vertical-spacing: 20px !default;
 
 .flowchart {
-	@include arrow;
 	@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	background-color: $dark-blue;
 	color: #FFF;
@@ -190,7 +189,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 				.item {
 					display: inline-block;
 					vertical-align: top;
-					margin: 0 1%;
+					padding: 0 1%;
 				}
 			}
 
