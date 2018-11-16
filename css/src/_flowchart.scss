@@ -32,19 +32,28 @@ $flowchart-small-vertical-spacing: 20px !default;
 	}
 
 	@include breakpoint(small only) {
-		padding-top: $flowchart-small-vertical-spacing * 2;
-		padding-bottom: $flowchart-small-vertical-spacing * 2;
+		padding: {
+			top: $flowchart-small-vertical-spacing * 2;
+			bottom: $flowchart-small-vertical-spacing * 2;
+		}
 		text-align: center;
 		position: relative;
 
 		.item {
 			max-width: 500px;
-			margin-left: auto;
-			margin-right: auto;
+			margin: {
+				left: auto;
+				right: auto;
+			}
 		}
 
 		.flowchart-row {
 			margin: 0 6%;
+
+			&.top .item.h5 {
+				width: 100%;
+				font-size: 1.75rem;
+			}
 		}
 
 		&:not(.brackets) {
@@ -71,14 +80,18 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 		&.brackets {
 			.flowchart-row.top .item {
-				margin-top: $flowchart-small-vertical-spacing;
-				margin-bottom: $flowchart-small-vertical-spacing * 2;
+				margin: {
+					top: $flowchart-small-vertical-spacing;
+					bottom: $flowchart-small-vertical-spacing * 2;
+				}
 			}
 
 			.flowchart-row.bottom .item ~ .item {
 				padding-top: $flowchart-small-vertical-spacing;
-				margin-top: $flowchart-small-vertical-spacing;
-				margin-bottom: $flowchart-small-vertical-spacing;
+				margin: {
+					top: $flowchart-small-vertical-spacing;
+					bottom: $flowchart-small-vertical-spacing;
+				}
 				border: 2px dashed $flowchart-color;
 				border-width: 2px 0 0 0;
 			}
@@ -93,8 +106,10 @@ $flowchart-small-vertical-spacing: 20px !default;
 		.flowchart-row.bottom .item {
 			a {
 				color: #FFF;
-				font-family: $header-font-family;
-				font-size: 1.75rem;
+				font: {
+					family: $header-font-family;
+					size: 1.75rem;
+				}
 				line-height: 1em;
 				text-transform: uppercase;
 			}
@@ -106,9 +121,9 @@ $flowchart-small-vertical-spacing: 20px !default;
 				min-width: 252px;
 				height: 68px;
 				padding: $flowchart-bracket-width $flowchart-bracket-width * 2;
+				margin-bottom: 0;
 				font-size: 1.25rem;
 				line-height: 1.2;
-				margin-bottom: 0;
 
 				span {
 					flex: 0 0 100%;
@@ -123,9 +138,13 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 		.flowchart-row {
 			$spacing: 64px;
-
 			text-align: center;
 			margin: 0 8.5%;
+
+			&.text {
+				padding-top: 1.5rem;
+				margin: 0 20%;
+			}
 
 			&.top {
 				padding: {
@@ -270,9 +289,35 @@ $flowchart-small-vertical-spacing: 20px !default;
 					.item {
 						width: 28%;
 						padding: {
-							left: 4.5rem;
-							right: 4.5rem;
+							left: 7%;
+							right: 7%;
 						}
+					}
+				}
+			}
+		}
+	}
+
+	&.brackets .flowchart-row {
+		&.text {
+			@media screen and (max-width: 1000px){
+				margin: 0 10%;
+			}
+		}
+
+		&.bottom.count-3 {
+			.item {
+				@media screen and (max-width: 935px) {
+					padding: {
+						left: 6%;
+						right: 6%;
+					}
+				}
+
+				@media screen and (max-width: 790px) {
+					padding: {
+						left: 5%;
+						right: 5%;
 					}
 				}
 			}

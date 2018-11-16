@@ -27,6 +27,13 @@
 			text-transform: uppercase;
 		}
 	}
+
+	.text {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 8%;
+		text-align: center;
+	}
 }
 
 @include breakpoint(small only){

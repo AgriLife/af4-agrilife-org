@@ -7,25 +7,6 @@
 
 /* Arrow
 ----------------------------- */
-@mixin arrow ($border-color: $light-blue, $bg-color: #FFF, $z-index: 2) {
-	position: relative;
-
-	&:after {
-		content: "";
-		display: block;
-		width: 40px;
-		height: 40px;
-		border: 2px solid $border-color;
-		border-width: 0 0 2px 2px;
-		background: $bg-color;
-		transform: rotate(-45deg) translateX(-50%);
-		position: absolute;
-		bottom: 0;
-		left: calc(50% - 2px);
-		z-index: $z-index;
-	}
-}
-
 @mixin arrow-base ($z-index: 2) {
 	position: relative;
 
@@ -36,11 +17,19 @@
 		height: 40px;
 		border-style: solid;
 		border-width: 0 0 2px 2px;
-		transform: rotate(-45deg) translateX(-50%);
+		transform: translate(-50%, 30%) rotate(-45deg);
 		position: absolute;
 		bottom: 0;
 		left: calc(50% - 2px);
 		z-index: $z-index;
+	}
+}
+
+@mixin arrow ($border-color: $light-blue, $bg-color: #FFF, $z-index: 2) {
+	@include arrow-base($z-index);
+	&:after {
+		border-color: $border-color;
+		background-color: $bg-color;
 	}
 }
 
