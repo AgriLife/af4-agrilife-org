@@ -18,7 +18,7 @@ add_action('genesis_entry_content', function(){
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="al item">
-					<a href="https://agrilife.org/" title="Texas A&M AgriLife Extension"><span><img src="<?php echo AF_THEME_DIRURL; ?>/images/logo-tamu-agrilife-extension.png" alt="Texas A&M AgriLife Extension"></span></a>
+					<a href="https://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension"><span><img src="<?php echo AF_THEME_DIRURL; ?>/images/logo-tamu-agrilife-extension.png" alt="Texas A&M AgriLife Extension"></span></a>
 				</div>
 			</div>
 			<div class="flowchart-row bottom"><div class="ext item"><p><span>Livestock and Crop protection</span></p></div><div class="res item"><p><span>Drought mitigation and water conservation</span></p></div><div class="college item"><p><span>Increasing food security practices</span></p></div><div class="tvmdl item"><p><span>Health and wellness education</span></p></div><div class="tfs item"><p><span>Youth Development</span></p></div></div>

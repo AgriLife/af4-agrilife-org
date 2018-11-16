@@ -38,7 +38,7 @@ add_action('genesis_entry_content', function(){
 		<div class="layout-container"><div class="text-column"><div class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies vestibulum ornare. Morbi eget consequat augue. Pellentesque lacinia eget nibh ut dapibus. Mauris metus dui, pulvinar nec nibh id, suscipit aliquam dolor. </div><div class="creds">Tom G. Boggus, Director
 <p>Morbi eget consequat augue pellentesque<br>
 Mauris metus dui, pulvinar nec nibh id suscipit<br>
-Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/director-forest.jpg"></div></div>
+Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/director-forest.jpg" alt="Tom G. Boggus"></div></div>
 	</div>
 	<?php
 });
