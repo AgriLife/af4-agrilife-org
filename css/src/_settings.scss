@@ -47,7 +47,7 @@ $template-atts: (
 	),
 	tvmdl: (
 		color: $beige,
-		header-bg-color: $beige,
+		header-bg-color: darken($beige, 60%),
 		text-color: #000
 	),
 	forest: (
