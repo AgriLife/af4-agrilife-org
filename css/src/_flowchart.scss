@@ -1,6 +1,15 @@
 $flowchart-color: $light-blue !default;
 $flowchart-bracket-width: 10px !default;
 $flowchart-small-vertical-spacing: 20px !default;
+$prototype-border-width: 1px;
+$prototype-border-type: dashed;
+$prototype-border-color: $flowchart-color;
+
+@mixin small-item-with-border(){
+	margin: $flowchart-small-vertical-spacing auto;
+	content: "";
+	display: block;
+}
 
 .flowchart {
 	&:not(.no-arrow) {
@@ -32,10 +41,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 	}
 
 	@include breakpoint(small only) {
-		padding: {
-			top: $flowchart-small-vertical-spacing * 2;
-			bottom: $flowchart-small-vertical-spacing * 2;
-		}
+		padding: $flowchart-small-vertical-spacing * 2 0;
 		text-align: center;
 		position: relative;
 
@@ -58,22 +64,18 @@ $flowchart-small-vertical-spacing: 20px !default;
 
 		&:not(.brackets) {
 			.flowchart-row.top .item:after {
-				content: "";
-				display: block;
+				@include bordered(2px);
+				@include small-item-with-border;
 				width: 1px;
-				margin: $flowchart-small-vertical-spacing auto;
 				height: 30px;
-				border: 2px dashed $flowchart-color;
 				border-width: 0 0 0 2px;
 			}
 
 			.flowchart-row.bottom .item ~ .item:before {
-				content: "";
-				display: block;
+				@include bordered(2px);
+				@include small-item-with-border;
 				width: 60px;
-				margin: $flowchart-small-vertical-spacing auto;
 				height: 1px;
-				border: 2px dashed $flowchart-color;
 				border-width: 2px 0 0;
 			}
 		}
@@ -87,19 +89,16 @@ $flowchart-small-vertical-spacing: 20px !default;
 			}
 
 			.flowchart-row.bottom .item ~ .item {
+				@include bordered(2px);
 				padding-top: $flowchart-small-vertical-spacing;
-				margin: {
-					top: $flowchart-small-vertical-spacing;
-					bottom: $flowchart-small-vertical-spacing;
-				}
-				border: 2px dashed $flowchart-color;
-				border-width: 2px 0 0 0;
+				margin: $flowchart-small-vertical-spacing 0;
+				border-width: 2px 0 0;
 			}
 
 			.flowchart-row.bottom + .flowchart-row.bottom .item:first-child {
+				@include bordered(2px);
 				padding-top: $flowchart-small-vertical-spacing;
-				border: 2px dashed $flowchart-color;
-				border-width: 2px 0 0 0;
+				border-width: 2px 0 0;
 			}
 		}
 
@@ -147,15 +146,13 @@ $flowchart-small-vertical-spacing: 20px !default;
 			}
 
 			&.top {
-				padding: {
-					top: $spacing;
-					bottom: $spacing;
-				}
+				padding: $spacing 0;
 				margin-bottom: $spacing / 4;
 				position: relative;
 				overflow: hidden;
 
 				&:before {
+					@include bordered;
 					content: "";
 					display: block;
 					position: absolute;
@@ -163,44 +160,40 @@ $flowchart-small-vertical-spacing: 20px !default;
 					left: 10%;
 					right: 10%;
 					bottom: -2px;
-					border: 1px dashed $flowchart-color;
 					z-index: 1;
 				}
 
 				&:after {
+					@include bordered;
 					content: "";
 					display: block;
 					position: absolute;
+					z-index: 1;
 					top: $spacing + ($spacing / 4);
 					left: 30%;
 					right: 30%;
 					bottom: -2px;
-					border: 1px dashed $flowchart-color;
-					z-index: 1;
 				}
 
 				.item {
 					$border-width: $spacing / 4;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
+					@include absolute-center;
+					@include bordered($border-width, solid, $dark-blue);
 					width: 20%;
 					z-index: 2;
 					background: $dark-blue;
-					border: $border-width solid $dark-blue;
 
 					&:after {
+						@include bordered;
 						content: "";
 						display: block;
 						position: absolute;
+						z-index: 1;
 						top: calc(100% + #{$border-width});
 						left: calc(50% - 1px);
 						width: 1px;
 						height: 64px;
-						border: 1px dashed $flowchart-color;
 						border-width: 0 1px 0 0;
-						z-index: 1;
 					}
 
 					&.h5 {
@@ -288,10 +281,7 @@ $flowchart-small-vertical-spacing: 20px !default;
 				&.count-3 {
 					.item {
 						width: 28%;
-						padding: {
-							left: 7%;
-							right: 7%;
-						}
+						padding: 0 7%;
 					}
 				}
 			}
@@ -308,17 +298,11 @@ $flowchart-small-vertical-spacing: 20px !default;
 		&.bottom.count-3 {
 			.item {
 				@media screen and (max-width: 935px) {
-					padding: {
-						left: 6%;
-						right: 6%;
-					}
+					padding: 0 6%;
 				}
 
 				@media screen and (max-width: 790px) {
-					padding: {
-						left: 5%;
-						right: 5%;
-					}
+					padding: 0 5%;
 				}
 			}
 		}

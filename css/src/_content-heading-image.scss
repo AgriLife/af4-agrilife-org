@@ -12,7 +12,7 @@
 	}
 
 	h1 {
-		@include xy-center;
+		@include absolute-center;
 		@include template-text-color($color: color, $pref-color-key: contrast-color);
 		@include template-font-size($size: header-small-font-size);
 		background: transparent url("../images/extension-header-title-background.png") no-repeat;
