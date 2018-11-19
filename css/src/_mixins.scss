@@ -78,6 +78,10 @@
 			border-width: 0 $border-width $border-width $border-width;
 		}
 	}
+
+	@include breakpoint(small only){
+		padding: $width $width * 2;
+	}
 }
 
 @mixin bracket-color ($color: $light-blue){
