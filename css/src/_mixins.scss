@@ -101,6 +101,20 @@
 	}
 }
 
+@mixin template-prop($p, $key, $pref-key: false){
+	@each $name, $map in $template-atts {
+		.page-template-#{$name} & {
+			@if($pref-key != false and map-has-key($map, $pref-key)){
+				#{$p}: map-get($map, $pref-key);
+			} @else if (map-has-key($map, $key)){
+				#{$p}: map-get($map, $key);
+			} @else {
+				#{$p}: $key;
+			}
+		}
+	}
+}
+
 @mixin template-text-color($color: color, $pref-color-key: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
