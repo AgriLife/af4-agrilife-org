@@ -1,7 +1,7 @@
 .content-heading-image {
 	@include arrow($bg-color: $dark-blue, $z-index: 1);
 	@include template-arrows($border-color: color, $bg-color: header-bg-color);
-	@include template-bg-color(header-bg-color);
+	@include template-prop($p: background-color, $key: header-bg-color);
 	background-color: $dark-blue;
 	position: relative;
 
@@ -13,8 +13,8 @@
 
 	h1 {
 		@include absolute-center;
-		@include template-text-color($color: color, $pref-color-key: contrast-color);
-		@include template-font-size($size: header-small-font-size);
+		@include template-prop($p: color, $key: color, $pref-key: contrast-color);
+		@include template-prop($p: font-size, $key: header-small-font-size);
 		background: transparent url("../images/extension-header-title-background.png") no-repeat;
 		background-size: cover;
 		color: #FFF;
@@ -42,12 +42,12 @@
 
 	@include breakpoint(medium) {
 		h1 {
-			@include template-font-size($size: header-font-size);
+			@include template-prop($p: font-size, $key: header-font-size);
 			padding: rem-calc(30 54 28);
 		}
 	}
 
-	@media screen and (max-width: 450px) {
+	@include breakpoint(450px down) {
 		h1 {
 			font-size: 2.75rem;
 			padding: rem-calc(20 30);
