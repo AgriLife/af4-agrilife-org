@@ -132,7 +132,7 @@ $fc-md-space: 4rem !default;
 		}
 	}
 
-	@include breakpoint(medium up) {
+	@include breakpoint(medium) {
 		padding: 50px 0;
 
 		.flowchart-row {
@@ -187,9 +187,9 @@ $fc-md-space: 4rem !default;
 						content: "";
 						display: block;
 						position: absolute;
-						z-index: 1;
 						top: calc(100% + #{$border-width});
 						left: calc(50% - 1px);
+						z-index: 1;
 						width: 1px;
 						height: 64px;
 						border-width: 0 1px 0 0;
@@ -231,16 +231,14 @@ $fc-md-space: 4rem !default;
 
 		&.brackets .flowchart-row {
 
-			&.top {
-				&.count-3 {
-					&:before {
-						display: none;
-					}
+			&.top.count-3 {
+				&:before {
+					display: none;
+				}
 
-					&:after {
-						left: 22%;
-						right: 22%;
-					}
+				&:after {
+					left: 22%;
+					right: 22%;
 				}
 			}
 
