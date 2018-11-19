@@ -13,6 +13,10 @@
 		// padding-top: 50px + arrow height + paragraph spacing;
 		padding: (rem-calc(50px + 20px) + $paragraph-margin-bottom) 25px rem-calc(50px);
 		text-align: center;
+
+		.logo {
+			max-width: 250px;
+		}
 	}
 
 }
