@@ -8,7 +8,7 @@
 	text-align: center;
 
 	a {
-		@include template-bg-color($pref-color-key: button-callout-bg);
+		@include template-prop($p: background-color, $key: color, $pref-key: button-callout-bg);
 		display: inline-block;
 		background-color: $light-green;
 		padding: 10px 50px;
