@@ -8,8 +8,53 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
-	?><div class="content-heading-image"><img class="background" src="<?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background.jpg" srcset="<?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background-1024.jpg 1024w, <?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background-1200.jpg 1200w, <?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background-1440.jpg 1440w, <?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background.jpg 1900w" sizes="(max-width: 1024px) 1024px, (max-width: 1200px) 1200px, (max-width: 1440px) 1440px, 1900px">
-		<h1>TVMDL</h1>
+	?><div class="content-heading-image">
+		<div class="wrap">
+			<img class="background hide-for-medium" src="<?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-small-640.jpg"<?php
+
+				$widths = array(640, 720, 800, 880, 960, 1040, 1280);
+				$srcset = array();
+				$sizes = array();
+				$len = count($widths);
+
+				foreach ($widths as $key => $value) {
+					$srcset[] = sprintf(ALAF4_DIR_URL . 'images/tvmdl-header-small-%s.jpg %sw', $value, $value);
+					if ($key !== $len) {
+						$sizes[] = sprintf('(max-width: %spx) %spx', $value, $value);
+					} else {
+						$sizes[] = sprintf('%spx', $value);
+					}
+				}
+
+				echo sprintf(' srcset="%s" sizes="%s"',
+					implode(', ', $srcset),
+					implode(', ', $sizes)
+				);
+
+			?>><img class="background show-for-medium" src="<?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-background-1900.jpg"<?php
+
+				$widths = array(1024, 1200, 1440, 1900);
+				$srcset = array();
+				$sizes = array();
+				$len = count($widths);
+
+				foreach ($widths as $key => $value) {
+					$srcset[] = sprintf(ALAF4_DIR_URL . 'images/tvmdl-header-background-%s.jpg %sw', $value, $value);
+					if ($key !== $len) {
+						$sizes[] = sprintf('(max-width: %spx) %spx', $value, $value);
+					} else {
+						$sizes[] = sprintf('%spx', $value);
+					}
+				}
+
+				echo sprintf(' srcset="%s" sizes="%s"',
+					implode(', ', $srcset),
+					implode(', ', $sizes)
+				);
+
+			?>>
+			<h1>TVMDL</h1>
+		</div>
 	</div>
 	<div class="introduction layout-container"><p>Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL) tests hundreds of specimens from clients across Texas, in neighboring states, and around the world every business day, contributing signiﬁcantly to protecting the health of livestock, poultry, companion animals, exotic animals, racing animals, and wildlife.</p><p>Veterinarians, animal owners, animal industries, and government agencies depend on TVMDL’s globally recognized expertise for early detection and control of diseases. Accredited by the American Association of Veterinary Laboratory Diagnosticians, TVMDL is among the 12 core laboratories in the National Animal Health Laboratory Network, designed to provide a nationwide surge-testing, response, and recovery capacity in the event of an animal disease outbreak. TVMDL played a critical role in recognizing and containing outbreaks of anthrax, avian inﬂuenza, and equine piroplasmosis.</p></div>
 	<div class="flowchart brackets">
