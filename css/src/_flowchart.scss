@@ -26,7 +26,7 @@ $fc-md-space: 4rem !default;
 
 			p {
 				@include brackets($padding: rem-calc($fc-bracket-width, $fc-bracket-width + 6));
-				@include template-brackets($color: color, $pref-color-key: contrast-color);
+				@include template-brackets($color: color, $pref-color: contrast-color);
 				@include flex;
 				flex-flow: row wrap;
 				align-items: center;

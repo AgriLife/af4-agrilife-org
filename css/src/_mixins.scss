@@ -116,6 +116,7 @@
 }
 
 @mixin template-text-color($color: color, $pref-color-key: false){
+@mixin template-brackets ($color: color, $pref-color: false){
 	@each $name, $map in $template-atts {
 		.page-template-#{$name} & {
 			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
@@ -166,6 +167,8 @@
 		.page-template-#{$name} & {
 			@if($pref-color-key != false and map-has-key($map, $pref-color-key)){
 				@include bracket-color(get-template-value($map, $pref-color-key));
+			@if($pref-color != false and map-has-key($map, $pref-color)){
+				@include bracket-color(get-template-value($map, $pref-color));
 			} @else {
 				@include bracket-color(get-template-value($map, $color));
 			}
