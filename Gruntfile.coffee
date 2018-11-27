@@ -17,11 +17,6 @@ module.exports = (grunt) ->
           'css/admin.css':     'css/admin.css'
           'css/agrilife.css':  'css/agrilife.css'
           'css/home.css':      'css/home.css'
-          'css/coals.css':     'css/coals.css'
-          'css/tvmdl.css':     'css/tvmdl.css'
-          'css/forest.css':    'css/forest.css'
-          'css/research.css':  'css/research.css'
-          'css/extension.css': 'css/extension.css'
       dev:
         options:
           map: true
@@ -33,11 +28,6 @@ module.exports = (grunt) ->
           'css/admin.css':     'css/admin.css'
           'css/agrilife.css':  'css/agrilife.css'
           'css/home.css':      'css/home.css'
-          'css/coals.css':     'css/coals.css'
-          'css/tvmdl.css':     'css/tvmdl.css'
-          'css/forest.css':    'css/forest.css'
-          'css/research.css':  'css/research.css'
-          'css/extension.css': 'css/extension.css'
     sass:
       pkg:
         options:
@@ -49,11 +39,6 @@ module.exports = (grunt) ->
           'css/admin.css':     'css/src/admin.scss'
           'css/agrilife.css':  'css/src/agrilife.scss'
           'css/home.css':      'css/src/home.scss'
-          'css/coals.css':     'css/src/coals.scss'
-          'css/tvmdl.css':     'css/src/tvmdl.scss'
-          'css/forest.css':    'css/src/forest.scss'
-          'css/research.css':  'css/src/research.scss'
-          'css/extension.css': 'css/src/extension.scss'
       dev:
         options:
           loadPath: 'node_modules/foundation-sites/scss'
@@ -64,11 +49,6 @@ module.exports = (grunt) ->
           'css/admin.css':     'css/src/admin.scss'
           'css/agrilife.css':  'css/src/agrilife.scss'
           'css/home.css':      'css/src/home.scss'
-          'css/coals.css':     'css/src/coals.scss'
-          'css/tvmdl.css':     'css/src/tvmdl.scss'
-          'css/forest.css':    'css/src/forest.scss'
-          'css/research.css':  'css/src/research.scss'
-          'css/extension.css': 'css/src/extension.scss'
     sasslint:
       options:
         configFile: '.sass-lint.yaml'
