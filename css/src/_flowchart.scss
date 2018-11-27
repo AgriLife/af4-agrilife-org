@@ -13,9 +13,9 @@ $fc-md-space: 4rem !default;
 	$prototype-border-width: 1px;
 	$prototype-border-type: dashed;
 	$prototype-border-color: $fc-color;
-	@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	&:not(.no-arrow) {
 		@include arrow($bg-color: $dark-blue);
+		@include template-arrows($border-color: color, $bg-color: $dark-blue);
 	}
 	background-color: $dark-blue;
 	color: #FFF;
