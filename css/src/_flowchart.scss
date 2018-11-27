@@ -2,6 +2,9 @@ $fc-color: $light-blue !default;
 $fc-bracket-width: 10px !default;
 $fc-sm-space-y: 1.25rem !default;
 $fc-md-space: 4rem !default;
+$prototype-border-width: 1px;
+$prototype-border-type: dashed;
+$prototype-border-color: $fc-color;
 
 @mixin small-item-with-border(){
 	margin: $fc-sm-space-y auto;
@@ -10,9 +13,6 @@ $fc-md-space: 4rem !default;
 }
 
 .flowchart {
-	$prototype-border-width: 1px;
-	$prototype-border-type: dashed;
-	$prototype-border-color: $fc-color;
 	&:not(.no-arrow) {
 		@include arrow($bg-color: $dark-blue);
 		@include template-arrows($border-color: color, $bg-color: $dark-blue);
@@ -93,7 +93,10 @@ $fc-md-space: 4rem !default;
 				.item ~ .item {
 					@include bordered(2px);
 					padding-top: $fc-sm-space-y;
-					margin: $fc-sm-space-y 0;
+					margin: {
+						top: $fc-sm-space-y;
+						bottom: $fc-sm-space-y;
+					}
 					border-width: 2px 0 0;
 				}
 
