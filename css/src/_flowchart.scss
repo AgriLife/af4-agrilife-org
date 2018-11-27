@@ -64,7 +64,7 @@ $fc-md-space: 4rem !default;
 		}
 
 		&:not(.brackets) {
-			.flowchart-row.top .item:after {
+			.flowchart-row.top .item::after {
 				@include bordered(2px);
 				@include small-item-with-border;
 				width: 1px;
@@ -72,7 +72,7 @@ $fc-md-space: 4rem !default;
 				border-width: 0 0 0 2px;
 			}
 
-			.flowchart-row.bottom .item ~ .item:before {
+			.flowchart-row.bottom .item ~ .item::before {
 				@include bordered(2px);
 				@include small-item-with-border;
 				width: 60px;
@@ -150,7 +150,7 @@ $fc-md-space: 4rem !default;
 				position: relative;
 				overflow: hidden;
 
-				&:before {
+				&::before {
 					@include bordered;
 					content: "";
 					display: block;
@@ -162,7 +162,7 @@ $fc-md-space: 4rem !default;
 					z-index: 1;
 				}
 
-				&:after {
+				&::after {
 					@include bordered;
 					content: "";
 					display: block;
@@ -182,7 +182,7 @@ $fc-md-space: 4rem !default;
 					z-index: 2;
 					background: $dark-blue;
 
-					&:after {
+					&::after {
 						@include bordered;
 						content: "";
 						display: block;
@@ -232,11 +232,11 @@ $fc-md-space: 4rem !default;
 		&.brackets .flowchart-row {
 
 			&.top.count-3 {
-				&:before {
+				&::before {
 					display: none;
 				}
 
-				&:after {
+				&::after {
 					left: 22%;
 					right: 22%;
 				}

@@ -89,8 +89,8 @@ $admin: false !default;
 	}
 
 	.wp-block[data-type="core/pullquote"][data-align="full"] .wp-block-pullquote {
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			border-left-width: 0;
 			border-right-width: 0;
 		}
@@ -135,24 +135,24 @@ $admin: false !default;
 	}
 
 	&.alignwide {
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			height: 30px;
 		}
 	}
 
 	&.alignfull {
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			border-left-width: 0;
 			border-right-width: 0;
 		}
 
-		&:before {
+		&::before {
 			border-top-width: 4px;
 		}
 
-		&:after {
+		&::after {
 			border-bottom-width: 4px;
 		}
 	}

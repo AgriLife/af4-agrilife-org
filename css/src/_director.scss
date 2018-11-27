@@ -12,7 +12,7 @@
 		padding-top: 4%;
 		position: relative;
 
-		&:after {
+		&::after {
 			content: "";
 			display: block;
 			position: absolute;
@@ -93,7 +93,7 @@
 		overflow: hidden;
 		padding-bottom: 20px;
 
-		&:after {
+		&::after {
 			bottom: 5px;
 		}
 
@@ -106,7 +106,7 @@
 			justify-content: flex-end;
 			z-index: 2;
 
-			&:after {
+			&::after {
 				bottom: 10px;
 			}
 		}
@@ -120,7 +120,7 @@
 			@include xy-cell(9, $gutter-type: padding, $gutters: 3.5rem);
 			margin-bottom: 10px;
 
-			&:before {
+			&::before {
 				content: "";
 				display: block;
 				background-color: $dark-blue;
@@ -132,7 +132,7 @@
 				right: -2000px;
 			}
 
-			&:after {
+			&::after {
 				top: 13px;
 				left: 12px;
 				width: 56px;
@@ -163,7 +163,7 @@
 			padding-top: 2%;
 			padding-right: 1.25rem;
 
-			&:after {
+			&::after {
 				left: 5px;
 				width: 20px;
 				top: 5%;
@@ -177,7 +177,7 @@
 			padding-top: 1%;
 			padding-right: 0;
 
-			&:after {
+			&::after {
 				left: .25rem;
 				width: 20px;
 				top: .25rem;
@@ -186,7 +186,7 @@
 	}
 
 	@media screen and (min-width: $break-medium) and (max-width: 850px){
-		.layout-container:after {
+		.layout-container::after {
 			bottom: 5px;
 		}
 
@@ -214,7 +214,7 @@
 		padding-bottom: 26px;
 		margin-bottom: 15px;
 
-		.layout-container:after {
+		.layout-container::after {
 			bottom: 0px;
 		}
 

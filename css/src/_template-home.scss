@@ -155,7 +155,7 @@ $small-vertical-spacing: 20px;
 		}
 		position: relative;
 
-		&:before {
+		&::before {
 			background: #FFF;
 			bottom: 0;
 			content: "";
@@ -167,7 +167,7 @@ $small-vertical-spacing: 20px;
 			z-index: 1;
 		}
 
-		&:after {
+		&::after {
 			background: #FFF;
 			border: 2px solid $light-green;
 			border-width: 0 0 2px 2px;
