@@ -70,22 +70,6 @@ class Assets {
             'screen'
         );
 
-        wp_register_style(
-            'agrilife-extension-styles',
-            ALAF4_DIR_URL . 'css/extension.css',
-            array(),
-            filemtime(ALAF4_DIR_PATH . 'css/extension.css'),
-            'screen'
-        );
-
-        wp_register_style(
-            'agrilife-research-styles',
-            ALAF4_DIR_URL . 'css/research.css',
-            array(),
-            filemtime(ALAF4_DIR_PATH . 'css/research.css'),
-            'screen'
-        );
-
     }
 
     /**
