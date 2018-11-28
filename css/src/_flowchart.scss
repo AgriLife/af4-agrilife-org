@@ -64,17 +64,19 @@ $prototype-border-color: $fc-color;
 		}
 
 		&:not(.brackets) {
-			.flowchart-row.top .item::after {
+			.flowchart-row.top .item::after,
+			.flowchart-row.bottom .item ~ .item::before {
 				@include bordered(2px);
 				@include small-item-with-border;
+			}
+
+			.flowchart-row.top .item::after {
 				width: 1px;
 				height: 30px;
 				border-width: 0 0 0 2px;
 			}
 
 			.flowchart-row.bottom .item ~ .item::before {
-				@include bordered(2px);
-				@include small-item-with-border;
 				width: 60px;
 				height: 1px;
 				border-width: 2px 0 0;
@@ -90,20 +92,18 @@ $prototype-border-color: $fc-color;
 			}
 
 			.flowchart-row.bottom {
-				.item ~ .item {
-					@include bordered(2px);
-					padding-top: $fc-sm-space-y;
-					margin: {
-						top: $fc-sm-space-y;
-						bottom: $fc-sm-space-y;
-					}
-					border-width: 2px 0 0;
-				}
-
+				.item ~ .item,
 				& + .flowchart-row.bottom .item:first-child {
 					@include bordered(2px);
 					padding-top: $fc-sm-space-y;
 					border-width: 2px 0 0;
+				}
+
+				.item ~ .item {
+					margin: {
+						top: $fc-sm-space-y;
+						bottom: $fc-sm-space-y;
+					}
 				}
 			}
 		}
@@ -153,28 +153,28 @@ $prototype-border-color: $fc-color;
 				position: relative;
 				overflow: hidden;
 
-				&::before {
+				&::before,
+				&::after,
+				.item::after {
 					@include bordered;
 					content: "";
 					display: block;
 					position: absolute;
-					top: $fc-md-space;
-					left: 10%;
-					right: 10%;
-					bottom: -2px;
 					z-index: 1;
 				}
 
+				&::before {
+					bottom: -2px;
+					top: $fc-md-space;
+					left: 10%;
+					right: 10%;
+				}
+
 				&::after {
-					@include bordered;
-					content: "";
-					display: block;
-					position: absolute;
-					z-index: 1;
+					bottom: -2px;
 					top: $fc-md-space + ($fc-md-space / 4);
 					left: 30%;
 					right: 30%;
-					bottom: -2px;
 				}
 
 				.item {
@@ -186,13 +186,8 @@ $prototype-border-color: $fc-color;
 					background: $dark-blue;
 
 					&::after {
-						@include bordered;
-						content: "";
-						display: block;
-						position: absolute;
 						top: calc(100% + #{$border-width});
 						left: calc(50% - 1px);
-						z-index: 1;
 						width: 1px;
 						height: 64px;
 						border-width: 0 1px 0 0;
@@ -251,20 +246,13 @@ $prototype-border-color: $fc-color;
 				justify-content: center;
 
 				.item {
-					&:nth-child(1){
-						width: 19.25%;
-					}
-					&:nth-child(2){
-						width: 21.25%;
-					}
-					&:nth-child(3){
-						width: 19%;
-					}
-					&:nth-child(4){
-						width: 21.25%;
-					}
-					&:nth-child(5){
-						width: 19.25%;
+					$widths: (19.25%, 21.25%, 19%, 21.25%, 19.25%);
+					$i: 1;
+					@each $width in $widths {
+						&:nth-child(#{$i}){
+							width: #{$width};
+						}
+						$i: $i + 1;
 					}
 
 					p {
