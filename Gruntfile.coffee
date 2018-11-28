@@ -14,9 +14,10 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/admin.css':     'css/admin.css'
-          'css/agrilife.css':  'css/agrilife.css'
-          'css/home.css':      'css/home.css'
+          'css/admin.css':           'css/admin.css'
+          'css/agrilife.css':        'css/agrilife.css'
+          'css/home.css':            'css/home.css'
+          'css/af4-style-guide.css': 'css/af4-style-guide.css'
       dev:
         options:
           map: true
@@ -25,9 +26,10 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/admin.css':     'css/admin.css'
-          'css/agrilife.css':  'css/agrilife.css'
-          'css/home.css':      'css/home.css'
+          'css/admin.css':           'css/admin.css'
+          'css/agrilife.css':        'css/agrilife.css'
+          'css/home.css':            'css/home.css'
+          'css/af4-style-guide.css': 'css/af4-style-guide.css'
     sass:
       pkg:
         options:
@@ -36,9 +38,10 @@ module.exports = (grunt) ->
           style: 'compressed'
           precision: 2
         files:
-          'css/admin.css':     'css/src/admin.scss'
-          'css/agrilife.css':  'css/src/agrilife.scss'
-          'css/home.css':      'css/src/home.scss'
+          'css/admin.css':           'css/src/admin.scss'
+          'css/agrilife.css':        'css/src/agrilife.scss'
+          'css/home.css':            'css/src/home.scss'
+          'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
       dev:
         options:
           loadPath: 'node_modules/foundation-sites/scss'
@@ -46,9 +49,10 @@ module.exports = (grunt) ->
           precision: 2
           trace: true
         files:
-          'css/admin.css':     'css/src/admin.scss'
-          'css/agrilife.css':  'css/src/agrilife.scss'
-          'css/home.css':      'css/src/home.scss'
+          'css/admin.css':           'css/src/admin.scss'
+          'css/agrilife.css':        'css/src/agrilife.scss'
+          'css/home.css':            'css/src/home.scss'
+          'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
     sasslint:
       options:
         configFile: '.sass-lint.yaml'
