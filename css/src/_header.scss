@@ -16,11 +16,12 @@
 }
 
 .site-header {
-	padding: 0 $site-padding;
 	text-align: center;
+	margin-bottom: $site-padding;
 
 	& > .wrap {
-		margin: 1rem 0;
+		padding: $site-padding;
+		background: $body-background;
 	}
 
 	.title-area,
@@ -109,14 +110,14 @@
 
 	@include breakpoint(medium) {
 		@include xy-grid-container($break-xlarge, 0);
-		padding: 0;
 		text-align: left;
 		position: relative;
 		z-index: 3;
+		margin-bottom: $site-padding;
 
 		> .wrap {
 			@include xy-grid;
-			padding: 1rem 0;
+			padding: 2 * $site-padding 0 $site-padding;
 
 			#header-search {
 				@include xy-cell-base();
