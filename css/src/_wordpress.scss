@@ -187,8 +187,10 @@ $admin: false !default;
 	}
 
 	* + .wp-block-file__button {
-		margin-left: 0.75rem;
-		margin-bottom: 0;
+		margin: {
+			left: 0.75rem;
+			bottom: 0;
+		}
 		vertical-align: baseline;
 	}
 }
@@ -231,15 +233,19 @@ $admin: false !default;
 
 @media only screen and (min-width: 768px) {
   .alignfull {
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin: {
+    	left: calc(50% - 50vw);
+    	right: calc(50% - 50vw);
+    }
     width: auto;
     max-width: 1000%;
   }
 
   .alignwide {
-    margin-left: calc(25% - 25vw);
-    margin-right: calc(25% - 25vw);
+    margin: {
+    	left: calc(25% - 25vw);
+    	right: calc(25% - 25vw);
+    }
     width: auto;
     max-width: 1000%;
   }

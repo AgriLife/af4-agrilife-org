@@ -12,9 +12,10 @@ $small-vertical-spacing: 20px;
 }
 
 #overview {
-	background: transparent url("../images/home-background.jpg") no-repeat;
+	background: transparent url("../images/home-background.jpg") no-repeat {
+		size: cover;
+	}
 	color: #FFF;
-	background-size: cover;
 
 	@include breakpoint(medium up) {
 		padding-bottom: 30px;
@@ -25,11 +26,12 @@ $small-vertical-spacing: 20px;
 		color: #FFF;
 
 		.heading-1 {
-			background: $dark-blue url("../images/leaders-in.png") no-repeat center center;
+			background: $dark-blue url("../images/leaders-in.png") no-repeat center center {
+				size: 88%;
+			}
 			white-space: nowrap;
 			text-indent: 1000rem;
 			overflow: hidden;
-			background-size: 88%;
 			display: block;
 			width: calc(100% - 18px);
 			height: 90px;
@@ -37,16 +39,20 @@ $small-vertical-spacing: 20px;
 		}
 
 		.heading-2 {
-			font-family: $header-font-family;
+			font: {
+				family: $header-font-family;
+				size: 2.25rem;
+			}
 			text-transform: uppercase;
-			font-size: 2.25rem;
 			line-height: 1em;
 			display: block;
 			padding: 15px 8px;
 
 			@include breakpoint(small only){
-				margin-left: $small-side-spacing;
-				margin-right: $small-side-spacing;
+				margin: {
+					left: $small-side-spacing;
+					right: $small-side-spacing;
+				}
 			}
 
 			@media screen and (max-width: 380px){
@@ -60,43 +66,51 @@ $small-vertical-spacing: 20px;
 
 		@include breakpoint(medium up) {
 			@include xy-grid;
+
 			margin: 0;
 			padding: 6% 0 14%;
 
 			span {
 				@include xy-cell-base();
+
 				display: inline-block;
 				vertical-align: top;
 			}
 
 			.heading-1 {
 				@include xy-cell(auto, $gutter-type: padding, $gutters: 2rem);
+
 				background-position: 80% center;
 				height: auto;
 			}
 
 			.heading-2 {
 				@include xy-cell(4, $gutter-type: padding, $gutters: 2rem);
+
 				width: 450px;
 				font-size: 2.5rem;
-				padding-top: 0;
-				padding-bottom: 0;
-			}
-		}
-
-		@media screen and (min-width: $break-medium) and (max-width: 865px) {
-			.heading-1,
-			.heading-2 {
-				@include xy-cell(6, $gutter-type: padding, $gutters: 2rem);
+				padding: {
+					top: 0;
+					bottom: 0;
+				}
 			}
 
-			.heading-1 {
-				background-size: 90%;
-				background-position: center center;
-			}
+			@media (max-width: 865px) {
+				.heading-1,
+				.heading-2 {
+					@include xy-cell(6, $gutter-type: padding, $gutters: 2rem);
+				}
 
-			.heading-2 {
-				font-size: 2rem;
+				.heading-1 {
+					background: {
+						size: 90%;
+						position: center center;
+					}
+				}
+
+				.heading-2 {
+					font-size: 2rem;
+				}
 			}
 		}
 	}
@@ -169,8 +183,9 @@ $small-vertical-spacing: 20px;
 
 		&::after {
 			background: #FFF;
-			border: 2px solid $light-green;
-			border-width: 0 0 2px 2px;
+			border: 2px solid $light-green {
+				width: 0 0 2px 2px;
+			}
 			bottom: 0;
 			content: "";
 			display: block;
@@ -231,7 +246,6 @@ $small-vertical-spacing: 20px;
 			$side-item-padding: 6%;
 
 			@include xy-cell-base();
-
 			position: relative;
 
 			&:not(.featured) {

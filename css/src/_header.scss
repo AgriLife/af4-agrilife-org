@@ -27,10 +27,6 @@
 	.title-area,
 	.title-bars {
 		display: inline-block;
-
-		@include breakpoint(medium) {
-			margin-bottom: 1rem;
-		}
 	}
 
 	.title-area {
@@ -60,24 +56,25 @@
 
 	.title-bar {
 		display: inline-block!important;
+	}
 
-		&.title-bar-search {
-			border-right: 1px solid $gray-darker;
+	.title-bar-search {
+		border-right: 1px solid $gray-darker;
 
-			.search-icon {
-				display: inline-block;
-				vertical-align: middle;
-				cursor: pointer;
-				position: relative;
-				width: 26px;
-				height: 26px;
-				background: transparent url("../images/search-agrilife.png") no-repeat;
-				background-size: contain;
+		.search-icon {
+			display: inline-block;
+			vertical-align: middle;
+			cursor: pointer;
+			position: relative;
+			width: 26px;
+			height: 26px;
+			background: transparent url("../images/search-agrilife.png") no-repeat {
+				size: contain;
 			}
+		}
 
-			.title-bar-title {
-				@include element-invisible;
-			}
+		.title-bar-title {
+			@include element-invisible;
 		}
 	}
 
@@ -110,10 +107,16 @@
 
 	@include breakpoint(medium) {
 		@include xy-grid-container($break-xlarge, 0);
+
 		text-align: left;
 		position: relative;
 		z-index: 3;
 		margin-bottom: $site-padding;
+
+		.title-area,
+		.title-bars {
+			margin-bottom: 1rem;
+		}
 
 		> .wrap {
 			@include xy-grid;
@@ -121,14 +124,11 @@
 
 			#header-search {
 				@include xy-cell-base();
+				@include xy-cell(3, $gutter-type: padding, $gutters: 2rem);
 			}
 
 			.title-area {
 				@include xy-cell(2, $gutter-type: padding, $gutters: 2rem);
-			}
-
-			#header-search {
-				@include xy-cell(3, $gutter-type: padding, $gutters: 2rem);
 			}
 		}
 
@@ -145,13 +145,14 @@
 			input[type="search"] {
 				display: inline-block;
 				box-sizing: border-box;
+				box-shadow: none;
 				width: calc(100% - 38px);
 				height: 32px;
-				border: 1px solid #D5D6DA;
-				border-width: 0 0 1px;
+				border: 1px solid #D5D6DA {
+					width: 0 0 1px;
+				}
 				padding: 0.1em .3em;
 				margin-bottom: 0;
-				box-shadow: none;
 				font-style: italic;
 			}
 
@@ -164,8 +165,9 @@
 				padding: 0;
 				text-indent: 1000rem;
 				border: 0 none;
-				background: transparent url("../images/search-agrilife.png") no-repeat;
-				background-size: contain;
+				background: transparent url("../images/search-agrilife.png") no-repeat {
+					size: contain;
+				}
 			}
 		}
 	}

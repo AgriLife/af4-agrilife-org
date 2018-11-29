@@ -4,10 +4,10 @@
 
 	h2 {
 		text-transform: uppercase;
+		text-align: center;
 		font-size: 3rem;
 		line-height: 1em;
 		margin-bottom: 50px;
-		text-align: center;
 	}
 
 	.item {
@@ -22,8 +22,10 @@
 		h3 {
 			font-size: 2.5rem;
 			line-height: 2.7rem;
-			margin-top: 7.5%;
-			margin-bottom: 2.5%;
+			margin: {
+				top: 7.5%;
+				bottom: 2.5%;
+			}
 			text-transform: uppercase;
 		}
 	}
@@ -34,25 +36,23 @@
 		padding: 0 8%;
 		text-align: center;
 	}
-}
 
-@include breakpoint(small only){
-	.exceptional-items .item {
-		background-color: #F1F1F2;
-		margin-bottom: 50px;
+	@include breakpoint(small only){
+		.item {
+			background-color: #F1F1F2;
+			margin-bottom: 50px;
 
-		.description {
-			font-size: 1.25rem;
-		}
+			.description {
+				font-size: 1.25rem;
+			}
 
-		.photo img {
-			width: 100%;
+			.photo img {
+				width: 100%;
+			}
 		}
 	}
-}
 
-@include breakpoint(medium){
-	.exceptional-items {
+	@include breakpoint(medium){
 		text-align: left;
 
 		.layout-container {
@@ -69,32 +69,35 @@
 			.item {
 				@include xy-cell-base();
 				@include xy-cell(auto, $gutter-type: margin, $gutters: 0);
-				margin-left: 7%;
-				margin-right: 7%;
+
 				background-color: #F1F1F2;
+				margin: {
+					left: 7%;
+					right: 7%;
+				}
+			}
 
-				.photo {
-					padding: 4% 0;
+			.photo {
+				padding: 4% 0;
+				position: relative;
+
+				img {
 					position: relative;
-
-					img {
-						position: relative;
-						z-index: 2;
-					}
-
-					& ~ * {
-						padding: 0 11%;
-					}
+					z-index: 2;
 				}
 
-				h3 {
-					font-size: 1.85rem;
-					line-height: 1.2;
+				& ~ * {
+					padding: 0 11%;
 				}
+			}
 
-				.description {
-					margin-top: 20px;
-				}
+			h3 {
+				font-size: 1.85rem;
+				line-height: 1.2;
+			}
+
+			.description {
+				margin-top: 20px;
 			}
 		}
 	}

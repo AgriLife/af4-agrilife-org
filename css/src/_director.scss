@@ -1,15 +1,19 @@
 .director {
 	color: #FFF;
-	margin-top: 50px;
-	margin-bottom: 32px;
+	margin: {
+		top: 50px;
+		bottom: 32px;
+	}
 
 	.layout-container {
 		position: relative;
 	}
 
 	.text-column {
-		padding-bottom: 4%;
-		padding-top: 4%;
+		padding: {
+			bottom: 4%;
+			top: 4%;
+		}
 		position: relative;
 
 		&::after {
@@ -21,8 +25,9 @@
 			left: -28px;
 			width: 80px;
 			height: 112px;
-			background: transparent url("../images/quotes-left.png") no-repeat top left;
-			background-size: 100% auto;
+			background: transparent url("../images/quotes-left.png") no-repeat top left {
+				size: 100% auto;
+			}
 		}
 
 		> * {
@@ -54,14 +59,18 @@
 	@include breakpoint(small only){
 		.layout-container {
 			background-color: $dark-blue;
-			padding-left: $small-side-spacing;
-			padding-right: $small-side-spacing;
+			padding: {
+				left: $small-side-spacing;
+				right: $small-side-spacing;
+			}
 		}
 
 		.text-column {
-			padding-top: 175px;
+			padding: {
+				top: 175px;
+				bottom: 60px;
+			}
 			font-size: 1.25rem;
-			padding-bottom: 60px;
 		}
 
 		.photo-column {
@@ -74,8 +83,10 @@
 
 	@media screen and (max-width: 390px){
 		.layout-container {
-			padding-left: 5%;
-			padding-right: 5%;
+			padding: {
+				left: 5%;
+				right: 5%;
+			}
 		}
 
 		.text-column:after {
@@ -102,6 +113,7 @@
 			@include xy-grid;
 			@include arrow($border-color: $light-green, $bg-color: $dark-blue, $z-index: 1);
 			@include template-arrows($border-color: color, $bg-color: $dark-blue);
+
 			align-items: flex-end;
 			justify-content: flex-end;
 			z-index: 2;
@@ -123,9 +135,9 @@
 			&::before {
 				content: "";
 				display: block;
-				background-color: $dark-blue;
 				position: absolute;
 				z-index: 1;
+				background-color: $dark-blue;
 				top: 0;
 				bottom: 0;
 				left: -2000px;
@@ -136,6 +148,40 @@
 				top: 13px;
 				left: 12px;
 				width: 56px;
+
+				@media (max-width: $break-xlarge) {
+					left: .8rem;
+					width: 25px;
+					top: 12%;
+				}
+			}
+
+			@media (max-width: 1040px){
+				padding: {
+					bottom: 2%;
+					top: 2%;
+					right: 1.25rem;
+				}
+
+				&::after {
+					left: 5px;
+					width: 20px;
+					top: 5%;
+				}
+			}
+
+			@media (max-width: 905px){
+				padding: {
+					bottom: 1%;
+					top: 1%;
+					right: 0;
+				}
+
+				&::after {
+					left: .25rem;
+					width: 20px;
+					top: .25rem;
+				}
 			}
 		}
 
@@ -143,83 +189,53 @@
 			@include xy-cell(3, $gutter-type: padding, $gutters: 3.5rem);
 			position: relative;
 		}
-	}
-
-	@media screen and (min-width: $break-medium) and (max-width: $break-xlarge){
-		.text-column:after {
-			left: .8rem;
-			width: 25px;
-			top: 12%;
-		}
-	}
-
-	@media screen and (min-width: $break-medium) and (max-width: 1040px){
-		.quote {
-			padding-right: 1.25rem;
-		}
-
-		.text-column {
-			padding-bottom: 2%;
-			padding-top: 2%;
-			padding-right: 1.25rem;
-
-			&::after {
-				left: 5px;
-				width: 20px;
-				top: 5%;
-			}
-		}
-	}
-
-	@media screen and (min-width: $break-medium) and (max-width: 905px){
-		.text-column {
-			padding-bottom: 1%;
-			padding-top: 1%;
-			padding-right: 0;
-
-			&::after {
-				left: .25rem;
-				width: 20px;
-				top: .25rem;
-			}
-		}
-	}
-
-	@media screen and (min-width: $break-medium) and (max-width: 850px){
-		.layout-container::after {
-			bottom: 5px;
-		}
 
 		.quote {
-			padding-right: 0;
-			line-height: 1.1rem;
+			@media (max-width: 1040px){
+				padding-right: 1.25rem;
+			}
 		}
 
-		.creds {
-			margin-top: 0;
+		@media (max-width: 850px){
+			.layout-container::after {
+				bottom: 5px;
+			}
+
+			.quote {
+				padding-right: 0;
+				line-height: 1.1rem;
+			}
+
+			.creds {
+				margin-top: 0;
+			}
+
+			.text-column {
+				padding: {
+					left: 1rem;
+					right: 0;
+				}
+			}
+
+			.photo-column {
+				padding: {
+					left: 1rem;
+					right: 1rem;
+				}
+			}
 		}
 
-		.text-column {
-			padding-left: 1rem;
-			padding-right: 0;
-		}
+		@media (max-width: 700px){
+			padding-bottom: 26px;
+			margin-bottom: 15px;
 
-		.photo-column {
-			padding-left: 1rem;
-			padding-right: 1rem;
-		}
-	}
+			.layout-container::after {
+				bottom: 0px;
+			}
 
-	@media screen and (min-width: $break-medium) and (max-width: 700px){
-		padding-bottom: 26px;
-		margin-bottom: 15px;
-
-		.layout-container::after {
-			bottom: 0px;
-		}
-
-		.text-column {
-			margin-bottom: 3px;
+			.text-column {
+				margin-bottom: 3px;
+			}
 		}
 	}
 }

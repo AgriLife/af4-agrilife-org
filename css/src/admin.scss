@@ -17,9 +17,11 @@ $admin: true;
   h4, .h4,
   h5, .h5,
   h6, .h6 {
-    font-family: $header-font-family;
-    font-style: $header-font-style;
-    font-weight: $header-font-weight;
+    font: {
+      family: $header-font-family;
+      style: $header-font-style;
+      weight: $header-font-weight;
+    }
     color: $header-color;
     text-rendering: $header-text-rendering;
 
