@@ -8,16 +8,11 @@
 		margin-top: 0;
 	}
 
-	.site-inner > .wrap,
-	.site-footer {
+	.site-inner > .wrap {
 		max-width: 100%;
 	}
 
 	.site-inner {
 		padding: 0;
-	}
-
-	.site-footer > .wrap {
-		@include xy-grid-container($break-xlarge, 0);
 	}
 }
