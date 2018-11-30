@@ -18,10 +18,15 @@
 .site-header {
 	text-align: center;
 	margin-bottom: $site-padding;
+	font-family: $header-font-family;
+	font-variant-ligatures: none;
+	letter-spacing: .1em;
+
 
 	& > .wrap {
 		padding: $site-padding;
-		background: $body-background;
+		color: $site-title-color;
+		background: $site-title-background;
 	}
 
 	.title-area,
@@ -143,6 +148,7 @@
 			}
 
 			input[type="search"] {
+				background-color: transparent;
 				display: inline-block;
 				box-sizing: border-box;
 				box-shadow: none;
@@ -165,7 +171,7 @@
 				padding: 0;
 				text-indent: 1000rem;
 				border: 0 none;
-				background: transparent url("../images/search-agrilife.png") no-repeat {
+				background: transparent url("../images/search-agrilife-light.png") no-repeat {
 					size: contain;
 				}
 			}

@@ -84,22 +84,24 @@ $site-title-font-weight: 500;
 $site-title-font-size: 2.75rem;
 $site-title-font-family: "minion-pro", sans-serif;
 $site-description: $gray-dark;
+$site-title-color: $whiter;
+$site-title-background: $dark-blue;
 
 /* Navigation
 --------------------------------------------- */
 $topbar-padding: 0;
-$topbar-background: $whiter;
-$topbar-submenu-background: $whiter;
+$topbar-background: $site-title-background;
+$topbar-submenu-background: lighten($site-title-background, 5%);
 $topbar-input-width: auto;
-$dropdown-menu-item-background-active: $white;
-$dropdownmenu-arrow-color: $gray-darker;
+$dropdown-menu-item-background-active: $site-title-background;
+$dropdownmenu-arrow-color: $gray-lighter;
 $dropdownmenu-border: none;
-$accordion-menu-item-background-active: $white;
-$accordionmenu-arrow-color: $gray-darker;
-$nav-item-color: $gray-darker;
-$dropdown-menu-item-color-active: $gray-darker;
-$menu-item-color-active: $gray-darker;
-$menu-item-background-active: $white;
+$accordion-menu-item-background-active: $site-title-background;
+$accordionmenu-arrow-color: $gray-lighter;
+$nav-item-color: $gray-lighter;
+$dropdown-menu-item-color-active: $gray-lighter;
+$menu-item-color-active: $gray-lighter;
+$menu-item-background-active: $site-title-background;
 
 /* Title Bar
 --------------------------------------------- */
