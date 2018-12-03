@@ -21,6 +21,17 @@
 	font-variant-ligatures: none;
 	letter-spacing: .1em;
 	background: $site-title-background;
+	transition: height .5s;
+
+	.layout-container,
+	.title-area,
+	.title-bar {
+		transition: padding .5s, margin .5s;
+	}
+
+	.site-title img {
+		transition: height .5s;
+	}
 
 	> .wrap {
 		background: $site-title-background;
@@ -52,7 +63,7 @@
 		text-rendering: optimizelegibility;
 
 		img {
-			max-height: 46px;
+			height: 46px;
 		}
 	}
 
@@ -119,7 +130,7 @@
 			}
 
 			.site-title img {
-				max-height: 30px;
+				height: 30px;
 			}
 
 			.title-bar {
@@ -199,7 +210,7 @@
 
 		.is-stuck {
 			.site-title img {
-				max-height: 43px;
+				height: 43px;
 			}
 
 			.layout-container {
