@@ -110,6 +110,26 @@
 			}
 		}
 
+		.is-stuck {
+			.layout-container {
+				padding: {
+					top: rem-calc(10);
+					bottom: rem-calc(10);
+				}
+			}
+
+			.site-title img {
+				max-height: 30px;
+			}
+
+			.title-bar {
+				padding: {
+					top: 0;
+					bottom: 0;
+				}
+			}
+		}
+
 	}
 
 	@include breakpoint(medium) {
@@ -119,7 +139,7 @@
 
 		.title-area,
 		.title-bars {
-			margin-bottom: 1rem;
+			margin-bottom: $site-padding;
 		}
 
 		.layout-container {
@@ -174,6 +194,20 @@
 				background: transparent url("../images/search-agrilife-light.png") no-repeat {
 					size: contain;
 				}
+			}
+		}
+
+		.is-stuck {
+			.site-title img {
+				max-height: 43px;
+			}
+
+			.layout-container {
+				padding: $site-padding 0 $site-padding / 2;
+			}
+
+			.title-area {
+				margin-bottom: $site-padding / 2;
 			}
 		}
 	}
