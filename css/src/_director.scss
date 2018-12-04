@@ -1,8 +1,8 @@
 .director {
 	color: #FFF;
 	margin: {
-		top: 50px;
 		bottom: 32px;
+		top: 50px;
 	}
 
 	.layout-container {
@@ -21,8 +21,8 @@
 			display: block;
 			position: absolute;
 			z-index: 2;
-			top: 114px;
 			left: -28px;
+			top: 114px;
 			width: 80px;
 			height: 112px;
 			background: transparent url("../images/quotes-left.png") no-repeat top left {
@@ -67,21 +67,21 @@
 
 		.text-column {
 			padding: {
-				top: 175px;
 				bottom: 60px;
+				top: 175px;
 			}
 			font-size: 1.25rem;
 		}
 
 		.photo-column {
 			position: absolute;
-			top: -25px;
 			right: 40px;
+			top: -25px;
 			width: 140px;
 		}
 	}
 
-	@media screen and (max-width: 390px){
+	@include breakpoint(390px down){
 		.layout-container {
 			padding: {
 				left: 5%;
@@ -90,8 +90,8 @@
 		}
 
 		.text-column:after {
-			top: 135px;
 			left: -15px;
+			top: 135px;
 			width: 60px;
 		}
 
@@ -103,10 +103,6 @@
 	@include breakpoint(medium){
 		overflow: hidden;
 		padding-bottom: 20px;
-
-		&::after {
-			bottom: 5px;
-		}
 
 		.layout-container {
 			@include xy-grid-container($break-xlarge, 0);
@@ -132,49 +128,49 @@
 				position: absolute;
 				z-index: 1;
 				background-color: $dark-blue;
-				top: 0;
 				bottom: 0;
 				left: -2000px;
 				right: -2000px;
+				top: 0;
 			}
 
 			&::after {
-				top: 13px;
 				left: 12px;
+				top: 13px;
 				width: 56px;
 
-				@media (max-width: $break-xlarge) {
+				@include breakpoint(xlarge down) {
 					left: .8rem;
-					width: 25px;
 					top: 12%;
+					width: 25px;
 				}
 			}
 
-			@media (max-width: 1040px){
+			@include breakpoint(1040px down){
 				padding: {
 					bottom: 2%;
-					top: 2%;
 					right: 1.25rem;
+					top: 2%;
 				}
 
 				&::after {
 					left: 5px;
-					width: 20px;
 					top: 5%;
+					width: 20px;
 				}
 			}
 
-			@media (max-width: 905px){
+			@include breakpoint(905px down){
 				padding: {
 					bottom: 1%;
-					top: 1%;
 					right: 0;
+					top: 1%;
 				}
 
 				&::after {
 					left: .25rem;
-					width: 20px;
 					top: .25rem;
+					width: 20px;
 				}
 			}
 		}
@@ -185,16 +181,12 @@
 		}
 
 		.quote {
-			@media (max-width: 1040px){
+			@include breakpoint(1040px down){
 				padding-right: 1.25rem;
 			}
 		}
 
-		@media (max-width: 850px){
-			.layout-container::after {
-				bottom: 5px;
-			}
-
+		@include breakpoint(850px down){
 			.quote {
 				padding-right: 0;
 				line-height: 1.1rem;
@@ -219,13 +211,9 @@
 			}
 		}
 
-		@media (max-width: 700px){
+		@include breakpoint(700px down){
 			padding-bottom: 26px;
 			margin-bottom: 15px;
-
-			.layout-container::after {
-				bottom: 0px;
-			}
 
 			.text-column {
 				margin-bottom: 3px;
