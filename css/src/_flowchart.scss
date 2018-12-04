@@ -1,5 +1,5 @@
 $fc-color: $light-blue !default;
-$fc-bracket-width: 10px !default;
+$fc-bracket-width: 32px !default;
 $fc-sm-space-y: 1.25rem !default;
 $fc-md-space: 4rem !default;
 $prototype-border-width: 1px;
@@ -29,8 +29,8 @@ $prototype-border-color: $fc-color;
 	&.brackets .bottom .item {
 		text-align: center;
 
-		p {
-			@include brackets($padding: rem-calc($fc-bracket-width, $fc-bracket-width + 6));
+		a {
+			@include brackets($padding: rem-calc(10 24));
 			@include template-brackets($color: color, $pref-color: contrast-color);
 			@include flex;
 
@@ -43,6 +43,49 @@ $prototype-border-color: $fc-color;
 				flex: 0 0 100%;
 				display: inline-block;
 			}
+		}
+	}
+
+	a {
+		color: $whiter;
+
+		&, &:hover {
+			text-decoration: none;
+		}
+	}
+
+	.bottom a .arrow {
+		$arrow-size: 10;
+		$border-width: 2;
+
+		border: #{$border-width}px solid #FFF;
+		box-sizing: content-box;
+		position: absolute;
+		top: 2px * $border-width;
+		right: 2px * $border-width;
+		width: rem-calc($arrow-size);
+		height: rem-calc($arrow-size);
+
+		&::before,
+		img {
+			position: absolute;
+			right: rem-calc($border-width * -1);
+			top: rem-calc($border-width * -1);
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			background: $dark-blue;
+			width: rem-calc($arrow-size - 1);
+			height: rem-calc($arrow-size - 1);
+			z-index: 1;
+		}
+
+		img {
+			width: rem-calc($arrow-size);
+			height: rem-calc($arrow-size);
+			z-index: 2;
 		}
 	}
 
@@ -105,7 +148,7 @@ $prototype-border-color: $fc-color;
 			}
 
 			.bottom {
-				.item p {
+				.item a {
 					width: 75%;
 					min-width: 252px;
 					height: 68px;
@@ -218,7 +261,7 @@ $prototype-border-color: $fc-color;
 			.item {
 				display: inline-block;
 				vertical-align: top;
-				padding: 0 1%;
+				padding: 0 rem-calc(8);
 			}
 		}
 
@@ -264,7 +307,7 @@ $prototype-border-color: $fc-color;
 					}
 				}
 
-				p {
+				.item a {
 					font-size: 0.9rem;
 					line-height: 1.2;
 					height: 100%;

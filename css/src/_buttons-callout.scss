@@ -16,6 +16,10 @@
 		text-transform: uppercase;
 		font-weight: bold;
 
+		&, &:hover {
+			text-decoration: none;
+		}
+
 		@media screen and (max-width: 430px){
 			padding: 10px 25px;
 		}
