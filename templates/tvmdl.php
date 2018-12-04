@@ -56,7 +56,7 @@ add_action('genesis_entry_content', function(){
 			<h1>TVMDL</h1>
 		</div>
 	</div>
-	<div class="introduction layout-container"><p>Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL) tests hundreds of specimens from clients across Texas, in neighboring states, and around the world every business day, contributing signiﬁcantly to protecting the health of livestock, poultry, companion animals, exotic animals, racing animals, and wildlife.</p><p>Veterinarians, animal owners, animal industries, and government agencies depend on TVMDL’s globally recognized expertise for early detection and control of diseases. Accredited by the American Association of Veterinary Laboratory Diagnosticians, TVMDL is among the 12 core laboratories in the National Animal Health Laboratory Network, designed to provide a nationwide surge-testing, response, and recovery capacity in the event of an animal disease outbreak. TVMDL played a critical role in recognizing and containing outbreaks of anthrax, avian inﬂuenza, and equine piroplasmosis.</p></div>
+	<div class="introduction layout-container"><p><a href="http://tvmdl.tamu.edu/">Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL)</a> tests hundreds of specimens from clients across Texas, in neighboring states, and around the world every business day, contributing signiﬁcantly to protecting the health of livestock, poultry, companion animals, exotic animals, racing animals, and wildlife.</p><p>Veterinarians, animal owners, animal industries, and government agencies depend on TVMDL’s globally recognized expertise for early detection and control of diseases. Accredited by the American Association of Veterinary Laboratory Diagnosticians, TVMDL is among the 12 core laboratories in the National Animal Health Laboratory Network, designed to provide a nationwide surge-testing, response, and recovery capacity in the event of an animal disease outbreak. TVMDL played a critical role in recognizing and containing outbreaks of anthrax, avian inﬂuenza, and equine piroplasmosis.</p></div>
 	<div class="flowchart brackets">
 		<div class="layout-container">
 			<div class="flowchart-row top">
@@ -71,14 +71,14 @@ add_action('genesis_entry_content', function(){
 	<div class="exceptional-items">
 		<div class="layout-container">
 			<h2>Exceptional Items</h2>
-			<div class="row"><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/microscope-tvmdl.jpg" alt="Students looking in microscopes"></div><h3>Connecting Texas Agriculture</h3><div class="description">Two poultry diagnostic laboratories enable the Texas poultry industry to operate, and they require base funding.</div></div><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/testing-samples.jpg" alt="A student testing samples"></div><h3>Innovating Texas Seafood Production</h3><div class="description">A top-notch biosurveillance and anti-bioterrorism laboratory is needed to protect Texans’ health, security, and ﬁnancial well-being.</div></div></div>
+			<div class="row"><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/microscope-tvmdl.jpg" alt="Students looking in microscopes"></div><h3>Developing Biosurveillance &amp; Anti-Bioterrorism Capacity</h3><div class="description">Two poultry diagnostic laboratories enable the Texas poultry industry to operate, and they require base funding.</div></div><div class="item"><div class="photo"><img src="<?php echo ALAF4_DIR_URL; ?>images/testing-samples.jpg" alt="A student testing samples"></div><h3>Funding Poultry Diagnostic Laboratories</h3><div class="description">A top-notch biosurveillance and anti-bioterrorism laboratory is needed to protect Texans’ health, security, and financial well-being.</div></div></div>
 		</div>
 	</div>
 	<div class="director">
-		<div class="layout-container"><div class="text-column"><div class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies vestibulum ornare. Morbi eget consequat augue. Pellentesque lacinia eget nibh ut dapibus. Mauris metus dui, pulvinar nec nibh id, suscipit aliquam dolor. </div><div class="creds">Bruce L. Akey, Director
-<p>Morbi eget consequat augue pellentesque<br>
-Mauris metus dui, pulvinar nec nibh id suscipit<br>
-Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/director-tvmdl.jpg" alt="Director Bruce L. Akey"></div></div>
+		<div class="layout-container"><div class="text-column"><div class="quote">Diagnostic work benefits the livestock industry and companion animals. We give our clients more value by surrounding raw test results with more interpretive information. </div><div class="creds">Bruce L. Akey, Director
+<p>P.O. Drawer 3040<br>
+College Station, TX 77841-3040<br>
+979.845.3414</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/director-tvmdl.jpg" alt="Director Bruce L. Akey"></div></div>
 	</div>
 	<?php
 });

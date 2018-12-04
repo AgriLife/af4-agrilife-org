@@ -56,14 +56,17 @@ add_action('genesis_entry_content', function(){
 			<h1>Agriculture <div>&amp; Life Sciences</div></h1>
 		</div>
 	</div>
-	<div class="introduction layout-container"><p><a href="https://aglifesciences.tamu.edu/" title="Texas A&M College of Agriculture and Life Sciences"><img class="logo coals-logo" src="<?php echo AF_THEME_DIRURL; ?>/images/logo-tamu-coals-vertical.png" alt="Texas A&M College of Agriculture and Life Sciences"></a></p><p>Agriculture and the life sciences has been an integral part of Texas A&M since 1876 when it was founded as the Agricultural and Mechanical College of Texas.  Naturally, with agriculture as one of the pillars on which Texas A&M University was established, the students we educate and the scientiﬁc advancements we discover are providing better nutrition and agriculture.</p><p>From long-established majors such as agronomy and animal science to newer programs such as forensics and spatial sciences, the College of Agriculture and Life Sciences is widely recognized as a leader in dozens of academic disciplines.</p></div>
+	<div class="introduction layout-container"><p>Agriculture and the life sciences has been an integral part of Texas A&M since 1876 when it was founded as the Agricultural and Mechanical College of Texas. Naturally, with agriculture as one of the pillars on which Texas A&M University was established, the students we educate and the scientific advancements we discover are providing better nutrition and agriculture.</p><p>From long-established majors such as agronomy and animal science to newer programs such as forensics and spatial sciences, the <a href="https://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a> is widely recognized as a leader in <a href="https://aglifesciences.tamu.edu/academics/departments/">dozens of academic disciplines</a>.</p></div>
 	<div class="buttons"><a class="button" href="https://aglifesciences.tamu.edu/">aglifesciences.tamu.edu</a></div>
 	<div class="director">
-		<div class="layout-container"><div class="text-column"><div class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies vestibulum ornare. Morbi eget consequat augue. Pellentesque lacinia eget nibh ut dapibus. Mauris metus dui, pulvinar nec nibh id, suscipit aliquam dolor. </div><div class="creds">Patrick J. Stover, Vice Chancellor and Dean
-<p>Morbi eget consequat augue pellentesque<br>
-Mauris metus dui, pulvinar nec nibh id suscipit<br>
-Vestibulum nec interdum velit curabitur nec bibendum metus</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/research-director.jpg" alt="Patrick J. Stover"></div></div>
+		<div class="layout-container"><div class="text-column"><div class="quote">We can leverage the strength of Texas agriculture with our commitment to improving the health and wellbeing of Texas communities through our agencies and college faculty. </div><div class="creds">Patrick J. Stover, Vice Chancellor and Dean
+<p>Agriculture and Life Sciences Building<br>
+600 John Kimbrough Blvd., Suite 510<br>
+2142 TAMU<br>
+College Station, TX 77843-2142<br>
+979.845.3712</p></div></div><div class="photo-column"><img src="<?php echo ALAF4_DIR_URL; ?>images/research-director.jpg" alt="Patrick J. Stover"></div></div>
 	</div>
+	<div class="buttons"><a class="button" href="https://agrilifecdn.tamu.edu/wp-content/uploads/ALS_Strategic-Plan_2015.pdf">Strategic Plan</a></div>
 	<?php
 });
 
