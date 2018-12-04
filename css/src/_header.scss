@@ -22,6 +22,8 @@
 	letter-spacing: .1em;
 	background: $site-title-background;
 	transition: height .5s;
+	position: relative;
+	z-index: 3;
 
 	.layout-container,
 	.title-area,
@@ -63,7 +65,7 @@
 		text-rendering: optimizelegibility;
 
 		img {
-			height: 46px;
+			width: 168px;
 		}
 	}
 
@@ -130,7 +132,7 @@
 			}
 
 			.site-title img {
-				height: 30px;
+				max-width: 106px;
 			}
 
 			.title-bar {
@@ -145,8 +147,6 @@
 
 	@include breakpoint(medium) {
 		text-align: left;
-		position: relative;
-		z-index: 3;
 
 		.title-area,
 		.title-bars {
@@ -210,7 +210,7 @@
 
 		.is-stuck {
 			.site-title img {
-				height: 43px;
+				width: 152px;
 			}
 
 			.layout-container {
