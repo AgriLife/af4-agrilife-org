@@ -32,37 +32,6 @@ $purple: #5D0025;
 $beige: #FDE1B4;
 $primary-color: $maroon;
 
-$template-atts: (
-	research: (
-		color: $light-green,
-		header-bg-color: $green,
-		text-color: #FFF
-	),
-	coals: (
-		color: #B1B4B6,
-		header-bg-color: $maroon-alt,
-		header-font-size: 2.9rem,
-		header-small-font-size: 2rem,
-		button-callout-bg: #FFF,
-		text-color: #FFF
-	),
-	tvmdl: (
-		color: $beige,
-		header-bg-color: darken($beige, 60%),
-		text-color: #000
-	),
-	forest: (
-		color: $light-green,
-		header-bg-color: $green,
-		text-color: #000
-	),
-	extension: (
-		color: $light-blue,
-		header-bg-color: $dark-blue,
-		text-color: #000
-	)
-);
-
 /* Fonts
 --------------------------------------------- */
 $header-font-family: 'Tungsten A', 'Tungsten B', 'Oswald', sans-serif;
@@ -141,3 +110,47 @@ $footer-background: $site-title-background;
 $footer-text: #F8F8F8;
 $footer-font-family: "Verdana",clean,sans-serif;
 $footer-font-weight: 400;
+
+/* Template Attributes
+--------------------------------------------- */
+$template-atts: (
+	research: (
+		color: $light-green,
+		header-bg-color: $green,
+		text-color: #FFF,
+		button-text-color: $anchor-color,
+		button-hover: lighten($light-green, 10%)
+	),
+	coals: (
+		color: #B1B4B6,
+		header-bg-color: $maroon-alt,
+		header-font-size: 2.9rem,
+		header-small-font-size: 2rem,
+		button-callout-bg: #FFF,
+		text-color: #FFF,
+		button: $maroon-alt,
+		button-text-color: $whiter,
+		button-hover: lighten($maroon-alt, 10%)
+	),
+	tvmdl: (
+		color: $beige,
+		header-bg-color: darken($beige, 60%),
+		text-color: #000,
+		button-text-color: $anchor-color,
+		button-hover: lighten($beige, 10%)
+	),
+	forest: (
+		color: $light-green,
+		header-bg-color: $green,
+		text-color: #000,
+		button-text-color: $anchor-color,
+		button-hover: lighten($light-green, 10%)
+	),
+	extension: (
+		color: $light-blue,
+		header-bg-color: $dark-blue,
+		text-color: #000,
+		button-text-color: $anchor-color,
+		button-hover: lighten($light-blue, 10%)
+	)
+);

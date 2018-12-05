@@ -8,7 +8,7 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
-	?><div class="content-heading-image">
+	?><div class="content-heading-image flow-arrow">
 		<div class="wrap">
 			<img class="background hide-for-medium" src="<?php echo ALAF4_DIR_URL; ?>images/forest-header-small-640.jpg"<?php
 
@@ -56,9 +56,9 @@ add_action('genesis_entry_content', function(){
 			<h1>Forest Service</h1>
 		</div>
 	</div>
-	<div class="introduction layout-container"><p><a href="http://texasforestservice.tamu.edu/">Texas A&M Forest Service (TFS)</a> is the leader in forestry for Texas and the nation. TFS works to ensure the state’s forests, trees, and related natural resources are conserved and continue to provide a sustainable flow of environmental and economic benefits. TFS is also the incident management agency for state disasters such as wildfires, flooding, and hurricanes.</p>
+	<div class="introduction layout-container flow-arrow"><p><a href="http://texasforestservice.tamu.edu/">Texas A&M Forest Service (TFS)</a> is the leader in forestry for Texas and the nation. TFS works to ensure the state’s forests, trees, and related natural resources are conserved and continue to provide a sustainable flow of environmental and economic benefits. TFS is also the incident management agency for state disasters such as wildfires, flooding, and hurricanes.</p>
 	<p>TFS delivers wildfire response and protection through the Texas Wildfire Protection Plan (TWPP). TWPP is a tested and proven emergency response model emphasizing ongoing analysis, mitigation, prevention, and preparation followed by a coordinated and rapid response. With legislative support, TFS is working to expand the plan, increasing the number of personnel and emergency response resources throughout the state. Applied programs include:</p></div>
-	<div class="flowchart brackets">
+	<div class="flowchart brackets flow-arrow">
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="al item">
@@ -68,7 +68,7 @@ add_action('genesis_entry_content', function(){
 			<div class="flowchart-row bottom"><div class="item"><p><span>Forest and tree development</span></p></div><div class="item"><p><span>Wildfire prevention</span></p></div><div class="item"><p><span>Mitigation and protection</span></p></div><div class="item"><p><span>Urban and community forestry</span></p></div><div class="item"><p><span>Forest sustainability programs</span></p></div></div>
 		</div>
 	</div>
-	<div class="buttons"><a class="button" href="https://texasforestservice.tamu.edu/">texasforestservice.tamu.edu</a></div>
+	<div class="buttons flow-arrow"><a class="button" href="https://texasforestservice.tamu.edu/">texasforestservice.tamu.edu</a></div>
 	<div class="exceptional-items">
 		<div class="layout-container">
 			<h2>Exceptional Items</h2>

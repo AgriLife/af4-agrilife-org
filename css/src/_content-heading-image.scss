@@ -1,10 +1,16 @@
 .content-heading-image {
-	@include arrow($bg-color: $dark-blue, $z-index: 1);
-	@include template-arrows($border-color: color, $bg-color: header-bg-color);
 	@include template-prop($p: background-color, $key: header-bg-color);
-
 	background-color: $dark-blue;
 	position: relative;
+
+	&.flow-arrow {
+		@include template-arrows($border-color: color, $bg-color: header-bg-color);
+
+		&::after {
+			background-color: $dark-blue;
+			z-index: 1;
+		}
+	}
 
 	.wrap {
 		position: relative;

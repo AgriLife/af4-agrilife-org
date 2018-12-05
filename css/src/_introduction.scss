@@ -1,6 +1,8 @@
 .introduction {
-	@include arrow($border-color: $light-green, $bg-color: $body-background);
-	@include template-arrows($border-color: color, $bg-color: $body-background);
+	&.flow-arrow {
+		@include arrow-color($border-color: $light-green, $bg-color: $body-background);
+		@include template-arrows($border-color: color, $bg-color: $body-background);
+	}
 
 	@include breakpoint(small only){
 		margin: 50px $small-side-spacing 0;

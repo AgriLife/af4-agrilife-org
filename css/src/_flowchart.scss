@@ -18,13 +18,16 @@ $prototype-border-color: $fc-color;
 }
 
 .flowchart {
-	&:not(.no-arrow) {
-		@include arrow($bg-color: $dark-blue);
-		@include template-arrows($border-color: color, $bg-color: $dark-blue);
-	}
-
 	background-color: $dark-blue;
 	color: #FFF;
+
+	&.flow-arrow {
+		@include template-arrows($border-color: color, $bg-color: $dark-blue);
+
+		&::after {
+			background-color: $dark-blue;
+		}
+	}
 
 	&.brackets .bottom .item {
 		text-align: center;

@@ -1,8 +1,17 @@
+$button-padding: 1rem 5rem;
+$button-margin: 0;
+
 .director {
+	$off-page: 10000px;
+
 	color: #FFF;
 	margin: {
-		bottom: 32px;
+		bottom: 50px;
 		top: 50px;
+	}
+
+	&.with-strategic-plan {
+		margin-bottom: 0;
 	}
 
 	.layout-container {
@@ -56,28 +65,25 @@
 		}
 	}
 
-	@include breakpoint(small only){
-		.layout-container {
-			background-color: $dark-blue;
-			padding: {
-				left: $small-side-spacing;
-				right: $small-side-spacing;
-			}
-		}
+	.strategic-plan {
+		background-color: $gray-light-medium;
+		padding: 2rem 0;
+		text-align: center;
 
-		.text-column {
-			padding: {
-				bottom: 60px;
-				top: 175px;
-			}
-			font-size: 1.25rem;
-		}
+		.button {
+			@include button-base;
+			@include template-prop($p: background-color, $key: color, $pref-key: button);
+			@include template-prop($p: color, $key: button-text-color);
 
-		.photo-column {
-			position: absolute;
-			right: 40px;
-			top: -25px;
-			width: 140px;
+			font: {
+				size: 1.25rem;
+				weight: bold;
+			}
+			text-decoration: none;
+
+			&:hover {
+				@include template-prop($p: background-color, $key: button-hover);
+			}
 		}
 	}
 
@@ -100,9 +106,35 @@
 		}
 	}
 
+	@include breakpoint(small only){
+		.layout-container {
+			background-color: $dark-blue;
+			padding: {
+				left: $small-side-spacing;
+				right: $small-side-spacing;
+			}
+		}
+
+		.text-column {
+			padding: {
+				bottom: 40px;
+				top: 175px;
+			}
+			font-size: 1.25rem;
+		}
+
+		.photo-column {
+			position: absolute;
+			right: 40px;
+			top: -25px;
+			width: 140px;
+		}
+	}
+
 	@include breakpoint(medium){
 		overflow: hidden;
-		padding-bottom: 20px;
+		position: relative;
+		z-index: 2;
 
 		.layout-container {
 			@include xy-grid-container($break-xlarge, 0);
@@ -129,8 +161,8 @@
 				z-index: 1;
 				background-color: $dark-blue;
 				bottom: 0;
-				left: -2000px;
-				right: -2000px;
+				left: -1 * $off-page;
+				right: -1 * $off-page;
 				top: 0;
 			}
 
@@ -177,7 +209,12 @@
 
 		.photo-column {
 			@include xy-cell(3, $gutter-type: padding, $gutters: 3.5rem);
-			position: relative;
+		}
+
+		&.with-strategic-plan .photo-column {
+			position: absolute;
+			right: 0;
+			top: 0;
 		}
 
 		.quote {
@@ -208,15 +245,6 @@
 					left: 1rem;
 					right: 1rem;
 				}
-			}
-		}
-
-		@include breakpoint(700px down){
-			padding-bottom: 26px;
-			margin-bottom: 15px;
-
-			.text-column {
-				margin-bottom: 3px;
 			}
 		}
 	}

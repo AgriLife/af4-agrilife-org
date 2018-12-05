@@ -8,7 +8,7 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
-	?><div class="content-heading-image">
+	?><div class="content-heading-image flow-arrow">
 		<div class="wrap">
 			<img class="background hide-for-medium" src="<?php echo ALAF4_DIR_URL; ?>images/tvmdl-header-small-640.jpg"<?php
 
@@ -56,8 +56,8 @@ add_action('genesis_entry_content', function(){
 			<h1>TVMDL</h1>
 		</div>
 	</div>
-	<div class="introduction layout-container"><p><a href="http://tvmdl.tamu.edu/">Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL)</a> tests hundreds of specimens from clients across Texas, in neighboring states, and around the world every business day, contributing signiﬁcantly to protecting the health of livestock, poultry, companion animals, exotic animals, racing animals, and wildlife.</p><p>Veterinarians, animal owners, animal industries, and government agencies depend on TVMDL’s globally recognized expertise for early detection and control of diseases. Accredited by the American Association of Veterinary Laboratory Diagnosticians, TVMDL is among the 12 core laboratories in the National Animal Health Laboratory Network, designed to provide a nationwide surge-testing, response, and recovery capacity in the event of an animal disease outbreak. TVMDL played a critical role in recognizing and containing outbreaks of anthrax, avian inﬂuenza, and equine piroplasmosis.</p></div>
-	<div class="flowchart brackets">
+	<div class="introduction layout-container flow-arrow"><p><a href="http://tvmdl.tamu.edu/">Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL)</a> tests hundreds of specimens from clients across Texas, in neighboring states, and around the world every business day, contributing signiﬁcantly to protecting the health of livestock, poultry, companion animals, exotic animals, racing animals, and wildlife.</p><p>Veterinarians, animal owners, animal industries, and government agencies depend on TVMDL’s globally recognized expertise for early detection and control of diseases. Accredited by the American Association of Veterinary Laboratory Diagnosticians, TVMDL is among the 12 core laboratories in the National Animal Health Laboratory Network, designed to provide a nationwide surge-testing, response, and recovery capacity in the event of an animal disease outbreak. TVMDL played a critical role in recognizing and containing outbreaks of anthrax, avian inﬂuenza, and equine piroplasmosis.</p></div>
+	<div class="flowchart brackets flow-arrow">
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="al item">
@@ -67,7 +67,7 @@ add_action('genesis_entry_content', function(){
 			<div class="flowchart-row bottom"><div class="item"><p><span>Early Disease Detection</span></p></div><div class="item"><p><span>Result Interpretation</span></p></div><div class="item"><p><span>Racing Testing</span></p></div><div class="item"><p><span>Diagnostic Testing</span></p></div><div class="item"><p><span>Disease Outbreak Recovery</span></p></div></div>
 		</div>
 	</div>
-	<div class="buttons"><a class="button" href="https://tvmdl.tamu.edu/">tvmdl.tamu.edu</a></div>
+	<div class="buttons flow-arrow"><a class="button" href="https://tvmdl.tamu.edu/">tvmdl.tamu.edu</a></div>
 	<div class="exceptional-items">
 		<div class="layout-container">
 			<h2>Exceptional Items</h2>

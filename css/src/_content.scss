@@ -10,3 +10,7 @@ table {
 		padding: 0.5rem 0.75rem;
 	}
 }
+
+.flow-arrow {
+	@include arrow;
+}
