@@ -83,6 +83,9 @@ class Agrilife {
 		$comm = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'communications.php', 'Communications' );
 		$comm->register();
 
+		$exceptional_item = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'exceptional-item.php', 'Exceptional Item' );
+		$exceptional_item->register();
+
 	}
 
 	/**
