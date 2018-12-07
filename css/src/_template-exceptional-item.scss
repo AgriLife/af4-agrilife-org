@@ -1,4 +1,6 @@
 .page-template-exceptional-item .entry-content {
+	padding: $site-padding;
+
 	h1, h2 {
 		text-transform: uppercase;
 	}
@@ -16,10 +18,6 @@
 		max-width: 37.5rem;
 		padding: 0 $site-padding;
 		margin: 2rem auto;
-
-		h1 {
-			font-size: 4rem;
-	  }
 	}
 
 	.right {
@@ -92,6 +90,14 @@
 		}
 	}
 
+	.item-director {
+		padding: 0 0 .5rem;
+	}
+
+	.contact {
+		padding: .5rem 0 0;
+	}
+
 	.contact {
 		h2, h3 {
 			width: 100%;
@@ -104,11 +110,15 @@
 
 	@include breakpoint(medium){
 		@include xy-grid-container($break-xlarge, 0);
-		padding-bottom: 2rem;
+		padding: 0 0 2rem;
 
 		.wrap {
 			@include xy-grid;
 		}
+
+		.heading h1 {
+			font-size: 4rem;
+	  }
 
 		.left,
 		.right {
@@ -134,11 +144,11 @@
 		}
 
 		.item-director {
-			padding-right: .5rem;
+			padding: 0 .5rem 0 0;
 		}
 
 		.contact {
-			padding-left: .5rem;
+			padding: 0 0 0 .5rem;
 		}
 	}
 }
