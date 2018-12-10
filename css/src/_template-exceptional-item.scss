@@ -1,4 +1,4 @@
-.page-template-exceptional-item .entry-content {
+.template-exceptional-item {
 	padding: $site-padding;
 
 	h1, h2 {
@@ -29,8 +29,23 @@
 			margin-bottom: 0;
 		}
 
-		.wrap {
+		.logos {
 			background: #F1F2F2;
+			padding: 1rem;
+			text-align: center;
+
+			span {
+				$offset: rem-calc(9);
+				display: inline-block;
+				vertical-align: top;
+				width: calc(50% - #{$offset});
+			}
+		}
+
+		.logo-research {
+			padding-right: 1rem;
+			margin-right: 1rem;
+			border-right: 2px solid #808285;
 		}
 
 		.text {
@@ -54,6 +69,20 @@
 
 		hr {
 			border-bottom: 1px solid #FFF;
+		}
+
+		.pdf {
+			margin-top: 1rem;
+
+			span {
+				display: block;
+				font-family: $tungsten;
+				background: #0A3542;
+				padding: 1rem;
+				text-align: center;
+				color: #FFF;
+				font-size: 1.7rem;
+			}
 		}
 	}
 
@@ -108,11 +137,31 @@
 		}
 	}
 
+	@include breakpoint(small only){
+		> .wrap {
+			position: relative;
+			padding-bottom: 401px;
+		}
+
+		.right.sticky-container,
+		.right .sticky {
+			position: static;
+			transform: none;
+		}
+
+		.pdf {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+
 	@include breakpoint(medium){
 		@include xy-grid-container($break-xlarge, 0);
 		padding: 0 0 2rem;
 
-		.wrap {
+		> .wrap {
 			@include xy-grid;
 		}
 

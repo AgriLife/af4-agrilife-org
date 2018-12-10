@@ -8,10 +8,10 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
-	?><div class="heading"><h1>Growing a Robust Seafood Industry</h1></div>
+	?><div class="template-exceptional-item"><div class="heading"><h1>Growing a Robust Seafood Industry</h1></div>
 		<div class="wrap">
-			<div class="right" data-sticky-container><div class="wrap" data-sticky data-anchor="left-column" data-margin-top="6" data-sticky-on="medium">
-				<div class="logos"></div>
+			<div class="right" data-sticky-container><div class="wrap" data-sticky data-anchor="left-column" data-margin-top="6">
+				<div class="logos"><span class="logo-research"><img src="<?php echo ALAF4_DIR_URL; ?>images/logo-research.png"></span><span class="logo-corpus"><img src="<?php echo ALAF4_DIR_URL; ?>images/logo-corpus-christi.png"></span></div>
 				<div class="text">
 					<div class="request">
 						<h3>Exceptional Item Request FY 2020–21</h3>
@@ -21,9 +21,11 @@ add_action('genesis_entry_content', function(){
 					<h3>Objective</h3>
 					<p>Innovate seafood breeding and production to improve the health of Texas coastal waters, strengthen the Texas seafood industry, and bolster resilience of coastal communities.</p>
 				</div>
+				<div class="pdf"><a href="<?php echo ALAF4_DIR_URL; ?>pdf/exceptional-item-seafood.pdf"><img src="<?php echo ALAF4_DIR_URL; ?>images/GrowingaHealthy_Thumbnail.jpg"><span>Print-Friendly PDF</span></a></div>
 			</div></div>
 			<div id="left-column" class="left">
 				<h2>Background</h2><p class="background-text">The Texas seafood industry supports the economies of coastal Texas communities, but economic analyses show that the industry could greatly expand: The industry was heavily damaged by Hurricane Harvey and other catastrophic events, and, at present, about 90% of U.S. seafood is imported.</p>
+				<img src="<?php echo ALAF4_DIR_URL; ?>images/exceptional-item-oysters.jpg" alt="">
 				<h2>Program Description</h2><p>Texas A&M AgriLife Research and Texas A&M University-Corpus Christi (TAMUCC) propose a collaborative program that will:</p>
 				<ul>
 					<li>Develop breeding programs for shrimp, oysters, finfish, crabs, and other important marine species.</li>
@@ -67,6 +69,7 @@ add_action('genesis_entry_content', function(){
 					<p>Phone: 979-862-4384 | Email: vcdean@ag.tamu.edu</p>
 				</div></div>
 			</div>
+		</div>
 	<?php
 });
 
