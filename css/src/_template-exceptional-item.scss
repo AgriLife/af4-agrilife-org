@@ -126,11 +126,11 @@
 	}
 
 	.item-director {
-		padding: 0 0 .5rem;
+		margin: 0 0 1rem;
 	}
 
 	.contact {
-		padding: .5rem 0 0;
+		margin: 1rem 0 0;
 	}
 
 	.contact {
@@ -200,7 +200,6 @@
 
 			> div {
 				@include xy-cell-base();
-				padding: 1rem;
 			}
 
 			.item-director {
