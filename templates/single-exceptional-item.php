@@ -9,14 +9,22 @@ function af4_ei_right_column() {
 	?><div class="right" data-sticky-container><div class="wrap" data-sticky data-anchor="left-column" data-margin-top="6">
 			<div class="logos"><?php
 
-				foreach (get_field('logos') as $key => $value) {
-					$value = $value['image'];
-					$srcset = wp_get_attachment_image_srcset($value['ID']) || 'srcset';
-					$image = wp_get_attachment_image($value['ID'], 'full', false, $srcset);
-					echo sprintf( '<span class="%s">%s</span>',
-						$value['name'],
-						$image
-					);
+				$logos = get_field('logos');
+
+				if( $logos ){
+
+					foreach ( $logos as $key => $value) {
+
+						$value = $value['image'];
+						$srcset = wp_get_attachment_image_srcset($value['ID']) || 'srcset';
+						$image = wp_get_attachment_image($value['ID'], 'full', false, $srcset);
+						echo sprintf( '<span class="%s">%s</span>',
+							$value['name'],
+							$image
+						);
+
+					}
+
 				}
 
 			?></div>
@@ -25,8 +33,7 @@ function af4_ei_right_column() {
 
 					$request_fields = get_field('request');
 
-				?>
-					<h3>Exceptional Item Requestion FY <?php echo $request_fields['year']; ?></h3>
+				?><h3>Exceptional Item Requestion FY <?php echo $request_fields['year']; ?></h3>
 					<div class="value"><?php echo $request_fields['amount']; ?></div>
 				</div>
 				<hr />
