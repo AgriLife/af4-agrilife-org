@@ -20,6 +20,15 @@ define( 'ALAF4_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'ALAF4_TEXTDOMAIN', 'af4-agrilife-org' );
 define( 'ALAF4_TEMPLATE_PATH', ALAF4_DIR_PATH . 'templates' );
 
+// Code for plugins
+register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+register_activation_hook( __FILE__, 'af4_agrilife_activation' );
+function af4_agrilife_activation() {
+	if ( ! get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
+		add_option( 'af4_agrilife_flush_rewrite_rules_flag', true );
+	}
+}
+
 // Autoload all classes
 spl_autoload_register( 'Agrilife::autoload' );
 
@@ -35,6 +44,12 @@ class Agrilife {
 
 		$this->register_templates();
 
+		// Add ACF WYSIWYG toolbar
+		add_filter( 'acf/fields/wysiwyg/toolbars' , array( $this, 'toolbars' ) );
+
+		add_image_size( 'exceptional_item_director_small', 334, 250, array( 'center', 'top' ) );
+		add_image_size( 'exceptional_item_director_medium', 480, 360, array( 'center', 'top' ) );
+		add_image_size( 'exceptional_item_director_large', 640, 480, array( 'center', 'top' ) );
 	}
 
 	/**
@@ -52,6 +67,44 @@ class Agrilife {
 
 		// Set up required DOM
 		$ado_dom = new \Agrilife\RequiredDOM;
+
+		// Add custom post type for Exceptional Items
+	  if ( class_exists( 'acf' ) ) {
+	    require_once(ALAF4_DIR_PATH . 'fields/exceptional-item-fields.php');
+	  }
+
+		$post_type = new \Agrilife\PostType(
+			'Exceptional Item', ALAF4_TEMPLATE_PATH, 'exceptional-item', 'af4', array(), 'dashicons-portfolio',
+			array(
+				'title', 'editor', 'genesis-seo', 'genesis-scripts'
+			),
+			array(
+				'single' => 'single-exceptional-item.php'
+			)
+		);
+
+		if ( get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
+			flush_rewrite_rules();
+			delete_option( 'af4_agrilife_flush_rewrite_rules_flag' );
+		}
+
+	}
+
+	/**
+	 * Add ACF toolbars
+	 * @since 0.1.0
+	 * @return void
+	 */
+	function toolbars( $toolbars ) {
+
+		// Add new toolbars
+		$toolbars['Simple Text'] = array();
+		$toolbars['Simple Text'][1] = array( 'formatselect', 'bold' , 'italic', 'underline', 'link', 'unlink', 'alignleft', 'aligncenter', 'alignjustify', 'bullist', 'numlist' );
+
+		$toolbars['Simple Title'] = array();
+		$toolbars['Simple Title'][1] = array( 'bold' , 'italic', 'underline' );
+
+		return $toolbars;
 
 	}
 

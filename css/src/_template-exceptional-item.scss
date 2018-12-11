@@ -1,4 +1,4 @@
-.template-exceptional-item {
+.exceptional-item.entry {
 	padding: $site-padding;
 
 	h1, h2 {
@@ -17,7 +17,7 @@
 		margin-bottom: 1rem;
 	}
 
-	.heading {
+	.entry-header {
 		text-align: center;
 		max-width: 37.5rem;
 		padding: 0 $site-padding;
@@ -112,14 +112,16 @@
 
 	.item-director,
 	.contact {
-		.wrap {
-			background: #F1F1F2;
-			padding: 1rem;
-		}
+		background: #F1F1F2;
+		padding: 1rem;
 
 		h3 {
 			font-size: 1.1rem;
 			font-weight: bold;
+		}
+
+		img {
+			margin-bottom: 1rem;
 		}
 	}
 
@@ -142,7 +144,7 @@
 	}
 
 	@include breakpoint(small only){
-		> .wrap {
+		.entry-content {
 			position: relative;
 			padding-bottom: 401px;
 		}
@@ -165,7 +167,7 @@
 		@include xy-grid-container($break-xlarge, 0);
 		padding: 0 0 2rem;
 
-		> .wrap {
+		.entry-content {
 			@include xy-grid;
 		}
 
@@ -187,21 +189,27 @@
 		.left {
 			@include xy-cell(8, $gutter-type: padding, $gutters: 2rem);
 			order: 1;
+
+			> h2:first-child {
+				margin-top: 0;
+			}
 		}
 
-		.item-director,
-		.contact {
-			width: 50%;
-			display: inline-block;
-			vertical-align: top;
-		}
+		.contacts {
+			@include xy-grid;
 
-		.item-director {
-			padding: 0 .5rem 0 0;
-		}
+			> div {
+				@include xy-cell-base();
+				padding: 1rem;
+			}
 
-		.contact {
-			padding: 0 0 0 .5rem;
+			.item-director {
+				@include xy-cell($size: 50%, $gutter-position: right, $gutters: 1rem);
+			}
+
+			.contact {
+				@include xy-cell($size: 50%, $gutter-position: left, $gutters: 1rem);
+			}
 		}
 	}
 }
