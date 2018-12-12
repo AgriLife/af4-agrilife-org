@@ -260,6 +260,5 @@ $admin: false !default;
 // Text block styles
 p.intro-text,
 .editor-styles-wrapper p.intro-text {
-	font-size: 1.5rem;
-	font-family: $opensans;
+	font: 1.5rem / 1.5 $opensans;
 }
