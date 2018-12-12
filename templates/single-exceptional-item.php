@@ -42,11 +42,20 @@ function af4_ei_right_column() {
 			</div>
 			<div class="pdf"><?php
 
-				$pdf_field = get_field('pdf_thumbnail');
-				$srcset = wp_get_attachment_image_srcset($pdf_field['ID']) || 'srcset';
-				$image = wp_get_attachment_image($pdf_field['ID'], 'full', false, $srcset);
-				$pdf = sprintf( '<a href="%s">%s<span>Print-Friendly PDF</span></a>',
-					get_attachment_link($pdf_field['ID']),
+				$pdf_field = get_field('pdf');
+
+				$pdf_link = $pdf_field['file'];
+				$link = sprintf( '<a href="%s" title="%s">',
+					$pdf_link['url'],
+					$pdf_link['title']
+				);
+
+				$pdf_thumb = $pdf_field['thumbnail'];
+				$thumb_id = $pdf_thumb['ID'];
+				$srcset = wp_get_attachment_image_srcset($thumb_id) || 'srcset';
+				$image = wp_get_attachment_image($thumb_id, 'full', false, $srcset);
+				$pdf = sprintf( '%s%s<span>Print-Friendly PDF</span></a>',
+					$link,
 					$image
 				);
 
