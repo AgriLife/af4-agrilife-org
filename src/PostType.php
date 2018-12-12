@@ -15,7 +15,7 @@ class PostType {
 
 	/**
 	 * Builds and registers the custom taxonomy.
-	 * @param  string $name       The post type name.
+	 * @param  array  $name       The post type name.
 	 * @param  string $slug       The post type slug.
 	 * @param  string $tag        The namespace of the plugin for translation purposes.
 	 * @param  array  $taxonomies The taxonomies this post type supports. Accepts arguments found in
@@ -25,7 +25,7 @@ class PostType {
 	 *                            WordPress core register_post_type function.
 	 * @return void
 	 */
-	public function __construct( $name, $path, $slug, $tag, $taxonomies = array( 'category', 'post_tag' ), $icon = 'dashicons-portfolio', $supports = array( 'title' ), $templates = array() ) {
+	public function __construct( $name = array( 'singular' => '', 'plural' => ''), $path, $slug, $tag, $taxonomies = array( 'category', 'post_tag' ), $icon = 'dashicons-portfolio', $supports = array( 'title' ), $templates = array() ) {
 
 		$this->post_type = $slug;
 
@@ -41,8 +41,8 @@ class PostType {
 			$this->search_file = $templates['search'];
 		}
 
-		$singular = $name;
-		$plural = $name . 's';
+		$singular = $name['singular'];
+		$plural = $name['plural'];
 
 		// Backend labels
 		$labels = array(

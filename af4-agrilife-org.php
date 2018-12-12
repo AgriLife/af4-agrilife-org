@@ -71,15 +71,32 @@ class Agrilife {
 		// Add custom post type for Exceptional Items
 	  if ( class_exists( 'acf' ) ) {
 	    require_once(ALAF4_DIR_PATH . 'fields/exceptional-item-fields.php');
+	    require_once(ALAF4_DIR_PATH . 'fields/agency-fields.php');
 	  }
 
 		$post_type = new \Agrilife\PostType(
-			'Exceptional Item', ALAF4_TEMPLATE_PATH, 'exceptional-item', 'af4', array(), 'dashicons-portfolio',
+			array(
+				'singular' => 'Exceptional Item',
+				'plural' => 'Exceptional Items'
+			), ALAF4_TEMPLATE_PATH, 'exceptional-item', 'af4', array(), 'dashicons-portfolio',
 			array(
 				'title', 'editor', 'genesis-seo', 'genesis-scripts'
 			),
 			array(
 				'single' => 'single-exceptional-item.php'
+			)
+		);
+
+		$post_type = new \Agrilife\PostType(
+			array(
+				'singular' => 'Agency',
+				'plural' => 'Agencies'
+			), ALAF4_TEMPLATE_PATH, 'agency', 'af4', array(), 'dashicons-portfolio',
+			array(
+				'title', 'editor', 'genesis-seo', 'genesis-scripts'
+			),
+			array(
+				'single' => 'single-agency.php'
 			)
 		);
 

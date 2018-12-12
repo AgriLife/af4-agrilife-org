@@ -144,7 +144,7 @@
 	$pref-key: false
 ) {
 	@each $name, $map in $template-atts {
-		.page-template-#{$name} & {
+		.agency-#{$name} & {
 			@if $pref-key and map-has-key($map, $pref-key) {
 				#{$p}: map-get($map, $pref-key);
 			} @else {
@@ -163,7 +163,7 @@
 	$pref-color: false
 ) {
 	@each $name, $map in $template-atts {
-		.page-template-#{$name} & {
+		.agency-#{$name} & {
 			@if $pref-color and map-has-key($map, $pref-color) {
 				@include bracket-color(get-template-value($map, $pref-color));
 			} @else {
@@ -182,7 +182,7 @@
 	$bg-color: color
 ) {
 	@each $name, $map in $template-atts {
-		.page-template-#{$name} & {
+		.agency-#{$name} & {
 			@include arrow-color(get-template-value($map, $border-color), get-template-value($map, $bg-color));
 		}
 	}
