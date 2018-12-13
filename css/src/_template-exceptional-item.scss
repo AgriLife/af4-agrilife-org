@@ -74,6 +74,10 @@
 		.pdf {
 			margin-top: 1rem;
 
+			a {
+				text-decoration: none;
+			}
+
 			span {
 				display: block;
 				font-family: $tungsten;
