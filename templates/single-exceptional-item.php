@@ -83,29 +83,11 @@ function af4_ei_director_contact() {
 		$image_obj = $director['image'];
 		$image_id = $image_obj['ID'];
 		$image_sizes = $image_obj['sizes'];
-		$size_names = array( 'small', 'medium', 'large' );
-		$url = wp_get_attachment_image_url( $image_id, 'exceptional_item_director_large' );
+		$url = wp_get_attachment_image_url( $image_id );
 		$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
-		$widths = array();
-		foreach ($size_names as $key => $value) {
-			$widths[ $value ] = $image_sizes["exceptional_item_director_$value-width"];
-		}
-
-		$srcset = array();
-		foreach ($widths as $key => $value) {
-			$srcset[] = $image_sizes["exceptional_item_director_$key"] . " $value";
-		}
-
-		$sizes = array();
-		foreach ($widths as $key => $value) {
-			$sizes[] = "(max-width: {$value}px) {$value}px";
-		}
-
-		$image = sprintf( '<img src="%s" srcset="%s" sizes="%s" alt="%s">',
+		$image = sprintf( '<img src="%s" alt="%s">',
 			$url,
-			implode( ',', $srcset ),
-			implode( ',', $sizes ),
 			$alt
 		);
 
