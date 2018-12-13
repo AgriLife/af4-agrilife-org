@@ -4,16 +4,10 @@ function af4_agency_slug( $name ){
 
 	$slug = strtolower( preg_replace( '/\s*&\s*|\s/', '_', $name ) );
 
-	switch ( $slug ) {
-		case 'agriculture_life_sciences':
-			$slug = 'coals';
-			break;
-		case 'forest_service':
-			$slug = 'forest';
-			break;
-		default:
-			break;
-	}
+	if($slug === 'agriculture_life_sciences')
+		$slug = 'coals';
+	if($slug === 'forest_service')
+		$slug = 'forest';
 
 	return $slug;
 
@@ -40,6 +34,29 @@ function af4_agency_full_name( $name ){
 
 }
 
+function af4_responsive_img_atts( $path, $widths ){
+
+	$srcset = array();
+	$sizes = array();
+	$len = count($widths);
+
+	foreach ($widths as $key => $value) {
+		$url = "{$path}-%s.jpg";
+		$srcset[] = sprintf($url . ' %sw', $value, $value);
+		if ($key !== $len) {
+			$sizes[] = sprintf('(max-width: %spx) %spx', $value, $value);
+		} else {
+			$sizes[] = sprintf('%spx', $value);
+		}
+	}
+
+	return sprintf(' srcset="%s" sizes="%s"',
+		implode(', ', $srcset),
+		implode(', ', $sizes)
+	);
+
+}
+
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 add_filter( 'body_class', 'af4_agency_body_class' );
 function af4_agency_body_class( $classes ){
@@ -59,54 +76,23 @@ function af4_agency_header() {
 
 	$agency = get_field('agency');
 	$agency_slug = af4_agency_slug( $agency );
+	$img_path = ALAF4_DIR_URL . "images/{$agency_slug}-header";
 
 	?><div class="content-heading-image flow-arrow">
 		<div class="wrap">
 			<img class="background hide-for-medium" <?php
-				echo "src=\"" . ALAF4_DIR_URL . "images/{$agency_slug}-header-small-640.jpg\"";
 
-				$widths = array(640, 720, 800, 880, 960, 1040, 1280);
-				$srcset = array();
-				$sizes = array();
-				$len = count($widths);
-
-				foreach ($widths as $key => $value) {
-					$url = ALAF4_DIR_URL . "images/{$agency_slug}-header-small-%s.jpg";
-					$srcset[] = sprintf($url . ' %sw', $value, $value);
-					if ($key !== $len) {
-						$sizes[] = sprintf('(max-width: %spx) %spx', $value, $value);
-					} else {
-						$sizes[] = sprintf('%spx', $value);
-					}
-				}
-
-				echo sprintf(' srcset="%s" sizes="%s"',
-					implode(', ', $srcset),
-					implode(', ', $sizes)
-				);
+				echo "src=\"{$img_path}-small-640.jpg\"";
+				echo af4_responsive_img_atts( "{$img_path}-small", array(
+					640, 720, 800, 880, 960, 1040, 1280
+				) );
 
 			?>><img class="background show-for-medium" <?php
-				echo "src=\"" . ALAF4_DIR_URL . "images/{$agency_slug}-header-background-1900.jpg\"";
 
-				$widths = array(1024, 1200, 1440, 1900);
-				$srcset = array();
-				$sizes = array();
-				$len = count($widths);
-
-				foreach ($widths as $key => $value) {
-					$url = ALAF4_DIR_URL . "images/{$agency_slug}-header-background-%s.jpg";
-					$srcset[] = sprintf($url . ' %sw', $value, $value);
-					if ($key !== $len) {
-						$sizes[] = sprintf('(max-width: %spx) %spx', $value, $value);
-					} else {
-						$sizes[] = sprintf('%spx', $value);
-					}
-				}
-
-				echo sprintf(' srcset="%s" sizes="%s"',
-					implode(', ', $srcset),
-					implode(', ', $sizes)
-				);
+				echo "src=\"{$img_path}-background-1900.jpg\"";
+				echo af4_responsive_img_atts( "{$img_path}-background", array(
+					1024, 1200, 1440, 1900
+				) );
 
 			?>>
 			<h1><?php echo $agency; ?></h1>
