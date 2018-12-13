@@ -204,10 +204,14 @@
 
 			.item-director {
 				@include xy-cell($size: 50%, $gutter-position: right, $gutters: 1rem);
+
+				margin-bottom: 0;
 			}
 
 			.contact {
 				@include xy-cell($size: 50%, $gutter-position: left, $gutters: 1rem);
+
+				margin-top: 0;
 			}
 		}
 	}
