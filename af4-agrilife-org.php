@@ -47,9 +47,6 @@ class Agrilife {
 		// Add ACF WYSIWYG toolbar
 		add_filter( 'acf/fields/wysiwyg/toolbars' , array( $this, 'toolbars' ) );
 
-		add_image_size( 'exceptional_item_director_small', 334, 250, array( 'center', 'top' ) );
-		add_image_size( 'exceptional_item_director_medium', 480, 360, array( 'center', 'top' ) );
-		add_image_size( 'exceptional_item_director_large', 640, 480, array( 'center', 'top' ) );
 	}
 
 	/**
@@ -133,9 +130,6 @@ class Agrilife {
 	private function register_templates() {
 
 		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
-
-		$comm = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'communications.php', 'Communications' );
-		$comm->register();
 
 	}
 
