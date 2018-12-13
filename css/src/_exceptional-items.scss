@@ -66,20 +66,24 @@
 		.row {
 			@include xy-grid;
 
+			justify-content: center;
+
 			.item {
 				@include xy-cell-base();
 				@include xy-cell(auto, $gutter-type: margin, $gutters: 0);
 
+				text-align: left;
+				padding: 1rem 1rem 5%;
 				max-width: 369px;
 				background-color: #F1F1F2;
 				margin: {
-					left: 7%;
-					right: 7%;
+					left: 5%;
+					right: 5%;
 				}
 			}
 
 			.photo {
-				padding: 4% 0;
+				padding: 0 0 4%;
 				position: relative;
 
 				img {
@@ -88,7 +92,7 @@
 				}
 
 				& ~ * {
-					padding: 0 11%;
+					padding: 0 7%;
 				}
 			}
 
