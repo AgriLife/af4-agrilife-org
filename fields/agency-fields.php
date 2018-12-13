@@ -27,6 +27,7 @@ acf_add_local_field_group(array(
 				'Research' => 'Research',
 			),
 			'default_value' => array(
+				'Agriculture & Life Sciences' => 'Agriculture & Life Sciences',
 			),
 			'allow_null' => 0,
 			'multiple' => 0,
@@ -154,7 +155,7 @@ acf_add_local_field_group(array(
 					),
 					'collapsed' => '',
 					'min' => 0,
-					'max' => 0,
+					'max' => 2,
 					'layout' => 'table',
 					'button_label' => 'Add Item',
 					'sub_fields' => array(

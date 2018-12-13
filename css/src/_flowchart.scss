@@ -32,8 +32,8 @@ $prototype-border-color: $fc-color;
 	&.brackets .bottom .item {
 		text-align: center;
 
-		a {
-			@include brackets($padding: rem-calc(10 24));
+		> * {
+			@include brackets($padding: rem-calc(12 24));
 			@include template-brackets($color: color, $pref-color: contrast-color);
 			@include flex;
 
@@ -300,6 +300,15 @@ $prototype-border-color: $fc-color;
 				justify-content: center;
 
 				.item {
+					width: 20%;
+
+					& > * {
+						line-height: 1.2;
+						height: 100%;
+					}
+				}
+
+				&.full-row .item {
 					$widths: (19.25%, 21.25%, 19%, 21.25%, 19.25%);
 					$i: 1;
 					@each $width in $widths {
@@ -308,12 +317,6 @@ $prototype-border-color: $fc-color;
 						}
 						$i: $i + 1;
 					}
-				}
-
-				.item a {
-					font-size: 0.9rem;
-					line-height: 1.2;
-					height: 100%;
 				}
 			}
 
