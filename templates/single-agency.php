@@ -212,9 +212,11 @@ function af4_agency_fields() {
 
 		?><div class="buttons flow-arrow"><?php
 
+			$domain = parse_url($site_link, PHP_URL_HOST);
+
 			echo sprintf( '<a class="button" href="%s">%s</a>',
 				$site_link,
-				preg_replace('/http(s)?:\/\//', '', $site_link)
+				$domain
 			);
 
 		?></div><?php
