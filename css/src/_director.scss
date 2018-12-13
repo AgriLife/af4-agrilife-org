@@ -71,18 +71,20 @@ $button-margin: 0;
 		text-align: center;
 
 		.button {
-			@include button-base;
-			@include template-prop($p: background-color, $key: color, $pref-key: button);
-			@include template-prop($p: color, $key: button-text-color);
+			@include template-prop($p: background-color, $key: color, $pref-key: button-callout-bg);
 
-			font: {
-				size: 1.25rem;
-				weight: bold;
+			display: inline-block;
+			background-color: $light-green;
+			padding: 10px 50px;
+			text-transform: uppercase;
+			font-weight: bold;
+
+			&, &:hover {
+				text-decoration: none;
 			}
-			text-decoration: none;
 
-			&:hover {
-				@include template-prop($p: background-color, $key: button-hover);
+			@media screen and (max-width: 430px){
+				padding: 10px 25px;
 			}
 		}
 	}
