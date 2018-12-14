@@ -121,14 +121,15 @@ function af4_agency_fields() {
 	$agency = get_field('agency');
 	$full_name = af4_agency_full_name( $agency );
 	$agency_slug = af4_agency_slug( $agency );
-	$director = get_field('director');
 	$flowchart = get_field('flowchart');
+	$director = get_field('director');
 	$exceptional_items = get_field('exceptional_items');
 	$site_link = get_field('site_link');
 
 	if( !empty($flowchart) ){
 
 		?><div class="flowchart brackets flow-arrow">
+		<h2>Resources by Agency</h2>
 		<div class="layout-container">
 			<div class="flowchart-row top">
 				<div class="item"><?php
