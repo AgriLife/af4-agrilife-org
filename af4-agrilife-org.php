@@ -130,6 +130,7 @@ class Agrilife {
 	private function register_templates() {
 
 		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
+		$home->register();
 
 	}
 
