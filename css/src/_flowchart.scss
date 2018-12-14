@@ -237,6 +237,7 @@ $prototype-border-color: $fc-color;
 				@include absolute-center;
 				@include bordered($border-width, solid, $dark-blue);
 
+				display: inline-table; // Might address fractional positioning of dotted line
 				width: 20%;
 				z-index: 2;
 				background: $dark-blue;
