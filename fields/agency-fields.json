@@ -47,8 +47,44 @@
                 "return_format": "url"
             },
             {
+                "key": "field_5c18052a4f66c",
+                "label": "Flowchart Details",
+                "name": "flowchart_group",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5c180baa68bdf",
+                        "label": "Title",
+                        "name": "title",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Resources by Agency",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
                 "key": "field_5c116ab7cad3c",
-                "label": "Flowchart",
+                "label": "Flowchart Items",
                 "name": "flowchart",
                 "type": "repeater",
                 "instructions": "",
