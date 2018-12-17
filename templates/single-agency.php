@@ -248,9 +248,9 @@ function af4_agency_fields() {
 						$link['close'] = '</a>';
 					}
 
-					echo sprintf( '<div class="item">%s<h3>%s%s%s</h3><div class="description">%s</div></div>',
-						$image,
+					echo sprintf( '<div class="item">%s%s<h3>%s</h3>%s<div class="description">%s</div></div>',
 						$link['open'],
+						$image,
 						$item['title'],
 						$link['close'],
 						$item['description']

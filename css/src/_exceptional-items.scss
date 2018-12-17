@@ -90,10 +90,11 @@
 					position: relative;
 					z-index: 2;
 				}
+			}
 
-				& ~ * {
-					padding: 0 7%;
-				}
+			h3,
+			.description {
+				padding: 0 7%;
 			}
 
 			h3 {
