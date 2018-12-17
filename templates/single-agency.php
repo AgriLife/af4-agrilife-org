@@ -228,10 +228,31 @@ function af4_agency_fields() {
 				?><div class="row"><?php
 
 				foreach ( $exceptional_items['items'] as $key => $item ) {
-					echo sprintf( '<div class="item"><div class="photo"><img src="%s" alt="%s"></div><h3>%s</h3><div class="description">%s</div></div>',
-						$item['image']['url'],
-						$item['image']['alt'],
+
+					$link = array(
+						'open' => '',
+						'close' => ''
+					);
+
+					$image = '';
+
+					if( $item['image'] ){
+						$image = sprintf('<div class="photo"><img src="%s" alt="%s"></div>',
+							$item['image']['url'],
+							$item['image']['alt']
+						);
+					}
+
+					if( $item['link'] ){
+						$link['open'] = "<a href=\"{$item['link']}\">";
+						$link['close'] = '</a>';
+					}
+
+					echo sprintf( '<div class="item">%s<h3>%s%s%s</h3><div class="description">%s</div></div>',
+						$image,
+						$link['open'],
 						$item['title'],
+						$link['close'],
 						$item['description']
 					);
 				}

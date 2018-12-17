@@ -151,7 +151,7 @@
                         "collapsed": "",
                         "min": 0,
                         "max": 0,
-                        "layout": "table",
+                        "layout": "row",
                         "button_label": "Add Item",
                         "sub_fields": [
                             {
@@ -196,6 +196,21 @@
                                 "prepend": "",
                                 "append": "",
                                 "maxlength": ""
+                            },
+                            {
+                                "key": "field_5c17aecf8471a",
+                                "label": "Link",
+                                "name": "link",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url"
                             },
                             {
                                 "key": "field_5c116c7ecad44",

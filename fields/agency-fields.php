@@ -27,7 +27,6 @@ acf_add_local_field_group(array(
 				'Research' => 'Research',
 			),
 			'default_value' => array(
-				'Agriculture & Life Sciences' => 'Agriculture & Life Sciences',
 			),
 			'allow_null' => 0,
 			'multiple' => 0,
@@ -155,8 +154,8 @@ acf_add_local_field_group(array(
 					),
 					'collapsed' => '',
 					'min' => 0,
-					'max' => 2,
-					'layout' => 'table',
+					'max' => 0,
+					'layout' => 'row',
 					'button_label' => 'Add Item',
 					'sub_fields' => array(
 						array(
@@ -201,6 +200,21 @@ acf_add_local_field_group(array(
 							'prepend' => '',
 							'append' => '',
 							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_5c17aecf8471a',
+							'label' => 'Link',
+							'name' => 'link',
+							'type' => 'link',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'url',
 						),
 						array(
 							'key' => 'field_5c116c7ecad44',
