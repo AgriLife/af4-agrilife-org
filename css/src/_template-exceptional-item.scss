@@ -30,22 +30,25 @@
 		}
 
 		.logos {
+			@include flex;
 			background: #F1F2F2;
 			padding: 1rem;
 			text-align: center;
 
 			span {
 				$offset: rem-calc(9);
-				display: inline-block;
-				vertical-align: top;
 				width: calc(50% - #{$offset});
-			}
-		}
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 
-		.logo-research {
-			padding-right: 1rem;
-			margin-right: 1rem;
-			border-right: 2px solid #808285;
+				& + span {
+					padding-left: 1rem;
+					margin-left: 1rem;
+					border-left: 2px solid #808285;
+				}
+			}
 		}
 
 		.text {
