@@ -286,7 +286,10 @@ function af4_agency_fields() {
 
 		?></div></div><div class="photo-column"><?php
 
-			echo "<img src=\"" . ALAF4_DIR_URL . "images/{$agency_slug}-director.jpg\" alt=\"{$director['name']}\">";
+			$image = $director['photo'];
+			if($image){
+				echo "<img src=\"{$image['sizes']['medium_large']}\" alt=\"{$director['name']}\">";
+			}
 
 		?></div></div><?php
 
