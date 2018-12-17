@@ -83,7 +83,7 @@ function af4_ei_director_contact() {
 		$image_obj = $director['image'];
 		$image_id = $image_obj['ID'];
 		$image_sizes = $image_obj['sizes'];
-		$url = wp_get_attachment_image_url( $image_id );
+		$url = wp_get_attachment_image_url( $image_id, 'medium_large' );
 		$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
 		$image = sprintf( '<img src="%s" alt="%s">',
