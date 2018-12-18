@@ -7,7 +7,7 @@
 }
 
 .no-js #header-search {
-  @include element-invisible;
+	@include element-invisible;
 }
 
 .site-header,
@@ -50,7 +50,7 @@
 	}
 
 	.title-area {
-    width: 50%;
+		width: 50%;
 		font-weight: 700;
 		text-align: left;
 	}
@@ -70,9 +70,9 @@
 	}
 
 	.title-bars {
-    width: 50%;
-    text-align: right;
-  }
+		width: 50%;
+		text-align: right;
+	}
 
 	.title-bar {
 		display: inline-block!important;
@@ -114,8 +114,8 @@
 			}
 
 			input[type=search] {
-		    @include xy-cell(8, $gutter-type: margin, $gutters: 0);
-		    border-color: $gray-light;
+				@include xy-cell(8, $gutter-type: margin, $gutters: 0);
+				border-color: $gray-light;
 			}
 
 			input[type=submit] {
@@ -191,6 +191,7 @@
 				padding: 0.1em .3em;
 				margin-bottom: 0;
 				font-style: italic;
+				color: white;
 			}
 
 			input[type="submit"] {

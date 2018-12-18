@@ -52,11 +52,13 @@ $button-margin: 0;
 	.quote {
 		text-align: left;
 		padding-right: 2em;
+		font-style: italic;
 	}
 
 	.creds {
 		text-align: right;
 		margin-top: 1em;
+		font-size: .9rem;
 
 		p {
 			font-style: italic;
@@ -220,8 +222,16 @@ $button-margin: 0;
 		}
 
 		.quote {
+			padding-right: 0;
+			line-height: 2rem;
+			font-size: 1.5rem;
+
 			@include breakpoint(1040px down){
 				padding-right: 1.25rem;
+			}
+
+			@include breakpoint(53.125em down){
+				padding-right: 0;
 			}
 		}
 
@@ -247,6 +257,12 @@ $button-margin: 0;
 					left: 1rem;
 					right: 1rem;
 				}
+			}
+		}
+
+		@include breakpoint(53.125em down){
+			.creds {
+				margin-top: 1rem;
 			}
 		}
 	}

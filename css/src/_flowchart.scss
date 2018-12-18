@@ -61,7 +61,7 @@ $prototype-border-color: $fc-color;
 		text-transform: uppercase;
 		font-size: 2.25rem;
 		text-align: center;
-		padding: 0 2rem;
+		padding: 2rem;
 		margin: 0;
 
 		&::after {
@@ -82,6 +82,7 @@ $prototype-border-color: $fc-color;
 		$arrow-size: 10;
 		$border-width: 2;
 
+		display: none;
 		border: #{$border-width}px solid #FFF;
 		box-sizing: content-box;
 		position: absolute;

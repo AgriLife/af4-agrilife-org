@@ -119,6 +119,15 @@ $small-vertical-spacing: 20px;
 #action-items {
 	text-align: center;
 
+	a {
+		color: $whiter;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
 	.item {
 		background: $maroon-alt;
 		color: $whiter;
@@ -272,6 +281,22 @@ $small-vertical-spacing: 20px;
 				align-items: center;
 				display: flex;
 				justify-content: center;
+			}
+
+			&.item-5 {
+				h2 {
+					padding-bottom: 0;
+				}
+
+				h3 {
+					font-size: .9rem;
+					line-height: 2em;
+					margin-bottom: 1.7rem;
+
+					a {
+						text-decoration: underline;
+					}
+				}
 			}
 
 			.wrap {
