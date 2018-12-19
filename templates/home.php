@@ -97,8 +97,9 @@ add_action('genesis_entry_content', function(){
 						$item_5 = $action_items['item_5'];
 						$link = $item_5['link'];
 						$heading = $item_5['heading'];
+						$form = preg_replace('/<(\/)?p>/', '', $item_5['form']);
 
-						echo "<h3><a href=\"{$link}\">{$heading}</a></h3>{$item_5['form']}";
+						echo "<h3><a href=\"{$link}\">{$heading}</a></h3>{$form}";
 
 					?>
 				</div>
