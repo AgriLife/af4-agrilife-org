@@ -40,9 +40,11 @@ class Agrilife {
 
 	private function __construct() {
 
+		$this->register_templates();
+
 		add_action( 'init', array( $this, 'init' ) );
 
-		$this->register_templates();
+		add_action( 'plugins_loaded', array( $this, 'custom_fields' ) );
 
 		// Add ACF WYSIWYG toolbar
 		add_filter( 'acf/fields/wysiwyg/toolbars' , array( $this, 'toolbars' ) );
@@ -66,11 +68,6 @@ class Agrilife {
 		$ado_dom = new \Agrilife\RequiredDOM;
 
 		// Add custom post type for Exceptional Items
-	  if ( class_exists( 'acf' ) ) {
-	    require_once(ALAF4_DIR_PATH . 'fields/exceptional-item-fields.php');
-	    require_once(ALAF4_DIR_PATH . 'fields/agency-fields.php');
-	  }
-
 		$post_type = new \Agrilife\PostType(
 			array(
 				'singular' => 'Exceptional Item',
@@ -84,6 +81,7 @@ class Agrilife {
 			)
 		);
 
+		// Add custom post type for Agencies
 		$post_type = new \Agrilife\PostType(
 			array(
 				'singular' => 'Agency',
@@ -97,11 +95,25 @@ class Agrilife {
 			)
 		);
 
+		// Flush rewrite rules on plugin installation
 		if ( get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
 			flush_rewrite_rules();
 			delete_option( 'af4_agrilife_flush_rewrite_rules_flag' );
 		}
 
+	}
+
+	/**
+	 * Initialize Advanced Custom Fields files
+	 * @since 0.1.0
+	 * @return void
+	 */
+	public function custom_fields() {
+	  if ( class_exists( 'acf' ) ) {
+	    require_once(ALAF4_DIR_PATH . 'fields/exceptional-item-fields.php');
+	    require_once(ALAF4_DIR_PATH . 'fields/agency-fields.php');
+	    require_once(ALAF4_DIR_PATH . 'fields/home-fields.php');
+	  }
 	}
 
 	/**

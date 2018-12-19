@@ -11,6 +11,9 @@ add_action( 'wp_head', function(){
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 add_action('genesis_entry_content', function(){
+
+	$action_items = get_field('action_items');
+
 	?><div id="overview">
 		<div id="leaders-heading" class="layout-container"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>
 		<div id="action-items" class="layout-container">
@@ -24,33 +27,80 @@ add_action('genesis_entry_content', function(){
 					</ul></div></div>
 			</div>
 			<div class="item item-2"><a href="/about/"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt="About AgriLife"></a><h2><a href="/about/">What is <br>Texas A&amp;M AgriLife?</a></h2></div>
-			<div class="item  item-3 featured"><div class="wrap" style="background-image: url(<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg);"><img src="<?php echo ALAF4_DIR_URL; ?>/images/home-impacts.jpg" alt=""><h2>Impacts</h2>
-				<div class="description has-line hide-for-small-only">Residents, AgriLife Extension, others work to 'Harvey-proof' Houston-area community</div>
-			</div></div>
-			<div class="item item-4"><a href="https://today.agrilife.org/2018/10/02/texas-am-agrilife-to-lead-consortium-in-establishing-center-for-cross-border-threat-screening-and-supply-chain-defense/"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-today.jpg" alt="AgriLife Today"></a><h2><a href="https://today.agrilife.org/2018/10/02/texas-am-agrilife-to-lead-consortium-in-establishing-center-for-cross-border-threat-screening-and-supply-chain-defense/">AgriLife Today</a></h2>
-				<div class="description has-line hide-for-small-only">Texas A&amp;M AgriLife to lead consortium in establishing Center
-			</div></div>
+			<div class="item item-3 featured"><?php
+
+				$item_3 = $action_items['item_3'];
+				$img = $item_3['image'];
+				$heading = $item_3['heading'];
+				$link = $item_3['link'];
+				$desc = $item_3['description'];
+
+				if( $link ){
+					if( $img ){
+						echo sprintf( '<div class="wrap" style="background-image: url(%s);"><a href="%s"><img src="%s" alt=""><h2>%s</h2></a>',
+							$img['url'],
+							$link,
+							$img['url'],
+							$heading
+						);
+					} else {
+						echo sprintf( '<div class="wrap"><h2><a href="%s">%s</a></h2>',
+							$link,
+							$heading
+						);
+					}
+				} else {
+					if( $img ){
+						echo sprintf( '<div class="wrap" style="background-image: url(%s);"><img src="%s" alt=""><h2>%s</h2>',
+							$img['url'],
+							$img['url'],
+							$heading
+						);
+					} else {
+						echo sprintf( '<div class="wrap"><h2>%s</h2>',
+							$heading
+						);
+					}
+				}
+
+				echo "<div class=\"description has-line hide-for-small-only\">{$desc}</div></div>";
+
+			?></div>
+			<div class="item item-4"><div class="wrap"><?php
+
+				$item_4 = $action_items['item_4'];
+				$img = $item_4['image'];
+				$link = $item_4['link'];
+				$desc = $item_4['description'];
+
+				$link_open = '';
+				$link_close = '';
+
+				if( $link ){
+					$link_open = "<a href=\"{$link}\">";
+					$link_close = '</a>';
+				}
+
+				echo sprintf( '%s<img src="%s"><h2>AgriLife Today</h2>%s<div class="description has-line hide-for-small-only">%s</div>',
+					$link_open,
+					$img['url'],
+					$link_close,
+					$desc
+				);
+
+			?></div></div>
 			<div class="item item-5">
 				<div class="wrap">
 					<h2><span class="big">Newsletter</span></h2>
-					<h3><a href="#">November 2018</a></h3>
-					<!-- Begin Mailchimp Signup Form -->
-					<div id="mc_embed_signup" class="description">
-						<form action="https://agrilife.us1.list-manage.com/subscribe/post?u=1a8a0ed97f45319b1319f2572&amp;id=449a7707a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-					    <div id="mc_embed_signup_scroll">
-								<div class="mc-field-group">
-									<label for="mce-EMAIL" class="screen-reader-text">Email Address </label>
-									<input type="email" value="" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL">
-								</div>
-								<div id="mce-responses" class="clear">
-									<div class="response" id="mce-error-response" style="display:none"></div>
-									<div class="response" id="mce-success-response" style="display:none"></div>
-								</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-						    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1a8a0ed97f45319b1319f2572_449a7707a3" tabindex="-1" value=""></div>
-						    <div class="clear"><input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-					    </div>
-						</form>
-					</div><script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script><!--End mc_embed_signup-->
+					<?php
+
+						$item_5 = $action_items['item_5'];
+						$link = $item_5['link'];
+						$heading = $item_5['heading'];
+
+						echo "<h3><a href=\"{$link}\">{$heading}</a></h3>{$item_5['form']}";
+
+					?>
 				</div>
 			</div>
 		</div>
