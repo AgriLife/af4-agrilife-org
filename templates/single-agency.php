@@ -213,7 +213,7 @@ function af4_agency_fields() {
 
 	if( array_filter($exceptional_items) ){
 
-		?><div class="exceptional-items"><div class="layout-container"><h2>Exceptional Items</h2><?php
+		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a>Exceptional Items</h2><?php
 
 			if( !empty( $exceptional_items['introduction'] ) ){
 
