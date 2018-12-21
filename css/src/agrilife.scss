@@ -57,8 +57,8 @@
 @include foundation-visibility-classes;
 // @include foundation-float-classes;
 // @include foundation-flex-classes;
-
 // @include foundation-prototype-classes;
+
 @import 'mixins';
 @import 'functions';
 @import 'typography';
@@ -72,7 +72,7 @@
 @import 'footer';
 
 // For template pages
-@import 'template-layout';
+@import 'blog';
 @import 'agency-layout';
 @import 'content-heading-image';
 @import 'introduction';
@@ -80,5 +80,6 @@
 @import 'buttons-callout';
 @import 'exceptional-items';
 @import 'director';
+@import 'template-default';
 @import 'template-exceptional-item';
 @import 'template-agency';
