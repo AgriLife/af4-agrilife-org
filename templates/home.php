@@ -18,12 +18,12 @@ add_action('genesis_entry_content', function(){
 		<div id="leaders-heading" class="layout-container"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>
 		<div id="action-items" class="layout-container">
 			<div class="item item-1"><div class="wrap"><h2>86th Legislature</h2>
-				<div class="description has-line hide-for-small-only">
+				<div class="description has-line">
 					<ul>
 						<li><a href="/agency/extension-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Extension<span class="show-for-medium"> Service</span></a></li>
 						<li><a href="/agency/research-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Research</a></li>
 						<li><a href="/agency/tvmdl-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Veterinary<span class="hide-for-medium hide-for-large"> Medical</span> Diagnostic<span class="hide-for-xlarge">s</span><span class="show-for-xlarge"> Laboratory</span></a></li>
-						<li><a href="/agency/tfs-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Forest<span class="show-for-medium hide-for-large">ry</span><span class="show-for-xlarge"> Service</span></a></li>
+						<li><a href="/agency/tfs-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Forest<span class="show-for-medium hide-for-large">ry</span>Service</a></li>
 					</ul></div></div>
 			</div>
 			<div class="item item-2"><a href="/about/"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt="About AgriLife"></a><h2><a href="/about/">What is <br>Texas A&amp;M AgriLife?</a></h2></div>
