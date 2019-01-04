@@ -33,7 +33,9 @@ function af4_ei_right_column() {
 
 					$request_fields = get_field('request');
 
-				?><h3>Exceptional Item Requestion FY <?php echo $request_fields['year']; ?></h3>
+				?>
+				<h3>Exceptional Item Requisition</h3>
+				<h3>FY <?php echo $request_fields['year']; ?></h3>
 					<div class="value"><?php echo $request_fields['amount']; ?></div>
 				</div>
 				<hr />
