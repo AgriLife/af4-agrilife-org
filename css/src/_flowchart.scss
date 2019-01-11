@@ -37,13 +37,13 @@ $prototype-border-color: $fc-color;
 			@include template-prop($p: border-color, $key: color, $pref-key: contrast-color);
 			@include flex;
 
+			border: 2px solid $light-blue;
 			font: 1.75rem / 1em $header-font-family;
 			text-transform: uppercase;
 			flex-flow: row wrap;
 			align-items: center;
 			justify-content: center;
 			position: relative;
-			border: 2px solid $light-blue;
 			margin: 0 auto;
 			padding: rem-calc(12);
 
@@ -55,6 +55,17 @@ $prototype-border-color: $fc-color;
 				flex: 0 0 100%;
 				display: inline-block;
 			}
+		}
+	}
+
+	.agency-coals & .item {
+		& > * {
+			height: auto;
+			border-color: transparent;
+		}
+
+		> a:hover {
+			border-color: #B1B4B6;
 		}
 	}
 
@@ -87,42 +98,6 @@ $prototype-border-color: $fc-color;
 		}
 	}
 
-	.bottom a .arrow {
-		$arrow-size: 10;
-		$border-width: 2;
-
-		display: none;
-		border: #{$border-width}px solid #FFF;
-		box-sizing: content-box;
-		position: absolute;
-		top: 2px * $border-width;
-		right: 2px * $border-width;
-		width: rem-calc($arrow-size);
-		height: rem-calc($arrow-size);
-
-		&::before,
-		img {
-			position: absolute;
-			right: rem-calc($border-width * -1);
-			top: rem-calc($border-width * -1);
-		}
-
-		&::before {
-			content: "";
-			display: block;
-			background: $dark-blue;
-			width: rem-calc($arrow-size - 1);
-			height: rem-calc($arrow-size - 1);
-			z-index: 1;
-		}
-
-		img {
-			width: rem-calc($arrow-size);
-			height: rem-calc($arrow-size);
-			z-index: 2;
-		}
-	}
-
 	@include breakpoint(small only) {
 		padding: $fc-sm-space-y * 2 0;
 		text-align: center;
@@ -150,12 +125,16 @@ $prototype-border-color: $fc-color;
 			line-height: 1.2;
 		}
 
-		.item ~ .item,
-		& + .bottom .item:first-child {
+		.item {
 			@include bordered(2px);
-
 			padding-top: $fc-sm-space-y;
 			border-width: 2px 0 0;
+		}
+
+		.flowchart-row:first-child .item:first-child,
+		.agency-coals & .item {
+			border: none;
+			padding-top: 0;
 		}
 
 		.item ~ .item {
@@ -199,6 +178,18 @@ $prototype-border-color: $fc-color;
 		.text {
 			padding-top: 1.5rem;
 			margin: 0 20%;
+		}
+
+		.agency-coals & {
+			.flowchart-row {
+				padding-bottom: 0;
+				justify-content: left;
+				margin: 0 15%;
+			}
+
+			.item {
+				width: 50%;
+			}
 		}
 	}
 

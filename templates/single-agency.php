@@ -135,7 +135,7 @@ function af4_agency_fields() {
 			<?php
 
 				$items = $flowchart_items;
-				$items_per_row = 3;
+				$items_per_row = $agency_slug != 'coals' ? 3 : 2;
 				$rows = ceil( count($items) / $items_per_row);
 
 				for ($i=0; $i < $rows; $i++) {
@@ -163,10 +163,9 @@ function af4_agency_fields() {
 
 								if( !empty( $link ) ){
 
-									echo sprintf( '<a href="%s">%s<span class="arrow"><img src="%s/images/urarr-48x48.png"></span></a>',
+									echo sprintf( '<a href="%s">%s</a>',
 										$link,
-										$text,
-										ALAF4_DIR_URL
+										$text
 									);
 
 								} else {
