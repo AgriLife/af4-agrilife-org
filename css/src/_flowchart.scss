@@ -2,6 +2,7 @@ $fc-color: $light-blue !default;
 $fc-bracket-width: 32px !default;
 $fc-sm-space-y: 1.25rem !default;
 $fc-md-space: 4rem !default;
+$fc-item-spacing: 1.5rem;
 $prototype-border-width: 1px;
 $prototype-border-type: dashed;
 $prototype-border-color: $fc-color;
@@ -29,18 +30,26 @@ $prototype-border-color: $fc-color;
 		}
 	}
 
-	&.brackets .bottom .item {
+	.item {
 		text-align: center;
 
 		> * {
-			@include brackets($padding: rem-calc(12 24));
-			@include template-brackets($color: color, $pref-color: contrast-color);
+			@include template-prop($p: border-color, $key: color, $pref-key: contrast-color);
 			@include flex;
 
+			font: 1.75rem / 1em $header-font-family;
+			text-transform: uppercase;
 			flex-flow: row wrap;
 			align-items: center;
 			justify-content: center;
+			position: relative;
+			border: 2px solid $light-blue;
 			margin: 0 auto;
+			padding: rem-calc(12);
+
+			@include breakpoint(small only){
+				padding: rem-calc(10);
+			}
 
 			span:first-child {
 				flex: 0 0 100%;
@@ -131,71 +140,28 @@ $prototype-border-color: $fc-color;
 			margin: 0 6%;
 		}
 
-		.top .item {
-			width: 50%;
-
-			&.h5 {
-				width: 100%;
-				font-size: 1.75rem;
-			}
-		}
-
-		.bottom .item > * {
+		.item > * {
 			color: #FFF;
-			font: 1.75rem / 1em $header-font-family;
-			text-transform: uppercase;
+			width: 75%;
+			min-width: 252px;
+			height: 68px;
+			margin-bottom: 0;
+			font-size: 1.25rem;
+			line-height: 1.2;
 		}
 
-		&:not(.brackets) {
-			.top .item::after {
-				@include border-item;
+		.item ~ .item,
+		& + .bottom .item:first-child {
+			@include bordered(2px);
 
-				width: 1px;
-				height: 30px;
-				border-width: 0 0 0 2px;
-			}
-
-			.bottom .item ~ .item::before {
-				@include border-item;
-
-				width: 60px;
-				height: 1px;
-				border-width: 2px 0 0;
-			}
+			padding-top: $fc-sm-space-y;
+			border-width: 2px 0 0;
 		}
 
-		&.brackets {
-			.top .item {
-				margin: {
-					top: $fc-sm-space-y;
-					bottom: $fc-sm-space-y * 2;
-				}
-			}
-
-			.bottom {
-				.item > * {
-					width: 75%;
-					min-width: 252px;
-					height: 68px;
-					margin-bottom: 0;
-					font-size: 1.25rem;
-					line-height: 1.2;
-				}
-
-				.item ~ .item,
-				& + .bottom .item:first-child {
-					@include bordered(2px);
-
-					padding-top: $fc-sm-space-y;
-					border-width: 2px 0 0;
-				}
-
-				.item ~ .item {
-					margin: {
-						top: $fc-sm-space-y;
-						bottom: $fc-sm-space-y;
-					}
-				}
+		.item ~ .item {
+			margin: {
+				top: $fc-sm-space-y;
+				bottom: $fc-sm-space-y;
 			}
 		}
 	}
@@ -204,170 +170,54 @@ $prototype-border-color: $fc-color;
 		padding: 50px 0;
 
 		.flowchart-row {
+			@include flex;
+			flex-wrap: nowrap;
+			justify-content: center;
 			text-align: center;
 			margin: 0 8.5%;
+			padding-bottom: $fc-item-spacing;
+		}
+
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			padding: 0 $fc-item-spacing / 2;
+			width: 280px;
+			min-width: 280px;
+
+			& > * {
+				font-size: 1.35rem;
+				line-height: 1.2;
+				height: 100%;
+			}
+
+			img {
+				max-height: 50px;
+			}
 		}
 
 		.text {
 			padding-top: 1.5rem;
 			margin: 0 20%;
 		}
+	}
 
-		.top {
-			padding: 50px 0;
-			margin-bottom: 12px;
-			position: relative;
-			overflow: hidden;
-
-			&::before,
-			&::after,
-			.item::after {
-				@include bordered;
-
-				content: "";
-				display: block;
-				position: absolute;
-				z-index: 1;
-			}
-
-			&::before {
-				bottom: -2px;
-				top: 50px;
-				left: 10%;
-				right: 10%;
-			}
-
-			&::after {
-				bottom: -2px;
-				top: 50px + (12px);
-				left: 30%;
-				right: 30%;
-			}
-
-			&.count-3 .item.h5 {
-				width: 40%;
-			}
-
+	@include breakpoint(medium){
+		@include breakpoint(1008px down){
 			.item {
-				@include absolute-center;
+				width: 33.33%;
+				min-width: 100px;
 
-				display: inline-table; // Might address fractional positioning of dotted line
-				width: 20%;
-				z-index: 2;
-				background: $dark-blue;
-				padding: 12px;
-
-				@include breakpoint(865px down){
-					width: 25%;
+				& > * {
+					font-size: 1.1rem;
 				}
-
-				&::after {
-					top: calc(100%);
-					left: calc(50% - 1px);
-					width: 1px;
-					height: 64px;
-					border-width: 0 1px 0 0;
-				}
-			}
-
-			.item.h5 {
-				color: #FFF;
-				text-transform: uppercase;
-
-
-			}
-		}
-
-		.bottom {
-			padding-bottom: 32px;
-
-			.item {
-				display: inline-block;
-				vertical-align: top;
-				padding: 0 rem-calc(8);
-			}
-		}
-
-		.item img {
-			max-height: 50px;
-		}
-
-		&:not(.brackets) .bottom .item {
-			width: 20%;
-
-			p {
-				margin-top: 10px;
-			}
-		}
-
-		&.brackets {
-
-			.top.count-3 {
-				&::before {
-					display: none;
-				}
-
-				&::after {
-					left: 22%;
-					right: 22%;
-				}
-			}
-
-			.bottom {
-				@include flex;
-
-				flex-wrap: nowrap;
-				justify-content: center;
-
-				.item {
-					width: 20%;
-
-					& > * {
-						line-height: 1.2;
-						height: 100%;
-					}
-				}
-
-				&.full-row .item {
-					$widths: (19.25%, 21.25%, 19%, 21.25%, 19.25%);
-					$i: 1;
-					@each $width in $widths {
-						&:nth-child(#{$i}){
-							width: #{$width};
-						}
-						$i: $i + 1;
-					}
-				}
-			}
-
-			.bottom.count-3 .item {
-				width: 28%;
-				padding: 0 7%;
 			}
 		}
 	}
 
-	&.brackets {
-		@include breakpoint(1000px down){
-			.text {
-				margin: 0 10%;
-			}
-		}
-
-		.bottom.count-3 .item {
-			@include breakpoint(935px down) {
-				padding: {
-					left: 6%;
-					right: 6%;
-				}
-			}
-
-			@include breakpoint(790px down) {
-				padding: {
-					left: 5%;
-					right: 5%;
-				}
-			}
+	@include breakpoint(1000px down){
+		.text {
+			margin: 0 10%;
 		}
 	}
 
@@ -377,10 +227,6 @@ $prototype-border-color: $fc-color;
 				left: 5%;
 				right: 5%;
 			}
-		}
-
-		&:not(.brackets) .bottom .item {
-			padding: 0 2%;
 		}
 	}
 }

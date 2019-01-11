@@ -129,36 +129,28 @@ function af4_agency_fields() {
 
 	if( !empty($flowchart_items) ){
 
-		?><div class="flowchart brackets flow-arrow">
+		?><div class="flowchart flow-arrow">
 		<h2><?php echo $flowchart_details['title']; ?></h2>
 		<div class="layout-container">
-			<div class="flowchart-row top">
-				<div class="item"><?php
-					echo sprintf( '<a href="%s"><span><img src="%s/images/logo-%s.png" alt="%s"></span></a>',
-						$site_link,
-						AF_THEME_DIRURL,
-						$agency_slug,
-						$full_name
-					);
-				?></div>
-			</div><?php
+			<?php
 
 				$items = $flowchart_items;
-				$rows = ceil( count($items) / 5);
+				$items_per_row = 3;
+				$rows = ceil( count($items) / $items_per_row);
 
 				for ($i=0; $i < $rows; $i++) {
 
-					$start_index = $i * 5;
+					$start_index = $i * $items_per_row;
 					$count = count($items) - $start_index;
-					$sub_count = $count >= 5 ? 5 : $count % 5;
+					$sub_count = $count >= $items_per_row ? $items_per_row : $count % $items_per_row;
 
-					?><div class="flowchart-row <?php
+					?><div class="flowchart-row<?php
 
-						if( $sub_count === 5 ){
-							echo 'full-row ';
+						if( $sub_count === $items_per_row ){
+							echo ' full-row';
 						}
 
-					?>bottom"><?php
+					?> bottom"><?php
 
 						for ($j=0; $j < $sub_count; $j++) {
 
@@ -214,11 +206,11 @@ function af4_agency_fields() {
 	if( array_filter($exceptional_items) ){
 
 		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a><?php
-		
+
 			if( count($exceptional_items['items']) > 1 ){
 				echo 'Exceptional Items';
 			} else {
-				echo 'Exceptional Item'; 
+				echo 'Exceptional Item';
 			}
 
 		?></h2><?php
