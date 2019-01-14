@@ -124,7 +124,8 @@ $template-atts: (
 		header-bg-color: $green,
 		text-color: #FFF,
 		button-text-color: $anchor-color,
-		button-hover: lighten($light-green, 10%)
+		button-hover: lighten($light-green, 10%),
+		infographic-bg-color: $gray-dark
 	),
 	coals: (
 		color: #B1B4B6,
@@ -135,27 +136,31 @@ $template-atts: (
 		text-color: #FFF,
 		button: $maroon-alt,
 		button-text-color: $whiter,
-		button-hover: lighten($maroon-alt, 10%)
+		button-hover: lighten($maroon-alt, 10%),
+		infographic-bg-color: $gray-dark
 	),
 	tvmdl: (
 		color: $beige,
 		header-bg-color: darken($beige, 60%),
 		text-color: #000,
 		button-text-color: $anchor-color,
-		button-hover: lighten($beige, 10%)
+		button-hover: lighten($beige, 10%),
+		infographic-bg-color: $gray-dark
 	),
 	forest: (
 		color: $light-green,
 		header-bg-color: $green,
 		text-color: #000,
 		button-text-color: $anchor-color,
-		button-hover: lighten($light-green, 10%)
+		button-hover: lighten($light-green, 10%),
+		infographic-bg-color: $gray-dark
 	),
 	extension: (
 		color: $light-blue,
 		header-bg-color: $dark-blue,
 		text-color: #000,
 		button-text-color: $anchor-color,
-		button-hover: lighten($light-blue, 10%)
+		button-hover: lighten($light-blue, 10%),
+		infographic-bg-color: $gray-dark
 	)
 );
