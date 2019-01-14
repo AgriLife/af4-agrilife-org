@@ -8,10 +8,6 @@
 		font-size: 3rem;
 		line-height: 1em;
 		margin-bottom: 50px;
-
-		&::after {
-			@include template-prop($p: border-bottom-color, $key: color);
-		}
 	}
 
 	.item {
