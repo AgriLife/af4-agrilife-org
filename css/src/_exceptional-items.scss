@@ -1,10 +1,6 @@
 .exceptional-items {
 	padding: 75px 0;
 
-	&.flow-arrow {
-		@include template-arrows($border-color: color, $bg-color: $body-background);
-	}
-
 	h2 {
 		@include underline-accent;
 		text-transform: uppercase;

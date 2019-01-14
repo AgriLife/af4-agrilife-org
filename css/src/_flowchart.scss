@@ -22,12 +22,8 @@ $prototype-border-color: $fc-color;
 	background-color: $dark-blue;
 	color: #FFF;
 
-	&.flow-arrow {
-		@include template-arrows($border-color: color, $bg-color: $dark-blue);
-
-		&::after {
-			background-color: $dark-blue;
-		}
+	&.flow-arrow::after {
+		background-color: $dark-blue;
 	}
 
 	.item {

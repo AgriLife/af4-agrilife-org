@@ -9,8 +9,11 @@
 		display: block;
 		width: 40px;
 		height: 40px;
-		border-style: solid;
-		border-width: 0 0 2px 2px;
+		border: {
+			style: solid;
+			color: $light-green;
+			width: 0 0 2px 2px;
+		}
 		transform: translate(-50%, 30%) rotate(-45deg);
 		position: absolute;
 		bottom: 0;
@@ -24,7 +27,7 @@
 /// @param {Color} $border-color [$light-blue] - CSS color value
 /// @param {Color} $bg-color [#FFF] - CSS color value
 @mixin arrow-color(
-	$border-color: $light-blue,
+	$border-color: $light-green,
 	$bg-color: #FFF
 ) {
 	&::after {
@@ -39,7 +42,7 @@
 /// @param {Color} $bg-color [#FFF] - CSS color value
 /// @param {Number} $z-index [2] - z-index value
 @mixin arrow (
-	$border-color: $light-blue,
+	$border-color: $light-green,
 	$bg-color: #FFF,
 	$z-index: 2
 ) {
