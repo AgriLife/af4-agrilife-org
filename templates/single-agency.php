@@ -78,7 +78,7 @@ function af4_agency_header() {
 	$agency_slug = af4_agency_slug( $agency );
 	$img_path = ALAF4_DIR_URL . "images/{$agency_slug}-header";
 
-	?><div class="content-heading-image flow-arrow">
+	?><div class="content-heading-image">
 		<div class="wrap">
 			<img class="background hide-for-medium" <?php
 
@@ -110,6 +110,22 @@ function af4_agency_content_wrap() {
 
 add_action( 'genesis_entry_content', 'af4_agency_close_content_wrap', 11 );
 function af4_agency_close_content_wrap() {
+
+	$site_link = get_field('site_link');
+	if( $site_link ){
+
+		?><div class="buttons"><?php
+
+			$domain = parse_url($site_link, PHP_URL_HOST);
+
+			echo sprintf( '<a class="button" href="%s">Explore %s</a>',
+				$site_link,
+				$domain
+			);
+
+		?></div><?php
+
+	}
 
 	?></div><?php
 
@@ -185,21 +201,6 @@ function af4_agency_fields() {
 
 			?></div>
 		</div><?php
-
-	}
-
-	if( $site_link ){
-
-		?><div class="buttons flow-arrow"><?php
-
-			$domain = parse_url($site_link, PHP_URL_HOST);
-
-			echo sprintf( '<a class="button" href="%s">%s</a>',
-				$site_link,
-				$domain
-			);
-
-		?></div><?php
 
 	}
 
