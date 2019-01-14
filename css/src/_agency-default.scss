@@ -15,4 +15,13 @@
 	.site-inner {
 		padding: 0;
 	}
+
+	h2 {
+		@include underline-accent;
+		text-transform: uppercase;
+		font-size: 2.25rem;
+		text-align: center;
+		padding-bottom: 2rem;
+		margin: 0;
+	}
 }
