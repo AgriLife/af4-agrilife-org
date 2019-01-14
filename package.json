@@ -1,6 +1,6 @@
 {
   "name": "af4-agrilife-org",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "AgriLife variation of the AgriFlex4 theme",
   "main": "af4-agrilife-org.php",
   "scripts": {
@@ -29,7 +29,7 @@
     "grunt-sass-lint": "^0.2.4"
   },
   "engines": {
-    "node": "4.0.0"
+    "node": ">=6.0.0"
   },
   "repository": {
     "type": "git",
