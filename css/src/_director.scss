@@ -4,7 +4,6 @@ $button-margin: 0;
 .director {
 	$off-page: 10000px;
 
-	color: #FFF;
 	margin: {
 		bottom: 50px;
 		top: 50px;
@@ -24,20 +23,6 @@ $button-margin: 0;
 			top: 4%;
 		}
 		position: relative;
-
-		&::after {
-			content: "";
-			display: block;
-			position: absolute;
-			z-index: 2;
-			left: -28px;
-			top: 114px;
-			width: 80px;
-			height: 112px;
-			background: transparent url("../images/quotes-left.png") no-repeat top left {
-				size: 100% auto;
-			}
-		}
 
 		> * {
 			position: relative;
@@ -61,7 +46,6 @@ $button-margin: 0;
 		font-size: .9rem;
 
 		p {
-			font-style: italic;
 			margin: 0;
 			line-height: 1.2em;
 		}
@@ -163,23 +147,11 @@ $button-margin: 0;
 				display: block;
 				position: absolute;
 				z-index: 1;
-				background-color: $dark-blue;
+				background-color: $gray-lighter;
 				bottom: 0;
 				left: -1 * $off-page;
 				right: -1 * $off-page;
 				top: 0;
-			}
-
-			&::after {
-				left: 12px;
-				top: 13px;
-				width: 56px;
-
-				@include breakpoint(xlarge down) {
-					left: .8rem;
-					top: 12%;
-					width: 25px;
-				}
 			}
 
 			@include breakpoint(1040px down){
@@ -188,12 +160,6 @@ $button-margin: 0;
 					right: 1.25rem;
 					top: 2%;
 				}
-
-				&::after {
-					left: 5px;
-					top: 5%;
-					width: 20px;
-				}
 			}
 
 			@include breakpoint(905px down){
@@ -201,12 +167,6 @@ $button-margin: 0;
 					bottom: 1%;
 					right: 0;
 					top: 1%;
-				}
-
-				&::after {
-					left: .25rem;
-					top: .25rem;
-					width: 20px;
 				}
 			}
 		}
