@@ -126,6 +126,7 @@ function af4_agency_fields() {
 	$director = get_field('director');
 	$exceptional_items = get_field('exceptional_items');
 	$site_link = get_field('site_link');
+	$infographic = get_field('infographic');
 
 	if( !empty($flowchart_items) ){
 
@@ -204,7 +205,7 @@ function af4_agency_fields() {
 
 	if( array_filter($exceptional_items) ){
 
-		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a><?php
+		?><div class="exceptional-items flow-arrow"><div class="layout-container"><h2><a name="ei"></a><?php
 
 			if( count($exceptional_items['items']) > 1 ){
 				echo 'Exceptional Items';
@@ -261,9 +262,25 @@ function af4_agency_fields() {
 
 			}
 
-		?></div></div></div><?php
+		?></div></div><?php
 
 	}
+
+	if( $infographic ){
+
+		?><div class="infographic"><?php
+
+			$infographic_image = $infographic['image'];
+			echo sprintf('<div class="photo"><img src="%s" alt="%s"></div>',
+				$infographic_image['url'],
+				$infographic_image['alt']
+			);
+
+		?></div><?php
+
+	}
+
+	?></div><?php
 
 	if( $director ){
 

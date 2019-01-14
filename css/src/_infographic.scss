@@ -1,0 +1,5 @@
+.infographic {
+	@include template-prop($p: background-color, $key: color, $pref-key: contrast-color);
+	padding: 55px 0 75px;
+	text-align: center;
+}

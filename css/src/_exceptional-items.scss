@@ -1,13 +1,21 @@
 .exceptional-items {
-	overflow: hidden;
-	margin: 75px 0;
+	padding: 75px 0;
+
+	&.flow-arrow {
+		@include template-arrows($border-color: color, $bg-color: $body-background);
+	}
 
 	h2 {
+		@include underline-accent;
 		text-transform: uppercase;
 		text-align: center;
 		font-size: 3rem;
 		line-height: 1em;
 		margin-bottom: 50px;
+
+		&::after {
+			@include template-prop($p: border-bottom-color, $key: color);
+		}
 	}
 
 	.item {
