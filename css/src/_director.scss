@@ -1,10 +1,9 @@
 $button-padding: 1rem 5rem;
 $button-margin: 0;
+$top-overlap: 1.5rem;
 
 .director {
 	$off-page: 10000px;
-
-	margin-top: 50px;
 
 	&.with-strategic-plan {
 		margin-bottom: 0;
@@ -122,13 +121,11 @@ $button-margin: 0;
 		overflow: hidden;
 		position: relative;
 		z-index: 2;
+		margin-top: -$top-overlap;
 
 		.layout-container {
 			@include xy-grid-container(800px, 0);
 			@include xy-grid;
-
-			align-items: flex-end;
-			justify-content: flex-end;
 			z-index: 2;
 		}
 
@@ -139,7 +136,7 @@ $button-margin: 0;
 
 		.text-column {
 			@include xy-cell(9, $gutter-type: padding, $gutters: 1.75rem);
-			margin-top: 10px;
+			margin-top: $top-overlap;
 
 			&::before {
 				content: "";
