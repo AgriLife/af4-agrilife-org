@@ -78,6 +78,7 @@ $prototype-border-color: $fc-color;
 	}
 
 	h2 {
+		@include underline-accent;
 		text-transform: uppercase;
 		font-size: 2.25rem;
 		text-align: center;
@@ -86,15 +87,6 @@ $prototype-border-color: $fc-color;
 
 		&::after {
 			@include template-prop($p: border-bottom-color, $key: color);
-
-			content: "";
-			display: block;
-			width: 4rem;
-			margin: .80rem auto 0;
-			border-bottom: {
-				width: 2px;
-				style: solid;
-			}
 		}
 	}
 

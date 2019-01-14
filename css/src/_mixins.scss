@@ -121,6 +121,16 @@
 	}
 }
 
+@mixin underline-accent ($color: $light-blue) {
+	&::after {
+		content: "";
+		display: block;
+		width: 4rem;
+		margin: .8rem auto 0;
+		border-bottom: 2px solid $color;
+	}
+}
+
 /// Return value from Sass map, or $key if null
 ///
 /// @param {Map} $map - CSS property name
