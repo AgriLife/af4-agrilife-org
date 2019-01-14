@@ -95,7 +95,16 @@ function af4_agency_header() {
 				) );
 
 			?>>
-			<h1><?php echo $agency; ?></h1>
+			<h1><?php
+
+				echo sprintf( '<span class=screen-reader-text>%s</span><img src="%s/images/logo-%s.png" alt="%s">',
+					$agency,
+					AF_THEME_DIRURL,
+					$agency_slug,
+					$full_name
+				);
+
+			?></h1>
 		</div>
 	</div><?php
 

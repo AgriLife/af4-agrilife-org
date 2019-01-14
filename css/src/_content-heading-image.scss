@@ -16,10 +16,8 @@
 		@include absolute-center;
 		@include template-prop($p: color, $key: color, $pref-key: contrast-color);
 		@include template-prop($p: font-size, $key: header-small-font-size);
+		@include template-prop($p: background-color, $key: color, $pref-key: header-bg-color);
 
-		background: transparent url("../images/extension-header-title-background.png") no-repeat {
-			size: cover;
-		}
 		color: #FFF;
 		display: inline-block;
 		font: {
