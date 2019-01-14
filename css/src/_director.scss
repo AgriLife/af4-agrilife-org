@@ -4,10 +4,7 @@ $button-margin: 0;
 .director {
 	$off-page: 10000px;
 
-	margin: {
-		bottom: 50px;
-		top: 50px;
-	}
+	margin-top: 50px;
 
 	&.with-strategic-plan {
 		margin-bottom: 0;
@@ -17,11 +14,13 @@ $button-margin: 0;
 		position: relative;
 	}
 
+	.text-column,
+	.photo-column {
+		padding-bottom: 1.75rem;
+	}
+
 	.text-column {
-		padding: {
-			bottom: 4%;
-			top: 4%;
-		}
+		padding-top: 1.75rem;
 		position: relative;
 
 		> * {
@@ -125,11 +124,11 @@ $button-margin: 0;
 		z-index: 2;
 
 		.layout-container {
-			@include xy-grid-container($break-xlarge, 0);
+			@include xy-grid-container(800px, 0);
 			@include xy-grid;
 
-			align-items: flex-start;
-			justify-content: flex-start;
+			align-items: flex-end;
+			justify-content: flex-end;
 			z-index: 2;
 		}
 
@@ -139,7 +138,7 @@ $button-margin: 0;
 		}
 
 		.text-column {
-			@include xy-cell(9, $gutter-type: padding, $gutters: 3.5rem);
+			@include xy-cell(9, $gutter-type: padding, $gutters: 1.75rem);
 			margin-top: 10px;
 
 			&::before {
@@ -172,7 +171,7 @@ $button-margin: 0;
 		}
 
 		.photo-column {
-			@include xy-cell(3, $gutter-type: padding, $gutters: 3.5rem);
+			@include xy-cell(3, $gutter-type: padding, $gutters: 1.75rem);
 		}
 
 		&.with-strategic-plan .photo-column {
