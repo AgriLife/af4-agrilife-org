@@ -121,7 +121,7 @@
 	}
 }
 
-@mixin underline-accent ($color: $light-blue) {
+@mixin underline-accent ($color: $light-green) {
 	&::after {
 		content: "";
 		display: block;
