@@ -3,15 +3,6 @@
 	background-color: $dark-blue;
 	position: relative;
 
-	&.flow-arrow {
-		@include template-arrows($border-color: color, $bg-color: header-bg-color);
-
-		&::after {
-			background-color: $dark-blue;
-			z-index: 1;
-		}
-	}
-
 	.wrap {
 		position: relative;
 		z-index: 2;
