@@ -1,9 +1,5 @@
 .infographic {
-	background-color: $gray-dark;
+	@include flow-block-color($gray-dark);
 	padding: 55px 0 75px;
 	text-align: center;
-
-	&.flow-arrow::after {
-		background-color: $gray-dark;
-	}
 }
