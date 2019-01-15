@@ -1,0 +1,42 @@
+.resources {
+	.item {
+		h3 {
+			font-size: 2.5rem;
+			margin: 2rem 0 2.5rem;
+		}
+
+		img {
+			box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+		}
+
+		@include breakpoint(small only){
+			margin-bottom: 50px;
+
+			.photo img {
+				width: 100%;
+			}
+		}
+	}
+
+	@include breakpoint(medium){
+		.layout-container {
+			@include xy-grid-container($break-large, 0);
+		}
+
+		.row {
+			@include xy-grid;
+			justify-content: center;
+
+			.item {
+				@include xy-cell-base();
+				@include xy-cell(auto, $gutter-type: margin, $gutters: 4rem);
+				max-width: 360px;
+			}
+
+			h3 {
+				font-size: 1.85rem;
+				margin: 1.35rem 0 1.85rem;
+			}
+		}
+	}
+}

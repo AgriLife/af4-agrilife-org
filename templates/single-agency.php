@@ -148,6 +148,7 @@ function af4_agency_fields() {
 	$agency_slug = af4_agency_slug( $agency );
 	$flowchart_details = get_field('flowchart_group');
 	$flowchart_items = get_field('flowchart');
+	$resources_items = get_field('resources')['items'];
 	$director = get_field('director');
 	$exceptional_items = get_field('exceptional_items');
 	$site_link = get_field('site_link');
@@ -210,6 +211,49 @@ function af4_agency_fields() {
 
 			?></div>
 		</div><?php
+
+	}
+
+	if( !empty($resources_items) ){
+
+		?><div class="resources flow-block flow-arrow"><div class="layout-container"><h2><a name="r"></a>Resource<?php
+
+			if( sizeof($resources_items) > 1 ){
+				echo 's';
+			}
+
+		?></h2><div class="row"><?php
+
+			foreach ($resources_items as $item) {
+
+				$link = array(
+					'open' => '',
+					'close' => ''
+				);
+
+				$image = '';
+
+				if( $item['image'] ){
+					$image = sprintf('<img src="%s" alt="%s">',
+						$item['image']['url'],
+						$item['image']['alt']
+					);
+				}
+
+				if( $item['link'] ){
+					$link['open'] = "<a href=\"{$item['link']}\">";
+					$link['close'] = '</a>';
+				}
+
+				echo sprintf( '<div class="item"><h3>%s</h3>%s%s%s</div>',
+					$item['title'],
+					$link['open'],
+					$image,
+					$link['close']
+				);
+			}
+
+		?></div></div></div><?php
 
 	}
 
