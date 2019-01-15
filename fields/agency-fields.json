@@ -153,25 +153,6 @@
                 "layout": "block",
                 "sub_fields": [
                     {
-                        "key": "field_5c3dfc87e500f",
-                        "label": "Title",
-                        "name": "title",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Resources",
-                        "placeholder": "Resources",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
                         "key": "field_5c116be7cad40",
                         "label": "Introduction",
                         "name": "introduction",
