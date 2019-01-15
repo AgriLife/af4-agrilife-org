@@ -5,6 +5,9 @@ $top-overlap: 1.5rem;
 .director {
 	$off-page: 10000px;
 
+	font-family: $opensans;
+	line-height: 1.2;
+
 	&.with-strategic-plan {
 		margin-bottom: 0;
 	}
@@ -21,6 +24,18 @@ $top-overlap: 1.5rem;
 	.text-column {
 		padding-top: 1.75rem;
 		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 1;
+			bottom: 0;
+			left: -1 * $off-page;
+			right: -1 * $off-page;
+			top: 0;
+			background-color: $gray-lighter;
+		}
 
 		> * {
 			position: relative;
@@ -45,7 +60,6 @@ $top-overlap: 1.5rem;
 
 		p {
 			margin: 0;
-			line-height: 1.2em;
 		}
 	}
 
@@ -139,11 +153,6 @@ $top-overlap: 1.5rem;
 			margin-top: $top-overlap;
 
 			&::before {
-				content: "";
-				display: block;
-				position: absolute;
-				z-index: 1;
-				background-color: $gray-lighter;
 				bottom: 0;
 				left: -1 * $off-page;
 				right: -1 * $off-page;
@@ -179,8 +188,7 @@ $top-overlap: 1.5rem;
 
 		.quote {
 			padding-right: 0;
-			line-height: 2rem;
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 
 			@include breakpoint(1040px down){
 				padding-right: 1.25rem;
@@ -194,7 +202,6 @@ $top-overlap: 1.5rem;
 		@include breakpoint(850px down){
 			.quote {
 				padding-right: 0;
-				line-height: 1.1rem;
 			}
 
 			.creds {
