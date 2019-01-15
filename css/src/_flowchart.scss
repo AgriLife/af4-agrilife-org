@@ -33,7 +33,7 @@ $prototype-border-color: $fc-color;
 			@include template-prop($p: border-color, $key: color, $pref-key: contrast-color, $exclude: coals);
 			@include flex;
 
-			border: 2px solid $light-blue;
+			border: 2px solid transparent;
 			font: 1.75rem / 1em $header-font-family;
 			text-transform: uppercase;
 			flex-flow: row wrap;
@@ -41,7 +41,7 @@ $prototype-border-color: $fc-color;
 			justify-content: center;
 			position: relative;
 			margin: 0 auto;
-			padding: rem-calc(12);
+			padding: .5rem;
 
 			@include breakpoint(small only){
 				padding: rem-calc(10);
@@ -132,7 +132,7 @@ $prototype-border-color: $fc-color;
 			min-width: 280px;
 
 			& > * {
-				font-size: 1.35rem;
+				font-size: 1.1rem;
 				line-height: 1.2;
 				height: 100%;
 			}
