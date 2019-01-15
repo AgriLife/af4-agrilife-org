@@ -54,17 +54,6 @@ $prototype-border-color: $fc-color;
 		}
 	}
 
-	.agency-coals & .item {
-		& > * {
-			height: auto;
-			border-color: transparent;
-		}
-
-		> a:hover {
-			border-color: #B1B4B6;
-		}
-	}
-
 	a {
 		color: $whiter;
 
@@ -110,8 +99,7 @@ $prototype-border-color: $fc-color;
 			border-width: 2px 0 0;
 		}
 
-		.flowchart-row:first-child .item:first-child,
-		.agency-coals & .item {
+		.flowchart-row:first-child .item:first-child {
 			border: none;
 			padding-top: 0;
 		}
@@ -157,18 +145,6 @@ $prototype-border-color: $fc-color;
 		.text {
 			padding-top: 1.5rem;
 			margin: 0 20%;
-		}
-
-		.agency-coals & {
-			.flowchart-row {
-				padding-bottom: 0;
-				justify-content: left;
-				margin: 0 15%;
-			}
-
-			.item {
-				width: 50%;
-			}
 		}
 	}
 

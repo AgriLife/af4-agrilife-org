@@ -1,0 +1,30 @@
+.agency-coals {
+	.flowchart {
+		.item {
+			& > * {
+				height: auto;
+			}
+
+			& > a:hover {
+				border-color: $light-blue;
+			}
+
+			@include breakpoint(small only) {
+				border: none;
+				padding-top: 0;
+			}
+		}
+
+		@include breakpoint(medium) {
+			.flowchart-row {
+				padding-bottom: 0;
+				justify-content: left;
+				margin: 0 15%;
+			}
+
+			.item {
+				width: 50%;
+			}
+		}
+	}
+}
