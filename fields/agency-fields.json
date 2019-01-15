@@ -213,6 +213,21 @@
                                 "max_height": "",
                                 "max_size": "",
                                 "mime_types": "jpg"
+                            },
+                            {
+                                "key": "field_5c3e2e81997c1",
+                                "label": "Link",
+                                "name": "link",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url"
                             }
                         ]
                     }
