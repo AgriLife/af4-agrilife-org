@@ -1,14 +1,4 @@
 .exceptional-items {
-
-	h2 {
-		@include underline-accent;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 3rem;
-		line-height: 1em;
-		margin-bottom: 50px;
-	}
-
 	.item {
 		padding-bottom: 5%;
 
@@ -58,8 +48,6 @@
 			@include xy-grid-container($break-large, 0);
 		}
 
-		h2 {
-			font-size: 2.25rem;
 		}
 
 		.row {

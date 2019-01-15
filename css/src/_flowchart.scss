@@ -47,10 +47,6 @@ $prototype-border-color: $fc-color;
 		}
 	}
 
-	h2 {
-		padding: 2rem;
-	}
-
 	@include breakpoint(small only) {
 		text-align: center;
 		position: relative;
