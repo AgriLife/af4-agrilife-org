@@ -151,17 +151,21 @@
 /// @param {Property} $p - CSS property name
 /// @param {Key or Value} $key - Key name in $template-atts entry, or value
 /// @param {Key} $pref-key - Key name in $template-atts entry
+/// @param {List} $exclude - List of $template-atts keys to exclude
 @mixin template-prop(
 	$p,
 	$key,
-	$pref-key: false
+	$pref-key: false,
+	$exclude: false
 ) {
 	@each $name, $map in $template-atts {
-		.agency-#{$name} & {
-			@if $pref-key and map-has-key($map, $pref-key) {
-				#{$p}: map-get($map, $pref-key);
-			} @else {
-				#{$p}: get-template-value($map, $key);
+		@if $exclude == false or index($exclude, $name) == null {
+			.agency-#{$name} & {
+				@if $pref-key and map-has-key($map, $pref-key) {
+					#{$p}: map-get($map, $pref-key);
+				} @else {
+					#{$p}: get-template-value($map, $key);
+				}
 			}
 		}
 	}
