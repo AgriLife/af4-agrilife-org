@@ -157,6 +157,25 @@ acf_add_local_field_group(array(
 			'layout' => 'block',
 			'sub_fields' => array(
 				array(
+					'key' => 'field_5c3dfc87e500f',
+					'label' => 'Title',
+					'name' => 'title',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => 'Resources',
+					'placeholder' => 'Resources',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
 					'key' => 'field_5c116be7cad40',
 					'label' => 'Introduction',
 					'name' => 'introduction',
