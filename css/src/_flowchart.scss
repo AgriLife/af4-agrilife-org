@@ -19,12 +19,8 @@ $prototype-border-color: $fc-color;
 }
 
 .flowchart {
-	background-color: $dark-blue;
+	@include flow-block-color($dark-blue);
 	color: #FFF;
-
-	&.flow-arrow::after {
-		background-color: $dark-blue;
-	}
 
 	.item {
 		text-align: center;

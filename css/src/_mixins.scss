@@ -134,6 +134,26 @@
 	}
 }
 
+/// Color a flow-block element with optional arrow color.
+/// Use with a .flow-block selector
+///
+/// @param {Value} $bg-color - Color of block and arrow background
+/// @param {Value} $arrow-border-color - Color of block arrow border
+@mixin flow-block-color (
+	$bg-color,
+	$arrow-border-color: false
+) {
+	background-color: $bg-color;
+
+	&.flow-arrow::after {
+		background-color: $bg-color;
+
+		@if $arrow-border-color != false {
+			border-color: $arrow-border-color;
+		}
+	}
+}
+
 /// Return value from Sass map, or $key if null
 ///
 /// @param {Map} $map - CSS property name
