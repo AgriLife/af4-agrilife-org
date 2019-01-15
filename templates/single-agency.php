@@ -113,7 +113,7 @@ function af4_agency_header() {
 add_action( 'genesis_entry_content', 'af4_agency_content_wrap', 2 );
 function af4_agency_content_wrap() {
 
-	?><div class="introduction layout-container flow-arrow"><?php
+	?><div class="introduction layout-container flow-block flow-arrow"><?php
 
 }
 
@@ -155,7 +155,7 @@ function af4_agency_fields() {
 
 	if( !empty($flowchart_items) ){
 
-		?><div class="flowchart flow-arrow">
+		?><div class="flowchart flow-block flow-arrow">
 		<h2><?php echo $flowchart_details['title']; ?></h2>
 		<div class="layout-container">
 			<?php
@@ -215,7 +215,7 @@ function af4_agency_fields() {
 
 	if( $infographic['image'] ){
 
-		?><div class="infographic<?php
+		?><div class="infographic flow-block<?php
 
 			if( array_filter($exceptional_items) ){
 				echo ' flow-arrow';
@@ -235,7 +235,7 @@ function af4_agency_fields() {
 
 	if( array_filter($exceptional_items) ){
 
-		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a><?php
+		?><div class="exceptional-items flow-block"><div class="layout-container"><h2><a name="ei"></a><?php
 
 			if( count($exceptional_items['items']) > 1 ){
 				echo 'Exceptional Items';
