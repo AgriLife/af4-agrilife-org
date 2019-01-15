@@ -52,7 +52,6 @@ $prototype-border-color: $fc-color;
 	}
 
 	@include breakpoint(small only) {
-		padding: $fc-sm-space-y * 2 0;
 		text-align: center;
 		position: relative;
 
@@ -98,13 +97,11 @@ $prototype-border-color: $fc-color;
 	}
 
 	@include breakpoint(medium) {
-		padding: 50px 0;
 
 		.flowchart-row {
 			@include flex;
 			flex-wrap: nowrap;
 			justify-content: center;
-			text-align: center;
 			margin: 0 8.5%;
 			padding-bottom: $fc-item-spacing;
 		}
