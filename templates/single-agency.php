@@ -213,15 +213,29 @@ function af4_agency_fields() {
 
 	}
 
-	if( array_filter($exceptional_items) ){
+	if( $infographic['image'] ){
 
-		?><div class="exceptional-items<?php
+		?><div class="infographic<?php
 
-			if( $infographic ){
+			if( array_filter($exceptional_items) ){
 				echo ' flow-arrow';
 			}
 
-		?>"><div class="layout-container"><h2><a name="ei"></a><?php
+		?>"><?php
+
+			$infographic_image = $infographic['image'];
+			echo sprintf('<div class="photo"><img src="%s" alt="%s"></div>',
+				$infographic_image['url'],
+				$infographic_image['alt']
+			);
+
+		?></div><?php
+
+	}
+
+	if( array_filter($exceptional_items) ){
+
+		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a><?php
 
 			if( count($exceptional_items['items']) > 1 ){
 				echo 'Exceptional Items';
@@ -279,20 +293,6 @@ function af4_agency_fields() {
 			}
 
 		?></div></div><?php
-
-	}
-
-	if( $infographic ){
-
-		?><div class="infographic"><?php
-
-			$infographic_image = $infographic['image'];
-			echo sprintf('<div class="photo"><img src="%s" alt="%s"></div>',
-				$infographic_image['url'],
-				$infographic_image['alt']
-			);
-
-		?></div><?php
 
 	}
 
