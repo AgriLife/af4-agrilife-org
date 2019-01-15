@@ -215,7 +215,7 @@ function af4_agency_fields() {
 
 	if( array_filter($exceptional_items) ){
 
-		?><div class="exceptional-items flow-arrow"><div class="layout-container"><h2><a name="ei"></a><?php
+		?><div class="exceptional-items"><div class="layout-container"><h2><a name="ei"></a><?php
 
 			if( count($exceptional_items['items']) > 1 ){
 				echo 'Exceptional Items';
