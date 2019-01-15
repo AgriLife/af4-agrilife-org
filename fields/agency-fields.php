@@ -210,7 +210,7 @@ acf_add_local_field_group(array(
 							'return_format' => 'array',
 							'preview_size' => 'medium',
 							'library' => 'all',
-							'min_width' => 496,
+							'min_width' => 360,
 							'min_height' => '',
 							'min_size' => '',
 							'max_width' => '',
