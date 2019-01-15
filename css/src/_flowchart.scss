@@ -7,17 +7,6 @@ $prototype-border-width: 1px;
 $prototype-border-type: dashed;
 $prototype-border-color: $fc-color;
 
-@mixin small-item-with-border(){
-	margin: $fc-sm-space-y auto;
-	content: "";
-	display: block;
-}
-
-@mixin border-item {
-	@include bordered(2px);
-	@include small-item-with-border;
-}
-
 .flowchart {
 	@include flow-block-color($dark-blue);
 	color: #FFF;
