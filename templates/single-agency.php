@@ -78,35 +78,30 @@ function af4_agency_header() {
 	$agency_slug = af4_agency_slug( $agency );
 	$img_path = ALAF4_DIR_URL . "images/{$agency_slug}-header";
 
-	?><div class="content-heading-image">
-		<div class="wrap">
-			<img class="background hide-for-medium" <?php
+	?><div class="content-heading-image"><img class="background hide-for-medium" <?php
 
-				echo "src=\"{$img_path}-small-640.jpg\"";
-				echo af4_responsive_img_atts( "{$img_path}-small", array(
-					640, 720, 800, 880, 960, 1040, 1280
-				) );
+			echo "src=\"{$img_path}-small-640.jpg\"";
+			echo af4_responsive_img_atts( "{$img_path}-small", array(
+				640, 720, 800, 880, 960, 1040, 1280
+			) );
 
-			?>><img class="background show-for-medium" <?php
+		?>><img class="background show-for-medium" <?php
 
-				echo "src=\"{$img_path}-background-1900.jpg\"";
-				echo af4_responsive_img_atts( "{$img_path}-background", array(
-					1024, 1200, 1440, 1900
-				) );
+			echo "src=\"{$img_path}-background-1900.jpg\"";
+			echo af4_responsive_img_atts( "{$img_path}-background", array(
+				1024, 1200, 1440, 1900
+			) );
 
-			?>>
-			<h1><?php
+		?>><div class="logo-wrap"><h1><?php
 
-				echo sprintf( '<span class=screen-reader-text>%s</span><img src="%s/images/logo-%s.png" alt="%s">',
-					$agency,
-					AF_THEME_DIRURL,
-					$agency_slug,
-					$full_name
-				);
+			echo sprintf( '<span class=screen-reader-text>%s</span><img src="%s/images/logo-%s.png" alt="%s">',
+				$agency,
+				AF_THEME_DIRURL,
+				$agency_slug,
+				$full_name
+			);
 
-			?></h1>
-		</div>
-	</div><?php
+		?></h1></div></div><?php
 
 }
 
