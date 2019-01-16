@@ -1,5 +1,5 @@
 .agency-coals {
-	.flowchart {
+	.majorefforts {
 		.item {
 			& > * {
 				height: auto;
@@ -20,7 +20,7 @@
 		}
 
 		@include breakpoint(medium) {
-			.flowchart-row {
+			.row {
 				padding-bottom: 0;
 				justify-content: left;
 				margin: 0 15%;

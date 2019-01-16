@@ -141,22 +141,22 @@ function af4_agency_fields() {
 	$agency = get_field('agency');
 	$full_name = af4_agency_full_name( $agency );
 	$agency_slug = af4_agency_slug( $agency );
-	$flowchart_details = get_field('flowchart_group');
-	$flowchart_items = get_field('flowchart');
+	$majorefforts_details = get_field('flowchart_group');
+	$majorefforts_items = get_field('flowchart');
 	$resources_items = get_field('resources')['items'];
 	$director = get_field('director');
 	$exceptional_items = get_field('exceptional_items');
 	$site_link = get_field('site_link');
 	$infographic = get_field('infographic');
 
-	if( !empty($flowchart_items) ){
+	if( !empty($majorefforts_items) ){
 
-		?><div class="flowchart flow-block flow-arrow">
-		<h2><?php echo $flowchart_details['title']; ?></h2>
+		?><div class="majorefforts flow-block flow-arrow">
+		<h2><?php echo $majorefforts_details['title']; ?></h2>
 		<div class="layout-container">
 			<?php
 
-				$items = $flowchart_items;
+				$items = $majorefforts_items;
 				$items_per_row = $agency_slug != 'coals' ? 3 : 2;
 				$rows = ceil( count($items) / $items_per_row);
 
@@ -166,7 +166,7 @@ function af4_agency_fields() {
 					$count = count($items) - $start_index;
 					$sub_count = $count >= $items_per_row ? $items_per_row : $count % $items_per_row;
 
-					?><div class="flowchart-row<?php
+					?><div class="row<?php
 
 						if( $sub_count === $items_per_row ){
 							echo ' full-row';

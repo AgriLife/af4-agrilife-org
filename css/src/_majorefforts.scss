@@ -1,0 +1,156 @@
+$fc-color: $light-blue !default;
+$fc-bracket-width: 32px !default;
+$fc-sm-space-y: 1.25rem !default;
+$fc-md-space: 4rem !default;
+$fc-item-spacing: 1.5rem;
+$prototype-border-width: 1px;
+$prototype-border-type: dashed;
+$prototype-border-color: $fc-color;
+
+.majorefforts {
+	@include flow-block-color($dark-blue);
+	color: #FFF;
+
+	.item {
+		text-align: center;
+
+		> * {
+			@include template-prop($p: border-color, $key: color, $pref-key: contrast-color, $exclude: coals);
+			@include flex;
+
+			border: 2px solid transparent;
+			font: 1.75rem / 1em $header-font-family;
+			text-transform: uppercase;
+			flex-flow: row wrap;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			margin: 0 auto;
+			padding: .5rem;
+
+			@include breakpoint(small only){
+				padding: rem-calc(10);
+			}
+
+			span:first-child {
+				flex: 0 0 100%;
+				display: inline-block;
+			}
+		}
+	}
+
+	a {
+		color: $whiter;
+
+		&, &:hover {
+			text-decoration: none;
+		}
+	}
+
+	@include breakpoint(small only) {
+		text-align: center;
+		position: relative;
+
+		.item {
+			max-width: 500px;
+			margin: {
+				left: auto;
+				right: auto;
+			}
+		}
+
+		.row {
+			margin: 0 6%;
+		}
+
+		.item > * {
+			color: #FFF;
+			width: 75%;
+			min-width: 252px;
+			height: 68px;
+			margin-bottom: 0;
+			font-size: 1.25rem;
+			line-height: 1.2;
+		}
+
+		.item {
+			@include bordered(2px);
+			padding-top: $fc-sm-space-y;
+			border-width: 2px 0 0;
+		}
+
+		.row:first-child .item:first-child {
+			border: none;
+			padding-top: 0;
+		}
+
+		.item ~ .item {
+			margin: {
+				top: $fc-sm-space-y;
+				bottom: $fc-sm-space-y;
+			}
+		}
+	}
+
+	@include breakpoint(medium) {
+
+		.row {
+			@include flex;
+			flex-wrap: nowrap;
+			justify-content: center;
+			margin: 0 8.5%;
+			padding-bottom: $fc-item-spacing;
+		}
+
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			padding: 0 $fc-item-spacing / 2;
+			width: 280px;
+			min-width: 280px;
+
+			& > * {
+				font-size: 1.1rem;
+				line-height: 1.2;
+				height: 100%;
+			}
+
+			img {
+				max-height: 50px;
+			}
+		}
+
+		.text {
+			padding-top: 1.5rem;
+			margin: 0 20%;
+		}
+	}
+
+	@include breakpoint(medium){
+		@include breakpoint(1008px down){
+			.item {
+				width: 33.33%;
+				min-width: 100px;
+
+				& > * {
+					font-size: 1.1rem;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(1000px down){
+		.text {
+			margin: 0 10%;
+		}
+	}
+
+	@include breakpoint(865px down) {
+		.row {
+			margin: {
+				left: 5%;
+				right: 5%;
+			}
+		}
+	}
+}
