@@ -3,7 +3,6 @@
 }
 
 .site-header {
-
 	.nav-primary {
 		clear: both;
 
@@ -11,6 +10,11 @@
 		a:hover,
 		li:hover a {
 			color: $site-title-color;
+		}
+
+		.menu a,
+		.menu .button {
+			line-height: 1.2;
 		}
 	}
 
@@ -56,5 +60,4 @@
 	.no-js .nav-primary {
 	  @include element-invisible;
 	}
-
 }
