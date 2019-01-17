@@ -35,7 +35,8 @@
 		transition: height .5s;
 	}
 
-	> .wrap {
+	> .wrap,
+	> .wrap > .wrap {
 		background: $site-title-background;
 	}
 
