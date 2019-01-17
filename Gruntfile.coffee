@@ -60,19 +60,16 @@ module.exports = (grunt) ->
     compress:
       main:
         options:
-          archive: 'agriflex4.zip'
+          archive: 'af4-agrilife-org.zip'
         files: [
-          {src: ['style.css']},
-          {src: ['rtl.css']},
           {src: ['css/*.css']},
-          {src: ['js/*.js']},
+          {src: ['fields/**']},
           {src: ['images/**']},
           {src: ['src/*.php']},
-          {src: ['functions.php']},
-          {src: ['search.php']},
-          {src: ['README.md']},
-          {src: ['screenshot.png']},
-          {src: ['vendor/**']}
+          {src: ['templates/*.php']},
+          {src: ['vendor/autoload.php', 'vendor/composer/**']}
+          {src: ['af4-agrilife-org.php']},
+          {src: ['readme.md']},
         ]
 
   @loadNpmTasks 'grunt-contrib-sass'
