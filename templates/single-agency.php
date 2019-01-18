@@ -252,25 +252,24 @@ function af4_agency_fields() {
 
 	}
 
-	if( $infographic['image'] ){
+	// Display infographic
+	?><div class="infographic flow-block<?php
 
-		?><div class="infographic flow-block<?php
+		if( array_filter($exceptional_items) ){
+			echo ' flow-arrow';
+		}
 
-			if( array_filter($exceptional_items) ){
-				echo ' flow-arrow';
-			}
+	?>"><?php
 
-		?>"><?php
+		switch ($agency_slug) {
+			case 'tvmdl':
+				?><div class="wrap"><div class="heading">Established in <div class="date">1967</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/tvmdl-infographic.png" alt="160,000 annual caseloads; 768,000 average tests per year; $17.3 million FY2017 operating budget"></div><?php
+				break;
+			default:
+				break;
+		}
 
-			$infographic_image = $infographic['image'];
-			echo sprintf('<div class="photo"><img src="%s" alt="%s"></div>',
-				$infographic_image['url'],
-				$infographic_image['alt']
-			);
-
-		?></div><?php
-
-	}
+	?></div><?php
 
 	if( array_filter($exceptional_items) ){
 

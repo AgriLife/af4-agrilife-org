@@ -1,5 +1,61 @@
 .infographic {
 	@include flow-block-color($gray-dark);
-	padding: 55px 0 75px;
+
+	color: $whiter;
 	text-align: center;
+	font-family: $tungsten;
+	text-transform: uppercase;
+
+	.single-agency & {
+		padding: 6rem 0;
+	}
+
+	.wrap {
+		border: 2px solid $whiter;
+		margin: 0 auto;
+		width: 90%;
+		max-width: 1000px;
+		padding: 0 1rem 1rem;
+
+		.heading {
+			display: inline-block;
+			background-color: $gray-dark;
+			border: 1px solid #A3B2A3;
+			padding: 0.5rem;
+			transform: translateY(-50%);
+			margin-bottom: -1rem;
+		}
+
+		.date {
+			font: {
+				family: $monoton;
+				size: 2.5rem;
+			}
+			line-height: 1;
+			margin-top: 0.25rem;
+		}
+
+		img {
+			display: block;
+			margin: -1rem auto 0;
+		}
+	}
+
+	@include breakpoint(medium){
+		.single-agency & {
+			padding: 8rem 0;
+		}
+
+		.wrap {
+			padding: 0 4rem 4rem;
+
+			.heading {
+				margin-bottom: 0;
+			}
+
+			img {
+				margin-top: 0;
+			}
+		}
+	}
 }
