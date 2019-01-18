@@ -262,8 +262,20 @@ function af4_agency_fields() {
 	?>"><?php
 
 		switch ($agency_slug) {
+			case 'coals':
+				?><div class="wrap"><div class="heading">Established in <div class="date">1911</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/coals-infographic.png" alt="Degree programs: 31 undergraduate, 37 master's, 24 doctoral, and 6 online graduate; 14 Academic departments; 7,876 COALS students; 63,599 Texas A&M Students"></div><?php
+				break;
+			case 'forest':
+				?><div class="wrap"><div class="heading">Established in <div class="date">1915</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/forest-infographic.jpg" alt="160,000 annual caseloads; 768,000 average tests per year; $17.3 million FY2017 operating budget"></div><?php
+				break;
 			case 'tvmdl':
 				?><div class="wrap"><div class="heading">Established in <div class="date">1967</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/tvmdl-infographic.png" alt="160,000 annual caseloads; 768,000 average tests per year; $17.3 million FY2017 operating budget"></div><?php
+				break;
+			case 'extension':
+				?><div class="wrap"><div class="heading">Established in <div class="date">1915</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/extension-infographic.png" alt="81,292 volunteers supporting extension programs; $158 million FY2017 operating budget including county funds; 250 counties with an extension office"></div><?php
+				break;
+			case 'research':
+				?><div class="wrap"><div class="heading">Established in <div class="date">1887</div></div><img src="<?php echo ALAF4_DIR_URL;?>images/research-infographic.jpg" alt="160,000 annual caseloads; 768,000 average tests per year; $17.3 million FY2017 operating budget"></div><?php
 				break;
 			default:
 				break;
