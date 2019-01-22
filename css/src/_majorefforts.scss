@@ -15,7 +15,6 @@ $prototype-border-color: $fc-color;
 		text-align: center;
 
 		> * {
-			@include template-prop($p: border-color, $key: color, $pref-key: contrast-color, $exclude: coals);
 			@include flex;
 
 			border: 2px solid transparent;
@@ -30,6 +29,10 @@ $prototype-border-color: $fc-color;
 
 			@include breakpoint(small only){
 				padding: rem-calc(10);
+			}
+
+			.single-agency:not(.agency-coals) & {
+				border-color: #00AEEF;
 			}
 
 			span:first-child {
@@ -112,7 +115,7 @@ $prototype-border-color: $fc-color;
 			& > * {
 				font-size: 1.1rem;
 				line-height: 1.2;
-				height: 100%;
+				height: rem-calc(60);
 			}
 
 			img {
