@@ -6,7 +6,6 @@ $top-overlap: 1.5rem;
 	background-color: $gray-lighter;
 	font-family: $opensans;
 	line-height: 1.2;
-	margin-top: $top-overlap;
 
 	&.with-strategic-plan {
 		margin-bottom: 0;
@@ -113,7 +112,7 @@ $top-overlap: 1.5rem;
 		.photo-column {
 			position: absolute;
 			right: 40px;
-			top: -25px;
+			top: 0;
 			width: 140px;
 		}
 	}
