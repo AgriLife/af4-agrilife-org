@@ -350,15 +350,7 @@ function af4_agency_fields() {
 
 	if( $director ){
 
-		?><div class="director<?php
-
-			if( get_field('strategic_plan') ){
-
-				echo ' with-strategic-plan';
-
-			}
-
-		?>"><div class="layout-container"><div class="text-column"><div class="quote"><?php
+		?><div class="director"><div class="layout-container"><div class="text-column"><div class="quote"><?php
 
 			echo $director['quote'];
 
@@ -374,17 +366,7 @@ function af4_agency_fields() {
 				echo "<img src=\"{$image['sizes']['medium_large']}\" alt=\"{$director['name']}\">";
 			}
 
-		?></div></div><?php
-
-			$plan = get_field('strategic_plan');
-
-			if( $plan ){
-
-				echo "<div class=\"strategic-plan\"><a class=\"button\" href=\"{$plan}\">Strategic Plan</a></div>";
-
-			}
-
-		?></div><?php
+		?></div></div></div><?php
 
 	}
 
