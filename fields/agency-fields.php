@@ -52,7 +52,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5c18052a4f66c',
-			'label' => 'Flowchart Details',
+			'label' => 'Major Efforts Details',
 			'name' => 'flowchart_group',
 			'type' => 'group',
 			'instructions' => '',
@@ -88,7 +88,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5c116ab7cad3c',
-			'label' => 'Flowchart Items',
+			'label' => 'Major Efforts Items',
 			'name' => 'flowchart',
 			'type' => 'repeater',
 			'instructions' => '',
