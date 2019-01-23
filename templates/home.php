@@ -26,7 +26,7 @@ add_action('genesis_entry_content', function(){
 						<li><a href="/agency/tfs-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Forest<span class="show-for-medium hide-for-large">ry</span> Service</a></li>
 					</ul></div></div>
 			</div>
-			<div class="item item-2"><a href="/about/"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt="About AgriLife"></a><h2><a href="/about/">What is <br>Texas A&amp;M AgriLife?</a></h2></div>
+			<div class="item item-2"><a href="/about/"><img class="hide-for-small-only" src="<?php echo ALAF4_DIR_URL; ?>/images/home-about.jpg" alt="About AgriLife"></a><h2><a href="/about/">Research and Programs for a Healthier Texas</a></h2></div>
 			<div class="item item-3 featured"><?php
 
 				$item_3 = $action_items['item_3'];
