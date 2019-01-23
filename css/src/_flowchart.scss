@@ -327,17 +327,6 @@ $prototype-border-color: $fc-color;
 						height: 100%;
 					}
 				}
-
-				&.full-row .item {
-					$widths: (19.25%, 21.25%, 19%, 21.25%, 19.25%);
-					$i: 1;
-					@each $width in $widths {
-						&:nth-child(#{$i}){
-							width: #{$width};
-						}
-						$i: $i + 1;
-					}
-				}
 			}
 
 			.bottom.count-3 .item {
