@@ -158,25 +158,26 @@ function af4_agency_fields() {
 
 				$items = $majorefforts_items;
 				$items_per_row = $agency_slug != 'coals' ? 3 : 2;
-				$rows = ceil( count($items) / $items_per_row);
 
-				for ($i=0; $i < $rows; $i++) {
-
-					$start_index = $i * $items_per_row;
-					$count = count($items) - $start_index;
-					$sub_count = $count >= $items_per_row ? $items_per_row : $count % $items_per_row;
-
-					?><div class="row<?php
-
-						if( $sub_count === $items_per_row ){
-							echo ' full-row';
+				// Build the rows as a multidimensional array
+				$rows = array();
+				while( count($items) > 0 ){
+					$row = array();
+					for ($i=0; $i < $items_per_row && count($items) > 0; $i++) {
+						array_push( $row, array_shift( $items ) );
+						if( $items_per_row == 3 && count($items) == 1){
+							array_push( $row, array_shift( $items ) );
 						}
+					}
+					array_push($rows, $row);
+				}
 
-					?> bottom"><?php
+				// Render the items
+				foreach ($rows as $row) {
 
-						for ($j=0; $j < $sub_count; $j++) {
+					?><div class="row bottom count-<?php echo count($row); ?>"><?php
 
-							$item = $items[$start_index + $j];
+						foreach ($row as $item) {
 
 							?><div class="item"><?php
 
