@@ -94,13 +94,14 @@
 			display: inline-block;
 			vertical-align: top;
 			padding: 0 rem-calc(24 / 2);
-			width: 280px;
-			min-width: 280px;
+			flex: 1 1 0;
+			max-width: 280px;
+			min-height: rem-calc(60);
 
 			& > * {
 				font-size: 1.1rem;
 				line-height: 1.2;
-				height: rem-calc(60);
+				height: 100%;
 			}
 
 			img {
