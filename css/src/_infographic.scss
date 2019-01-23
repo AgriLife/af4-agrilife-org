@@ -41,9 +41,11 @@
 	}
 
 	hr {
-		margin-top: 0;
 		border-bottom: 1px solid $whiter;
-		margin-bottom: 0rem;
+		margin: {
+			top: 0;
+			bottom: 0rem;
+		}
 	}
 
 	img:first-child {
