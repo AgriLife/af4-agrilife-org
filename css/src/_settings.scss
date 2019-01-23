@@ -133,14 +133,16 @@ $template-atts: (
 		text-color: #FFF,
 		button: $maroon-alt,
 		button-text-color: $whiter,
-		button-hover: lighten($maroon-alt, 10%)
+		button-hover: lighten($maroon-alt, 10%),
+		major-efforts-border: #C8232E
 	),
 	tvmdl: (
 		color: $beige,
 		header-bg-color: darken($beige, 60%),
 		text-color: #000,
 		button-text-color: $anchor-color,
-		button-hover: lighten($beige, 10%)
+		button-hover: lighten($beige, 10%),
+		major-efforts-border: #A3B2A3
 	),
 	forest: (
 		color: $light-green,

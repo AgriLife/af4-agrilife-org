@@ -21,7 +21,7 @@
 	}
 
 	.heading {
-		@include template-prop($p: border-color, $key: color);
+		@include template-prop($p: border-color, $key: color, $pref-key: major-efforts-border);
 
 		display: inline-block;
 		background-color: $gray-dark;
