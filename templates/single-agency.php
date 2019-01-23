@@ -153,8 +153,7 @@ function af4_agency_fields() {
 
 		?><div class="majorefforts flow-block flow-arrow">
 		<h2><?php echo $majorefforts_details['title']; ?></h2>
-		<div class="layout-container">
-			<?php
+		<div class="layout-container"><?php
 
 				$items = $majorefforts_items;
 				$items_per_row = $agency_slug != 'coals' ? 3 : 2;
@@ -205,8 +204,7 @@ function af4_agency_fields() {
 
 				}
 
-			?></div>
-		</div><?php
+			?></div></div><?php
 
 	}
 
