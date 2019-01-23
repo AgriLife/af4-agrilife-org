@@ -1,12 +1,3 @@
-$fc-color: $light-blue !default;
-$fc-bracket-width: 32px !default;
-$fc-sm-space-y: 1.25rem !default;
-$fc-md-space: 4rem !default;
-$fc-item-spacing: 1.5rem;
-$prototype-border-width: 1px;
-$prototype-border-type: dashed;
-$prototype-border-color: $fc-color;
-
 .majorefforts {
 	@include flow-block-color($dark-blue);
 	color: #FFF;
@@ -76,12 +67,6 @@ $prototype-border-color: $fc-color;
 			line-height: 1.2;
 		}
 
-		.item {
-			@include bordered(2px);
-			padding-top: $fc-sm-space-y;
-			border-width: 2px 0 0;
-		}
-
 		.row:first-child .item:first-child {
 			border: none;
 			padding-top: 0;
@@ -89,8 +74,8 @@ $prototype-border-color: $fc-color;
 
 		.item ~ .item {
 			margin: {
-				top: $fc-sm-space-y;
-				bottom: $fc-sm-space-y;
+				top: 1.25rem;
+				bottom: 1.25rem;
 			}
 		}
 	}
@@ -102,13 +87,13 @@ $prototype-border-color: $fc-color;
 			flex-wrap: nowrap;
 			justify-content: center;
 			margin: 0 8.5%;
-			padding-bottom: $fc-item-spacing;
+			padding-bottom: 1.5rem;
 		}
 
 		.item {
 			display: inline-block;
 			vertical-align: top;
-			padding: 0 $fc-item-spacing / 2;
+			padding: 0 1.5rem / 2;
 			width: 280px;
 			min-width: 280px;
 
