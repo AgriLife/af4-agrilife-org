@@ -209,49 +209,6 @@ function af4_agency_fields() {
 
 	}
 
-	if( !empty($resources_items) ){
-
-		?><div class="resources flow-block flow-arrow"><div class="layout-container"><h2><a name="r"></a>Resource<?php
-
-			if( sizeof($resources_items) > 1 ){
-				echo 's';
-			}
-
-		?></h2><div class="row"><?php
-
-			foreach ($resources_items as $item) {
-
-				$link = array(
-					'open' => '',
-					'close' => ''
-				);
-
-				$image = '';
-
-				if( $item['image'] ){
-					$image = sprintf('<img src="%s" alt="%s">',
-						$item['image']['url'],
-						$item['image']['alt']
-					);
-				}
-
-				if( $item['link'] ){
-					$link['open'] = "<a href=\"{$item['link']}\">";
-					$link['close'] = '</a>';
-				}
-
-				echo sprintf( '<div class="item"><h3>%s</h3>%s%s%s</div>',
-					$item['title'],
-					$link['open'],
-					$image,
-					$link['close']
-				);
-			}
-
-		?></div></div></div><?php
-
-	}
-
 	// Infographic
 	?><div class="infographic flow-block<?php
 
@@ -348,6 +305,50 @@ function af4_agency_fields() {
 	}
 
 	?></div><?php
+
+	// Resources
+	if( !empty($resources_items) ){
+
+		?><div class="resources flow-block flow-arrow"><div class="layout-container"><h2><a name="r"></a>Resource<?php
+
+			if( sizeof($resources_items) > 1 ){
+				echo 's';
+			}
+
+		?></h2><div class="row"><?php
+
+			foreach ($resources_items as $item) {
+
+				$link = array(
+					'open' => '',
+					'close' => ''
+				);
+
+				$image = '';
+
+				if( $item['image'] ){
+					$image = sprintf('<img src="%s" alt="%s">',
+						$item['image']['url'],
+						$item['image']['alt']
+					);
+				}
+
+				if( $item['link'] ){
+					$link['open'] = "<a href=\"{$item['link']}\">";
+					$link['close'] = '</a>';
+				}
+
+				echo sprintf( '<div class="item"><h3>%s</h3>%s%s%s</div>',
+					$item['title'],
+					$link['open'],
+					$image,
+					$link['close']
+				);
+			}
+
+		?></div></div></div><?php
+
+	}
 
 	// Director
 	if( $director ){
