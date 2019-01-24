@@ -2,7 +2,7 @@
 /**
  * The file that defines the custom post type page template class
  *
- * @link       https://github.com/AgriLife/af4-agrilife-org/blob/master/src/class-templates.php
+ * @link       https://github.com/AgriLife/af4-agrilife-org/blob/master/src/class-posttemplates.php
  * @since      1.0.0
  * @package    af4-agrilife-org
  * @subpackage af4-agrilife-org/src
