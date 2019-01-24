@@ -210,13 +210,7 @@ function af4_agency_fields() {
 	}
 
 	// Infographic
-	?><div class="infographic flow-block<?php
-
-		if( array_filter($exceptional_items) ){
-			echo ' flow-arrow';
-		}
-
-	?>"><?php
+	?><div class="infographic flow-block flow-arrow"><?php
 
 		switch ($agency_slug) {
 			case 'coals':
@@ -309,7 +303,7 @@ function af4_agency_fields() {
 	// Resources
 	if( !empty($resources_items) ){
 
-		?><div class="resources flow-block flow-arrow"><div class="layout-container"><h2><a name="r"></a>Resource<?php
+		?><div class="resources flow-block"><div class="layout-container"><h2><a name="r"></a>Resource<?php
 
 			if( sizeof($resources_items) > 1 ){
 				echo 's';
