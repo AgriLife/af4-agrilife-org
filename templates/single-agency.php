@@ -149,6 +149,7 @@ function af4_agency_fields() {
 	$site_link = get_field('site_link');
 	$infographic = get_field('infographic');
 
+	// Major Efforts
 	if( !empty($majorefforts_items) ){
 
 		?><div class="majorefforts flow-block flow-arrow">
@@ -251,7 +252,7 @@ function af4_agency_fields() {
 
 	}
 
-	// Display infographic
+	// Infographic
 	?><div class="infographic flow-block<?php
 
 		if( array_filter($exceptional_items) ){
@@ -282,6 +283,7 @@ function af4_agency_fields() {
 
 	?></div><?php
 
+	// Exceptional Items
 	if( array_filter($exceptional_items) ){
 
 		?><div class="exceptional-items flow-block"><div class="layout-container"><h2><a name="ei"></a><?php
@@ -347,6 +349,7 @@ function af4_agency_fields() {
 
 	?></div><?php
 
+	// Director
 	if( $director ){
 
 		?><div class="director"><div class="layout-container"><div class="text-column"><div class="quote"><?php
