@@ -68,6 +68,7 @@ class Agrilife {
 		$ado_genesis = new \Agrilife\Genesis();
 
 		/* Set up required DOM */
+		require_once ALAF4_DIR_PATH . '/src/class-requireddom.php';
 		$ado_dom = new \Agrilife\RequiredDOM();
 
 		/* Add custom post type for Exceptional Items */
