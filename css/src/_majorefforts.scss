@@ -94,9 +94,12 @@
 			display: inline-block;
 			vertical-align: top;
 			padding: 0 rem-calc(24 / 2);
-			flex: 1 1 0;
-			max-width: 280px;
 			min-height: rem-calc(60);
+
+			.single-agency:not(.agency-coals) & {
+				max-width: 280px;
+				flex: 1 1 0;
+			}
 
 			& > * {
 				font-size: 1.1rem;
