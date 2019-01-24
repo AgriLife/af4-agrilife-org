@@ -82,7 +82,8 @@ class PostType {
 		register_post_type( $slug, $args );
 
 		// Register the post type templates
-		$post_template = new \Agrilife\Templates( $path, $slug, $this->single_file, $this->archive_file, $this->search_file );
+		require_once ALAF4_DIR_PATH . 'src/class-posttemplates.php';
+		$post_template = new PostTemplates( $path, $slug, $this->single_file, $this->archive_file, $this->search_file );
 
 	}
 
