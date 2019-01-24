@@ -1,18 +1,29 @@
 <?php
 /**
+ * Agrilife.org - AgriFlex4
+ *
+ * @package     Agrilife
+ * @author      Zachary Watkins
+ * @copyright   2018 Texas A&M AgriLife Communications
+ * @license     GPL-2.0+
+ *
+ * @wordpress-plugin
  * Plugin Name: Agrilife.org - AgriFlex4
- * Plugin URI: https://github.com/AgriLife/af4-agrilife-org
- * Description: Core functionality for Agrilife.org on AgriFlex4
- * Version: 0.1.0
- * Author: Zachary Watkins
- * Author URI: https://github.com/ZachWatkins/
+ * Plugin URI:  https://github.com/AgriLife/af4-agrilife-org
+ * Description: Core functionality for Agrilife.org on AgriFlex4.
+ * Version:     0.6.0
+ * Author:      Zachary Watkins
+ * Author URI:  https://github.com/ZachWatkins
  * Author Email: zachary.watkins@ag.tamu.edu
- * License: GPL-2.0+
+ * Text Domain: af4-agrilife-org
+ * License:     GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+/* Autoload */
 require 'vendor/autoload.php';
 
-// Define some useful constants
+/* Define some useful constants */
 define( 'ALAF4_DIRNAME', 'af4-agrilife-org' );
 define( 'ALAF4_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ALAF4_DIR_FILE', __FILE__ );
@@ -20,155 +31,27 @@ define( 'ALAF4_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'ALAF4_TEXTDOMAIN', 'af4-agrilife-org' );
 define( 'ALAF4_TEMPLATE_PATH', ALAF4_DIR_PATH . 'templates' );
 
-// Code for plugins
+/* Code for plugins */
 register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
 register_activation_hook( __FILE__, 'af4_agrilife_activation' );
+
+/**
+ * Helper option flag to indicate rewrite rules need flushing
+ *
+ * @since 0.1.0
+ * @return void
+ */
 function af4_agrilife_activation() {
 	if ( ! get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
 		add_option( 'af4_agrilife_flush_rewrite_rules_flag', true );
 	}
 }
 
-// Autoload all classes
+/**
+ * The core plugin class that is used to initialize the plugin
+ */
+require ALAF4_DIR_PATH . 'src/class-agrilife.php';
+
+/* Autoload all classes */
 spl_autoload_register( 'Agrilife::autoload' );
-
-class Agrilife {
-
-	private static $file = __FILE__;
-
-	private static $instance;
-
-	private function __construct() {
-
-		$this->register_templates();
-
-		add_action( 'init', array( $this, 'init' ) );
-
-		add_action( 'plugins_loaded', array( $this, 'custom_fields' ) );
-
-		// Add ACF WYSIWYG toolbar
-		add_filter( 'acf/fields/wysiwyg/toolbars' , array( $this, 'toolbars' ) );
-
-	}
-
-	/**
-	 * Initialize the various classes
-	 * @since 0.1.0
-	 * @return void
-	 */
-	public function init() {
-
-		// Set up asset files
-		$ado_assets = new \Agrilife\Assets;
-
-		// Get Genesis set up the way we want it
-		$ado_genesis = new \Agrilife\Genesis;
-
-		// Set up required DOM
-		$ado_dom = new \Agrilife\RequiredDOM;
-
-		// Add custom post type for Exceptional Items
-		$post_type = new \Agrilife\PostType(
-			array(
-				'singular' => 'Exceptional Item',
-				'plural' => 'Exceptional Items'
-			), ALAF4_TEMPLATE_PATH, 'exceptional-item', 'af4', array(), 'dashicons-portfolio',
-			array(
-				'title', 'editor', 'genesis-seo', 'genesis-scripts'
-			),
-			array(
-				'single' => 'single-exceptional-item.php'
-			)
-		);
-
-		// Add custom post type for Agencies
-		$post_type = new \Agrilife\PostType(
-			array(
-				'singular' => 'Agency',
-				'plural' => 'Agencies'
-			), ALAF4_TEMPLATE_PATH, 'agency', 'af4', array(), 'dashicons-portfolio',
-			array(
-				'title', 'editor', 'genesis-seo', 'genesis-scripts'
-			),
-			array(
-				'single' => 'single-agency.php'
-			)
-		);
-
-		// Flush rewrite rules on plugin installation
-		if ( get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
-			flush_rewrite_rules();
-			delete_option( 'af4_agrilife_flush_rewrite_rules_flag' );
-		}
-
-	}
-
-	/**
-	 * Initialize Advanced Custom Fields files
-	 * @since 0.1.0
-	 * @return void
-	 */
-	public function custom_fields() {
-	  if ( class_exists( 'acf' ) ) {
-	    require_once(ALAF4_DIR_PATH . 'fields/exceptional-item-fields.php');
-	    require_once(ALAF4_DIR_PATH . 'fields/agency-fields.php');
-	    require_once(ALAF4_DIR_PATH . 'fields/home-fields.php');
-	  }
-	}
-
-	/**
-	 * Add ACF toolbars
-	 * @since 0.1.0
-	 * @return void
-	 */
-	function toolbars( $toolbars ) {
-
-		// Add new toolbars
-		$toolbars['Simple Text'] = array();
-		$toolbars['Simple Text'][1] = array( 'formatselect', 'bold' , 'italic', 'underline', 'link', 'unlink', 'alignleft', 'aligncenter', 'alignjustify', 'bullist', 'numlist' );
-
-		$toolbars['Simple Title'] = array();
-		$toolbars['Simple Title'][1] = array( 'bold' , 'italic', 'underline' );
-
-		return $toolbars;
-
-	}
-
-	/**
-	 * Initialize page templates
-	 * @since 0.1.0
-	 * @return void
-	 */
-	private function register_templates() {
-
-		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
-		$home->register();
-
-	}
-
-	/**
-	 * Autoloads any classes called within the theme
-	 * @since 0.1.0
-	 * @param  string $classname The name of the class
-	 * @return void
-	 */
-	public static function autoload( $classname ) {
-
-		$filename = dirname( __FILE__ ) .
-      DIRECTORY_SEPARATOR .
-      str_replace( '_', DIRECTORY_SEPARATOR, $classname ) .
-      '.php';
-    if ( file_exists( $filename ) )
-      require $filename;
-
-	}
-
-	public static function get_instance() {
-
-		return null == self::$instance ? new self : self::$instance;
-
-	}
-
-}
-
 Agrilife::get_instance();
