@@ -2,22 +2,22 @@
 /**
  * Agrilife.org - AgriFlex4
  *
- * @package     Agrilife
- * @author      Zachary Watkins
- * @copyright   2018 Texas A&M AgriLife Communications
- * @license     GPL-2.0+
+ * @package      Agrilife
+ * @author       Zachary Watkins
+ * @copyright    2018 Texas A&M AgriLife Communications
+ * @license      GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: Agrilife.org - AgriFlex4
- * Plugin URI:  https://github.com/AgriLife/af4-agrilife-org
- * Description: Core functionality for Agrilife.org on AgriFlex4.
- * Version:     0.6.0
- * Author:      Zachary Watkins
- * Author URI:  https://github.com/ZachWatkins
+ * Plugin Name:  Agrilife.org - AgriFlex4
+ * Plugin URI:   https://github.com/AgriLife/af4-agrilife-org
+ * Description:  Core functionality for Agrilife.org on AgriFlex4.
+ * Version:      0.6.4
+ * Author:       Zachary Watkins
+ * Author URI:   https://github.com/ZachWatkins
  * Author Email: zachary.watkins@ag.tamu.edu
- * Text Domain: af4-agrilife-org
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:  af4-agrilife-org
+ * License:      GPL-2.0+
+ * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
 /* Autoload */
