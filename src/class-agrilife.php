@@ -152,6 +152,7 @@ class Agrilife {
 	 */
 	private function register_templates() {
 
+		require_once ALAF4_DIR_PATH . '/src/class-pagetemplate.php';
 		$home = new \Agrilife\PageTemplate( ALAF4_TEMPLATE_PATH, 'home.php', 'Home' );
 		$home->register();
 
