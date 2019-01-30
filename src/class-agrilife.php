@@ -72,6 +72,7 @@ class Agrilife {
 		$ado_dom = new \Agrilife\RequiredDOM();
 
 		/* Add custom post type for Exceptional Items */
+		require_once ALAF4_DIR_PATH . '/src/class-posttype.php';
 		$post_type = new \Agrilife\PostType(
 			array(
 				'singular' => 'Exceptional Item',

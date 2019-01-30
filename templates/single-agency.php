@@ -425,7 +425,7 @@ function af4_agency_fields() {
 		echo sprintf(
 			'<div class="resources flow-block"><div class="layout-container"><h2><a name="r"></a>%s</h2><div class="row">%s</div></div></div>',
 			esc_html( $title ),
-			esc_html( $items )
+			wp_kses_post( $items )
 		);
 
 	}
