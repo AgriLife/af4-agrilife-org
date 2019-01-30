@@ -184,7 +184,7 @@
                         "key": "field_5c0ec91dd8799",
                         "label": "Objective",
                         "name": "objective",
-                        "type": "textarea",
+                        "type": "wysiwyg",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
@@ -194,10 +194,10 @@
                             "id": ""
                         },
                         "default_value": "",
-                        "placeholder": "",
-                        "maxlength": "",
-                        "rows": "",
-                        "new_lines": ""
+                        "tabs": "all",
+                        "toolbar": "simple_text",
+                        "media_upload": 0,
+                        "delay": 0
                     }
                 ]
             },

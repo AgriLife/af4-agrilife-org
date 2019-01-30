@@ -79,7 +79,7 @@ function af4_ei_right_column() {
 				</div>
 				<hr />
 				<h3>Objective</h3>
-				<p><?php echo esc_textarea( $request_fields['objective'] ); ?></p>
+				<p><?php echo wp_kses_post( $request_fields['objective'] ); ?></p>
 			</div>
 			<div class="pdf"><?php echo wp_kses_post( $pdf ); ?></div></div></div>
 	<?php
