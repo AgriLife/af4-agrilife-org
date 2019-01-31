@@ -65,6 +65,7 @@ class Agrilife {
 		$ado_assets = new \Agrilife\Assets();
 
 		/* Get Genesis set up the way we want it */
+		require_once ALAF4_DIR_PATH . 'src/class-genesis.php';
 		$ado_genesis = new \Agrilife\Genesis();
 
 		/* Set up required DOM */
