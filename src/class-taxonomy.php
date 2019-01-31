@@ -194,14 +194,18 @@ class Taxonomy {
 
 		foreach ( $this->meta_boxes as $key => $meta ) {
 
-			$slug      = $meta['slug'];
-			$post_meta = $_POST[ "term_meta_$slug" ];
+			$slug = $meta['slug'];
+			$key  = "term_meta_$slug";
 
-			if ( isset( $post_meta ) ) {
+			if (
+				isset( $_POST[ $key ], $_POST[ $key . '_nonce' ] )
+				&& wp_verify_nonce( sanitize_key( $_POST[ $key . '_nonce' ] ) )
+			) {
 
-				$t_id  = $term_id;
-				$value = wp_unslash( $post_meta );
-				$value = sanitize_text_field( htmlentities( $value ) );
+				$post_meta = sanitize_text_field( wp_unslash( $_POST[ $key ] ) );
+				$t_id      = $term_id;
+				$value     = wp_unslash( $post_meta );
+				$value     = sanitize_text_field( htmlentities( $value ) );
 
 				// Save the option array.
 				update_option( "taxonomy_{$t_id}_{$slug}", $value );
