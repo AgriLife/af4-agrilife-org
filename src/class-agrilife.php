@@ -61,7 +61,7 @@ class Agrilife {
 	public function init() {
 
 		/* Set up asset files */
-		require_once ALAF4_DIR_PATH . '/src/class-assets.php';
+		require_once ALAF4_DIR_PATH . 'src/class-assets.php';
 		$ado_assets = new \Agrilife\Assets();
 
 		/* Get Genesis set up the way we want it */
@@ -69,11 +69,11 @@ class Agrilife {
 		$ado_genesis = new \Agrilife\Genesis();
 
 		/* Set up required DOM */
-		require_once ALAF4_DIR_PATH . '/src/class-requireddom.php';
+		require_once ALAF4_DIR_PATH . 'src/class-requireddom.php';
 		$ado_dom = new \Agrilife\RequiredDOM();
 
 		/* Add custom post type for Exceptional Items */
-		require_once ALAF4_DIR_PATH . '/src/class-posttype.php';
+		require_once ALAF4_DIR_PATH . 'src/class-posttype.php';
 		$post_type = new \Agrilife\PostType(
 			array(
 				'singular' => 'Exceptional Item',
