@@ -218,7 +218,7 @@ acf_add_local_field_group(array(
 								'class' => '',
 								'id' => '',
 							),
-							'return_format' => '',
+							'return_format' => 'array',
 							'preview_size' => 'medium',
 							'library' => '',
 							'min_width' => 500,
@@ -242,7 +242,7 @@ acf_add_local_field_group(array(
 								'class' => '',
 								'id' => '',
 							),
-							'return_format' => '',
+							'return_format' => 'url',
 						),
 						array(
 							'key' => 'field_5c194945e871b',
