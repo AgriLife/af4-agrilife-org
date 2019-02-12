@@ -92,7 +92,7 @@ function af4_home_content() {
 	}
 
 	echo sprintf(
-		'<div class="item item-2 featured">%s</div>',
+		'<div class="item item-2">%s</div>',
 		wp_kses_post( $content )
 	);
 
