@@ -53,9 +53,47 @@ function af4_home_content() {
 	echo '<div class="item item-1"><div class="wrap"><h2>86th Legislature</h2><div class="description has-line"><ul><li><a href="/agency/extension-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Extension<span class="show-for-medium"> Service</span></a></li><li><a href="/agency/research-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Research</a></li><li><a href="/agency/tvmdl-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Veterinary<span class="hide-for-medium hide-for-large"> Medical</span> Diagnostic<span class="hide-for-xlarge">s</span><span class="show-for-xlarge"> Laboratory</span></a></li><li><a href="/agency/tfs-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Forest<span class="show-for-medium hide-for-large">ry</span> Service</a></li></ul></div></div></div>';
 
 	// Item 2.
+	$item_2  = $action_items['item_2'];
+	$content = '';
+	$img     = $item_2['image'];
+	$heading = $item_2['heading'];
+	$link    = $item_2['link'];
+
+	if ( $link ) {
+		if ( $img ) {
+			$content = sprintf(
+				'<a href="%s"><img class="hide-for-small-only" src="%s" alt="%s"><h2>%s</h2></a>',
+				$link,
+				$img['url'],
+				$img['alt'],
+				$heading
+			);
+		} else {
+			$content = sprintf(
+				'<a href="%s"><h2>%s</h2></a>',
+				$link,
+				$heading
+			);
+		}
+	} else {
+		if ( $img ) {
+			$content = sprintf(
+				'<img class="hide-for-small-only" src="%s" alt="%s"><h2>%s</h2>',
+				$img['url'],
+				$img['alt'],
+				$heading
+			);
+		} else {
+			$content = sprintf(
+				'<h2>%s</h2>',
+				$heading
+			);
+		}
+	}
+
 	echo sprintf(
-		'<div class="item item-2"><a href="/about/"><img class="hide-for-small-only" src="%s/images/home-about.jpg" alt="About AgriLife"></a><h2><a href="/about/">Research and Programs for a Healthier Texas</a></h2></div>',
-		esc_url( ALAF4_DIR_URL )
+		'<div class="item item-2 featured">%s</div>',
+		wp_kses_post( $content )
 	);
 
 	// Item 3.
