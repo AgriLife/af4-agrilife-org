@@ -50,6 +50,9 @@ class Agrilife {
 		/* Add ACF WYSIWYG toolbar */
 		add_filter( 'acf/fields/wysiwyg/toolbars', array( $this, 'toolbars' ) );
 
+		/* Remove heading elements from agency excerpts */
+		add_filter( 'get_the_excerpt', array( $this, 'agency_post_excerpt' ), 11, 2 );
+
 	}
 
 	/**
@@ -88,7 +91,7 @@ class Agrilife {
 			array( 'single' => 'single-exceptional-item.php' )
 		);
 
-		/* Add custom post type for Agencies */
+		/* Add custom post type for Agencies. */
 		$post_type = new \Agrilife\PostType(
 			array(
 				'singular' => 'Agency',
@@ -189,6 +192,26 @@ class Agrilife {
 
 		return null === self::$instance ? new self() : self::$instance;
 
+	}
+
+	/**
+	 * Remove heading tags from agency post excerpt.
+	 *
+	 * @since 0.1.0
+	 * @param string  $post_excerpt The post excerpt.
+	 * @param WP_Post $post Post object.
+	 * @return string.
+	 */
+	public static function agency_post_excerpt( $post_excerpt, $post ) {
+		if ( 'agency' === $post->post_type ) {
+			$post_excerpt   = preg_replace( '/<h[2-6]{1}[^>]*>[^<]*<\/h[2-6]{1}\s*>/', '', $post->post_content );
+			$post_excerpt   = wp_strip_all_tags( $post_excerpt, true );
+			$excerpt_length = apply_filters( 'excerpt_length', 55 );
+			$excerpt_more   = apply_filters( 'excerpt_more', ' [&hellip;]' );
+			$post_excerpt   = wp_trim_words( $post_excerpt, $excerpt_length, $excerpt_more );
+		}
+
+		return $post_excerpt;
 	}
 
 }
