@@ -156,11 +156,11 @@ function af4_home_content() {
 	}
 
 	echo sprintf(
-		'<div class="item item-4"><div class="wrap">%s<img src="%s"><h2>AgriLife Today</h2>%s<div class="description has-line hide-for-small-only">%s</div></div></div>',
+		'<div class="item item-4"><div class="wrap">%s<img src="%s"><h2>AgriLife Today</h2><div class="description has-line hide-for-small-only">%s</div>%s</div></div>',
 		wp_kses_post( $link_open ),
 		esc_url( $img['url'] ),
-		wp_kses_post( $link_close ),
-		wp_kses_post( $desc )
+		wp_kses_post( $desc ),
+		wp_kses_post( $link_close )
 	);
 
 	// Item 5.
