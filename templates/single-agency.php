@@ -207,6 +207,7 @@ function af4_agency_fields() {
 	$resources_items      = get_field( 'resources' )['items'];
 	$director             = get_field( 'director' );
 	$exceptional_items    = get_field( 'exceptional_items' );
+	$twitter_coals        = get_field( 'coals_twitter' );
 	$site_link            = get_field( 'site_link' );
 	$infographic          = get_field( 'infographic' );
 
@@ -428,6 +429,27 @@ function af4_agency_fields() {
 			wp_kses_post( $items )
 		);
 
+	}
+
+	// Twitter.
+	if ( $twitter_coals ) {
+
+		$title = '';
+
+		if ( $twitter_coals['title'] ) {
+
+			$title = sprintf(
+				'<h2>%s</h2>',
+				sanitize_text_field( $twitter_coals['title'] )
+			);
+
+		}
+
+		echo sprintf(
+			'<div class="resources flow-block"><div class="layout-container">%s%s</div></div>',
+			$title,
+			wp_kses_post( $twitter_coals['content'] )
+		);
 	}
 
 	// Director.
