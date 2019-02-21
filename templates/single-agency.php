@@ -319,7 +319,7 @@ function af4_agency_fields() {
 	);
 
 	// Exceptional Items.
-	if ( array_filter( $exceptional_items ) ) {
+	if ( 'coals' !== $agency_slug && array_filter( $exceptional_items ) ) {
 
 		$title        = count( $exceptional_items['items'] ) > 1 ? 'Exceptional Items' : 'Exceptional Item';
 		$introduction = '';
@@ -447,7 +447,7 @@ function af4_agency_fields() {
 
 		echo sprintf(
 			'<div class="resources flow-block"><div class="layout-container">%s%s</div></div>',
-			$title,
+			wp_kses_post( $title ),
 			wp_kses_post( $twitter_coals['content'] )
 		);
 	}
