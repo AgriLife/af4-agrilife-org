@@ -46,7 +46,7 @@ function af4_home_content() {
 	$action_items = get_field( 'action_items' );
 
 	echo '<div id="overview">';
-	echo '<div id="leaders-heading" class="layout-container"><h1><span class="heading-1">Leaders in </span><span class="heading-2">Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>';
+	echo '<div id="leaders-heading" class="layout-container"><h1><span class="heading-1">Leaders </span><span class="heading-2">in Agriculture,<br> Natural Resources,<br> &amp; Life Sciences</span></h1></div>';
 	echo '<div id="action-items" class="layout-container">';
 
 	// Item 1.

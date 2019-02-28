@@ -22,45 +22,33 @@ $small-vertical-spacing: 20px;
 	}
 
 	h1 {
+		font-family: $header-font-family;
 		padding-top: 36px;
 		color: #FFF;
 
 		.heading-1 {
-			background: $dark-blue url("../images/leaders-in.png") no-repeat center center {
-				size: 88%;
-			}
-			white-space: nowrap;
-			text-indent: 1000rem;
-			overflow: hidden;
+			text-transform: uppercase;
 			display: block;
-			width: calc(100% - 18px);
-			height: 90px;
+			width: 91%;
 			border-right: 1px solid $light-green;
+			text-align: left;
+			color: $light-green;
+			font-size: 22vw;
+			padding-left: 9%;
 		}
 
 		.heading-2 {
-			font: {
-				family: $header-font-family;
-				size: 2.25rem;
-			}
+			font-size: 9.25vw;
 			text-transform: uppercase;
 			line-height: 1em;
 			display: block;
-			padding: 15px 8px;
+			padding: 15px 0;
 
 			@include breakpoint(small only){
 				margin: {
 					left: $small-side-spacing;
 					right: $small-side-spacing;
 				}
-			}
-
-			@media screen and (max-width: 380px){
-				font-size: 2rem;
-			}
-
-			@media screen and (max-width: 340px){
-				font-size: 1.9rem;
 			}
 		}
 
@@ -78,16 +66,17 @@ $small-vertical-spacing: 20px;
 			}
 
 			.heading-1 {
-				@include xy-cell(auto, $gutter-type: padding, $gutters: 2rem);
+				@include xy-cell(53%, $gutter-type: padding, $gutters: 2rem);
 
-				background-position: 80% center;
+				text-align: right;
 				height: auto;
+				font-size: 8rem;
+				line-height: 120px;
 			}
 
 			.heading-2 {
-				@include xy-cell(4, $gutter-type: padding, $gutters: 2rem);
+				@include xy-cell(47%, $gutter-type: padding, $gutters: 2rem);
 
-				width: 450px;
 				font-size: 2.5rem;
 				padding: {
 					top: 0;
@@ -96,20 +85,28 @@ $small-vertical-spacing: 20px;
 			}
 
 			@media (max-width: 865px) {
-				.heading-1,
-				.heading-2 {
-					@include xy-cell(6, $gutter-type: padding, $gutters: 2rem);
-				}
-
 				.heading-1 {
-					background: {
-						size: 90%;
-						position: center center;
-					}
+					width: 56.5%;
+					font-size: 6.9rem;
+					line-height: 96px;
 				}
 
 				.heading-2 {
+					width: 43.5%;
 					font-size: 2rem;
+				}
+			}
+
+			@media (max-width: 705px) {
+				.heading-1 {
+					width: 55.5%;
+					font-size: 6rem;
+					line-height: 84px;
+				}
+
+				.heading-2 {
+					width: 44.5%;
+					font-size: 1.75rem;
 				}
 			}
 		}
