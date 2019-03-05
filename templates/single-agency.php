@@ -313,10 +313,10 @@ function af4_agency_fields() {
 			break;
 	}
 
-	echo sprintf(
-		'<div class="infographic flow-block flow-arrow">%s</div>',
-		wp_kses_post( str_replace( '%s', ALAF4_DIR_URL, $infographic_output ) )
-	);
+	// echo sprintf(
+	// 	'<div class="infographic flow-block flow-arrow">%s</div>',
+	// 	wp_kses_post( str_replace( '%s', ALAF4_DIR_URL, $infographic_output ) )
+	// );
 
 	// Exceptional Items.
 	if ( 'coals' !== $agency_slug && array_filter( $exceptional_items ) ) {
