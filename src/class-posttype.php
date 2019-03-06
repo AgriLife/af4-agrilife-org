@@ -131,6 +131,10 @@ class PostType {
 			'show_ui'            => true,
 			'supports'           => $supports,
 			'taxonomies'         => $taxonomies,
+			'rewrite'            => array(
+				'with_front' => false,
+				'slug'       => $slug
+			)
 		);
 
 		// Register the post type.
