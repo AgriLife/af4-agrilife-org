@@ -133,8 +133,8 @@ class PostType {
 			'taxonomies'         => $taxonomies,
 			'rewrite'            => array(
 				'with_front' => false,
-				'slug'       => $slug
-			)
+				'slug'       => $slug,
+			),
 		);
 
 		// Register the post type.
