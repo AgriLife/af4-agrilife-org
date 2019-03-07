@@ -60,7 +60,7 @@ module.exports = (grunt) ->
     compress:
       main:
         options:
-          archive: 'af4-agrilife-org.zip'
+          archive: '<%= pkg.name %>.zip'
         files: [
           {src: ['css/*.css']},
           {src: ['fields/**']},
