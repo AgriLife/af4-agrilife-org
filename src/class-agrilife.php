@@ -67,10 +67,6 @@ class Agrilife {
 		require_once ALAF4_DIR_PATH . 'src/class-assets.php';
 		$ado_assets = new \Agrilife\Assets();
 
-		/* Get Genesis set up the way we want it */
-		require_once ALAF4_DIR_PATH . 'src/class-genesis.php';
-		$ado_genesis = new \Agrilife\Genesis();
-
 		/* Add custom post type for Exceptional Items */
 		require_once ALAF4_DIR_PATH . 'src/class-posttype.php';
 		$post_type = new \Agrilife\PostType(
