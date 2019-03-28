@@ -32,7 +32,7 @@ class Assets {
 		// Register global styles used in the theme.
 		add_action( 'admin_footer', array( $this, 'register_admin_styles' ) );
 
-		// Register script for single-agency page
+		// Register script for single-agency page.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_agency_script' ) );
 
 		// Register global styles used in the theme.
