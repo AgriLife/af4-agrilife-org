@@ -11,7 +11,7 @@
  * Plugin Name:  Agrilife.org - AgriFlex4
  * Plugin URI:   https://github.com/AgriLife/af4-agrilife-org
  * Description:  Core functionality for Agrilife.org on AgriFlex4.
- * Version:      0.7.9
+ * Version:      1.0.0
  * Author:       Zachary Watkins
  * Author URI:   https://github.com/ZachWatkins
  * Author Email: zachary.watkins@ag.tamu.edu
@@ -42,6 +42,19 @@ register_activation_hook( __FILE__, 'af4_agrilife_activation' );
  * @return void
  */
 function af4_agrilife_activation() {
+	$theme = wp_get_theme();
+	if ( 'AgriFlex4' !== $theme->name ) {
+		$error = sprintf(
+			/* translators: %s: URL for plugins dashboard page */
+			__(
+				'Plugin NOT activated: The <strong>Agrilife.org - AgriFlex4 Plugin</strong> needs the <strong>AgriFlex4 Theme</strong> to be installed and activated first. <a href="%s">Back to plugins page</a>',
+				'af4-college'
+			),
+			get_admin_url( null, '/plugins.php' )
+		);
+		wp_die( wp_kses_post( $error ) );
+	}
+
 	if ( ! get_option( 'af4_agrilife_flush_rewrite_rules_flag' ) ) {
 		add_option( 'af4_agrilife_flush_rewrite_rules_flag', true );
 	}
