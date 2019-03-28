@@ -32,6 +32,9 @@ class Assets {
 		// Register global styles used in the theme.
 		add_action( 'admin_footer', array( $this, 'register_admin_styles' ) );
 
+		// Register script for single-agency page
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_agency_script' ) );
+
 		// Register global styles used in the theme.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
 
@@ -99,5 +102,24 @@ class Assets {
 		}
 
 	}
+
+	/**
+	 * Registers the agency script
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_agency_script(){
+
+		wp_register_script(
+			'af4-agrilife-org-single-agency',
+			ALAF4_DIR_URL . 'js/exceptional-item.min.js',
+			array(),
+			filemtime( ALAF4_DIR_PATH . 'js/exceptional-item.min.js' ),
+			true
+		);
+
+	}
+
 
 }

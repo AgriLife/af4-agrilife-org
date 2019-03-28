@@ -16,6 +16,7 @@ add_action( 'genesis_entry_content', 'af4_ei_right_column', 1 );
 add_action( 'genesis_entry_content', 'af4_ei_left_wrap', 2 );
 add_action( 'genesis_entry_content', 'af4_ei_close_left_wrap', 11 );
 add_action( 'genesis_entry_content', 'af4_ei_director_contact', 10 );
+add_action( 'wp_enqueue_scripts', 'af4_ei_enqueue_agency_script', 13 );
 
 /**
  * Provide content for the sidebar
@@ -135,6 +136,16 @@ function af4_ei_director_contact() {
 		wp_kses_post( $contact_info )
 	);
 
+}
+
+/**
+ * Enqueue the javascript file
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function af4_ei_enqueue_agency_script() {
+	wp_enqueue_script( 'af4-agrilife-org-single-agency' );
 }
 
 get_header();

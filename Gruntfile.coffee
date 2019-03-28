@@ -53,6 +53,12 @@ module.exports = (grunt) ->
           'css/agrilife.css':        'css/src/agrilife.scss'
           'css/home.css':            'css/src/home.scss'
           'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
+    coffee:
+      compile:
+        options:
+          bare: true
+        files:
+          'js/exceptional-item.min.js': 'js/src/exceptional-item.coffee'
     sasslint:
       options:
         configFile: '.sass-lint.yaml'
@@ -73,12 +79,13 @@ module.exports = (grunt) ->
         ]
 
   @loadNpmTasks 'grunt-contrib-sass'
+  @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-contrib-watch'
   @loadNpmTasks 'grunt-contrib-compress'
   @loadNpmTasks 'grunt-sass-lint'
   @loadNpmTasks 'grunt-postcss'
 
-  @registerTask 'default', ['sass:pkg', 'postcss:pkg']
+  @registerTask 'default', ['sass:pkg', 'postcss:pkg', 'coffee']
   @registerTask 'develop', ['sasslint', 'sass:dev', 'postcss:dev']
   @registerTask 'release', ['compress', 'makerelease']
   @registerTask 'makerelease', 'Set release branch for use in the release task', ->
