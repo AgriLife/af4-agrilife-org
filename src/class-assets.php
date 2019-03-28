@@ -32,7 +32,7 @@ class Assets {
 		// Register global styles used in the theme.
 		add_action( 'admin_footer', array( $this, 'register_admin_styles' ) );
 
-		// Register script for single-agency page.
+		// Register script for single-agency page template.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_agency_script' ) );
 
 		// Register global styles used in the theme.
@@ -109,7 +109,7 @@ class Assets {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function register_agency_script(){
+	public function register_agency_script() {
 
 		wp_register_script(
 			'af4-agrilife-org-single-agency',
