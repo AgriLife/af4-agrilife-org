@@ -88,7 +88,6 @@ class Assets {
 	 * Enqueues extension styles
 	 *
 	 * @since 0.1.0
-	 * @global $wp_styles
 	 * @return void
 	 */
 	public function enqueue_styles() {
