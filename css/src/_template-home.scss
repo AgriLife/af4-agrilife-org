@@ -7,7 +7,7 @@ $small-vertical-spacing: 20px;
 }
 
 // Home content styling
-.site-container {
+body {
 	background-color: $dark-blue;
 }
 
@@ -44,7 +44,7 @@ $small-vertical-spacing: 20px;
 			display: block;
 			padding: 15px 0;
 
-			@include breakpoint(small only){
+			@include breakpoint(small only) {
 				margin: {
 					left: $small-side-spacing;
 					right: $small-side-spacing;
@@ -264,7 +264,7 @@ $small-vertical-spacing: 20px;
 
 				.wrap {
 					background: {
-						image: none!important;
+						image: none!important; // sass-lint:disable-line no-important
 						color: $maroon-alt;
 					}
 					position: absolute;
@@ -354,13 +354,13 @@ $small-vertical-spacing: 20px;
 		}
 	}
 
-	@media screen and (min-width: 758px){
+	@media screen and (min-width: 758px) {
 		.item .button {
 			font-size: 1.5rem;
 		}
 	}
 
-	@media screen and (min-width: 1080px){
+	@media screen and (min-width: 1080px) {
 		.big {
 			font-size: 1.75em;
 			line-height: 1em;
