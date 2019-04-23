@@ -12,12 +12,16 @@
 
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 add_filter( 'body_class', 'af4_agency_body_class' );
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 add_action( 'genesis_entry_content', 'af4_agency_header', 1 );
 add_action( 'genesis_entry_content', 'af4_agency_content_wrap', 2 );
 add_action( 'genesis_entry_content', 'af4_agency_close_content_wrap', 11 );
 add_action( 'genesis_entry_content', 'af4_agency_fields', 12 );
+
+// Remove entry header.
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_post_title' );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_open' );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_close' );
 
 /**
  * Retrieve the slug using the agency full name

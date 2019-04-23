@@ -18,6 +18,15 @@ add_action( 'genesis_entry_content', 'af4_ei_close_left_wrap', 11 );
 add_action( 'genesis_entry_content', 'af4_ei_director_contact', 10 );
 add_action( 'wp_enqueue_scripts', 'af4_ei_enqueue_agency_script', 13 );
 
+// Move entry header back to default position.
+add_action( 'genesis_entry_header', 'genesis_entry_header_markup_open' );
+add_action( 'genesis_entry_header', 'genesis_entry_header_markup_close' );
+add_action( 'genesis_entry_header', 'genesis_do_post_title' );
+add_action( 'genesis_post_title', 'genesis_do_post_title' );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_open', 5 );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_close', 15 );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_post_title' );
+
 /**
  * Provide content for the sidebar
  *

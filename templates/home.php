@@ -13,9 +13,9 @@
 /**
  * Template Name: Home
  */
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
-remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_post_title' );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_open' );
+remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_entry_header_markup_close' );
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 add_filter( 'safe_style_css', 'af4_add_safe_style' );
 

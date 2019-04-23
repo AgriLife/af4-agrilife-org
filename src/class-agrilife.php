@@ -63,6 +63,10 @@ class Agrilife {
 	 */
 	public function init() {
 
+		/* Genesis customizations. */
+		require_once ALAF4_DIR_PATH . 'src/class-genesis.php';
+		$ado_genesis = new \Agrilife\Genesis();
+
 		/* Set up asset files */
 		require_once ALAF4_DIR_PATH . 'src/class-assets.php';
 		$ado_assets = new \Agrilife\Assets();
