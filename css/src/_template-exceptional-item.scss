@@ -1,7 +1,8 @@
 .exceptional-item.entry {
 	padding: $site-padding;
 
-	h1, h2 {
+	h1,
+	h2 {
 		text-transform: uppercase;
 	}
 
@@ -134,10 +135,9 @@
 
 	.contact {
 		margin: 1rem 0 0;
-	}
 
-	.contact {
-		h2, h3 {
+		h2,
+		h3 {
 			width: 100%;
 		}
 
@@ -146,7 +146,7 @@
 		}
 	}
 
-	@include breakpoint(small only){
+	@include breakpoint(small only) {
 		.entry-content {
 			position: relative;
 			padding-bottom: 401px;
@@ -166,7 +166,7 @@
 		}
 	}
 
-	@include breakpoint(medium){
+	@include breakpoint(medium) {
 		@include xy-grid-container($break-xlarge, 0);
 		padding: 0 0 2rem;
 

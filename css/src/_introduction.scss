@@ -1,12 +1,12 @@
 .introduction {
 	text-align: center;
 
-	@include breakpoint(small only){
+	@include breakpoint(small only) {
 		margin: 50px $small-side-spacing 0;
 		padding-bottom: 35px;
 	}
 
-	@include breakpoint(medium){
+	@include breakpoint(medium) {
 		@include xy-grid-container($break-medium + 50px, 0);
 
 		.logo {
@@ -22,11 +22,12 @@
 		text-transform: uppercase;
 		font: 1.5rem $tungsten;
 
-		&, &:hover {
+		&,
+		&:hover {
 			text-decoration: none;
 		}
 
-		@media screen and (max-width: 430px){
+		@media screen and (max-width: 430px) {
 			padding: 10px 25px;
 		}
 	}

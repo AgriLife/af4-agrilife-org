@@ -17,7 +17,7 @@ $admin: false !default;
 }
 
 .wp-block-button {
-	margin-bottom: $paragraph-margin-bottom;;
+	margin-bottom: $paragraph-margin-bottom;
 
 	.wp-block-button__link {
 		margin: 0;
@@ -34,8 +34,8 @@ $admin: false !default;
 	}
 }
 
-.wp-block-button:not(.aligncenter){
-	@if($admin == false){
+.wp-block-button:not(.aligncenter) {
+	@if($admin == false) {
 		display: inline-block;
 		vertical-align: top;
 		margin-right: $flow-margin-x;
@@ -51,7 +51,7 @@ $admin: false !default;
 /* Quotes
 ------------------------- */
 // Non-admin styles
-@if($admin == false){
+@if($admin == false) {
 	.wp-block-quote,
 	.wp-block-pullquote {
 		box-sizing: border-box;
@@ -157,11 +157,12 @@ $admin: false !default;
 		}
 	}
 
-	&:not(.alignleft,.alignright){
+	&:not(.alignleft, .alignright) {
 		width: 100%;
 	}
 
-	&, blockquote {
+	&,
+	blockquote {
 		border: none;
 	}
 
@@ -204,7 +205,8 @@ $admin: false !default;
 		}
 	}
 
-	td, th {
+	td,
+	th {
 		border-color: $table-border-color;
 	}
 }
@@ -232,29 +234,29 @@ $admin: false !default;
 }
 
 @media only screen and (min-width: 768px) {
-  .alignfull {
-    margin: {
-    	left: calc(50% - 50vw);
-    	right: calc(50% - 50vw);
-    }
-    width: auto;
-    max-width: 1000%;
-  }
+	.alignfull {
+		margin: {
+			left: calc(50% - 50vw);
+			right: calc(50% - 50vw);
+		}
+		width: auto;
+		max-width: 1000%;
+	}
 
-  .alignwide {
-    margin: {
-    	left: calc(25% - 25vw);
-    	right: calc(25% - 25vw);
-    }
-    width: auto;
-    max-width: 1000%;
-  }
+	.alignwide {
+		margin: {
+			left: calc(25% - 25vw);
+			right: calc(25% - 25vw);
+		}
+		width: auto;
+		max-width: 1000%;
+	}
 
-  .alignwide img,
-  .alignfull img {
-    display: block;
-    margin: 0 auto;
-  }
+	.alignwide img,
+	.alignfull img {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 // Text block styles

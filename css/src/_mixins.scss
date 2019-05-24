@@ -55,8 +55,10 @@
 /// @param {Color} $color [$light-blue] - CSS color value
 /// @param {Number} $border-width [2px] - Width of the bracket line
 /// @param {Number} $width [10px] - Length of the bracket arms
-/// @param {String} $axis [x] - If 'x' the brackets will appear on the left and right; if 'y' they will appear above and below
-/// @param {Number} $padding [rem-calc(10 20)] - Padding of the element which ensures its contents are far enough away from the brackets
+/// @param {String} $axis [x] - If "x" the brackets will appear on the left and right;
+///                             if "y" they will appear above and below
+/// @param {Number} $padding [rem-calc(10 20)] - Padding of the element which ensures its contents
+///                                              are far enough away from the brackets
 @mixin brackets (
 	$color: $light-blue,
 	$border-width: 2px,
@@ -112,7 +114,7 @@
 		}
 	}
 
-	@include breakpoint(small only){
+	@include breakpoint(small only) {
 		padding: $width $width * 2;
 	}
 }
@@ -220,7 +222,10 @@
 ) {
 	@each $name, $map in $template-atts {
 		.agency-#{$name} & {
-			@include arrow-color(get-template-value($map, $border-color), get-template-value($map, $bg-color));
+			@include arrow-color(
+				get-template-value($map, $border-color),
+				get-template-value($map, $bg-color)
+			);
 		}
 	}
 }

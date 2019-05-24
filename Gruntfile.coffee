@@ -61,7 +61,7 @@ module.exports = (grunt) ->
           'js/exceptional-item.min.js': 'js/src/exceptional-item.coffee'
     sasslint:
       options:
-        configFile: '.sass-lint.yaml'
+        configFile: '.sass-lint.yml'
       target: ['css/src/**/*.s+(a|c)ss']
     compress:
       main:

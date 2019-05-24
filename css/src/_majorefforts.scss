@@ -18,7 +18,7 @@
 			margin: 0 auto;
 			padding: .5rem;
 
-			@include breakpoint(small only){
+			@include breakpoint(small only) {
 				padding: rem-calc(10);
 			}
 
@@ -36,7 +36,8 @@
 	a {
 		color: $whiter;
 
-		&, &:hover {
+		&,
+		&:hover {
 			text-decoration: none;
 		}
 	}
@@ -118,8 +119,8 @@
 		}
 	}
 
-	@include breakpoint(medium){
-		@include breakpoint(1008px down){
+	@include breakpoint(medium) {
+		@include breakpoint(1008px down) {
 			.item {
 				width: 33.33%;
 				min-width: 100px;
@@ -131,7 +132,7 @@
 		}
 	}
 
-	@include breakpoint(1000px down){
+	@include breakpoint(1000px down) {
 		.text {
 			margin: 0 10%;
 		}

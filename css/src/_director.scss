@@ -64,17 +64,18 @@ $top-overlap: 1.5rem;
 			text-transform: uppercase;
 			font-weight: bold;
 
-			&, &:hover {
+			&,
+			&:hover {
 				text-decoration: none;
 			}
 
-			@media screen and (max-width: 430px){
+			@media screen and (max-width: 430px) {
 				padding: 10px 25px;
 			}
 		}
 	}
 
-	@include breakpoint(390px down){
+	@include breakpoint(390px down) {
 		.layout-container {
 			padding: {
 				left: 5%;
@@ -93,7 +94,7 @@ $top-overlap: 1.5rem;
 		}
 	}
 
-	@include breakpoint(small only){
+	@include breakpoint(small only) {
 		.layout-container {
 			padding: {
 				left: $small-side-spacing;
@@ -117,7 +118,7 @@ $top-overlap: 1.5rem;
 		}
 	}
 
-	@include breakpoint(medium){
+	@include breakpoint(medium) {
 		position: relative;
 		z-index: 2;
 
@@ -135,7 +136,7 @@ $top-overlap: 1.5rem;
 		.text-column {
 			@include xy-cell(9, $gutter-type: padding, $gutters: 1.75rem);
 
-			@include breakpoint(1040px down){
+			@include breakpoint(1040px down) {
 				padding: {
 					bottom: 2%;
 					right: 1.25rem;
@@ -143,7 +144,7 @@ $top-overlap: 1.5rem;
 				}
 			}
 
-			@include breakpoint(905px down){
+			@include breakpoint(905px down) {
 				padding: {
 					bottom: 1%;
 					right: 0;
@@ -166,16 +167,16 @@ $top-overlap: 1.5rem;
 			padding-right: 0;
 			font-size: 1.25rem;
 
-			@include breakpoint(1040px down){
+			@include breakpoint(1040px down) {
 				padding-right: 1.25rem;
 			}
 
-			@include breakpoint(53.125em down){
+			@include breakpoint(53.125em down) {
 				padding-right: 0;
 			}
 		}
 
-		@include breakpoint(850px down){
+		@include breakpoint(850px down) {
 			.quote {
 				padding-right: 0;
 			}
@@ -199,7 +200,7 @@ $top-overlap: 1.5rem;
 			}
 		}
 
-		@include breakpoint(53.125em down){
+		@include breakpoint(53.125em down) {
 			.creds {
 				margin-top: 1rem;
 			}

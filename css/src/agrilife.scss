@@ -1,20 +1,20 @@
 /*
-  Theme Name:  AgriFlex4
-  Theme URI:   https://github.com/agrilife/agriflex4
-  Author:      Texas A&M AgriLife Communications
-  Author URI:  http://agrilife.org/communications
-  Description: Genesis child theme for Texas A&M AgriLife
-  Version:     0.1.0
-  License:     GNU General Public License v2 or later
-  License URI: http://www.gnu.org/licenses/gpl-2.0.html
-  Text Domain: agriflex4
-  Template:    genesis
+	Theme Name:	AgriFlex4
+	Theme URI:	 https://github.com/agrilife/agriflex4
+	Author:			Texas A&M AgriLife Communications
+	Author URI:	http://agrilife.org/communications
+	Description: Genesis child theme for Texas A&M AgriLife
+	Version:		 0.1.0
+	License:		 GNU General Public License v2 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Text Domain: agriflex4
+	Template:		genesis
 */
 
-@charset 'utf-8';
+@charset "utf-8";
 
-@import 'foundation';
-@import 'settings';
+@import "foundation";
+@import "settings";
 
 @include foundation-global-styles;
 // @include foundation-grid;
@@ -59,25 +59,25 @@
 // @include foundation-flex-classes;
 // @include foundation-prototype-classes;
 
-@import 'mixins';
-@import 'functions';
-@import 'typography';
-@import 'wordpress';
-@import 'accessibility';
-@import 'layout';
-@import 'content';
-@import 'column-classes';
+@import "mixins";
+@import "functions";
+@import "typography";
+@import "wordpress";
+@import "accessibility";
+@import "layout";
+@import "content";
+@import "column-classes";
 
 // For template pages
-@import 'agency-default';
-@import 'agency-coals';
-@import 'content-heading-image';
-@import 'introduction';
-@import 'flowchart';
-@import 'resources';
-@import 'majorefforts';
-@import 'infographic';
-@import 'exceptional-items';
-@import 'director';
-@import 'template-default';
-@import 'template-exceptional-item';
+@import "agency-default";
+@import "agency-coals";
+@import "content-heading-image";
+@import "introduction";
+@import "flowchart";
+@import "resources";
+@import "majorefforts";
+@import "infographic";
+@import "exceptional-items";
+@import "director";
+@import "template-default";
+@import "template-exceptional-item";

@@ -1,4 +1,4 @@
-@function inverse-color-bw($color){
+@function inverse-color-bw($color) {
 	$grayscale: grayscale($color);
 	$inverse: invert($grayscale);
 	$lightness: lightness($inverse);
