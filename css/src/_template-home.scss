@@ -23,60 +23,92 @@ body {
 
 	h1 {
 		font-family: $header-font-family;
-		padding-top: 36px;
 		color: #FFF;
+		text-align: center;
+		width: 95%;
+		max-width: 950px;
+		margin: 0 auto;
+		padding-top: 3rem;
 
 		.heading-1 {
-			text-transform: uppercase;
 			display: block;
-			width: 91%;
-			border-right: 1px solid $light-green;
-			text-align: left;
+			padding: 3% 0;
+			text-transform: uppercase;
 			color: $light-green;
 			font-size: 22vw;
-			padding-left: 9%;
+			border: 2px solid $light-blue;
+			border-width: 2px 2px 0 2px;
+		}
+
+		.heading-2-wrap {
+			overflow: hidden;
+			line-height: 1;
+			position: relative;
+			display: block;
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				width: 10%;
+				height: 50%;
+				border: 2px solid $light-blue;
+				position: absolute;
+				top: 0;
+			}
+
+			&::before {
+				left: 0;
+				border-width: 0 0 2px 2px;
+				margin-right: 1rem;
+			}
+
+			&::after {
+				right: 0;
+				border-width: 0 2px 2px 0;
+				margin-left: 1rem;
+			}
 		}
 
 		.heading-2 {
-			font-size: 9.25vw;
+			display: inline-block;
+			width: calc(80% - 2rem);
 			text-transform: uppercase;
+			font-size: 9.25vw;
 			line-height: 1em;
-			display: block;
 			padding: 15px 0;
+		}
 
-			@include breakpoint(small only) {
-				margin: {
-					left: $small-side-spacing;
-					right: $small-side-spacing;
+		@include breakpoint(small only) {
+			.heading-1 {
+				font-size: 26vw;
+				padding-bottom: 0;
+			}
+
+			.heading-2 {
+				font-size: 5.6vw;
+				width: 83vw;
+			}
+
+			.heading-2-wrap {
+				&::before,
+				&::after {
+					width: 28%;
+					height: 70%;
 				}
 			}
 		}
 
 		@include breakpoint(medium up) {
-			@include xy-grid;
-
-			margin: 0;
-			padding: 6% 0 14%;
-
-			span {
-				@include xy-cell-base();
-
-				display: inline-block;
-				vertical-align: top;
-			}
+			margin-bottom: 6rem;
 
 			.heading-1 {
-				@include xy-cell(53%, $gutter-type: padding, $gutters: 2rem);
-
-				text-align: right;
 				height: auto;
 				font-size: 8rem;
 				line-height: 120px;
 			}
 
 			.heading-2 {
-				@include xy-cell(47%, $gutter-type: padding, $gutters: 2rem);
-
 				font-size: 2.5rem;
 				padding: {
 					top: 0;
@@ -86,26 +118,22 @@ body {
 
 			@media (max-width: 865px) {
 				.heading-1 {
-					width: 56.5%;
 					font-size: 6.9rem;
 					line-height: 96px;
 				}
 
 				.heading-2 {
-					width: 43.5%;
 					font-size: 2rem;
 				}
 			}
 
 			@media (max-width: 705px) {
 				.heading-1 {
-					width: 55.5%;
 					font-size: 6rem;
 					line-height: 84px;
 				}
 
 				.heading-2 {
-					width: 44.5%;
 					font-size: 1.75rem;
 				}
 			}
