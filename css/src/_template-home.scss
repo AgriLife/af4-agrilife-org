@@ -50,8 +50,8 @@ body {
 			&::after {
 				content: "";
 				display: block;
-				width: 10%;
-				height: 50%;
+				width: 13%;
+				height: calc(50% + 1px);
 				border: 2px solid $light-blue;
 				position: absolute;
 				top: 0;
@@ -72,10 +72,10 @@ body {
 
 		.heading-2 {
 			display: inline-block;
-			width: calc(80% - 2rem);
+			width: calc(74% - 2rem);
 			text-transform: uppercase;
 			font-size: 9.25vw;
-			line-height: 1em;
+			line-height: 1.1em;
 			padding: 15px 0;
 		}
 
@@ -109,32 +109,16 @@ body {
 			}
 
 			.heading-2 {
-				font-size: 2.5rem;
+				font-size: 2.7rem;
 				padding: {
 					top: 0;
 					bottom: 0;
 				}
 			}
 
-			@media (max-width: 865px) {
-				.heading-1 {
-					font-size: 6.9rem;
-					line-height: 96px;
-				}
-
+			@media (max-width: 999px) {
 				.heading-2 {
-					font-size: 2rem;
-				}
-			}
-
-			@media (max-width: 705px) {
-				.heading-1 {
-					font-size: 6rem;
-					line-height: 84px;
-				}
-
-				.heading-2 {
-					font-size: 1.75rem;
+					font-size: 4.3vw;
 				}
 			}
 		}
