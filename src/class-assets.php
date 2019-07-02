@@ -29,9 +29,6 @@ class Assets {
 	 */
 	public function __construct() {
 
-		// Register global styles used in the theme.
-		add_action( 'admin_footer', array( $this, 'register_admin_styles' ) );
-
 		// Register script for single-agency page template.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_agency_script' ) );
 
@@ -41,24 +38,6 @@ class Assets {
 		// Enqueue extension styles.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 2 );
 
-	}
-
-	/**
-	 * Registers all admin styles used within the plugin
-	 *
-	 * @since 0.1.0
-	 * @return void
-	 */
-	public function register_admin_styles() {
-		wp_register_style(
-			'agrilife-admin-styles',
-			ALAF4_DIR_URL . 'css/admin.css',
-			array(),
-			filemtime( ALAF4_DIR_PATH . 'css/admin.css' ),
-			'screen'
-		);
-
-		wp_enqueue_style( 'agrilife-admin-styles' );
 	}
 
 	/**
