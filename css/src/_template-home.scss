@@ -11,6 +11,14 @@ body {
 	background-color: $dark-blue;
 }
 
+.site-inner > .grid-container {
+	padding: {
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
 #overview {
 	background: transparent url("../images/home-background.jpg") no-repeat {
 		size: cover;
