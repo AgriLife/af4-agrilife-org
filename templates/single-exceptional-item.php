@@ -41,7 +41,7 @@ function af4_ei_right_column() {
 			$logo_output .= sprintf(
 				'<span class="%s">%s</span>',
 				$value['name'],
-				preg_replace('/(width|height)="\d+"/', '', $image)
+				preg_replace( '/(width|height)="\d+"/', '', $image )
 			);
 
 		}
