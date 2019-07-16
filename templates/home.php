@@ -18,7 +18,23 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 remove_action( 'genesis_post_title', 'genesis_do_post_title' );
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+add_filter( 'genesis_structural_wrap-site-inner', 'af4_class_site_inner_wrap' );
 add_filter( 'safe_style_css', 'af4_add_safe_style' );
+
+/**
+ * Add grid class name
+ *
+ * @since 1.1.3
+ * @param string $output The wrap HTML.
+ * @return string
+ */
+function af4_class_site_inner_wrap( $output ) {
+
+	$output = str_replace( 'class="grid-container ', 'class="grid-container full ', $output );
+
+	return $output;
+
+}
 
 /**
  * Add safe styles for Item 5 form html in custom field.
