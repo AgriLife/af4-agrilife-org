@@ -16,12 +16,28 @@ add_action( 'genesis_entry_content', 'af4_agency_header', 1 );
 add_action( 'genesis_entry_content', 'af4_agency_content_wrap', 2 );
 add_action( 'genesis_entry_content', 'af4_agency_close_content_wrap', 11 );
 add_action( 'genesis_entry_content', 'af4_agency_fields', 12 );
+add_filter( 'genesis_structural_wrap-site-inner', 'af4ao_class_site_inner_wrap' );
 
 // Remove entry header.
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open' );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close' );
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 remove_action( 'genesis_post_title', 'genesis_do_post_title' );
+
+/**
+ * Add grid-container class name
+ *
+ * @since 0.1.0
+ * @param string $output The wrap HTML.
+ * @return string
+ */
+function af4ao_class_site_inner_wrap( $output ) {
+
+	$output = str_replace( 'class="', 'class="full ', $output );
+
+	return $output;
+
+}
 
 /**
  * Retrieve the slug using the agency full name

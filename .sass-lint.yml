@@ -1,5 +1,6 @@
 # Linter Options
 # https://github.com/sasstools/sass-lint/tree/master/docs/rules
+# Copy of https://github.com/AgriLife/agriflex4/blob/master/.sass-lint.yml
 options:
   # Don't merge default rules
   merge-default-rules: false

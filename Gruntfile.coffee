@@ -1,4 +1,5 @@
 module.exports = (grunt) ->
+  sass = require 'node-sass'
   @initConfig
     pkg: @file.readJSON('package.json')
     watch:
@@ -31,20 +32,22 @@ module.exports = (grunt) ->
     sass:
       pkg:
         options:
-          loadPath: 'node_modules/foundation-sites/scss'
-          sourcemap: 'none'
-          style: 'compressed'
+          implementation: sass
+          noSourceMap: true
+          outputStyle: 'compressed'
           precision: 2
+          includePaths: ['node_modules/foundation-sites/scss']
         files:
           'css/agrilife.css':        'css/src/agrilife.scss'
           'css/home.css':            'css/src/home.scss'
           'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
       dev:
         options:
-          loadPath: 'node_modules/foundation-sites/scss'
-          style: 'expanded'
+          implementation: sass
+          sourceMap: true
+          outputStyle: 'nested'
           precision: 2
-          trace: true
+          includePaths: ['node_modules/foundation-sites/scss']
         files:
           'css/agrilife.css':        'css/src/agrilife.scss'
           'css/home.css':            'css/src/home.scss'
@@ -74,11 +77,11 @@ module.exports = (grunt) ->
           {src: ['readme.md']},
         ]
 
-  @loadNpmTasks 'grunt-contrib-sass'
   @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-contrib-watch'
   @loadNpmTasks 'grunt-contrib-compress'
   @loadNpmTasks 'grunt-sass-lint'
+  @loadNpmTasks 'grunt-sass'
   @loadNpmTasks 'grunt-postcss'
 
   @registerTask 'default', ['sass:pkg', 'postcss:pkg', 'coffee']
