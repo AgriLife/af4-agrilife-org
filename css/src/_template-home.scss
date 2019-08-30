@@ -182,6 +182,19 @@ body {
 		}
 	}
 
+	.item-1 {
+		.advancing-texas {
+			background: transparent url("../images/Advancing%20Texas.png") no-repeat center/cover;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		.hidden {
+			visibility: hidden;
+		}
+	}
+
 	@include breakpoint(small only) {
 		$featured-item-height: 404px;
 
@@ -260,6 +273,11 @@ body {
 			h2 br {
 				display: none;
 			}
+		}
+
+		.item-1 {
+			max-width: 382px;
+			height: 330px;
 		}
 	}
 

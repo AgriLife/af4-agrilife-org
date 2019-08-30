@@ -67,7 +67,12 @@ function af4_home_content() {
 	echo '<div id="action-items" class="layout-container">';
 
 	// Item 1.
-	echo '<div class="item item-1"><div class="wrap"><h2>86th Legislature</h2><div class="description has-line"><ul><li><a href="/agency/extension-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Extension<span class="show-for-medium"> Service</span></a></li><li><a href="/agency/research-home/#ei"><span class="show-for-xlarge">Texas A&amp;M AgriLife </span>Research</a></li><li><a href="/agency/tvmdl-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Veterinary<span class="hide-for-medium hide-for-large"> Medical</span> Diagnostic<span class="hide-for-xlarge">s</span><span class="show-for-xlarge"> Laboratory</span></a></li><li><a href="/agency/tfs-home/#ei"><span class="show-for-xlarge">Texas A&amp;M </span>Forest<span class="show-for-medium hide-for-large">ry</span> Service</a></li></ul></div></div></div>';
+	$item_1 = $action_items['item_1'];
+	if ( ! empty( $item_1 ) ) {
+		echo wp_kses_post( $item_1 );
+	} else {
+		echo '<div class="item item-1"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
+	}
 
 	// Item 2.
 	$item_2  = $action_items['item_2'];
