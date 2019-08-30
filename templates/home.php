@@ -131,14 +131,14 @@ function af4_home_content() {
 			$wrap = sprintf(
 				'<div class="wrap" style="background-image: url(%s);"><a href="%s"><img src="%s" alt=""><h2>%s</h2></a>',
 				$img['url'],
-				$link,
+				$link['url'],
 				$img['url'],
 				$heading
 			);
 		} else {
 			$wrap = sprintf(
 				'<div class="wrap"><h2><a href="%s">%s</a></h2>',
-				$link,
+				$link['url'],
 				$heading
 			);
 		}
