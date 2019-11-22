@@ -69,10 +69,18 @@ function af4_home_content() {
 	// Item 1.
 	$item_1 = $action_items['item_1'];
 	if ( ! empty( $item_1 ) ) {
-		echo wp_kses_post( $item_1 );
+		$img     = $item_1['image'];
+		$link    = $item_1['link'];
+		$content = sprintf(
+			'<div class="item item-1"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);"><span class="hidden">%s</span></a></div>',
+			$link,
+			$img['url'],
+			$img['title']
+		);
 	} else {
-		echo '<div class="item item-1"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
+		$content = '<div class="item item-1"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
 	}
+	echo wp_kses_post( $content );
 
 	// Item 2.
 	$item_2  = $action_items['item_2'];

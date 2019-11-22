@@ -19,6 +19,62 @@
                 "layout": "row",
                 "sub_fields": [
                     {
+                        "key": "field_5dd80f88efee9",
+                        "label": "Item 1",
+                        "name": "item_1",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_5dd80f88efeea",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": 300,
+                                "min_height": 200,
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "jpg"
+                            },
+                            {
+                                "key": "field_5dd80f88efeec",
+                                "label": "Link",
+                                "name": "link",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url"
+                            }
+                        ]
+                    },
+                    {
                         "key": "field_5c63307d81a9e",
                         "label": "Item 2",
                         "name": "item_2",
@@ -352,7 +408,7 @@
         "hide_on_screen": [
             "the_content"
         ],
-        "active": 1,
+        "active": true,
         "description": ""
     }
 ]
