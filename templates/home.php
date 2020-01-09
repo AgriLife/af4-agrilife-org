@@ -201,6 +201,13 @@ function af4_home_content() {
 	$link_open    = '';
 	$link_close   = '';
 	$allowed_html = array(
+		'a'      => array(
+			'href'   => array(),
+			'title'  => array(),
+			'class'  => array(),
+			'target' => array(),
+			'rel'    => array(),
+		),
 		'script' => array(
 			'type' => array(),
 			'src'  => array(),
