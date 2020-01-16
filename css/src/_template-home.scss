@@ -180,18 +180,27 @@ body {
 			text-transform: uppercase;
 			width: 100%;
 		}
+
+		.hidden {
+			visibility: hidden;
+		}
+	}
+
+	.item-image-only a {
+		background: {
+			color: transparent;
+			repeat: no-repeat;
+			position: center;
+			size: cover;
+		}
+		width: 100%;
+		height: 100%;
+		display: block;
 	}
 
 	.item-1 {
 		.advancing-texas {
-			background: transparent url("../images/Advancing%20Texas.png") no-repeat center/cover;
-			display: block;
-			width: 100%;
-			height: 100%;
-		}
-
-		.hidden {
-			visibility: hidden;
+			background-image: url("../images/Advancing%20Texas.png");
 		}
 	}
 
@@ -275,7 +284,7 @@ body {
 			}
 		}
 
-		.item-1 {
+		.item-image-only {
 			max-width: 382px;
 			height: 330px;
 		}

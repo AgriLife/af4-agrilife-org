@@ -47,6 +47,7 @@ function af4_add_safe_style( $styles ) {
 	$styles[] = 'position';
 	$styles[] = 'left';
 	$styles[] = 'display';
+	$styles[] = 'background-size';
 	return $styles;
 }
 
@@ -68,17 +69,19 @@ function af4_home_content() {
 
 	// Item 1.
 	$item_1 = $action_items['item_1'];
-	if ( ! empty( $item_1 ) ) {
+	if ( ! empty( $item_1 ) && ! empty( $item_1['image'] ) ) {
 		$img     = $item_1['image'];
 		$link    = $item_1['link'];
+		$bgsize  = $item_1['background_size'][0];
 		$content = sprintf(
-			'<div class="item item-1"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);"><span class="hidden">%s</span></a></div>',
+			'<div class="item item-1 item-image-only"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);background-size:%s;"><span class="hidden">%s</span></a></div>',
 			$link,
 			$img['url'],
+			$bgsize,
 			$img['title']
 		);
 	} else {
-		$content = '<div class="item item-1"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
+		$content = '<div class="item item-1 item-image-only"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
 	}
 	echo wp_kses_post( $content );
 
@@ -194,70 +197,30 @@ function af4_home_content() {
 	);
 
 	// Item 5.
-	$item_5       = $action_items['item_5'];
-	$link         = $item_5['link'];
-	$heading      = $item_5['heading'];
-	$form         = preg_replace( '/<(\/)?p>/', '', $item_5['form'] );
-	$link_open    = '';
-	$link_close   = '';
-	$allowed_html = array(
-		'a'      => array(
-			'href'   => array(),
-			'title'  => array(),
-			'class'  => array(),
-			'target' => array(),
-			'rel'    => array(),
-		),
-		'script' => array(
-			'type' => array(),
-			'src'  => array(),
-		),
-		'div'    => array(
-			'id'          => array(),
-			'class'       => array(),
-			'for'         => array(),
-			'style'       => array(
-				'position' => 'absolute',
-			),
-			'aria-hidden' => array(),
-		),
-		'form'   => array(
-			'action'     => array(),
-			'method'     => array(),
-			'id'         => array(),
-			'class'      => array(),
-			'name'       => array(),
-			'target'     => array(),
-			'novalidate' => array(),
-		),
-		'label'  => array(
-			'for'   => array(),
-			'class' => array(),
-		),
-		'input'  => array(
-			'type'        => array(),
-			'value'       => array(),
-			'placeholder' => array(),
-			'name'        => array(),
-			'class'       => array(),
-			'id'          => array(),
-			'tabindex'    => array(),
-		),
-	);
+	$item_5 = $action_items['item_5'];
 
-	if ( $link ) {
-		$link_open  = "<a href=\"{$link}\">";
-		$link_close = '</a>';
+	if ( array_key_exists( 'image', $item_5 ) ) {
+
+		// Image and Link version of the custom fields.
+		if ( ! empty( $item_5 ) && ! empty( $item_5['image'] ) ) {
+
+			$img     = $item_5['image'];
+			$link    = $item_5['link'];
+			$bgsize  = $item_5['background_size'];
+			$content = sprintf(
+				'<div class="item item-5 item-image-only"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);background-size:%s;"><span class="hidden">%s</span></a></div>',
+				$link,
+				$img['url'],
+				$bgsize,
+				$img['title']
+			);
+
+			echo wp_kses_post( $content );
+
+		}
 	}
 
-	echo sprintf(
-		'<div class="item item-5"><div class="wrap"><h2><span class="big">Newsletter</span></h2><h3>%s%s%s</h3>%s</div></div>',
-		wp_kses_post( $link_open ),
-		esc_html( $heading ),
-		wp_kses_post( $link_close ),
-		wp_kses( $form, $allowed_html )
-	);
-
+	// Close items.
 	echo '</div></div>';
 
 	$agencies  = '<div class="flowchart-row top"><a href="https://agrilife.org/" title="Texas A&M AgriLife"><div class="al item"><span><img src="%s/agrilife-white.png" alt="Texas A&M AgriLife"></span></a></div></div>';

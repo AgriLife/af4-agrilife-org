@@ -71,6 +71,49 @@
                                     "id": ""
                                 },
                                 "return_format": "url"
+                            },
+                            {
+                                "key": "field_5e20bab8041cb",
+                                "label": "Background Color",
+                                "name": "background_color",
+                                "type": "color_picker",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": ""
+                            },
+                            {
+                                "key": "field_5e20c316ca320",
+                                "label": "Background Size",
+                                "name": "background_size",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "auto": "auto",
+                                    "contain": "contain",
+                                    "cover": "cover"
+                                },
+                                "default_value": [
+                                    "auto"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "return_format": "value",
+                                "ajax": 0,
+                                "placeholder": ""
                             }
                         ]
                     },
@@ -319,7 +362,7 @@
                         ]
                     },
                     {
-                        "key": "field_5c19494ce871c",
+                        "key": "field_5e2091489bca3",
                         "label": "Item 5",
                         "name": "item_5",
                         "type": "group",
@@ -334,10 +377,10 @@
                         "layout": "row",
                         "sub_fields": [
                             {
-                                "key": "field_5c19494ce871e",
-                                "label": "Heading",
-                                "name": "heading",
-                                "type": "text",
+                                "key": "field_5e2091489bca4",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -346,14 +389,19 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "Impacts",
-                                "placeholder": "",
-                                "prepend": "",
-                                "append": "",
-                                "maxlength": ""
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": 300,
+                                "min_height": 200,
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "jpg"
                             },
                             {
-                                "key": "field_5c19494ce871f",
+                                "key": "field_5e2091489bca5",
                                 "label": "Link",
                                 "name": "link",
                                 "type": "link",
@@ -368,10 +416,10 @@
                                 "return_format": "url"
                             },
                             {
-                                "key": "field_5c1949b1e8721",
-                                "label": "Form",
-                                "name": "form",
-                                "type": "wysiwyg",
+                                "key": "field_5e20ba5e041ca",
+                                "label": "Background Color",
+                                "name": "background_color",
+                                "type": "color_picker",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -380,11 +428,35 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "",
-                                "tabs": "text",
-                                "media_upload": 0,
-                                "toolbar": "full",
-                                "delay": 0
+                                "default_value": ""
+                            },
+                            {
+                                "key": "field_5e20c0c7ca31f",
+                                "label": "Background Size",
+                                "name": "background_size",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "auto": "auto",
+                                    "contain": "contain",
+                                    "cover": "cover"
+                                },
+                                "default_value": [
+                                    "auto"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "return_format": "value",
+                                "ajax": 0,
+                                "placeholder": ""
                             }
                         ]
                     }
