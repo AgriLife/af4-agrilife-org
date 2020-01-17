@@ -141,7 +141,6 @@ function af4_home_content() {
 		if ( $img ) {
 			$wrap = sprintf(
 				'<div class="wrap"><a href="%s"><img src="%s" alt=""><h2>%s</h2></a>',
-				$img['url'],
 				$link['url'],
 				$img['url'],
 				$heading
