@@ -72,7 +72,7 @@ function af4_home_content() {
 	if ( ! empty( $item_1 ) && ! empty( $item_1['image'] ) ) {
 		$img     = $item_1['image'];
 		$link    = $item_1['link'];
-		$bgsize  = $item_1['background_size'][0];
+		$bgsize  = $item_1['background_size'];
 		$content = sprintf(
 			'<div class="item item-1 item-image-only"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);background-size:%s;"><span class="hidden">%s</span></a></div>',
 			$link,
