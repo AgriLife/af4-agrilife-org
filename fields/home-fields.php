@@ -67,7 +67,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 									'max_width'         => '',
 									'max_height'        => '',
 									'max_size'          => '',
-									'mime_types'        => 'jpg',
+									'mime_types'        => 'jpg,png',
 								),
 								array(
 									'key'               => 'field_5dd80f88efeec',
@@ -166,7 +166,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 									'max_width'         => '',
 									'max_height'        => '',
 									'max_size'          => '',
-									'mime_types'        => 'jpg',
+									'mime_types'        => 'jpg,png',
 								),
 								array(
 									'key'               => 'field_5c63314581aa0',
@@ -410,7 +410,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 									'max_width'         => '',
 									'max_height'        => '',
 									'max_size'          => '',
-									'mime_types'        => 'jpg',
+									'mime_types'        => 'jpg,png',
 								),
 								array(
 									'key'               => 'field_5e2091489bca5',

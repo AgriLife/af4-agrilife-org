@@ -55,7 +55,7 @@
                                 "max_width": "",
                                 "max_height": "",
                                 "max_size": "",
-                                "mime_types": "jpg"
+                                "mime_types": "jpg,png"
                             },
                             {
                                 "key": "field_5dd80f88efeec",
@@ -154,7 +154,7 @@
                                 "max_width": "",
                                 "max_height": "",
                                 "max_size": "",
-                                "mime_types": "jpg"
+                                "mime_types": "jpg,png"
                             },
                             {
                                 "key": "field_5c63314581aa0",
@@ -398,7 +398,7 @@
                                 "max_width": "",
                                 "max_height": "",
                                 "max_size": "",
-                                "mime_types": "jpg"
+                                "mime_types": "jpg,png"
                             },
                             {
                                 "key": "field_5e2091489bca5",
