@@ -283,6 +283,25 @@
                                 "maxlength": "",
                                 "rows": "",
                                 "new_lines": ""
+                            },
+                            {
+                                "key": "field_5e274772d22a9",
+                                "label": "Modal Content",
+                                "name": "modal_content",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
                             }
                         ]
                     },

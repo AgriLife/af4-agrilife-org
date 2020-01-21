@@ -20,6 +20,7 @@ remove_action( 'genesis_post_title', 'genesis_do_post_title' );
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 add_filter( 'genesis_structural_wrap-site-inner', 'af4_class_site_inner_wrap' );
 add_filter( 'safe_style_css', 'af4_add_safe_style' );
+add_action( 'genesis_entry_content', 'af4_home_content' );
 
 /**
  * Add grid class name
@@ -50,8 +51,6 @@ function af4_add_safe_style( $styles ) {
 	$styles[] = 'background-size';
 	return $styles;
 }
-
-add_action( 'genesis_entry_content', 'af4_home_content' );
 
 /**
  * Provide content for the home page template.
@@ -130,12 +129,14 @@ function af4_home_content() {
 	);
 
 	// Item 3.
-	$item_3  = $action_items['item_3'];
-	$wrap    = '';
-	$img     = $item_3['image'];
-	$heading = $item_3['heading'];
-	$link    = $item_3['link'];
-	$desc    = $item_3['description'];
+	$item_3    = $action_items['item_3'];
+	$wrap      = '';
+	$img       = $item_3['image'];
+	$heading   = $item_3['heading'];
+	$link      = $item_3['link'];
+	$desc      = $item_3['description'];
+	$toggle_id = '';
+	$toggled   = $item_3['modal_content'];
 
 	if ( $link ) {
 		if ( $img ) {
@@ -166,12 +167,19 @@ function af4_home_content() {
 				$heading
 			);
 		}
+
+		if ( ! empty( $toggled ) ) {
+			$toggled   = '<div id="home_item_3_modal" class="modal hidden" data-toggler=".hidden"><div class="wrap">' . $toggled . '<a class="close" href="javascript:;">X</a></div></div>';
+			$toggle_id = ' data-toggle="home_item_3_modal"';
+		}
 	}
 
 	echo sprintf(
-		'<div class="item item-3 featured">%s<div class="description has-line hide-for-small-only">%s</div></div></div>',
+		'<div class="item item-3 featured toggle-modal"%s>%s<div class="description has-line hide-for-small-only">%s</div></div>%s</div>',
+		wp_kses_post( $toggle_id ),
 		wp_kses_post( $wrap ),
-		wp_kses_post( $desc )
+		wp_kses_post( $desc ),
+		wp_kses_post( $toggled )
 	);
 
 	// Item 4.

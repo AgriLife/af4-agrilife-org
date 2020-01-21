@@ -288,6 +288,10 @@ body {
 		@include xy-grid;
 		font-size: 13px;
 
+		.item > .wrap {
+			width: 100%;
+		}
+
 		.item {
 			$top-item-padding: 16px;
 			$side-item-padding: 6%;
@@ -303,7 +307,7 @@ body {
 				@include xy-cell(3, $gutter-type: margin, $gutters: 1rem);
 				position: relative;
 
-				.wrap {
+				> .wrap {
 					background: {
 						image: none!important; // sass-lint:disable-line no-important
 						color: $maroon-alt;
@@ -335,10 +339,6 @@ body {
 						text-decoration: underline;
 					}
 				}
-			}
-
-			.wrap {
-				width: 100%;
 			}
 
 			h2 {
