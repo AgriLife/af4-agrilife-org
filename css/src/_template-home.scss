@@ -270,7 +270,10 @@ body {
 						position: center top;
 					}
 					margin: 0 auto;
-					max-width: 500px;
+
+					@include breakpoint(medium) {
+						max-width: 500px;
+					}
 				}
 			}
 

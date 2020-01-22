@@ -21,6 +21,7 @@ add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_c
 add_filter( 'genesis_structural_wrap-site-inner', 'af4_class_site_inner_wrap' );
 add_filter( 'safe_style_css', 'af4_add_safe_style' );
 add_action( 'genesis_entry_content', 'af4_home_content' );
+remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 
 /**
  * Add grid class name
@@ -129,14 +130,27 @@ function af4_home_content() {
 	);
 
 	// Item 3.
-	$item_3    = $action_items['item_3'];
-	$wrap      = '';
-	$img       = $item_3['image'];
-	$heading   = $item_3['heading'];
-	$link      = $item_3['link'];
-	$desc      = $item_3['description'];
-	$toggle_id = '';
-	$toggled   = $item_3['modal_content'];
+	$item_3       = $action_items['item_3'];
+	$wrap         = '';
+	$img          = $item_3['image'];
+	$heading      = $item_3['heading'];
+	$link         = $item_3['link'];
+	$desc         = $item_3['description'];
+	$toggle_id    = '';
+	$toggle_class = '';
+	$toggled      = $item_3['modal_content'];
+	$allowed      = wp_kses_allowed_html( 'post' );
+
+	$allowed['iframe'] = array(
+		'src'             => array(),
+		'href'            => array(),
+		'title'           => array(),
+		'width'           => array(),
+		'height'          => array(),
+		'allow'           => array(),
+		'allowfullscreen' => array(),
+		'frameborder'     => array(),
+	);
 
 	if ( $link ) {
 		if ( $img ) {
@@ -169,17 +183,22 @@ function af4_home_content() {
 		}
 
 		if ( ! empty( $toggled ) ) {
-			$toggled   = '<div id="home_item_3_modal" class="modal hidden" data-toggler=".hidden"><div class="wrap">' . $toggled . '<a class="close" href="javascript:;">X</a></div></div>';
-			$toggle_id = ' data-toggle="home_item_3_modal"';
+			$toggled      = '<div id="home_item_3_modal" class="modal hidden" data-toggler=".hidden"><div class="wrap grid-x"><div class="cell small-12 medium-12">' . $toggled . '<button type="button" class="close">X</a></div></div></div>';
+			$toggle_id    = ' data-toggle="home_item_3_modal"';
+			$toggle_class = ' toggle-modal';
 		}
 	}
 
 	echo sprintf(
-		'<div class="item item-3 featured toggle-modal"%s>%s<div class="description has-line hide-for-small-only">%s</div></div>%s</div>',
+		'<div class="item item-3 featured%s"%s>%s<div class="description has-line hide-for-small-only">%s</div></div>%s</div>',
+		esc_attr( $toggle_class ),
 		wp_kses_post( $toggle_id ),
 		wp_kses_post( $wrap ),
 		wp_kses_post( $desc ),
-		wp_kses_post( $toggled )
+		wp_kses(
+			$toggled,
+			$allowed
+		)
 	);
 
 	// Item 4.
