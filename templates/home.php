@@ -249,6 +249,14 @@ function af4_home_content() {
 	// Close items.
 	echo '</div></div>';
 
+	// Do page content.
+	if ( get_field( 'ab_test' ) === 'Option 2' ) {
+		echo '<div class="entry-content">';
+		the_content();
+		echo '</div>';
+	}
+
+	// Do agency flowchart.
 	$agencies  = '<div class="flowchart-row top"><a href="https://agrilife.org/" title="Texas A&M AgriLife"><div class="al item"><span><img src="%s/agrilife-white.png" alt="Texas A&M AgriLife"></span></a></div></div>';
 	$agencies .= '<div class="flowchart-row bottom"><a href="/agency/extension-home/" title="Texas A&M AgriLife Extension Service"><div class="ext item"><span><img class="hide-for-small-only" src="%s/extension-white.png" alt="Texas A&M AgriLife Extension Service"><span class="show-for-small-only">Texas A&amp;M AgriLife Extension</span></span></a></div><div class="res item"><a href="/agency/research-home/" title="Texas A&M AgriLife Research"><span><img class="hide-for-small-only" src="%s/research-white.png" alt="Texas A&M AgriLife Research"><span class="show-for-small-only">Texas A&amp;M AgriLife Research</span></span></a></div><div class="college item"><a href="/agency/college-home/" title="Texas A&M College of Agrculture and Life Sciences"><span><img class="hide-for-small-only" src="%s/coals-white-stacked.png" alt="Texas A&M College of Agrculture and Life Sciences"><span class="show-for-small-only">Texas A&amp;M University College of Agriculture &amp; Life Sciences</span></span></a></div><div class="tvmdl item"><a href="/agency/tvmdl-home/" title="Texas A&M Veterinary Medical Diagnostics Laboratory"><span><img class="hide-for-small-only" src="%s/tvmdl-white.png" alt="Texas A&M Veterinary Medical Diagnostics Laboratory"><span class="show-for-small-only">Texas A&amp;M Veterinary Medical Diagnostic Laboratory</span></span></a></div><div class="tfs item"><a href="/agency/tfs-home/" title="Texas A&M Forest Service"><span><img class="hide-for-small-only" src="%s/forest-white.png" alt="Texas A&M Forest Service"><span class="show-for-small-only">Texas A&amp;M Forest Service</span></span></a></div></div>';
 	$agencies  = str_replace( '%s', AF_THEME_DIRURL . '/images/logos', $agencies );
