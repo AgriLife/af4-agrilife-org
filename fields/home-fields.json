@@ -480,6 +480,33 @@
                         ]
                     }
                 ]
+            },
+            {
+                "key": "field_5e28a01f74ace",
+                "label": "A\/B Test",
+                "name": "ab_test",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Option 1": "Option 1",
+                    "Option 2": "Option 2"
+                },
+                "default_value": [
+                    "Option 1"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
             }
         ],
         "location": [

@@ -424,6 +424,17 @@ body {
 	}
 }
 
+#overview + .entry-content {
+	margin: $paragraph-margin-bottom auto 0;
+	text-align: center;
+	color: $white;
+	max-width: $break-xlarge;
+	padding: {
+		left: $grid-margin-gutters;
+		right: $grid-margin-gutters;
+	}
+}
+
 .flowchart .flowchart-row .item.college img {
 	max-height: 100px;
 }
