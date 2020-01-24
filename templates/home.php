@@ -183,7 +183,7 @@ function af4_home_content() {
 		}
 
 		if ( ! empty( $toggled ) ) {
-			$toggled      = '<div id="home_item_3_modal" class="modal hidden" data-toggler=".hidden"><div class="wrap grid-x"><div class="cell small-12 medium-12">' . $toggled . '<button type="button" class="close">X</a></div></div></div>';
+			$toggled      = '<div id="home_item_3_modal" class="modal modal-hidden" style="display:none;" data-toggler=".modal-hidden"><div class="modal-wrap grid-x"><div class="modal-second-wrap">' . $toggled . '<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">Close</span></a></div></div></div>';
 			$toggle_id    = ' data-toggle="home_item_3_modal"';
 			$toggle_class = ' toggle-modal';
 		}
