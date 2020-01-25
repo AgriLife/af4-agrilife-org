@@ -245,6 +245,10 @@ body {
 			z-index: 2;
 		}
 
+		.item.toggle-modal {
+			z-index: 3;
+		}
+
 		.item {
 			max-width: 500px;
 			margin: $small-vertical-spacing auto;
