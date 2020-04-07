@@ -71,14 +71,20 @@ function af4_home_content() {
 	$item_1 = $action_items['item_1'];
 	if ( ! empty( $item_1 ) && ! empty( $item_1['image'] ) ) {
 		$img     = $item_1['image'];
+		$i_title = '';
 		$link    = $item_1['link'];
 		$bgsize  = $item_1['background_size'];
+
+		if ( is_array( $img ) && array_key_exists( 'title', $img ) ) {
+			$i_title = $img['title'];
+		}
+
 		$content = sprintf(
 			'<div class="item item-1 item-image-only"><a href="%s" target="_blank" class="advancing-texas" style="background-image:url(%s);background-size:%s;"><span class="hidden">%s</span></a></div>',
 			$link,
 			$img['url'],
 			$bgsize,
-			$img['title']
+			$i_title
 		);
 	} else {
 		$content = '<div class="item item-1 item-image-only"><a href="https://agrilife.org/advancingtexas/" class="advancing-texas"><span class="hidden">Advancing Texas</span></a></div>';
