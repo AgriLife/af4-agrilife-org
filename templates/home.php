@@ -145,18 +145,6 @@ function af4_home_content() {
 	$toggle_id    = '';
 	$toggle_class = '';
 	$toggled      = $item_3['modal_content'];
-	$allowed      = wp_kses_allowed_html( 'post' );
-
-	$allowed['iframe'] = array(
-		'src'             => array(),
-		'href'            => array(),
-		'title'           => array(),
-		'width'           => array(),
-		'height'          => array(),
-		'allow'           => array(),
-		'allowfullscreen' => array(),
-		'frameborder'     => array(),
-	);
 
 	if ( $link ) {
 		if ( $img ) {
@@ -194,15 +182,14 @@ function af4_home_content() {
 		}
 	}
 
-	echo sprintf(
-		'<div class="item item-3 featured%s"%s>%s<div class="description has-line hide-for-small-only">%s</div></div>%s</div>',
-		esc_attr( $toggle_class ),
-		wp_kses_post( $toggle_id ),
-		wp_kses_post( $wrap ),
-		wp_kses_post( $desc ),
-		wp_kses(
-			$toggled,
-			$allowed
+	echo wp_kses_post(
+		sprintf(
+			'<div class="item item-3 featured%s"%s>%s<div class="description has-line hide-for-small-only">%s</div></div>%s</div>',
+			esc_attr( $toggle_class ),
+			$toggle_id,
+			$wrap,
+			$desc,
+			$toggled
 		)
 	);
 
