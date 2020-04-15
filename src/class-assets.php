@@ -54,7 +54,7 @@ class Assets {
 		wp_register_style(
 			'agrilife-styles',
 			ALAF4_DIR_URL . 'css/agrilife.css',
-			array( 'agriflex-default-styles' ),
+			array( 'agriflex-default-styles', 'agriflex-default-template-styles' ),
 			filemtime( ALAF4_DIR_PATH . 'css/agrilife.css' ),
 			'screen'
 		);
