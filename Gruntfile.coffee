@@ -15,9 +15,10 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/agrilife.css':        'css/agrilife.css'
-          'css/home.css':            'css/home.css'
-          'css/af4-style-guide.css': 'css/af4-style-guide.css'
+          'css/agrilife.css':         'css/agrilife.css'
+          'css/template-default.css': 'css/template-default.css'
+          'css/home.css':             'css/home.css'
+          'css/af4-style-guide.css':  'css/af4-style-guide.css'
       dev:
         options:
           map: true
@@ -26,9 +27,10 @@ module.exports = (grunt) ->
           ]
           failOnError: true
         files:
-          'css/agrilife.css':        'css/agrilife.css'
-          'css/home.css':            'css/home.css'
-          'css/af4-style-guide.css': 'css/af4-style-guide.css'
+          'css/agrilife.css':         'css/agrilife.css'
+          'css/template-default.css': 'css/template-default.css'
+          'css/home.css':             'css/home.css'
+          'css/af4-style-guide.css':  'css/af4-style-guide.css'
     sass:
       pkg:
         options:
@@ -38,9 +40,10 @@ module.exports = (grunt) ->
           precision: 2
           includePaths: ['node_modules/foundation-sites/scss']
         files:
-          'css/agrilife.css':        'css/src/agrilife.scss'
-          'css/home.css':            'css/src/home.scss'
-          'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
+          'css/agrilife.css':         'css/src/agrilife.scss'
+          'css/template-default.css': 'css/src/template-default.scss'
+          'css/home.css':             'css/src/home.scss'
+          'css/af4-style-guide.css':  'css/src/af4-style-guide.scss'
       dev:
         options:
           implementation: sass
@@ -49,9 +52,10 @@ module.exports = (grunt) ->
           precision: 2
           includePaths: ['node_modules/foundation-sites/scss']
         files:
-          'css/agrilife.css':        'css/src/agrilife.scss'
-          'css/home.css':            'css/src/home.scss'
-          'css/af4-style-guide.css': 'css/src/af4-style-guide.scss'
+          'css/agrilife.css':         'css/src/agrilife.scss'
+          'css/template-default.css': 'css/src/template-default.scss'
+          'css/home.css':             'css/src/home.scss'
+          'css/af4-style-guide.css':  'css/src/af4-style-guide.scss'
     coffee:
       compile:
         options:
