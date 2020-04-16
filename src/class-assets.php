@@ -54,12 +54,13 @@ class Assets {
 		wp_register_style(
 			'agrilife-styles',
 			ALAF4_DIR_URL . 'css/agrilife.css',
-			array( 'agriflex-default-styles', 'agriflex-default-template-styles' ),
+			array( 'agriflex-default-styles' ),
 			filemtime( ALAF4_DIR_PATH . 'css/agrilife.css' ),
 			'screen'
 		);
 
 		if ( ! $template_name || 'default' === $template_name ) {
+
 			wp_register_style(
 				'agrilife-default-template-styles',
 				ALAF4_DIR_URL . 'css/template-default.css',
@@ -67,6 +68,7 @@ class Assets {
 				filemtime( ALAF4_DIR_PATH . 'css/template-default.css' ),
 				'screen'
 			);
+
 		}
 
 	}
