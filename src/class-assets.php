@@ -59,14 +59,6 @@ class Assets {
 			'screen'
 		);
 
-		wp_register_style(
-			'agrilife-home-styles',
-			ALAF4_DIR_URL . 'css/home.css',
-			array( 'agrilife-styles' ),
-			filemtime( ALAF4_DIR_PATH . 'css/home.css' ),
-			'screen'
-		);
-
 		if ( ! $template_name || 'default' === $template_name ) {
 			wp_register_style(
 				'agrilife-default-template-styles',
@@ -92,9 +84,7 @@ class Assets {
 
 		wp_enqueue_style( 'agrilife-styles' );
 
-		if ( false !== strpos( $template_name, 'home' ) ) {
-			wp_enqueue_style( 'agrilife-home-styles' );
-		} elseif ( ! $template_name || 'default' === $template_name ) {
+		if ( ! $template_name || 'default' === $template_name ) {
 			wp_enqueue_style( 'agrilife-default-template-styles' );
 		}
 

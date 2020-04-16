@@ -23,6 +23,40 @@ add_filter( 'safe_style_css', 'af4_add_safe_style' );
 add_action( 'genesis_entry_content', 'af4_home_content' );
 remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 
+// Template CSS.
+add_action( 'wp_enqueue_scripts', 'agdorg_register_home_styles', 1 );
+add_action( 'wp_enqueue_scripts', 'agdorg_enqueue_home_styles', 2 );
+
+/**
+ * Registers template styles.
+ *
+ * @since 1.4.4
+ * @return void
+ */
+function agdorg_register_home_styles() {
+
+	wp_register_style(
+		'agrilife-home-styles',
+		ALAF4_DIR_URL . 'css/home.css',
+		array( 'agrilife-styles' ),
+		filemtime( ALAF4_DIR_PATH . 'css/home.css' ),
+		'screen'
+	);
+
+}
+
+/**
+ * Enqueues template styles.
+ *
+ * @since 1.4.4
+ * @return void
+ */
+function agdorg_enqueue_home_styles() {
+
+	wp_enqueue_style( 'agrilife-home-styles' );
+
+}
+
 /**
  * Add grid class name
  *
