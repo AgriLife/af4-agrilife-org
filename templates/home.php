@@ -291,6 +291,11 @@ function af4_home_content() {
 		'<div id="agencies" class="flowchart no-arrow"><div class="layout-container">%s</div></div>',
 		wp_kses_post( $agencies )
 	);
+
+	// Do page content - default location.
+	if ( ! get_field( 'ab_test' ) || get_field( 'ab_test' ) !== 'Option 2' ) {
+		the_content();
+	}
 }
 
 genesis();
