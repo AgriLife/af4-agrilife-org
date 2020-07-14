@@ -1,7 +1,7 @@
 # AgriLife.org
 [![Codeship Status for AgriLife/af4-agrilife-org/master](https://app.codeship.com/projects/8e95b270-b3b1-0136-c2e6-0e78d820c03c/status?branch=master)](https://app.codeship.com/projects/311061)
 
-This WordPress plugin should only be used on https://agrilife.org/ or testing versions of that site. No permission is given to install this on any other website, as it contains visual and informational aspects unique to our organization. You may repurpose code from this repository for your own WordPress development since we use a GPL-2.0+ license.
+This WordPress plugin should only be used on https://agrilife.tamu.edu/ or testing versions of that site. No permission is given to install this on any other website, as it contains visual and informational aspects unique to our organization. You may repurpose code from this repository for your own WordPress development since we use a GPL-2.0+ license.
 
 ## WordPress Requirements
 
