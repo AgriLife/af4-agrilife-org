@@ -53,6 +53,10 @@ class Agrilife {
 		/* Remove heading elements from agency excerpts */
 		add_filter( 'get_the_excerpt', array( $this, 'agency_post_excerpt' ), 11, 2 );
 
+		/* Subsite Menus. */
+		require_once ALAF4_DIR_PATH . 'src/class-subsite-menus.php';
+		$ado_subsitemenus = new \Agrilife\Subsite_Menus();
+
 	}
 
 	/**

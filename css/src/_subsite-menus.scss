@@ -1,0 +1,16 @@
+.subsite-menu {
+	font-family: $header-font-family;
+	letter-spacing: .1em;
+
+	.grid-x {
+		align-items: center;
+	}
+
+	.subsite-title {
+		margin-bottom: 0;
+	}
+
+	a {
+		color: map-get($foundation-palette, primary);
+	}
+}
