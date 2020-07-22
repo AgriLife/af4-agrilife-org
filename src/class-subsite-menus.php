@@ -72,6 +72,42 @@ class Subsite_Menus {
 	}
 
 	/**
+	 * Returns array of menu information containing page id.
+	 *
+	 * @param int $page_id The page ID to check.
+	 * @since 1.6.2
+	 * @return array | false
+	 */
+	private function get_subsite_menu_of_page( $page_id ) {
+
+		$field = get_field( 'subsite_menus', 'option' );
+
+		foreach ( $field as $menu ) {
+
+			$menu_slug  = $this->menu_slug( $menu['name'] );
+			$locations  = get_nav_menu_locations();
+			$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
+			$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
+
+			foreach ( $menu_items as $menu_item ) {
+
+				$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+
+				if ( $page_id === $menu_item_page_id ) {
+					return array(
+						'name' => $menu_obj->name,
+						'slug' => $menu_slug,
+						'id'   => $menu_obj->term_id,
+					);
+				}
+			}
+		}
+
+		return false;
+
+	}
+
+	/**
 	 * Add Options Fields
 	 *
 	 * @since 1.6.0
@@ -120,28 +156,6 @@ class Subsite_Menus {
 						'append'            => '',
 						'maxlength'         => 144,
 					),
-					array(
-						'key'               => 'field_5f0f5687ad2d0',
-						'label'             => 'Parent Page',
-						'name'              => 'parent_page',
-						'type'              => 'post_object',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'post_type'         => array(
-							0 => 'page',
-						),
-						'taxonomy'          => '',
-						'allow_null'        => 0,
-						'multiple'          => 0,
-						'return_format'     => 'id',
-						'ui'                => 1,
-					),
 				),
 			)
 		);
@@ -184,31 +198,28 @@ class Subsite_Menus {
 	 */
 	public function do_subsite_menu() {
 
-		$field     = get_field( 'subsite_menus', 'option' );
-		$id        = get_the_ID();
-		$parent_id = wp_get_post_parent_id( $id );
-		$key       = array_search( $id, array_column( $field, 'parent_page' ), true );
-		if ( false === $key ) {
-			$key = array_search( $parent_id, array_column( $field, 'parent_page' ), true );
-		}
+		$field   = get_field( 'subsite_menus', 'option' );
+		$page_id = get_the_ID();
+		$menu    = $this->get_subsite_menu_of_page( $page_id );
 
-		if ( $field && false !== $key ) {
+		if ( false !== $menu ) {
 
-			$slug = $this->menu_slug( $field[ $key ]['name'] );
-			$name = wp_get_nav_menu_name( $slug );
+			$menu_slug = $menu['slug'];
+			$menu_id   = $menu['id'];
+			$menu_name = $menu['name'];
 
 			echo wp_kses_post(
 				sprintf(
 					'<div id="%s" class="subsite-menu" data-sticky-container><div data-sticky data-top-anchor="site-header:bottom" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="cell shrink">',
-					$slug,
+					$menu_slug,
 					'style="width:100%"',
-					$name
+					$menu_name
 				)
 			);
 
 			genesis_nav_menu(
 				[
-					'theme_location'  => $slug,
+					'theme_location'  => $menu_slug,
 					'container_class' => 'grid-container',
 					'menu_class'      => 'menu grid-x grid-padding-x',
 				]
