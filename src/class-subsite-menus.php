@@ -184,9 +184,13 @@ class Subsite_Menus {
 	 */
 	public function do_subsite_menu() {
 
-		$field = get_field( 'subsite_menus', 'option' );
-		$id    = get_the_ID();
-		$key   = array_search( $id, array_column( $field, 'parent_page' ), true );
+		$field     = get_field( 'subsite_menus', 'option' );
+		$id        = get_the_ID();
+		$parent_id = wp_get_post_parent_id( $id );
+		$key       = array_search( $id, array_column( $field, 'parent_page' ), true );
+		if ( false === $key ) {
+			$key = array_search( $parent_id, array_column( $field, 'parent_page' ), true );
+		}
 
 		if ( $field && false !== $key ) {
 
