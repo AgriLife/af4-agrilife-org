@@ -2,6 +2,10 @@
 	font-family: $header-font-family;
 	letter-spacing: .1em;
 
+	&.sticky-container .sticky {
+		background-color: $whiter;
+	}
+
 	.grid-x {
 		align-items: center;
 	}
