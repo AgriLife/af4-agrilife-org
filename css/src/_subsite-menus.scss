@@ -1,6 +1,7 @@
 .subsite-menu {
 	font-family: $header-font-family;
 	letter-spacing: .1em;
+	max-height: 0;
 
 	&.sticky-container .sticky {
 		background-color: $whiter;
@@ -8,6 +9,17 @@
 
 	.sticky.is-anchored {
 		position: absolute;
+	}
+
+	.grid-container {
+		padding: {
+			left: 1rem;
+			right: 1rem;
+		}
+	}
+
+	.menu a:hover {
+		background-color: $gray-lightest;
 	}
 
 	.grid-x {
@@ -19,6 +31,34 @@
 	}
 
 	a {
-		color: map-get($foundation-palette, primary);
+		&,
+		&:hover {
+			color: map-get($foundation-palette, primary);
+		}
 	}
+
+	.menu-icon {
+		color: $black;
+		margin: {
+			left: 0;
+			right: 0;
+		}
+		width: auto;
+		text-align: center;
+
+		&::before {
+			content: "...";
+			font-size: 3rem;
+			line-height: 0;
+		}
+
+		&::after,
+		&:hover::after {
+			display: none;
+		}
+	}
+}
+
+#nav-menu-secondary {
+	margin: 1rem;
 }

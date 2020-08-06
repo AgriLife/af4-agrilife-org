@@ -39,6 +39,8 @@ class Subsite_Menus {
 
 		add_filter( 'the_content', array( $this, 'add_image_id' ) );
 
+		add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
+
 	}
 
 	/**
@@ -228,13 +230,14 @@ class Subsite_Menus {
 			$menu_slug    = $menu['slug'];
 			$menu_id      = $menu['id'];
 			$menu_name    = $menu['name'];
-			$menu_content = '<div id="%s" class="subsite-menu" data-sticky-container><div class="sticky-menu" data-sticky data-anchor="first-image" data-stick-to="bottom" data-margin-bottom="0" data-margin-top="0" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="cell shrink">';
+			$menu_content = '<div id="%s" class="subsite-menu" data-sticky-container><div class="sticky-menu" data-sticky data-sticky-on="small" data-anchor="first-image" data-stick-to="bottom" data-margin-bottom="0" data-margin-top="0" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="title-bars cell shrink title-bar-right show-for-small-only"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary"><span class="screen-reader-text">Menu - %s</span></button></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
 
 			echo wp_kses_post(
 				sprintf(
 					$menu_content,
 					$menu_slug,
 					'style="width:100%"',
+					$menu_name,
 					$menu_name
 				)
 			);
@@ -247,10 +250,37 @@ class Subsite_Menus {
 				]
 			);
 
-			echo wp_kses_post( '</div></div></div></div></div>' );
+			echo wp_kses_post( '</div></div></div></div></div></div>' );
 
 		}
 
 	}
+
+	/**
+	 * Filters the HTML content for subsite navigation menus.
+	 *
+	 * @since 1.6.5
+	 *
+	 * @param string   $nav_menu The HTML content for the navigation menu.
+	 * @param stdClass $args     An object containing wp_nav_menu() arguments.
+	 */
+	public function modify_subsite_menu( $nav_menu, $args ) {
+
+		$field = get_field( 'subsite_menus', 'option' );
+
+		foreach ( $field as $menu ) {
+
+			$menu_slug = $this->menu_slug( $menu['name'] );
+
+			if ( $menu_slug === $args->theme_location ) {
+
+				$nav_menu = str_replace( '<ul', '<ul data-responsive-menu="accordion medium-dropdown"', $nav_menu );
+
+			}
+		}
+
+		return $nav_menu;
+	}
+
 
 }
