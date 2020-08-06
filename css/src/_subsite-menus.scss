@@ -6,6 +6,10 @@
 		background-color: $whiter;
 	}
 
+	.sticky.is-anchored {
+		position: absolute;
+	}
+
 	.grid-x {
 		align-items: center;
 	}

@@ -37,6 +37,21 @@ class Subsite_Menus {
 
 		add_action( 'wp', array( $this, 'remove_sticky_header' ) );
 
+		add_filter( 'the_content', array( $this, 'add_image_id' ) );
+
+	}
+
+	/**
+	 * Add ID to header image so the subsite nav can stick to it.
+	 *
+	 * @since 1.6.5
+	 * @param string $content The page or post content.
+	 *
+	 * @return string
+	 */
+	public function add_image_id( $content ) {
+		$content = str_replace( 'class="wp-block-image', 'id="first-image" class="wp-block-image', $content );
+		return $content;
 	}
 
 	/**
@@ -210,13 +225,14 @@ class Subsite_Menus {
 
 		if ( false !== $menu ) {
 
-			$menu_slug = $menu['slug'];
-			$menu_id   = $menu['id'];
-			$menu_name = $menu['name'];
+			$menu_slug    = $menu['slug'];
+			$menu_id      = $menu['id'];
+			$menu_name    = $menu['name'];
+			$menu_content = '<div id="%s" class="subsite-menu" data-sticky-container><div class="sticky-menu" data-sticky data-anchor="first-image" data-stick-to="bottom" data-margin-bottom="0" data-margin-top="0" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="cell shrink">';
 
 			echo wp_kses_post(
 				sprintf(
-					'<div id="%s" class="subsite-menu" data-sticky-container><div data-sticky data-top-anchor="site-header:bottom" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="cell shrink">',
+					$menu_content,
 					$menu_slug,
 					'style="width:100%"',
 					$menu_name

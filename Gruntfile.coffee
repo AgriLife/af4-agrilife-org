@@ -62,6 +62,7 @@ module.exports = (grunt) ->
         options:
           bare: true
         files:
+          'js/subsite-menu.min.js': 'js/src/subsite-menu.coffee'
           'js/exceptional-item.min.js': 'js/src/exceptional-item.coffee'
     sasslint:
       options:
