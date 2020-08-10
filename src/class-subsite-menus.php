@@ -230,7 +230,7 @@ class Subsite_Menus {
 			$menu_slug    = $menu['slug'];
 			$menu_id      = $menu['id'];
 			$menu_name    = $menu['name'];
-			$menu_content = '<div id="%s" class="subsite-menu" data-sticky-container><div class="sticky-menu" data-sticky data-sticky-on="small" data-anchor="first-image" data-stick-to="bottom" data-margin-bottom="0" data-margin-top="0" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="title-bars cell shrink title-bar-right show-for-small-only"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary"><span class="screen-reader-text">Menu - %s</span></button></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
+			$menu_content = '<div id="%s" class="subsite-menu"><div class="sticky-menu anchorBottom" data-anchor="first-image" %s><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title cell auto h4">%s</div><div class="title-bars cell shrink title-bar-right show-for-small-only"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary"><span class="screen-reader-text">Menu - %s</span></button></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
 
 			echo wp_kses_post(
 				sprintf(

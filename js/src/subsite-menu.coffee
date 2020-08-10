@@ -3,66 +3,39 @@
   $ ->
     $sticky = $ '.subsite-menu .sticky-menu'
     $anchor = $ '#' + $sticky.attr 'data-anchor'
+    positionMenu = ()->
+      scrollPos = $(window).scrollTop()
+      anchorOffset = $anchor.offset()
+      anchorDistanceFromViewport =
+        top: anchorOffset.top - scrollPos,
+        bottom: (scrollPos + window.innerHeight) - (anchorOffset.top + $anchor.outerHeight())
 
-    setStickToTop = ->
-      $sticky.data 'zfPlugin'
-        .options.stickTo = 'top'
-      $sticky.data 'zfPlugin'
-        .options.anchor = ''
-      $sticky.data 'zfPlugin'
-        .topPoint = -15
-      $sticky.data 'zfPlugin'
-        .points =
-          0:1
-          1:$ document
-            .height()
-      $sticky.removeClass 'is-at-bottom'
-      $sticky.foundation '_calc', true
+      if anchorDistanceFromViewport.bottom <= 0
+        # If the bottom of the anchor is below or at the viewport, anchor the menu to the bottom.
+        if $sticky.hasClass('anchorMove') is true
+          $sticky.css('top', '').removeClass 'anchorMove'
+        if $sticky.hasClass('anchorBottom') is false
+          $sticky.removeClass('anchorTop').addClass 'anchorBottom'
+      else if anchorDistanceFromViewport.bottom + $sticky.outerHeight() >= window.innerHeight
+        # If the bottom of the anchor plus the height of the menu is greater than or equal to the height of the viewport, anchor menu to top.
+        if $sticky.hasClass('anchorMove') is true
+          $sticky.css('top', '').removeClass 'anchorMove'
+        if $sticky.hasClass('anchorTop') is false
+          $sticky.removeClass('anchorBottom').addClass 'anchorTop'
+      else if $sticky.hasClass('anchorMove') is false
+        # Else scroll menu with container between top and bottom.
+        if $sticky.hasClass('anchorTop') is true
+          $sticky.removeClass 'anchorTop'
+        if $sticky.hasClass('anchorBottom') is true
+          $sticky.removeClass 'anchorBottom'
+        $sticky.addClass 'anchorMove'
+        bottomOfAnchor = anchorOffset.top + $anchor.outerHeight()
+        topPositionOfMenu = bottomOfAnchor - $sticky.parent().offset().top - $sticky.outerHeight()
+        $sticky.css 'top', topPositionOfMenu
 
-    setStickToBottom = ->
-      $sticky.data 'zfPlugin'
-        .options.stickTo = 'bottom'
-      $sticky.data 'zfPlugin'
-        .options.anchor = $sticky.attr 'data-anchor'
-      $sticky.data 'zfPlugin'
-        .options.anchorHeight = $anchor[0].getBoundingClientRect().height
-      $sticky.removeClass 'is-at-top'
-      delete $sticky.data 'zfPlugin'
-        .topPoint
-      delete $sticky.data 'zfPlugin'
-        .points
-      $sticky.foundation '_calc', true
-
-    switchToTop = (evt) ->
-      if $sticky.data('zfPlugin').options.stickTo == 'bottom' and $sticky.offset().top - $(window).scrollTop() <= 0
-        scrollListener = $sticky.data('zfPlugin').scrollListener
-        # Convert to top anchor.
-        setStickToTop()
-        # Remove this event handler.
-        $(window).off scrollListener, switchToTop
-        # Add scroll listener to switch back to sticking to image.
-        $(window).on scrollListener, switchToBottom
-
-    unstickFromImage = (evt) ->
-      if $sticky.data('zfPlugin').options.anchor == 'first-image'
-        scrollListener = $sticky.data('zfPlugin').scrollListener
-        $(window).on scrollListener, switchToTop
-        $sticky.off 'sticky.zf.unstuckfrom:bottom', evt
-
-    switchToBottom = (evt) ->
-      if $anchor.offset().top + $anchor.outerHeight() - $(window).scrollTop() >= $sticky.data('zfPlugin').elemHeight
-        scrollListener = $sticky.data('zfPlugin').scrollListener
-        # Convert to bottom anchor.
-        setStickToBottom()
-        # Remove this event handler.
-        $(window).off scrollListener, switchToBottom
-        # Add scroll listener to switch back to sticking to image.
-        $sticky.one 'sticky.zf.unstuckfrom:bottom', unstickFromImage
-
-    # Set up initial events.
-    $ window
-      .on $sticky.data('zfPlugin').onLoadListener, switchToTop
-    $sticky.one 'sticky.zf.unstuckfrom:bottom', unstickFromImage
+    $(window).one 'load', ()->
+      positionMenu()
+      $(window).on 'scroll', positionMenu
 
     return
 ) jQuery

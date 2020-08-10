@@ -2,6 +2,24 @@
 	font-family: $header-font-family;
 	letter-spacing: .1em;
 	max-height: 0;
+	position: relative;
+
+	.sticky-menu {
+		background-color: $whiter;
+		position: absolute;
+
+		&.anchorTop {
+			position: fixed;
+			top: 0;
+			bottom: auto;
+		}
+
+		&.anchorBottom {
+			position: fixed;
+			top: auto;
+			bottom: 0;
+		}
+	}
 
 	&.sticky-container .sticky {
 		background-color: $whiter;
