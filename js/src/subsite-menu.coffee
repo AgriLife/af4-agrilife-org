@@ -2,7 +2,7 @@
   'use strict'
   $ ->
     $sticky = $ '.subsite-menu .sticky-menu'
-    $anchor = $ '#' + $sticky.attr 'data-anchor'
+    $anchor = $ '#first-image'
     positionMenu = ()->
       scrollPos = $(window).scrollTop()
       anchorOffset = $anchor.offset()
@@ -36,6 +36,8 @@
     $(window).one 'load', ()->
       positionMenu()
       $(window).on 'scroll', positionMenu
+
+    $(window).on 'resize', positionMenu
 
     return
 ) jQuery
