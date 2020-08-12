@@ -35,8 +35,6 @@ class Subsite_Menus {
 
 		add_action( 'genesis_header', array( $this, 'do_subsite_menu' ), 16 );
 
-		add_action( 'wp', array( $this, 'remove_sticky_header' ) );
-
 		add_filter( 'the_content', array( $this, 'add_image_id' ) );
 
 		add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
@@ -158,30 +156,6 @@ class Subsite_Menus {
 				),
 			)
 		);
-	}
-
-	/**
-	 * Remove sticky header attributes and elements if displaying a subsite menu.
-	 *
-	 * @since 1.6.3
-	 *
-	 * @return void
-	 */
-	public function remove_sticky_header() {
-
-		$field   = get_field( 'subsite_menus', 'option' );
-		$page_id = get_the_ID();
-		$menu    = $this->get_subsite_menu_of_page( $page_id );
-
-		if ( false !== $menu ) {
-
-			global $af_genesis;
-			remove_filter( 'genesis_structural_wrap-header', array( $af_genesis, 'sticky_header_container' ), 10, 2 );
-			remove_action( 'genesis_header', array( $af_genesis, 'sticky_header_wrap_open' ), 6 );
-			remove_action( 'genesis_header', array( $af_genesis, 'sticky_header_wrap_close' ), 13 );
-
-		}
-
 	}
 
 	/**
