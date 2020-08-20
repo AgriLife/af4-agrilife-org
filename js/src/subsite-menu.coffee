@@ -6,7 +6,7 @@
       .filter ( index )->
         return $(this).data('zfPlugin').options.stickTo is 'top' and
         Foundation.MediaQuery.atLeast($(this).data('zfPlugin').options.stickyOn) is true
-    $anchor = $ '#first-image'
+    $anchor = $ '.site-header .unit-header-wrap, #first-image'
 
     positionMenu = (evt)->
       scrollPos = $(window).scrollTop()

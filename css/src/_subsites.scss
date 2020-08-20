@@ -1,0 +1,249 @@
+$subsite-banner-scaledown: .75;
+$subtitle-font-ratio: .5;
+
+.subsite-menu {
+	font-family: $header-font-family;
+	letter-spacing: .1em;
+	max-height: 0;
+	position: relative;
+	z-index: 1;
+
+	.sticky-menu {
+		background-color: $whiter;
+		position: absolute;
+		border: 1px solid $primary-color {
+			width: 1px 0;
+		}
+
+		&.anchorTop {
+			position: fixed;
+			top: 0;
+			bottom: auto;
+			border-bottom: 1px solid $primary-color;
+		}
+
+		&.anchorBottom {
+			position: fixed;
+			top: auto;
+			bottom: 0;
+			border-top: 1px solid $primary-color;
+		}
+	}
+
+	.grid-container {
+		padding: {
+			left: 1rem;
+			right: 1rem;
+		}
+	}
+
+	.menu a:hover {
+		background-color: $gray-lightest;
+	}
+
+	.subsite-title {
+		margin-bottom: 0;
+	}
+
+	a {
+		&,
+		&:hover {
+			color: map-get($foundation-palette, primary);
+		}
+	}
+
+	.menu-icon {
+		color: $black;
+		margin: {
+			left: 0;
+			right: 0;
+		}
+		width: auto;
+		text-align: center;
+		font-size: 3rem;
+		line-height: 0;
+		position: relative;
+		top: -0.1rem;
+
+		&::after,
+		&:hover::after {
+			display: none;
+		}
+	}
+
+	.sub-menu {
+		list-style: {
+			type: none;
+			position: outside;
+		}
+
+		@include breakpoint(small only) {
+			margin-left: nth($global-menu-padding, 2);
+			// margin: $global-menu-padding;
+		}
+	}
+
+	@include breakpoint(medium) {
+		.grid-x {
+			align-items: center;
+		}
+
+		.sticky-menu .dropdown.menu > li > .is-dropdown-submenu {
+			right: 0;
+			left: auto;
+		}
+
+		.sticky-menu.anchorBottom .dropdown.menu > li > .is-dropdown-submenu {
+			top: auto;
+			bottom: 100%;
+		}
+
+		.sub-menu {
+			border: 1px solid $primary-color;
+			margin-left: 0;
+		}
+
+		.anchorMove .is-dropdown-submenu.js-dropdown-active {
+			min-width: 100%;
+			flex-flow: row;
+			display: flex;
+
+			li {
+				flex: 1 1 auto;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+#nav-menu-secondary {
+	margin: 1rem;
+}
+
+// Header
+.subsite-header-wrap {
+	text-align: center;
+	font: {
+		family: $header-font-family;
+		variant-ligatures: none;
+	}
+	letter-spacing: .1em;
+	position: relative;
+	flex-shrink: 0;
+	overflow: hidden;
+	max-height: 8rem;
+
+	a {
+		text-decoration: none;
+	}
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+	}
+
+	.subsite-header {
+		position: relative;
+		z-index: 1;
+		background-color: rgba( map-get($af4-colors, primary), 0.75);
+	}
+
+	@include breakpoint(small only) {
+		display: none;
+	}
+
+	@include breakpoint(medium) {
+		text-align: left;
+
+		.subsite-header {
+			padding: 1rem 3.5rem;
+			color: #FFF;
+
+			.site-title {
+				font: {
+					family: $tamu-header-font;
+					size: 2rem;
+				}
+				line-height: 1;
+				text-transform: uppercase;
+				margin-bottom: 0.25rem;
+			}
+
+			.site-description {
+				font-family: $opensans;
+			}
+
+			a {
+				color: #FFF;
+			}
+
+			.wrap {
+				border-left: {
+					width: 2px;
+					style: solid;
+					color: map-get($af4-colors, secondary);
+				}
+				padding: 0.5rem 1rem;
+			}
+		}
+	}
+}
+
+/* AF4 Image Text Header Design. */
+.banner {
+	font-family: $tamu-header-font;
+	position: relative;
+	text-align: center;
+
+	.wrap {
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.banner-text {
+		display: inline-block;
+		background-color: rgba(0, 0, 0, 0.8);
+		// padding: 1.5rem 2rem;
+		padding: (2% * $subsite-banner-scaledown) (2.8% * $subsite-banner-scaledown);
+		color: $whiter;
+	}
+
+	.title {
+		font-size: 7vw * $subsite-banner-scaledown;
+		line-height: 110%;
+	}
+
+	.subtitle {
+		display: block;
+		font-size: 7vw * $subsite-banner-scaledown * $subtitle-font-ratio;
+		line-height: 1.1;
+		margin-top: .5rem;
+	}
+
+	@include breakpoint(medium) {
+		text-align: left;
+
+		.title {
+			font-size: 4rem * $subsite-banner-scaledown;
+		}
+
+		.subtitle {
+			font-size: 4rem * $subsite-banner-scaledown * $subtitle-font-ratio;
+		}
+
+		@include breakpoint(1014px down) {
+			.title {
+				font-size: 5vw * $subsite-banner-scaledown;
+			}
+
+			.subtitle {
+				font-size: 5vw * $subsite-banner-scaledown * $subtitle-font-ratio;
+			}
+		}
+	}
+}
