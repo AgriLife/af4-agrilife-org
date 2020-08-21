@@ -4,28 +4,19 @@ $subtitle-font-ratio: .5;
 .subsite-menu {
 	font-family: $header-font-family;
 	letter-spacing: .1em;
-	max-height: 0;
-	position: relative;
 	z-index: 1;
 
 	.sticky-menu {
 		background-color: $whiter;
-		position: absolute;
 		border: 1px solid $primary-color {
 			width: 1px 0;
 		}
 
 		&.anchorTop {
-			position: fixed;
-			top: 0;
-			bottom: auto;
 			border-bottom: 1px solid $primary-color;
 		}
 
 		&.anchorBottom {
-			position: fixed;
-			top: auto;
-			bottom: 0;
 			border-top: 1px solid $primary-color;
 		}
 	}
@@ -128,8 +119,6 @@ $subtitle-font-ratio: .5;
 		variant-ligatures: none;
 	}
 	letter-spacing: .1em;
-	position: relative;
-	flex-shrink: 0;
 	overflow: hidden;
 	max-height: 8rem;
 
