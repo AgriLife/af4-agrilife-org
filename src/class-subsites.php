@@ -424,7 +424,7 @@ class Subsites {
 
 			// Output.
 			$subsite_header = sprintf(
-				'<div class="banner subsite-header">%s%s<div class="wrap"><div class="grid-container"><div class="banner-text">%s%s</div></div></div></div>',
+				'<div id="subsite-header" class="banner subsite-header af4-sticky-top-bottom-anchor">%s%s<div class="wrap"><div class="grid-container"><div class="banner-text">%s%s</div></div></div></div>',
 				$mobile_img,
 				$desktop_img,
 				$site_title,

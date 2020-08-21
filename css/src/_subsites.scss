@@ -5,6 +5,7 @@ $subtitle-font-ratio: .5;
 	font-family: $header-font-family;
 	letter-spacing: .1em;
 	z-index: 1;
+	flex-shrink: 0;
 
 	.sticky-menu {
 		background-color: $whiter;
@@ -70,7 +71,6 @@ $subtitle-font-ratio: .5;
 
 		@include breakpoint(small only) {
 			margin-left: nth($global-menu-padding, 2);
-			// margin: $global-menu-padding;
 		}
 	}
 
@@ -111,111 +111,24 @@ $subtitle-font-ratio: .5;
 	margin: 1rem;
 }
 
-// Header
-.subsite-header-wrap {
-	text-align: center;
-	font: {
-		family: $header-font-family;
-		variant-ligatures: none;
-	}
-	letter-spacing: .1em;
+.banner.subsite-header {
+	max-height: rem-calc(384);
 	overflow: hidden;
-	max-height: 8rem;
-
-	a {
-		text-decoration: none;
-	}
-
-	img {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate( -50%, -50% );
-	}
-
-	.subsite-header {
-		position: relative;
-		z-index: 1;
-		background-color: rgba( map-get($af4-colors, primary), 0.75);
-	}
-
-	@include breakpoint(small only) {
-		display: none;
-	}
-
-	@include breakpoint(medium) {
-		text-align: left;
-
-		.subsite-header {
-			padding: 1rem 3.5rem;
-			color: #FFF;
-
-			.site-title {
-				font: {
-					family: $tamu-header-font;
-					size: 2rem;
-				}
-				line-height: 1;
-				text-transform: uppercase;
-				margin-bottom: 0.25rem;
-			}
-
-			.site-description {
-				font-family: $opensans;
-			}
-
-			a {
-				color: #FFF;
-			}
-
-			.wrap {
-				border-left: {
-					width: 2px;
-					style: solid;
-					color: map-get($af4-colors, secondary);
-				}
-				padding: 0.5rem 1rem;
-			}
-		}
-	}
-}
-
-/* AF4 Image Text Header Design. */
-.banner {
-	font-family: $tamu-header-font;
-	position: relative;
-	text-align: center;
-
-	.wrap {
-		width: 100%;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
 
 	.banner-text {
-		display: inline-block;
-		background-color: rgba(0, 0, 0, 0.8);
-		// padding: 1.5rem 2rem;
 		padding: (2% * $subsite-banner-scaledown) (2.8% * $subsite-banner-scaledown);
-		color: $whiter;
 	}
 
 	.title {
 		font-size: 7vw * $subsite-banner-scaledown;
-		line-height: 110%;
 	}
 
 	.subtitle {
-		display: block;
 		font-size: 7vw * $subsite-banner-scaledown * $subtitle-font-ratio;
-		line-height: 1.1;
-		margin-top: .5rem;
 	}
 
 	@include breakpoint(medium) {
-		text-align: left;
+		max-height: rem-calc(192);
 
 		.title {
 			font-size: 4rem * $subsite-banner-scaledown;
