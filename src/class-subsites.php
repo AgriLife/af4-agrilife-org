@@ -431,7 +431,7 @@ class Subsites {
 				$site_description
 			);
 
-			echo $subsite_header;
+			echo wp_kses_post( $subsite_header );
 
 		}
 
