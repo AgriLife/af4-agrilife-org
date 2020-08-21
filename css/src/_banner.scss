@@ -1,0 +1,101 @@
+$subsite-banner-scaledown: .75;
+$subtitle-font-ratio: .5;
+
+@mixin scale( $factor: 1, $max-height: ( small: rem-calc(672), medium: rem-calc(336) ) ){
+
+	.banner-text {
+		padding: (2% * $factor) (2.8% * $factor);
+	}
+
+	.title {
+		font-size: 7vw * $factor;
+	}
+
+	.subtitle {
+		font-size: 7vw * $factor * $subtitle-font-ratio;
+	}
+
+	@include breakpoint(medium) {
+		.title {
+			font-size: 4rem * $subsite-banner-scaledown;
+		}
+
+		.subtitle {
+			font-size: 4rem * $subsite-banner-scaledown * $subtitle-font-ratio;
+		}
+
+		@include breakpoint(1014px down) {
+			.title {
+				font-size: 5vw * $subsite-banner-scaledown;
+			}
+
+			.subtitle {
+				font-size: 5vw * $subsite-banner-scaledown * $subtitle-font-ratio;
+			}
+		}
+	}
+
+}
+
+.banner {
+	font-family: $tamu-header-font;
+	position: relative;
+	text-align: center;
+	max-height: rem-calc(672);
+	flex-shrink: 0;
+
+	img {
+		width: 100%;
+	}
+
+	.wrap {
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.banner-text {
+		display: inline-block;
+		background-color: rgba(0, 0, 0, 0.8);
+		// padding: 1.5rem 2rem;
+		padding: (2% * $subsite-banner-scaledown) (2.8% * $subsite-banner-scaledown);
+		color: $whiter;
+	}
+
+	.title {
+		font-size: 7vw * $subsite-banner-scaledown;
+		line-height: 110%;
+	}
+
+	.subtitle {
+		display: block;
+		font-size: 7vw * $subsite-banner-scaledown * $subtitle-font-ratio;
+		line-height: 1.1;
+		margin-top: .5rem;
+	}
+
+	@include breakpoint(medium) {
+		max-height: rem-calc(336);
+		text-align: left;
+
+		.title {
+			font-size: 4rem * $subsite-banner-scaledown;
+		}
+
+		.subtitle {
+			font-size: 4rem * $subsite-banner-scaledown * $subtitle-font-ratio;
+		}
+
+		@include breakpoint(1014px down) {
+			.title {
+				font-size: 5vw * $subsite-banner-scaledown;
+			}
+
+			.subtitle {
+				font-size: 5vw * $subsite-banner-scaledown * $subtitle-font-ratio;
+			}
+		}
+	}
+}
