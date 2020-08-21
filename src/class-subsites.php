@@ -43,6 +43,13 @@ class Subsites {
 
 	}
 
+	/**
+	 * Add image sizes for subsites.
+	 *
+	 * @since 1.6.6
+	 *
+	 * @return void
+	 */
 	public function add_image_sizes() {
 
 		// Subsite header image, 10:1 aspect ratio.
