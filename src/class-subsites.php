@@ -383,8 +383,7 @@ class Subsites {
 	 * Output the subsite header
 	 *
 	 * @since 1.6.6
-	 * @param string $output The output of the Genesis header structural wrap.
-	 * @return string
+	 * @return void
 	 */
 	public function subsite_header() {
 
