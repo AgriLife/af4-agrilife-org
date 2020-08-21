@@ -33,11 +33,11 @@ class Subsites {
 
 		add_action( 'init', array( $this, 'register_subsite_menus' ) );
 
-		add_action( 'genesis_header', array( $this, 'subsite_header' ), 16 );
+		add_action( 'genesis_after_header', array( $this, 'subsite_header' ), 11 );
 
-		add_action( 'genesis_header', array( $this, 'do_subsite_menu' ), 16 );
 
 		add_filter( 'the_content', array( $this, 'add_image_id' ) );
+		add_action( 'genesis_after_header', array( $this, 'do_subsite_menu' ), 11 );
 
 		add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
 
