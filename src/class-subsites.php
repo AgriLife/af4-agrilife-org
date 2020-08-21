@@ -35,8 +35,6 @@ class Subsites {
 
 		add_action( 'genesis_after_header', array( $this, 'subsite_header' ), 11 );
 
-
-		add_filter( 'the_content', array( $this, 'add_image_id' ) );
 		add_action( 'genesis_after_header', array( $this, 'do_subsite_menu' ), 11 );
 
 		add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
@@ -56,19 +54,6 @@ class Subsites {
 		add_image_size( 'subsite_header_mobile_large', 1280, 384, true );
 		add_image_size( 'subsite_header_mobile_small', 640, 192, true );
 
-	}
-
-	/**
-	 * Add ID to header image so the subsite nav can stick to it.
-	 *
-	 * @since 1.6.5
-	 * @param string $content The page or post content.
-	 *
-	 * @return string
-	 */
-	public function add_image_id( $content ) {
-		$content = str_replace( 'class="wp-block-image', 'id="first-image" class="wp-block-image', $content );
-		return $content;
 	}
 
 	/**
