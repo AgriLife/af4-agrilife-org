@@ -411,7 +411,7 @@ class Subsites {
 			$desktop_img = wp_get_attachment_image( $image_id, $desktop_size, false, array( 'class' => "hide-for-small-only attachment-$desktop_size size-$desktop_size" ) );
 
 			// Text.
-			$site_title = $field['header']['title'];
+			$site_title       = $field['header']['title'];
 			$site_description = $field['header']['description'];
 
 			if ( ! empty( $site_title ) ) {
