@@ -1,0 +1,51 @@
+.af4-sticky-top-bottom-container {
+	position: relative;
+	flex-shrink: 0;
+}
+
+.af4-sticky-top-bottom {
+	position: absolute;
+
+	&[data-ag-options*="anchorMove:inPlace"] {
+		position: relative;
+	}
+
+	&.anchorTop {
+		position: fixed;
+		top: 0;
+		bottom: auto;
+	}
+
+	&.anchorBottom {
+		position: fixed;
+		top: auto;
+		bottom: 0;
+	}
+
+	@include breakpoint(medium) {
+		.grid-x {
+			align-items: center;
+		}
+
+		.dropdown.menu > li > .is-dropdown-submenu {
+			right: 0;
+			left: auto;
+		}
+
+		&.anchorBottom .dropdown.menu > li > .is-dropdown-submenu {
+			top: auto;
+			bottom: 100%;
+		}
+
+		&.anchorMove .is-dropdown-submenu.js-dropdown-active {
+			min-width: 100%;
+			flex-flow: row;
+			display: flex;
+
+			li {
+				flex: 1 1 auto;
+				white-space: nowrap;
+			}
+		}
+	}
+}
