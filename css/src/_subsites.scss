@@ -7,8 +7,51 @@ $subtitle-font-ratio: .5;
 	z-index: 1;
 	flex-shrink: 0;
 
-	.sticky-menu {
+	/* Override site's inline css. */
+	&.sticky-container .sticky {
 		background-color: $whiter;
+	}
+
+	&.white {
+		background-color: $whiter;
+
+		.submenu a:hover {
+			background-color: $gray-lightest;
+		}
+
+		a {
+			color: map-get($foundation-palette, primary);
+		}
+
+		.menu > li > a:hover {
+			color: $whiter;
+		}
+
+		.dropdown.menu > li.is-active > a {
+			color: $whiter;
+		}
+
+		.menu-icon {
+			color: $black;
+			margin: {
+				left: 0;
+				right: 0;
+			}
+			width: auto;
+			text-align: center;
+			font-size: 3rem;
+			line-height: 0;
+			position: relative;
+			top: -0.1rem;
+
+			&::after,
+			&:hover::after {
+				display: none;
+			}
+		}
+	}
+
+	.sticky-menu {
 		border: 1px solid $primary-color {
 			width: 1px 0;
 		}
@@ -29,38 +72,8 @@ $subtitle-font-ratio: .5;
 		}
 	}
 
-	.menu a:hover {
-		background-color: $gray-lightest;
-	}
-
 	.subsite-title {
 		margin-bottom: 0;
-	}
-
-	a {
-		&,
-		&:hover {
-			color: map-get($foundation-palette, primary);
-		}
-	}
-
-	.menu-icon {
-		color: $black;
-		margin: {
-			left: 0;
-			right: 0;
-		}
-		width: auto;
-		text-align: center;
-		font-size: 3rem;
-		line-height: 0;
-		position: relative;
-		top: -0.1rem;
-
-		&::after,
-		&:hover::after {
-			display: none;
-		}
 	}
 
 	.sub-menu {
