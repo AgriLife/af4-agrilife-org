@@ -326,7 +326,7 @@ class Subsites {
 			$menu_slug    = $menu['slug'];
 			$menu_id      = $menu['id'];
 			$menu_name    = $menu['name'];
-			$menu_content = '<div id="%s" class="subsite-menu af4-sticky-top-bottom-container"><div class="sticky-menu af4-sticky-top-bottom" data-ag-options="anchorMove:inPlace;"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title menu-title cell auto h4"><div class="grid-x"><div class="cell auto">%s</div><div class="cell shrink show-for-small-only"><div class="title-bars title-bar-right"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary">&bull;&bull;&bull;<span class="screen-reader-text">Menu - %s</span></button></div></div></div></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
+			$menu_content = '<div id="%s" class="subsite-menu white" data-sticky-container><div class="sticky-menu" data-sticky data-margin-top="0" data-top-anchor="subsite-header:bottom"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title menu-title cell auto h4"><div class="grid-x"><div class="cell auto">%s</div><div class="cell shrink show-for-small-only"><div class="title-bars title-bar-right"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary">&bull;&bull;&bull;<span class="screen-reader-text">Menu - %s</span></button></div></div></div></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
 
 			echo wp_kses_post(
 				sprintf(
@@ -423,7 +423,7 @@ class Subsites {
 
 			// Output.
 			$subsite_header = sprintf(
-				'<div id="subsite-header" class="banner subsite-header af4-sticky-top-bottom-anchor">%s%s<div class="wrap"><div class="grid-container"><div class="banner-text">%s%s</div></div></div></div>',
+				'<div id="subsite-header" class="banner subsite-header">%s%s<div class="wrap"><div class="grid-container"><div class="banner-text">%s%s</div></div></div></div>',
 				$mobile_img,
 				$desktop_img,
 				$site_title,
