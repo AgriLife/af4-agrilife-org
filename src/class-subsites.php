@@ -88,21 +88,24 @@ class Subsites {
 
 		$field = get_field( 'subsites', 'option' );
 
-		foreach ( $field as $menu ) {
+		if ( ! empty( $field ) ) {
 
-			$menu_slug  = $this->menu_slug( $menu['name'] );
-			$locations  = get_nav_menu_locations();
-			$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
-			$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
+			foreach ( $field as $menu ) {
 
-			foreach ( $menu_items as $menu_item ) {
+				$menu_slug  = $this->menu_slug( $menu['name'] );
+				$locations  = get_nav_menu_locations();
+				$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
+				$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
 
-				$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+				foreach ( $menu_items as $menu_item ) {
 
-				if ( $page_id === $menu_item_page_id ) {
+					$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
 
-					return $menu;
+					if ( $page_id === $menu_item_page_id ) {
 
+						return $menu;
+
+					}
 				}
 			}
 		}
@@ -122,23 +125,26 @@ class Subsites {
 
 		$field = get_field( 'subsites', 'option' );
 
-		foreach ( $field as $menu ) {
+		if ( ! empty( $field ) ) {
 
-			$menu_slug  = $this->menu_slug( $menu['name'] );
-			$locations  = get_nav_menu_locations();
-			$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
-			$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
+			foreach ( $field as $menu ) {
 
-			foreach ( $menu_items as $menu_item ) {
+				$menu_slug  = $this->menu_slug( $menu['name'] );
+				$locations  = get_nav_menu_locations();
+				$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
+				$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
 
-				$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+				foreach ( $menu_items as $menu_item ) {
 
-				if ( $page_id === $menu_item_page_id ) {
-					return array(
-						'name' => $menu_obj->name,
-						'slug' => $menu_slug,
-						'id'   => $menu_obj->term_id,
-					);
+					$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+
+					if ( $page_id === $menu_item_page_id ) {
+						return array(
+							'name' => $menu_obj->name,
+							'slug' => $menu_slug,
+							'id'   => $menu_obj->term_id,
+						);
+					}
 				}
 			}
 		}
@@ -363,14 +369,17 @@ class Subsites {
 
 		$field = get_field( 'subsites', 'option' );
 
-		foreach ( $field as $menu ) {
+		if ( ! empty( $field ) ) {
 
-			$menu_slug = $this->menu_slug( $menu['name'] );
+			foreach ( $field as $menu ) {
 
-			if ( $menu_slug === $args->theme_location ) {
+				$menu_slug = $this->menu_slug( $menu['name'] );
 
-				$nav_menu = str_replace( '<ul', '<ul data-responsive-menu="accordion medium-dropdown"', $nav_menu );
+				if ( $menu_slug === $args->theme_location ) {
 
+					$nav_menu = str_replace( '<ul', '<ul data-responsive-menu="accordion medium-dropdown"', $nav_menu );
+
+				}
 			}
 		}
 
