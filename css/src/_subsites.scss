@@ -51,6 +51,10 @@ $subtitle-font-ratio: .5;
 		}
 	}
 
+	a:not(:hover):not(:focus):not(:active) {
+		text-decoration: none;
+	}
+
 	.sticky-menu {
 		border: 1px solid $primary-color {
 			width: 1px 0;

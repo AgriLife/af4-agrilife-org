@@ -117,11 +117,12 @@ class Subsites {
 	/**
 	 * Returns array of menu information containing page id.
 	 *
-	 * @param int $page_id The page ID to check.
 	 * @since 1.6.2
+	 * @param int     $page_id      The page ID to check.
+	 * @param boolean $return_field Whether or not to return the matched menu's field values.
 	 * @return array | false
 	 */
-	private function get_subsite_menu_of_page( $page_id ) {
+	private function get_subsite_menu_of_page( $page_id, $return_field = false ) {
 
 		$field = get_field( 'subsites', 'option' );
 
@@ -139,11 +140,19 @@ class Subsites {
 					$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
 
 					if ( $page_id === $menu_item_page_id ) {
-						return array(
+
+						$value = array(
 							'name' => $menu_obj->name,
 							'slug' => $menu_slug,
 							'id'   => $menu_obj->term_id,
 						);
+
+						if ( $return_field ) {
+							$value['field'] = $field[0];
+						}
+
+						return $value;
+
 					}
 				}
 			}
@@ -201,6 +210,21 @@ class Subsites {
 						'prepend'           => '',
 						'append'            => '',
 						'maxlength'         => 144,
+					),
+					array(
+						'key'               => 'field_5f4d59bb11a91',
+						'label'             => 'Main Link',
+						'name'              => 'main_link',
+						'type'              => 'link',
+						'instructions'      => '',
+						'required'          => 0,
+						'conditional_logic' => 0,
+						'wrapper'           => array(
+							'width' => '',
+							'class' => '',
+							'id'    => '',
+						),
+						'return_format'     => 'array',
 					),
 					array(
 						'key'               => 'field_5f3436cfaaf8c',
@@ -325,20 +349,49 @@ class Subsites {
 
 		$field   = get_field( 'subsites', 'option' );
 		$page_id = get_the_ID();
-		$menu    = $this->get_subsite_menu_of_page( $page_id );
+		$menu    = $this->get_subsite_menu_of_page( $page_id, true );
 
 		if ( false !== $menu ) {
 
-			$menu_slug    = $menu['slug'];
-			$menu_id      = $menu['id'];
-			$menu_name    = $menu['name'];
+			$menu_slug        = $menu['slug'];
+			$menu_id          = $menu['id'];
+			$menu_name        = $menu['name'];
+			$menu_linked_name = $menu['name'];
+
+			if (
+				array_key_exists( 'main_link', $menu['field'] ) &&
+				is_array( $menu['field']['main_link'] ) &&
+				array_key_exists( 'url', $menu['field']['main_link'] )
+			) {
+
+				$args = array(
+					'open'    => '<a %s>',
+					'close'   => '</a>',
+					'content' => $menu_name,
+					'context' => 'subsite-menu-title',
+					'atts'    => array(
+						'href' => $menu['field']['main_link']['url'],
+					),
+					'echo'    => false,
+				);
+
+				if ( ! empty( $menu['field']['main_link']['target'] ) ) {
+
+					$args['atts']['target'] = $menu['field']['main_link']['target'];
+
+				}
+
+				$menu_linked_name = genesis_markup( $args );
+
+			}
+
 			$menu_content = '<div id="%s" class="subsite-menu white" data-sticky-container><div class="sticky-menu" data-sticky data-margin-top="0" data-top-anchor="subsite-header:bottom" data-sticky-on="small"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title menu-title cell auto h4"><div class="grid-x"><div class="cell auto">%s</div><div class="cell shrink show-for-small-only"><div class="title-bars title-bar-right"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary">&bull;&bull;&bull;<span class="screen-reader-text">Menu - %s</span></button></div></div></div></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
 
 			echo wp_kses_post(
 				sprintf(
 					$menu_content,
 					$menu_slug,
-					$menu_name,
+					$menu_linked_name,
 					$menu_name
 				)
 			);
