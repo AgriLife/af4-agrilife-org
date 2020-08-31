@@ -421,22 +421,26 @@ class Subsites {
 			// Text.
 			$site_title       = $field['header']['title'];
 			$site_description = $field['header']['description'];
+			$banner_text      = '';
 
 			if ( ! empty( $site_title ) ) {
-				$site_title = '<div class="title">' . $site_title . '</div>';
+				$banner_text .= '<div class="title">' . $site_title . '</div>';
 			}
 
 			if ( ! empty( $site_description ) ) {
-				$site_description = '<div class="subtitle">' . $site_description . '</div>';
+				$banner_text .= '<div class="subtitle">' . $site_description . '</div>';
+			}
+
+			if ( ! empty( $banner_text ) ) {
+				$banner_text = "<div class=\"wrap\"><div class=\"grid-container\"><div class=\"banner-text\">{$banner_text}</div></div></div>";
 			}
 
 			// Output.
 			$subsite_header = sprintf(
-				'<div id="subsite-header" class="banner subsite-header">%s%s<div class="wrap"><div class="grid-container"><div class="banner-text">%s%s</div></div></div></div>',
+				'<div id="subsite-header" class="banner subsite-header">%s%s%s</div>',
 				$mobile_img,
 				$desktop_img,
-				$site_title,
-				$site_description
+				$banner_text
 			);
 
 			echo wp_kses_post( $subsite_header );
