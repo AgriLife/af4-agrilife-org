@@ -222,7 +222,7 @@ class Subsites {
 								'label'             => 'Image',
 								'name'              => 'image',
 								'type'              => 'image',
-								'instructions'      => '',
+								'instructions'      => 'Must be at least 1920px wide and 384px tall',
 								'required'          => 0,
 								'conditional_logic' => 0,
 								'wrapper'           => array(
