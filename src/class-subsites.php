@@ -394,55 +394,50 @@ class Subsites {
 	 */
 	public function do_subsite_menu() {
 
-		$subsite = $this->subsite;
+		$subsite          = $this->subsite;
+		$field            = $subsite['field'];
+		$menu_linked_name = $subsite['menu_name'];
 
-		if ( false !== $subsite ) {
+		if (
+			array_key_exists( 'main_page', $field ) &&
+			is_object( $field['main_page'] )
+		) {
 
-			$field            = $subsite['field'];
-			$menu_linked_name = $subsite['menu_name'];
-
-			if (
-				array_key_exists( 'main_page', $field ) &&
-				is_object( $field['main_page'] )
-			) {
-
-				$args = array(
-					'open'    => '<a %s>',
-					'close'   => '</a>',
-					'content' => $subsite['menu_name'],
-					'context' => 'subsite-menu-title',
-					'atts'    => array(
-						'href' => get_permalink( $field['main_page']->ID ),
-					),
-					'echo'    => false,
-				);
-
-				$menu_linked_name = genesis_markup( $args );
-
-			}
-
-			$menu_content = '<div id="%s" class="subsite-menu white" data-sticky-container><div class="sticky-menu" data-sticky data-margin-top="0" data-top-anchor="subsite-header:bottom" data-sticky-on="small"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title menu-title cell auto h4"><div class="grid-x"><div class="cell auto">%s</div><div class="cell shrink show-for-small-only"><div class="title-bars title-bar-right"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary">&bull;&bull;&bull;<span class="screen-reader-text">Menu - %s</span></button></div></div></div></div></div><div class="cell small-12 medium-shrink"><div id="nav-menu-secondary">';
-
-			echo wp_kses_post(
-				sprintf(
-					$menu_content,
-					$subsite['menu_slug'],
-					$menu_linked_name,
-					$subsite['menu_name']
-				)
+			$args = array(
+				'open'    => '<a %s>',
+				'close'   => '</a>',
+				'content' => $subsite['menu_name'],
+				'context' => 'subsite-menu-title',
+				'atts'    => array(
+					'href' => get_permalink( $field['main_page']->ID ),
+				),
+				'echo'    => false,
 			);
 
-			genesis_nav_menu(
-				[
-					'theme_location'  => $subsite['menu_slug'],
-					'container_class' => 'grid-container',
-					'menu_class'      => 'menu grid-x grid-padding-x',
-				]
-			);
-
-			echo wp_kses_post( '</div></div></div></div></div></div>' );
+			$menu_linked_name = genesis_markup( $args );
 
 		}
+
+		$menu_content = '<div id="%s" class="subsite-menu white" data-sticky-container><div class="sticky-menu" data-sticky data-margin-top="0" data-top-anchor="subsite-header:bottom" data-sticky-on="small"><div class="grid-container"><div class="grid-x grid-padding-x"><div class="subsite-title menu-title cell small-auto medium-shrink h4"><div class="grid-x"><div class="cell auto">%s</div><div class="cell shrink show-for-small-only"><div class="title-bars title-bar-right"><div class="title-bar title-bar-sub-navigation" data-responsive-toggle="nav-menu-secondary" style="display: inline-block;"><button class="menu-icon" type="button" data-toggle="nav-menu-secondary">&bull;&bull;&bull;<span class="screen-reader-text">Menu - %s</span></button></div></div></div></div></div><div class="cell small-12 medium-auto"><div id="nav-menu-secondary">';
+
+		echo wp_kses_post(
+			sprintf(
+				$menu_content,
+				$subsite['menu_slug'],
+				$menu_linked_name,
+				$subsite['menu_name']
+			)
+		);
+
+		genesis_nav_menu(
+			[
+				'theme_location'  => $subsite['menu_slug'],
+				'container_class' => 'grid-container',
+				'menu_class'      => 'menu grid-x grid-padding-x',
+			]
+		);
+
+		echo wp_kses_post( '</div></div></div></div></div></div>' );
 
 	}
 
@@ -456,20 +451,10 @@ class Subsites {
 	 */
 	public function modify_subsite_menu( $nav_menu, $args ) {
 
-		$field = get_field( 'subsites', 'option' );
+		if ( $this->subsite['menu_slug'] === $args->theme_location ) {
 
-		if ( ! empty( $field ) ) {
+			$nav_menu = str_replace( '<ul', '<ul data-responsive-menu="accordion medium-dropdown"', $nav_menu );
 
-			foreach ( $field as $menu ) {
-
-				$menu_slug = $this->menu_slug( $menu['name'] );
-
-				if ( $menu_slug === $args->theme_location ) {
-
-					$nav_menu = str_replace( '<ul', '<ul data-responsive-menu="accordion medium-dropdown"', $nav_menu );
-
-				}
-			}
 		}
 
 		return $nav_menu;
@@ -486,55 +471,51 @@ class Subsites {
 
 		$subsite = $this->subsite;
 
-		if ( false !== $subsite ) {
-
-			// Image.
-			$field        = $subsite['field'];
-			$image_id     = $field['header']['image']['ID'];
-			$image_meta   = wp_get_attachment_metadata( $image_id );
-			$image_sizes  = array_keys( $image_meta['sizes'] );
-			$desktop_size = '';
-			if ( in_array( 'subsite_header_desktop_extra_large', $image_sizes, true ) ) {
-				$desktop_size = 'subsite_header_desktop_extra_large';
-			} elseif ( in_array( 'subsite_header_desktop_large', $image_sizes, true ) ) {
-				$desktop_size = 'subsite_header_desktop_large';
-			} elseif ( in_array( 'subsite_header_desktop_medium', $image_sizes, true ) ) {
-				$desktop_size = 'subsite_header_desktop_medium';
-			} elseif ( in_array( 'subsite_header_desktop_medium_small', $image_sizes, true ) ) {
-				$desktop_size = 'subsite_header_desktop_medium_small';
-			}
-			$mobile_size = 'subsite_header_mobile_large';
-			$mobile_img  = wp_get_attachment_image( $image_id, $mobile_size, false, array( 'class' => "hide-for-medium attachment-$mobile_size size-$mobile_size" ) );
-			$desktop_img = wp_get_attachment_image( $image_id, $desktop_size, false, array( 'class' => "hide-for-small-only attachment-$desktop_size size-$desktop_size" ) );
-
-			// Text.
-			$site_title       = $field['header']['title'];
-			$site_description = $field['header']['description'];
-			$banner_text      = '';
-
-			if ( ! empty( $site_title ) ) {
-				$banner_text .= '<div class="title">' . $site_title . '</div>';
-			}
-
-			if ( ! empty( $site_description ) ) {
-				$banner_text .= '<div class="subtitle">' . $site_description . '</div>';
-			}
-
-			if ( ! empty( $banner_text ) ) {
-				$banner_text = "<div class=\"wrap\"><div class=\"grid-container\"><div class=\"banner-text\">{$banner_text}</div></div></div>";
-			}
-
-			// Output.
-			$subsite_header = sprintf(
-				'<div id="subsite-header" class="banner subsite-header">%s%s%s</div>',
-				$mobile_img,
-				$desktop_img,
-				$banner_text
-			);
-
-			echo wp_kses_post( $subsite_header );
-
+		// Image.
+		$field        = $subsite['field'];
+		$image_id     = $field['header']['image']['ID'];
+		$image_meta   = wp_get_attachment_metadata( $image_id );
+		$image_sizes  = array_keys( $image_meta['sizes'] );
+		$desktop_size = '';
+		if ( in_array( 'subsite_header_desktop_extra_large', $image_sizes, true ) ) {
+			$desktop_size = 'subsite_header_desktop_extra_large';
+		} elseif ( in_array( 'subsite_header_desktop_large', $image_sizes, true ) ) {
+			$desktop_size = 'subsite_header_desktop_large';
+		} elseif ( in_array( 'subsite_header_desktop_medium', $image_sizes, true ) ) {
+			$desktop_size = 'subsite_header_desktop_medium';
+		} elseif ( in_array( 'subsite_header_desktop_medium_small', $image_sizes, true ) ) {
+			$desktop_size = 'subsite_header_desktop_medium_small';
 		}
+		$mobile_size = 'subsite_header_mobile_large';
+		$mobile_img  = wp_get_attachment_image( $image_id, $mobile_size, false, array( 'class' => "hide-for-medium attachment-$mobile_size size-$mobile_size" ) );
+		$desktop_img = wp_get_attachment_image( $image_id, $desktop_size, false, array( 'class' => "hide-for-small-only attachment-$desktop_size size-$desktop_size" ) );
+
+		// Text.
+		$site_title       = $field['header']['title'];
+		$site_description = $field['header']['description'];
+		$banner_text      = '';
+
+		if ( ! empty( $site_title ) ) {
+			$banner_text .= '<div class="title">' . $site_title . '</div>';
+		}
+
+		if ( ! empty( $site_description ) ) {
+			$banner_text .= '<div class="subtitle">' . $site_description . '</div>';
+		}
+
+		if ( ! empty( $banner_text ) ) {
+			$banner_text = "<div class=\"wrap\"><div class=\"grid-container\"><div class=\"banner-text\">{$banner_text}</div></div></div>";
+		}
+
+		// Output.
+		$subsite_header = sprintf(
+			'<div id="subsite-header" class="banner subsite-header">%s%s%s</div>',
+			$mobile_img,
+			$desktop_img,
+			$banner_text
+		);
+
+		echo wp_kses_post( $subsite_header );
 
 	}
 

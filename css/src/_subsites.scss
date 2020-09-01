@@ -69,6 +69,14 @@ $subtitle-font-ratio: .5;
 		}
 	}
 
+	ul.menu {
+		justify-content: flex-end;
+
+		> li {
+			flex: 0 0 auto;
+		}
+	}
+
 	.grid-container {
 		padding: {
 			left: 1rem;
@@ -92,10 +100,6 @@ $subtitle-font-ratio: .5;
 	}
 
 	@include breakpoint(medium) {
-		.grid-x {
-			align-items: center;
-		}
-
 		.sticky-menu .dropdown.menu > li > .is-dropdown-submenu {
 			right: 0;
 			left: auto;
