@@ -31,8 +31,6 @@ class Assets {
 
 		// Register script for single-agency page template.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_agency_script' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Register global styles used in the theme.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ), 2 );
@@ -114,37 +112,6 @@ class Assets {
 			true
 		);
 
-	}
-
-	/**
-	 * Register global public scripts for plugin.
-	 *
-	 * @since 1.6.5
-	 *
-	 * @return void
-	 */
-	public function register_scripts() {
-
-		wp_register_script(
-			'af4-agrilife-org-subsite-menu',
-			ALAF4_DIR_URL . 'js/subsite-menu.min.js',
-			array( 'agriflex-public', 'foundation' ),
-			filemtime( ALAF4_DIR_PATH . 'js/subsite-menu.min.js' ),
-			true
-		);
-
-	}
-
-
-	/**
-	 * Enqueue global public scripts for plugin.
-	 *
-	 * @since 1.6.5
-	 *
-	 * @return void
-	 */
-	public function enqueue_scripts() {
-		wp_enqueue_script( 'af4-agrilife-org-subsite-menu' );
 	}
 
 

@@ -22,6 +22,20 @@ namespace Agrilife;
 class Subsites {
 
 	/**
+	 * Current page id.
+	 *
+	 * @var page_id
+	 */
+	private $page_id = false;
+
+	/**
+	 * Subsite field.
+	 *
+	 * @var subsite_field
+	 */
+	private $subsite = false;
+
+	/**
 	 * Initialize the class
 	 *
 	 * @since 1.6.0
@@ -33,13 +47,38 @@ class Subsites {
 
 		add_action( 'init', array( $this, 'register_subsite_menus' ) );
 
-		add_action( 'genesis_after_header', array( $this, 'subsite_header' ), 11 );
-
-		add_action( 'genesis_after_header', array( $this, 'do_subsite_menu' ), 11 );
-
-		add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
-
 		add_action( 'after_setup_theme', array( $this, 'add_image_sizes' ) );
+
+		add_action( 'wp', array( $this, 'load_subsite_content' ) );
+
+	}
+
+	/**
+	 * Load subsite content conditionally.
+	 *
+	 * @since 1.6.11
+	 *
+	 * @return void
+	 */
+	public function load_subsite_content() {
+
+		$obj = get_queried_object();
+
+		if ( is_object( $obj ) && property_exists( $obj, 'ID' ) ) {
+
+			$this->page_id = $obj->ID;
+			$this->subsite = $this->get_page_subsite_data( $obj->ID );
+
+			if ( false !== $this->subsite ) {
+
+				add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+				add_action( 'genesis_after_header', array( $this, 'subsite_header' ), 11 );
+				add_action( 'genesis_after_header', array( $this, 'do_subsite_menu' ), 11 );
+				add_filter( 'wp_nav_menu', array( $this, 'modify_subsite_menu' ), 10, 2 );
+
+			}
+		}
 
 	}
 
@@ -78,81 +117,82 @@ class Subsites {
 	}
 
 	/**
+	 * Register global public scripts for plugin.
+	 *
+	 * @since 1.6.11
+	 *
+	 * @return void
+	 */
+	public function register_scripts() {
+
+		wp_register_script(
+			'af4-agrilife-org-subsite-menu',
+			ALAF4_DIR_URL . 'js/subsite-menu.min.js',
+			array( 'agriflex-public', 'foundation' ),
+			filemtime( ALAF4_DIR_PATH . 'js/subsite-menu.min.js' ),
+			true
+		);
+
+	}
+
+
+	/**
+	 * Enqueue global public scripts for plugin.
+	 *
+	 * @since 1.6.11
+	 *
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		wp_enqueue_script( 'af4-agrilife-org-subsite-menu' );
+
+	}
+
+	/**
 	 * Returns slug of current page's subsite.
 	 *
 	 * @param int $page_id The page ID to check.
 	 * @since 1.6.5
 	 * @return array | false
 	 */
-	private function get_page_subsite_field( $page_id ) {
+	private function get_page_subsite_data( $page_id ) {
 
-		$field = get_field( 'subsites', 'option' );
+		$fields = get_field( 'subsites', 'option' );
 
-		if ( ! empty( $field ) ) {
+		if ( ! empty( $fields ) ) {
 
-			foreach ( $field as $menu ) {
+			foreach ( $fields as $field ) {
 
-				$menu_slug  = $this->menu_slug( $menu['name'] );
+				$menu_slug  = $this->menu_slug( $field['name'] );
 				$locations  = get_nav_menu_locations();
 				$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
 				$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
+				$value      = array(
+					'menu_obj'  => $menu_obj,
+					'menu_name' => $menu_obj->name,
+					'menu_slug' => $menu_slug,
+					'menu_id'   => $menu_obj->term_id,
+					'field'     => $field,
+				);
 
-				foreach ( $menu_items as $menu_item ) {
+				if ( is_object( $field['main_page'] ) && $page_id === $field['main_page']->ID ) {
 
-					$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
+					// Is subsite main page.
+					return $value;
 
-					if ( $page_id === $menu_item_page_id ) {
+				} else {
 
-						return $menu;
+					// Is subsite menu item.
+					foreach ( $menu_items as $menu_item ) {
 
-					}
-				}
-			}
-		}
+						$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
 
-		return false;
+						if ( $page_id === $menu_item_page_id ) {
 
-	}
+							return $value;
 
-	/**
-	 * Returns array of menu information containing page id.
-	 *
-	 * @since 1.6.2
-	 * @param int     $page_id      The page ID to check.
-	 * @param boolean $return_field Whether or not to return the matched menu's field values.
-	 * @return array | false
-	 */
-	private function get_subsite_menu_of_page( $page_id, $return_field = false ) {
-
-		$field = get_field( 'subsites', 'option' );
-
-		if ( ! empty( $field ) ) {
-
-			foreach ( $field as $menu ) {
-
-				$menu_slug  = $this->menu_slug( $menu['name'] );
-				$locations  = get_nav_menu_locations();
-				$menu_obj   = get_term( $locations[ $menu_slug ], 'nav_menu' );
-				$menu_items = wp_get_nav_menu_items( $menu_obj->term_id );
-
-				foreach ( $menu_items as $menu_item ) {
-
-					$menu_item_page_id = (int) get_post_meta( $menu_item->ID, '_menu_item_object_id', true );
-
-					if ( $page_id === $menu_item_page_id ) {
-
-						$value = array(
-							'name' => $menu_obj->name,
-							'slug' => $menu_slug,
-							'id'   => $menu_obj->term_id,
-						);
-
-						if ( $return_field ) {
-							$value['field'] = $field[0];
 						}
-
-						return $value;
-
 					}
 				}
 			}
@@ -213,9 +253,9 @@ class Subsites {
 					),
 					array(
 						'key'               => 'field_5f4d59bb11a91',
-						'label'             => 'Main Link',
-						'name'              => 'main_link',
-						'type'              => 'link',
+						'label'             => 'Main Page',
+						'name'              => 'main_page',
+						'type'              => 'post_object',
 						'instructions'      => '',
 						'required'          => 0,
 						'conditional_logic' => 0,
@@ -224,7 +264,14 @@ class Subsites {
 							'class' => '',
 							'id'    => '',
 						),
-						'return_format'     => 'array',
+						'post_type'         => array(
+							0 => 'page',
+						),
+						'taxonomy'          => '',
+						'allow_null'        => 1,
+						'multiple'          => 0,
+						'return_format'     => 'object',
+						'ui'                => 1,
 					),
 					array(
 						'key'               => 'field_5f3436cfaaf8c',
@@ -347,39 +394,28 @@ class Subsites {
 	 */
 	public function do_subsite_menu() {
 
-		$field   = get_field( 'subsites', 'option' );
-		$page_id = get_the_ID();
-		$menu    = $this->get_subsite_menu_of_page( $page_id, true );
+		$subsite = $this->subsite;
 
-		if ( false !== $menu ) {
+		if ( false !== $subsite ) {
 
-			$menu_slug        = $menu['slug'];
-			$menu_id          = $menu['id'];
-			$menu_name        = $menu['name'];
-			$menu_linked_name = $menu['name'];
+			$field            = $subsite['field'];
+			$menu_linked_name = $subsite['menu_name'];
 
 			if (
-				array_key_exists( 'main_link', $menu['field'] ) &&
-				is_array( $menu['field']['main_link'] ) &&
-				array_key_exists( 'url', $menu['field']['main_link'] )
+				array_key_exists( 'main_page', $field ) &&
+				is_object( $field['main_page'] )
 			) {
 
 				$args = array(
 					'open'    => '<a %s>',
 					'close'   => '</a>',
-					'content' => $menu_name,
+					'content' => $subsite['menu_name'],
 					'context' => 'subsite-menu-title',
 					'atts'    => array(
-						'href' => $menu['field']['main_link']['url'],
+						'href' => get_permalink( $field['main_page']->ID ),
 					),
 					'echo'    => false,
 				);
-
-				if ( ! empty( $menu['field']['main_link']['target'] ) ) {
-
-					$args['atts']['target'] = $menu['field']['main_link']['target'];
-
-				}
 
 				$menu_linked_name = genesis_markup( $args );
 
@@ -390,15 +426,15 @@ class Subsites {
 			echo wp_kses_post(
 				sprintf(
 					$menu_content,
-					$menu_slug,
+					$subsite['menu_slug'],
 					$menu_linked_name,
-					$menu_name
+					$subsite['menu_name']
 				)
 			);
 
 			genesis_nav_menu(
 				[
-					'theme_location'  => $menu_slug,
+					'theme_location'  => $subsite['menu_slug'],
 					'container_class' => 'grid-container',
 					'menu_class'      => 'menu grid-x grid-padding-x',
 				]
@@ -448,12 +484,12 @@ class Subsites {
 	 */
 	public function subsite_header() {
 
-		$page_id = get_the_ID();
-		$field   = $this->get_page_subsite_field( $page_id );
+		$subsite = $this->subsite;
 
-		if ( false !== $field ) {
+		if ( false !== $subsite ) {
 
 			// Image.
+			$field        = $subsite['field'];
 			$image_id     = $field['header']['image']['ID'];
 			$image_meta   = wp_get_attachment_metadata( $image_id );
 			$image_sizes  = array_keys( $image_meta['sizes'] );
