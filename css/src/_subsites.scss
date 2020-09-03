@@ -8,12 +8,11 @@ $subtitle-font-ratio: .5;
 	flex-shrink: 0;
 
 	/* Override site's inline css. */
-	&.sticky-container .sticky {
-		background-color: $whiter;
-	}
-
 	&.white {
-		background-color: $whiter;
+		&,
+		&.sticky-container .sticky {
+			background-color: $whiter;
+		}
 
 		.submenu a:hover {
 			background-color: $gray-lightest;
@@ -51,22 +50,43 @@ $subtitle-font-ratio: .5;
 		}
 	}
 
-	a:not(:hover):not(:focus):not(:active) {
-		text-decoration: none;
+	&.dark-blue {
+		a {
+			color: $whiter;
+		}
+
+		.sticky-menu {
+			background-color: $dark-blue;
+		}
+
+		.menu a {
+			background-color: transparent;
+		}
+
+		ul ul {
+			background-color: $topbar-submenu-background;
+		}
+
+		.submenu {
+			li {
+				border-left: 2px solid $dark-blue;
+
+				&:hover {
+					border-left-color: map-get($foundation-palette, secondary);
+					background-color: $dark-blue;
+		    }
+			}
+
+			a {
+				&:hover {
+					color: $whiter;
+				}
+			}
+		}
 	}
 
-	.sticky-menu {
-		border: 1px solid $primary-color {
-			width: 1px 0;
-		}
-
-		&.anchorTop {
-			border-bottom: 1px solid $primary-color;
-		}
-
-		&.anchorBottom {
-			border-top: 1px solid $primary-color;
-		}
+	a:not(:hover):not(:focus):not(:active) {
+		text-decoration: none;
 	}
 
 	ul.menu {
@@ -86,6 +106,7 @@ $subtitle-font-ratio: .5;
 
 	.subsite-title {
 		margin-bottom: 0;
+		padding: 1rem;
 	}
 
 	.sub-menu {
