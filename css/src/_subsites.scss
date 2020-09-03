@@ -48,6 +48,12 @@ $subtitle-font-ratio: .5;
 				display: none;
 			}
 		}
+
+		@include breakpoint(medium) {
+			.sub-menu {
+				border: 1px solid $primary-color;
+			}
+		}
 	}
 
 	&.dark-blue {
@@ -133,7 +139,6 @@ $subtitle-font-ratio: .5;
 		}
 
 		.sub-menu {
-			border: 1px solid $primary-color;
 			margin-left: 0;
 		}
 
